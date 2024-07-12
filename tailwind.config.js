@@ -13,6 +13,7 @@ module.exports = {
       //tailwind colors//
       transparent: 'transparent',
       current: 'currentColor',
+      'white': '#ffffff',
 
       //importação de cores próprias//
       backgtt: {
