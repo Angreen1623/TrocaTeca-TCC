@@ -1,17 +1,17 @@
 @vite('resources/css/app.css')
 
-<nav class="w-full">
-    <div class="flex w-full py-2.5 bg-bluett ">
+<nav class="w-full fixed">
+    <div class="flex w-full py-2.5 px-5 bg-sky-200 align-item-center place-content-between items-center">
 
         <div>
             <img src="{{ asset('image/logo.png') }}" alt="Logo do TrocaTeca" width="120" class="w-50">
         </div>
-        <div>
+        <div class="w-">
             <label for="pesquisa"></label>
-            <input type="text" id="pesquisa">
+            <input type="text" id="pesquisa" class="w-">
         </div>
         <div>
-            <p> <p class="">logar</p> ou <p class="">cadastrar-se</p></p>
+            <p class=""> <a href="" class="font-bold">Logar</a> ou <a href="" class="font-bold">cadastrar-se</a></p>
         </div>
 
     </div>
