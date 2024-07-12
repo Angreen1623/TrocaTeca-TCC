@@ -10,6 +10,7 @@ module.exports = {
   theme: {
     extend: {},
     colors: {
+      //tailwind colors//
       transparent: 'transparent',
       current: 'currentColor',
       //importação de cores próprias//
