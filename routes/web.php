@@ -9,7 +9,3 @@ Route::get('/', function () {
 Route::get('/aa', function () {
     return view('footer');
 });
-
-Route::get('/teste', function () {
-    return view('teste-espinhos');
-});
