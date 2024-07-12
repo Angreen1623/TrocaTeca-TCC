@@ -1,7 +1,7 @@
 @vite('resources/css/app.css')
 
 <nav class="w-full">
-    <div class="flex w-full py-2.5 bg-sky-200 ">
+    <div class="flex w-full py-2.5 bg-bluett ">
 
         <div>
             <img src="{{ asset('image/logo.png') }}" alt="Logo do TrocaTeca" width="120" class="w-50">
