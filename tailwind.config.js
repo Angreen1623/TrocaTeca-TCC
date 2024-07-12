@@ -25,7 +25,7 @@ module.exports = {
       graytt: {
        light: '#A6A6A6', // cinza das sombra dos itens do site
        DEFAULT: '#8B8989', // cinza dos textos das labels (interno) 
-       darktt: '#DB1818', // cinza da sombra dso títulos brancos
+       dark: '#847D88', // cinza da sombra dso títulos brancos
       },
       greentt: {
         light: '#C1FBC1', // verde do footer e da tela inicial
