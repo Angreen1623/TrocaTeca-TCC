@@ -21,11 +21,11 @@
     </div>
     <div class="flex place-content-between w-full p-2 border-b border-black">
 
-        <ul>Filtros</ul>
-        <ul><a href="">Meus Artigos</a></ul>
-        <ul><a href="">Meus Acordos</a></ul>
-        <ul><a href="">Mensagens e Propostas</a></ul>
-        <ul><a href="">Quem Somos</a></ul>
+        <ul><a href="">Filtros</a></ul>
+        <ul><a href="" class="underline-animation">Meus Artigos</a></ul>
+        <ul><a href="" class="underline-animation">Meus Acordos</a></ul>
+        <ul><a href="" class="underline-animation">Mensagens e Propostas</a></ul>
+        <ul><a href="" class="underline-animation">Quem Somos</a></ul>
 
     </div>
 </nav>
