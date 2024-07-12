@@ -1,7 +1,7 @@
 @vite('resources/css/app.css')
 
 <nav class="w-full fixed">
-    <div class="flex w-full py-2.5 ps-16 pe-7 bg-bluett align-item-center place-content-between items-center">
+    <div class="flex w-full py-2.5 ps-20 pe-7 bg-bluett align-item-center place-content-evenly items-center">
 
         <div>
             <img src="{{ asset('image/logo.png') }}" alt="Logo do TrocaTeca" width="120" class="w-50">
@@ -21,7 +21,14 @@
     </div>
     <div class="flex place-content-evenly w-full p-2 border-b border-black bg-white">
 
-        <ul><a href="">Filtros</a></ul>
+        <div>
+            <ul id="dropmenu" class="peer/dropmenu"><a href="">Filtros</a></ul>
+            <div id="dropmenu" for="dropmenu" class="bg-bluett hidden absolute hover:grid peer-hover/dropmenu:grid rounded-lg px-7 py-4">
+                <a href="" class="p-1 mb-1 bg-white rounded-lg text-center w-28">Brinquedo</a>
+                <a href="" class="p-1 mb-1 bg-white rounded-lg text-center">Roupa</a>
+                <a href="" class="p-1 bg-white rounded-lg text-center">Móvel</a>
+            </div>
+        </div>
         <ul><a href="" class="underline-animation">Meus Artigos</a></ul>
         <ul><a href="" class="underline-animation">Meus Acordos</a></ul>
         <ul><a href="" class="underline-animation">Mensagens e Propostas</a></ul>
