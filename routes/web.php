@@ -25,3 +25,7 @@ Route::get('/give', function () {
 Route::get('/rechat', function () {
     return view('reportchatm');
 });
+
+Route::get('/newpr', function () {
+    return view('newproposem');
+});
