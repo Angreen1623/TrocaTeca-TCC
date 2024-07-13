@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('navbar');
+    return view('welcome');
 });
 
 Route::get('/aa', function () {
@@ -12,4 +12,8 @@ Route::get('/aa', function () {
 
 Route::get('/about', function () {
     return view('quemsomos');
+});
+
+Route::get('/warning', function () {
+    return view('warningm');
 });
