@@ -10,9 +10,9 @@
 <nav class="w-full fixed z-40">
     <div class="flex w-full py-2.5 ps-20 pe-7 bg-bluett align-item-center place-content-evenly items-center">
 
-        <div>
+        <a href="/">
             <img src="{{ asset('image/logo.png') }}" alt="Logo do TrocaTeca" width="120">
-        </div>
+        </a>
         <div class="w-96 rounded-full flex bg-white items-center ps-5">
             <input type="text" id="pesquisa" class="h-10 w-full outline-0">
             <span class="flex items-center p-2">

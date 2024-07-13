@@ -23,7 +23,7 @@
               <p class="text-graytt text-xs text-center mt-2">(Captura de Tela Obrigatória)</p>
             </div>
           </label>
-          <input type="file" name="capdenun" id="screenshot" class="hidden">
+          <input type="file" name="capdenun" id="screenshot" class="hidden" accept="image/*">
         </div>        
       </div>
 
