@@ -1,4 +1,4 @@
-<nav class="w-full fixed">
+<nav class="w-full fixed z-50">
     <div class="flex w-full py-2.5 ps-20 pe-7 bg-bluett align-item-center place-content-evenly items-center">
 
         <div>
@@ -19,7 +19,7 @@
     </div>
     <div class="flex place-content-evenly w-full p-2 border-b border-black bg-white">
 
-        <ul class="underline-animation" onclick="sidebar()"><a href="">Filtros</a></ul>
+        <ul class="underline-animation cursor-pointer" onclick="sidebar()">Filtros</ul>
         <ul><a href="" class="underline-animation">Meus Artigos</a></ul>
         <ul><a href="" class="underline-animation">Meus Acordos</a></ul>
         <ul><a href="" class="underline-animation">Mensagens e Propostas</a></ul>
