@@ -57,7 +57,7 @@ module.exports = {
       },
       animation: {
         'rotate-left-right': 'rotate-left-right 5s ease-in-out infinite',
-        'rotate-360': 'rotate-360 6s linear infinite',
+        'rotate-360': 'rotate-360 16s linear infinite',
       },
     },
   },

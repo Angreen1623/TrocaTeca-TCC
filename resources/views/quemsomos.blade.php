@@ -1,53 +1,53 @@
-@vite('resources/css/app.css')
+
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quem Somos</title>
+    @vite('resources/css/app.css')
 </head>
 
 <body class="bg-backgtt">
+<div class="h-full relative">
     @include('navbar')
+<div>
     <!--O q é tt-->
-    
-    
-        <div class="bg-yellowtt-light bg-fixed">
-            <div class="max-w-screen-xl px-4 py-12 mx-auto space-y-8 overflow-hidden sm:px-6 lg:px-8">
-                <div class="md:flex">
-                    <nav class="flex flex-wrap -my-2 max-w-xl content-center">
+    <div class="bg-yellowtt-light bg-fixed">
+        <div class="max-w-screen-xl px-4 py-12 mx-auto space-y-8 overflow-hidden sm:px-6 lg:px-8">
+            <div class="md:flex">
+                <nav class="flex flex-wrap -my-2 max-w-xl content-center">
 
-                        <h2 class="text-4xl drop-shadow-tt mb-2 text-left text-white sm:text-6xl font-fredokatt">O que é o TrocaTeca?</h2>
-                        <p class="mt-2 text-black text-left">O TrocaTeca é um ambiente que visa a intermediação entre alguém que precisa se desfazer de um artigo infantil usado e alguém que precisa obter um artigo infantil. Afinal, o que não serve mais para você, pode servir para alguém, e o que não serve mais para alguém, pode servir para você!</p>
-                    </nav>
+                    <h2 class="text-4xl drop-shadow-tt mb-2 text-left text-white sm:text-6xl font-fredokatt">O que é o TrocaTeca?</h2>
+                    <p class="mt-2 text-black text-left">O TrocaTeca é um ambiente que visa a intermediação entre alguém que precisa se desfazer de um artigo infantil usado e alguém que precisa obter um artigo infantil. Afinal, o que não serve mais para você, pode servir para alguém, e o que não serve mais para alguém, pode servir para você!</p>
+                </nav>
 
-                    <div class="w-full flex justify-end mt-4">
-                        <img src="{{ asset('image/logo.png') }}" alt="Logo do TrocaTeca" width="400" class="animate-rotate-left-right">
-                    </div>
+                <div class="w-full flex justify-end mt-4">
+                    <img src="{{ asset('image/logo.png') }}" alt="Logo do TrocaTeca" width="400" class="animate-rotate-left-right">
                 </div>
             </div>
         </div>
+    </div>
 
-        <div class="bg-repeat bg-[url('/public/image/triangulo-verde.svg')] w-full h-8 -mt-px rotate-180 bg-yellowtt-light"></div>
- 
+    <div class="bg-repeat bg-[url('/public/image/triangulo-verde.svg')] w-full h-8 -mt-px rotate-180 bg-yellowtt-light"></div>
+
     <!--Como funciona-->
     <div class="bg-greentt">
         <div class="max-w-screen-xl px-4 py-12 mx-auto space-y-8 overflow-hidden sm:px-6 lg:px-8">
             <div class="md:flex">
                 <div class="w-full flex justify-start mt-4">
-                    <img src="{{ asset('image/setas.png') }}" alt="Logo do TrocaTeca" width="370"  class="animate-rotate-360">
+                    <img src="{{ asset('image/setas.png') }}" alt="Logo do TrocaTeca" width="350" class="animate-rotate-360">
                 </div>
                 <nav class="flex flex-wrap -my-2 max-w-xl content-center">
                     <h2 class="text-4xl drop-shadow-tt mb-2 text-right text-white sm:text-6xl" style="font-family: 'Fredoka'">Como funciona?</h2>
-                    <p class="mt-2 text-black text-left">Qualquer usuário, a partir do momento que tenha um cadastro, pode ver e anunciar os artigos infantis que se tornaram inservíveis para o uso, seja porque a criança cresceu, ou porque simplesmente enjoou. A ideia é encontrar interessados nesses artigos que estejam dispostos a trocar algum outro item que ele tenha pelo artigo anunciado, gerando um ciclo de reusabilidade e promovendo um consumo sustentável desses itens.</p>
+                    <p class="mt-2 text-black text-left">Qualquer usuário maior de idade, a partir do momento que tenha um cadastro, pode ver e anunciar os artigos infantis que se tornaram inservíveis para o uso, seja porque a criança cresceu, ou porque simplesmente enjoou. A ideia é encontrar interessados nesses artigos que estejam dispostos a trocar algum outro item que ele tenha pelo artigo anunciado, gerando um ciclo de reusabilidade e promovendo um consumo sustentável desses itens.</p>
                 </nav>
             </div>
         </div>
     </div>
 
     <div class="bg-repeat bg-[url('/public/image/triangulo-rosa.svg')] w-full h-8 -mt-px rotate-180 bg-greentt"></div>
-    <!--Como funciona2-->
+    <!--posso comprar?-->
     <div class="bg-pinktt">
         <div class="max-w-screen-xl px-4 py-12 mx-auto space-y-8 overflow-hidden sm:px-6 lg:px-8">
             <div class="md:flex">
@@ -79,7 +79,9 @@
             </div>
         </div>
     </div>
-
+</div>
+    @include('footer')
+</div>
 </body>
 
 </html>
