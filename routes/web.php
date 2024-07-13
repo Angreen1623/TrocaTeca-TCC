@@ -9,3 +9,7 @@ Route::get('/', function () {
 Route::get('/warning', function () {
     return view('warningm');
 });
+
+Route::get('/re', function () {
+    return view('reportanum');
+});
