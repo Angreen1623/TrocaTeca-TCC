@@ -1,7 +1,5 @@
-import './bootstrap';
-
-function sidebar(){
-    sidebar = document.getElementById('sidebar');
-
-    sidebar.classlist.toggle = absolute;
+function sidebartt() {
+    var sidebar = document.getElementById('sidebar');
+    
+    sidebar.classList.toggle('absolute');
 }

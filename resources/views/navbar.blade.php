@@ -19,7 +19,7 @@
     </div>
     <div class="flex place-content-evenly w-full p-2 border-b border-black bg-white">
 
-        <ul class="underline-animation cursor-pointer" onclick="sidebar()">Filtros</ul>
+        <ul class="underline-animation cursor-pointer" onclick="sidebartt()">Filtros</ul>
         <ul><a href="" class="underline-animation">Meus Artigos</a></ul>
         <ul><a href="" class="underline-animation">Meus Acordos</a></ul>
         <ul><a href="" class="underline-animation">Mensagens e Propostas</a></ul>
