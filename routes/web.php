@@ -17,3 +17,7 @@ Route::get('/about', function () {
 Route::get('/warning', function () {
     return view('warningm');
 });
+
+Route::get('/re', function () {
+    return view('reportanum');
+});
