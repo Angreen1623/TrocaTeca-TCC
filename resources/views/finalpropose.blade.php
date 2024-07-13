@@ -5,7 +5,7 @@
   <div class="w-full max-w-4xl rounded-3xl bg-bluett p-6 sm:p-8 shadow-2xl">
     <h1 class="text-2xl sm:text-4xl font-bold text-center text-white font-fredokatt drop-shadow-tt">Proposta Final</h1> <!--Título de aviso-->
 
-    <!--c-->
+    <!--Foto do Artigo-->
     <div class="flex items-center place-content-center">
       <div>
         <p class="block text-sm font-semibold leading-6 text-white mt-6">Foto do Artigo:</p>
@@ -37,7 +37,7 @@
             </select>
         </div>
 
-        <!--Condição-->
+        <!--data de recebimento-->
         <label for="datae_fi" class="block text-sm font-semibold leading-6 text-white mt-4">Data de Recebimento:</label>
           <input type="date" name="datae_fi" id="datae_fi" autocomplete="organization" class="shadow-tt block w-48 rounded-xl border-0 px-3.5 py-2 shadow-sm ring-1 border border-graytt ring-inset ring-graytt placeholder:text-graytt-dark focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6">
 
