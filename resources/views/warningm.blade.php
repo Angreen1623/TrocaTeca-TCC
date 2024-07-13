@@ -15,7 +15,7 @@
       <label for="confirm" class="text-sm sm:text-base text-black">Estou ciente disso</label>
     </div>
 
-    <div class="mt-4 flex gap-16 justify-center">
+    <div class="mt-4 flex gap-16  justify-center">
       <button class="inline-flex items-center px-4 py-2 bg-white hover:bg-graytt-light text-black text-sm font-medium rounded-2xl">
         Cancelar
       </button>

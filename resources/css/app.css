@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 
+.shadowtt{
+  box-shadow: 10px 10px #8B8989;
+}
+
 /*Animação de hover sublinhado e negrito ao passae o mouse*/
 
 @layer utilities {
