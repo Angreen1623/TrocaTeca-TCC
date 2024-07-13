@@ -1,4 +1,13 @@
-<nav class="w-full fixed z-50">
+<script>
+    function sidebartt() {
+        var sidebar = document.getElementById('sidebar');
+        sidebar.classList.toggle('translate-x-[-100%]');
+    }
+</script>
+
+@include('sidebar')
+
+<nav class="w-full fixed z-40">
     <div class="flex w-full py-2.5 ps-20 pe-7 bg-bluett align-item-center place-content-evenly items-center">
 
         <div>
@@ -28,5 +37,3 @@
     </div>
 </nav>
 <div class="pt-32"></div>
-
-@include('sidebar')
