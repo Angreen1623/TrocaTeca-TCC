@@ -14,7 +14,12 @@ module.exports = {
       transparent: 'transparent',
       current: 'currentColor',
       'white': '#ffffff',
-
+      black: colors.black,
+      white: colors.white,
+      gray: colors.gray,
+      emerald: colors.emerald,
+      indigo: colors.indigo,
+      yellow: colors.yellow,
       //importação de cores próprias//
       backgtt: {
         DEFAULT: '#FFFAF4', // creme do background do site
