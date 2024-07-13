@@ -3,7 +3,7 @@
 <!--Modal de inativação de conta-->
 <div class="fixed inset-0 flex items-center justify-center p-4 sm:p-8">
   <div class="w-full max-w-md rounded-3xl bg-bluett p-6 sm:p-8 shadow-2xl">
-    <h1 class="text-2xl sm:text-4xl font-bold text-center text-white">AVISO!</h1> <!--Título de aviso-->
+    <h1 class="text-2xl sm:text-4xl font-bold text-center text-white font-fredokatt">AVISO!</h1> <!--Título de aviso-->
 
     <!--informação de consentimento-->
     <p class="mt-2 text-sm sm:text-base text-black text-center">
