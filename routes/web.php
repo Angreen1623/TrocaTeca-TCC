@@ -29,3 +29,7 @@ Route::get('/rechat', function () {
 Route::get('/newpr', function () {
     return view('newproposem');
 });
+
+Route::get('/finalp', function () {
+    return view('finalpropose');
+});
