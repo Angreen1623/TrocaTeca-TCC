@@ -17,3 +17,11 @@ Route::get('/warning', function () {
 Route::get('/re', function () {
     return view('reportanum');
 });
+
+Route::get('/give', function () {
+    return view('giveuptrade');
+});
+
+Route::get('/rechat', function () {
+    return view('reportchatm');
+});
