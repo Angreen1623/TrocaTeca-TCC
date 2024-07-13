@@ -3,7 +3,7 @@
 <!--Modal de denunciar anúncio-->
 <div class="fixed inset-0 flex items-center justify-center p-4 sm:p-8">
   <div class="w-full max-w-2xl rounded-3xl bg-bluett p-6 sm:p-8 shadow-2xl">
-    <h1 class="text-2xl sm:text-4xl font-bold text-center text-white">Denunciar Anúncio</h1> <!--Título de aviso-->
+    <h1 class="text-2xl sm:text-4xl font-bold text-center text-white font-fredokatt">Denunciar Anúncio</h1> <!--Título de aviso-->
 
     <!--caiax de texto do motivo da denúncio-->
         <div class="sm:col-span-2">

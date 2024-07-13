@@ -9,6 +9,7 @@ module.exports = {
   ],
   theme: {
     extend: {},
+/////cores/////
     colors: {
       //tailwind colors//
       transparent: 'transparent',
@@ -50,7 +51,11 @@ module.exports = {
         light: '#FFFB94', //amarelo da conta do perfil dos usuários
         default: '#FFF500', //amarelo do identificador de proposta em andamento
       }
-    }
+    },
+    ////fontes////
+    fontFamily: {
+      'fredokatt': ['Fredoka', 'sans-serif'],
+    },
   },
 
   plugins: [],
