@@ -64,6 +64,9 @@
                     </svg>
                 </a>
             </div>
+            <div class="place-content-end">
+                <p class="mt-8 text-base text-right leading-6"> © 2024 TrocaTeca, Inc. All rights will be reserved. </p>
+            </div>
         </div>
     </footer>
 </div>

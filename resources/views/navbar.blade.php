@@ -2,7 +2,7 @@
     <div class="flex w-full py-2.5 ps-20 pe-7 bg-bluett align-item-center place-content-evenly items-center">
 
         <div>
-            <img src="{{ asset('image/logo.png') }}" alt="Logo do TrocaTeca" width="120" class="w-50">
+            <img src="{{ asset('image/logo.png') }}" alt="Logo do TrocaTeca" width="120">
         </div>
         <div class="w-96 rounded-full flex bg-white items-center ps-5">
             <input type="text" id="pesquisa" class="h-10 w-full outline-0">
@@ -28,3 +28,5 @@
     </div>
 </nav>
 <div class="pt-32"></div>
+
+@include('sidebar')
