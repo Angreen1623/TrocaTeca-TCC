@@ -1,3 +1,3 @@
-<div id="sidebar" class="bg-blue ">
-
+<div id="sidebar" class="bg-blue hidden">
+    dfuaodsyfiosdaofh
 </div>
