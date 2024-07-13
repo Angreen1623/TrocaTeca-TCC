@@ -47,8 +47,8 @@ module.exports = {
       keyframes: {
         'rotate-left-right': {
           '0%, 100%': { transform: 'rotate(0deg)' },
-          '50%': { transform: 'rotate(-5deg)' }, // gira para a esquerda (-5 graus)
-          '75%, 25%': { transform: 'rotate(5deg)' } // gira para a direita (5 graus)
+          '50%': { transform: 'rotate(-8deg)' }, // gira para a esquerda (-5 graus)
+          '75%, 25%': { transform: 'rotate(8deg)' } // gira para a direita (5 graus)
         },
       },
       animation: {
