@@ -6,10 +6,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/aa', function () {
-    return view('footer');
-});
-
 Route::get('/about', function () {
     return view('quemsomos');
 });
@@ -20,4 +16,12 @@ Route::get('/warning', function () {
 
 Route::get('/re', function () {
     return view('reportanum');
+});
+
+Route::get('/give', function () {
+    return view('giveuptrade');
+});
+
+Route::get('/rechat', function () {
+    return view('reportchatm');
 });

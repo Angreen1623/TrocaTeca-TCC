@@ -23,7 +23,7 @@
         <ul><a href="" class="underline-animation">Meus Artigos</a></ul>
         <ul><a href="" class="underline-animation">Meus Acordos</a></ul>
         <ul><a href="" class="underline-animation">Mensagens e Propostas</a></ul>
-        <ul><a href="" class="underline-animation">Quem Somos</a></ul>
+        <ul><a href="/about" class="underline-animation">Quem Somos</a></ul>
 
     </div>
 </nav>
