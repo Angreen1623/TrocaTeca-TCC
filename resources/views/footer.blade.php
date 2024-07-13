@@ -44,7 +44,7 @@
                     </a>
                 </div>
             </nav>
-            <div class="flex place-content-center mt-8 space-x-6">
+            <div class="flex justify-end mt-8 space-x-6">
                 <a href="#" class="">
                     <span class="sr-only">Facebook</span>
                     <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 24 24">
