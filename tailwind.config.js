@@ -55,6 +55,7 @@ module.exports = {
     ////fontes////
     fontFamily: {
       'fredokatt': ['Fredoka', 'sans-serif'],
+      'poppinstt': ['Poppins', 'sans-serif'],
     },
   },
 
