@@ -47,12 +47,17 @@ module.exports = {
       keyframes: {
         'rotate-left-right': {
           '0%, 100%': { transform: 'rotate(0deg)' },
-          '50%': { transform: 'rotate(-8deg)' }, // gira para a esquerda (-5 graus)
-          '75%, 25%': { transform: 'rotate(8deg)' } // gira para a direita (5 graus)
+          '50%': { transform: 'rotate(-8deg)' },
+          '25%, 75%': { transform: 'rotate(8deg)' }
+        },
+        'rotate-360': {
+          '0%': { transform: 'rotate(0deg)' },
+          '100%': { transform: 'rotate(360deg)' },
         },
       },
       animation: {
         'rotate-left-right': 'rotate-left-right 5s ease-in-out infinite',
+        'rotate-360': 'rotate-360 6s linear infinite',
       },
     },
   },

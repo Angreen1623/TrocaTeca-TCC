@@ -36,11 +36,11 @@
         <div class="max-w-screen-xl px-4 py-12 mx-auto space-y-8 overflow-hidden sm:px-6 lg:px-8">
             <div class="md:flex">
                 <div class="w-full flex justify-start mt-4">
-                    <img src="{{ asset('image/logo.png') }}" alt="Logo do TrocaTeca" width="400">
+                    <img src="{{ asset('image/setas.png') }}" alt="Logo do TrocaTeca" width="370"  class="animate-rotate-360">
                 </div>
                 <nav class="flex flex-wrap -my-2 max-w-xl content-center">
                     <h2 class="text-4xl drop-shadow-tt mb-2 text-right text-white sm:text-6xl" style="font-family: 'Fredoka'">Como funciona?</h2>
-                    <p class="mt-2 text-black text-left">Qualquer usuário, a partir do momento que tenha um cadastro, pode ver e anunciar os artigos infantis que se tornaram inservíveis para o uso, seja porque a criança cresceu, ou porque simplesmente enjoou. A ideia é encontrar interessados nesses artigos que estejam dispostos a trocar algum outro item que ele tenha pelo artigo anunciado.</p>
+                    <p class="mt-2 text-black text-left">Qualquer usuário, a partir do momento que tenha um cadastro, pode ver e anunciar os artigos infantis que se tornaram inservíveis para o uso, seja porque a criança cresceu, ou porque simplesmente enjoou. A ideia é encontrar interessados nesses artigos que estejam dispostos a trocar algum outro item que ele tenha pelo artigo anunciado, gerando um ciclo de reusabilidade e promovendo um consumo sustentável desses itens.</p>
                 </nav>
             </div>
         </div>
