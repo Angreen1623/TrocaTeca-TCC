@@ -29,12 +29,12 @@
                     </nav>
                  
                     <div class=" flex justify-end">
-                        <img src="{{ asset('image/logo-full.png') }}" alt="Logo do TrocaTeca" width="350">
+                        <img src="{{ asset('image/logo-full.png') }}" alt="Logo do TrocaTeca" width="350" class="transition ease-in-out delay-100  hover:-translate-y-1 hover:scale-110 duration-300">
                     </div>
                 </div>
             </div>
         </div>
-        <div class="bg-repeat bg-[url('/public/image/triangulo.svg')] w-full h-8 -mt-px  bg-backgtt"></div>
+        <div class="bg-repeat bg-[url('/public/image/triangulo.svg')] w-full h-8 -mt-px  bg-backgtt "></div>
 
 
         @include('footer')
