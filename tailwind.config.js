@@ -10,6 +10,14 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        transparent: 'transparent',
+        current: 'currentColor',
+        black: colors.black,
+        white: colors.white,
+        gray: colors.gray,
+        emerald: colors.emerald,
+        indigo: colors.indigo,
+        yellow: colors.yellow,
         backgtt: {
           DEFAULT: '#FFFAF4', // creme do background do site
         },
@@ -40,7 +48,7 @@ module.exports = {
           default: '#FFF500', //amarelo do identificador de proposta em andamento
         }
       },
-      fontFamily: {
+      fontFamily: { //fontes do site
         'fredokatt': ['Fredoka', 'sans-serif'],
         'poppinstt': ['Poppins', 'sans-serif'],
       },
