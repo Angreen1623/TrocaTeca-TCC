@@ -16,17 +16,20 @@
         @include('navbar')
 
         <div class="bg-greentt-light">
-            <div class="max-w-screen-xl px-4 py-12 mx-auto space-y-8 overflow-hidden sm:px-6 lg:px-8">
+            <div class="max-w-screen-xl px-4 mx-auto space-y-8 overflow-hidden sm:px-6 lg:px-8">
                 <div class="md:flex md:justify-between">
                     <nav class="flex flex-col justify-center space-y-4 max-w-3xl">
                         <h2 class="text-4xl drop-shadow-tt text-left text-white sm:text-5xl" style="font-family: 'Fredoka'; white-space: nowrap;">
                             Bem vindo ao TrocaTeca
                         </h2>
                         <p class="mt-2 text-black text-left">Infância com sustentabilidade e reusabilidade</p>
+                        <button class=" w-36 text-center  items-center px-4 py-2 shadow-tt bg-pinktt hover:bg-pinktt-dark text-white text-sm font-medium rounded-2xl mr-5 transition ease-in-out delay-100  hover:-translate-y-1 hover:scale-110 duration-300">
+                            Quem somos
+                        </button>
                     </nav>
-
-                    <div class="w-full flex justify-end mt-4">
-                        <img src="{{ asset('image/setas.png') }}" alt="Logo do TrocaTeca" width="350" class="animate-rotate-360">
+                 
+                    <div class=" flex justify-end">
+                        <img src="{{ asset('image/logo-full.png') }}" alt="Logo do TrocaTeca" width="350">
                     </div>
                 </div>
             </div>
