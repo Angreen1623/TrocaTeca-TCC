@@ -6,22 +6,21 @@
     <h1 class="text-2xl sm:text-4xl font-bold text-center text-white font-fredokatt drop-shadow-tt">Enviar proposta</h1> <!--Título de aviso-->
 
     <!--c-->
-    <div class="flex items-center place-content-center">
+    <div class="flex flex-col sm:flex-row sm:items-center sm:place-content-center">
       <div>
         <p class="block text-sm font-semibold leading-6 text-white mt-6">Foto do Artigo:</p>
         <label for="screenshot">
-          <div class="bg-white h-72 w-72 t-2 mr-8 rounded-xl border border-graytt-light shadow-tt flex flex-col flex-wrap justify-center items-center">
+          <div class="bg-white w-full sm:h-72 sm:w-72 t-2 mr-8 rounded-xl border border-graytt-light shadow-tt flex flex-col flex-wrap justify-center items-center">
             <img src="{{asset('image/mais.svg')}}" alt="" width="100">
             <p class="text-graytt text-xs text-center mt-2">(Captura de Tela Obrigatória)</p>
           </div>
         </label>
         <input type="file" name="capdenun" id="screenshot" class="hidden">
       </div>
-      <div>
-
+      <div class="">
         <!--Nome do artigo-->
         <label for="nome_art" class="block text-sm font-semibold leading-6 text-white mt-4">Nome do Artigo:</label>
-          <input type="text" name="nome_art" id="nome_art" autocomplete="organization" class="shadow-tt block w-96 rounded-xl border-0 px-3.5 py-2 shadow-sm ring-1 border border-graytt ring-inset ring-graytt placeholder:text-graytt-dark focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6">
+          <input type="text" name="nome_art" id="nome_art" autocomplete="organization" class="shadow-tt block w-full sm:w-96 rounded-xl border-0 px-3.5 py-2 shadow-sm ring-1 border border-graytt ring-inset ring-graytt placeholder:text-graytt-dark focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6">
     
 
         <!--Categoria-->
@@ -56,10 +55,10 @@
 
     <!--botões de confirmação-->
     <div class="mt-4 flex gap-3 justify-end">
-      <button class="inline-flex items-center px-4 py-2 shadow-tt bg-pinktt hover:bg-pinktt-dark text-white text-sm font-medium rounded-2xl mr-5">
+      <button class="inline-flex items-center px-4 py-2 justify-center w-full sm:w-auto shadow-tt bg-pinktt hover:bg-pinktt-dark text-white text-sm font-medium rounded-2xl mr-5 transition ease-in-out delay-100  hover:-translate-y-1 hover:scale-110 duration-30">
         Cancelar
       </button>
-      <button class="mr-3 inline-flex items-center px-4 py-2 shadow-tt bg-greentt hover:bg-greentt-dark text-white text-sm font-medium rounded-2xl">
+      <button class="mr-3 inline-flex items-center px-4 py-2 justify-center w-full sm:w-auto shadow-tt bg-greentt hover:bg-greentt-dark text-white text-sm font-medium rounded-2xl transition ease-in-out delay-100  hover:-translate-y-1 hover:scale-110 duration-300">
         Confirmar
       </button>
     </div>
