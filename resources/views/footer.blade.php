@@ -1,11 +1,9 @@
-<div class="pt-PX"></div>
-<div class="pt-0.5"></div>
-<div class="pt-72"></div>
+<div class="pt-footer"></div>
 <div class="absolute bottom-0 left-0 w-full">
 
     <div class="bg-repeat bg-[url('/public/image/triangulo.svg')] w-full h-8 -mt-px rotate-180"></div>
 
-    <footer class="bg-greentt-light flex">
+    <footer class="bg-greentt-light flex" id="footer">
 
         <div class="place-content-center">
             <img src="{{ asset('image/logo.png') }}" width="300" alt="">
@@ -70,3 +68,11 @@
         </div>
     </footer>
 </div>
+
+<script lang="Javascript">
+    var pt_footer = document.getElementsByClassName("pt-footer");
+    var footer = document.getElementById('footer');
+
+    pt_footer.style.paddingTop = footer.clientHeight;
+
+</script>
