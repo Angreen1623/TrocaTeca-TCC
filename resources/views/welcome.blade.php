@@ -22,7 +22,7 @@
                     Bem vindo ao TrocaTeca
                 </h2>
                 <p class="mt-1 text-black text-left lg:mt-2">Infância com sustentabilidade e reusabilidade</p>
-                <button class="mb- w-36 text-center items-center px-4 py-2 shadow-tt bg-pinktt hover:bg-pinktt-dark text-white text-sm font-medium rounded-2xl mt-4 lg:mt-0 mr-5 transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 duration-300">
+                <button class="w-36 text-center items-center px-4 py-2 shadow-tt bg-pinktt hover:bg-pinktt-dark text-white text-sm font-medium rounded-2xl mt-4 lg:mt-0 mr-5 transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 duration-300">
                     <a href="/about">Quem somos</a>
                 </button>
             </nav>
