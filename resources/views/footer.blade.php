@@ -13,7 +13,7 @@
             <nav class="flex flex-wrap -mx-5 -my-2">
                 <div class="px-5 py-2">
                     <a href="/about" class="text-base leading-6 underline-animation">
-                        quem somos
+                        Quem somos
                     </a>
                 </div>
                 <div class="px-5 py-2">
