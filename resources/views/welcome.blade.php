@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-
+    <title>TrocaTeca</title>
+    <link rel="shortcut icon" href="{{ asset('image/t.png') }}">
     @vite('resources/css/app.css')
     @vite('resources/js/app.js')
 
@@ -18,8 +18,8 @@
         <div class="bg-greentt-light">
             <div class="max-w-screen-xl px-4 mx-auto space-y-8 overflow-hidden sm:px-6 lg:px-8">
                 <div class="md:flex md:justify-between">
-                    <nav class="flex flex-col justify-center space-y-4 max-w-3xl">
-                        <h2 class="text-4xl drop-shadow-tt text-left text-white sm:text-5xl" style="font-family: 'Fredoka'; white-space: nowrap;">
+                    <nav class="flex flex-col justify-center space-y-4 max-w-3xl -mt-12">
+                        <h2 class="text5xl drop-shadow-tt text-left text-white sm:text-6xl" style="font-family: 'Fredoka'; white-space: nowrap;">
                             Bem vindo ao TrocaTeca
                         </h2>
                         <p class="mt-2 text-black text-left">Infância com sustentabilidade e reusabilidade</p>
