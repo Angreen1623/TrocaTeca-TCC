@@ -1,7 +1,5 @@
-<div class="pt-PX"></div>
-<div class="pt-0.5"></div>
-<div class="pt-72"></div>
-<div class="absolute bottom-0 left-0 w-full">
+<div id="pt-footer"></div>
+<div class="absolute bottom-0 left-0 w-full" id="footer">
 
     <div class="bg-repeat bg-[url('/public/image/triangulo.svg')] w-full h-8 -mt-px rotate-180"></div>
 
@@ -70,3 +68,18 @@
         </div>
     </footer>
 </div>
+
+<script lang="Javascript">
+    var pt_footer = document.getElementById("pt-footer");
+    var footer = document.getElementById('footer');
+
+    window.addEventListener('resize', screenResize);
+    
+    pt_footer.style.paddingTop = footer.offsetHeight+"px";
+
+
+    function screenResize(){
+        pt_footer.style.paddingTop = footer.offsetHeight+"px";
+    }
+
+</script>
