@@ -23,13 +23,13 @@
                             Bem vindo ao TrocaTeca
                         </h2>
                         <p class="mt-2 text-black text-left">Infância com sustentabilidade e reusabilidade</p>
-                        <button class=" w-36 text-center  items-center px-4 py-2 shadow-tt bg-pinktt hover:bg-pinktt-dark text-white text-sm font-medium rounded-2xl mr-5 transition ease-in-out delay-100  hover:-translate-y-1 hover:scale-110 duration-300">
-                            Quem somos
+                        <button  class=" w-36 text-center  items-center px-4 py-2 shadow-tt bg-pinktt hover:bg-pinktt-dark text-white text-sm font-medium rounded-2xl mr-5 transition ease-in-out delay-100  hover:-translate-y-1 hover:scale-110 duration-300">
+                            <a href="/about">Quem somos</a>
                         </button>
                     </nav>
                  
                     <div class=" flex justify-end">
-                        <img src="{{ asset('image/logo-full.png') }}" alt="Logo do TrocaTeca" width="350" class="transition ease-in-out delay-100  hover:-translate-y-1 hover:scale-110 duration-300">
+                        <img src="{{ asset('image/logo-full.png') }}" alt="Logo do TrocaTeca" width="550" class="py-24 transition ease-in-out delay-100  hover:-translate-y-1 hover:scale-110 duration-300">
                     </div>
                 </div>
             </div>
