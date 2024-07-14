@@ -23,7 +23,7 @@
                     <p class="mt-2 text-black text-left">O TrocaTeca é um ambiente que visa a intermediação entre alguém que precisa se desfazer de um artigo infantil usado e alguém que precisa obter um artigo infantil. Afinal, o que não serve mais para você, pode servir para alguém, e o que não serve mais para alguém, pode servir para você!</p>
                 </nav>
 
-                <div class="w-full flex justify-end mt-4">
+                <div class="w-full flex justify-end mt-4 transition ease-in-out delay-100  hover:-translate-y-1 hover:scale-110 duration-300">
                     <img src="{{ asset('image/logo.png') }}" alt="Logo do TrocaTeca" width="400" class="animate-rotate-left-right">
                 </div>
             </div>
@@ -36,7 +36,7 @@
     <div class="bg-greentt">
         <div class="max-w-screen-xl px-4 py-12 mx-auto space-y-8 overflow-hidden sm:px-6 lg:px-8">
             <div class="md:flex">
-                <div class="w-full flex justify-start mt-4">
+                <div class="w-full flex justify-start mt-4 transition ease-in-out delay-100  hover:-translate-y-1 hover:scale-110 duration-300">
                     <img src="{{ asset('image/setas.png') }}" alt="Logo do TrocaTeca" width="350" class="animate-rotate-360">
                 </div>
                 <nav class="flex flex-wrap -my-2 max-w-xl content-center">
@@ -57,7 +57,7 @@
                     <p class="mt-2 text-bacl text-left">O TrocaTeca é uma plataforma dedicada única e exclusivamente para trocas, então não é possível fazer qualquer tipo de compra ou transação monetária. No máximo, é permitido informar um valor sugerido de seu artigo ao anunciá-lo, para que outros usuários possam oferecer algo de valor aproximado para a troca.</p>
                 </nav>
 
-                <div class="w-full flex justify-end mt-4">
+                <div class="w-full flex justify-end mt-4 transition ease-in-out delay-100  hover:-translate-y-1 hover:scale-110 duration-300">
                     <img src="{{ asset('image/cifrao.png') }}" alt="Logo do TrocaTeca" width="250" class="animate-rotate-left-right">
                 </div>
 
@@ -66,11 +66,11 @@
     </div>
 
     <div class="bg-repeat bg-[url('/public/image/triangulo-bege.svg')] w-full h-8 -mt-px rotate-180 bg-pinktt"></div>
-    <!--Como funciona-->
+    <!--Negociação-->
     <div class="bg-backgtt">
         <div class="max-w-screen-xl px-4 py-12 mx-auto space-y-8 overflow-hidden sm:px-6 lg:px-8">
             <div class="md:flex">
-                <div class="w-full flex justify-start mt-4">
+                <div class="w-full flex justify-start mt-4 transition ease-in-out delay-100  hover:-translate-y-1 hover:scale-110 duration-300">
                     <img src="{{ asset('image/chat.png') }}" alt="Logo do TrocaTeca" width="300" class="animate-rotate-left-right">
                 </div>
                 <nav class="flex flex-wrap -my-2 max-w-xl content-center">
