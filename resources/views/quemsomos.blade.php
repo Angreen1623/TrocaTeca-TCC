@@ -10,6 +10,7 @@
 
 <body class="bg-backgtt">
 <div class="h-full relative">
+
     @include('navbar')
 <div>
     <!--O q é tt-->
@@ -28,7 +29,7 @@
             </div>
         </div>
     </div>
-
+@include('warningm')
     <div class="bg-repeat bg-[url('/public/image/triangulo-verde.svg')] w-full h-8 -mt-px rotate-180 bg-yellowtt-light"></div>
 
     <!--Como funciona-->
