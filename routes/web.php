@@ -33,3 +33,7 @@ Route::get('/newpr', function () {
 Route::get('/finalp', function () {
     return view('finalpropose');
 });
+
+Route::get('/announce', function () {
+    return view('announcepro');
+});

@@ -13,7 +13,7 @@
           <div class="bg-white w-full sm:h-72 sm:w-72 t-2 mr-8 rounded-xl border border-graytt-light shadow-tt flex flex-col flex-wrap justify-center items-center">
           <div class="mt-2 mb-2 flex flex-col justify-center items-center transition ease-in-out delay-100  hover:-translate-y-1 hover:scale-[1.05] duration-300">  
           <img src="{{asset('image/mais.svg')}}" alt="" width="100">
-            <p class="text-graytt text-xs text-center mt-2">(Captura de Tela Obrigatória)</p>
+            <p class="text-graytt text-xs text-center mt-2">Foto do artigo (Obrigatório)</p>
           </div>
           </div>
         </label>

@@ -80,11 +80,11 @@
             </div>
         </div>
     </div>
-</div>
-
     @include('footer')
 </div>
-    @include('warningm')
+
+    
+</div>
 </body>
 
 </html>
