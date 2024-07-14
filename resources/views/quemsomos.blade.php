@@ -84,7 +84,7 @@
 
     @include('footer')
 </div>
-    @include('warningm')
+  
 </body>
 
 </html>
