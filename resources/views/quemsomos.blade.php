@@ -29,7 +29,6 @@
             </div>
         </div>
     </div>
-
     <div class="bg-repeat bg-[url('/public/image/triangulo-verde.svg')] w-full h-8 -mt-px rotate-180 bg-yellowtt-light"></div>
 
     <!--Como funciona-->
@@ -83,6 +82,7 @@
 </div>
     @include('footer')
 </div>
+
 </body>
 
 </html>
