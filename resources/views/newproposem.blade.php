@@ -29,7 +29,7 @@
         <label for="catepropo" class="block text-sm font-semibold leading-6 text-white mt-4">Categoria:</label>
           <div class="inset-y-0 left-0 flex items-center">
             <select id="catepropo" name="catepropo" class="shadow-tt block w-52 rounded-xl border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-              <option value="nenhum foi selecionado">Selecionar</option>
+              <option value="" disabled selected>Selecionar</option>
               <option value="Brinquedo">Brinquedo</option>
               <option value="Mobilidade">Mobilidade</option>
               <option value="Movel">Móvel</option>

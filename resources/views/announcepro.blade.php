@@ -110,6 +110,25 @@
                         </div>
                     </div>
 
+                <!--valor sugerido-->
+                <label for="nome_art" class="block text-sm font-semibold leading-6 text-black mt-4">Valor Sugerido (opicional):</label>
+                <input type="text" name="nome_art" id="nome_art" placeholder="Informe um valor sugerido" autocomplete="organization" class="shadow-tt block placeholder:text-graytt rounded-xl border-0 px-3.5 py-2 shadow-sm ring-1 border border-graytt ring-inset ring-graytt placeholder:text-graytt-dark focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6">
+
+                <!--Item de Preferência-->
+                <label for="nome_art" class="block text-sm font-semibold leading-6 text-black mt-4">Preferência de Troca:</label>
+                <input type="text" name="nome_art" id="nome_art" placeholder="Informe um artigo de interesse para a troca" autocomplete="organization" class="shadow-tt block rounded-xl border-0 px-3.5 py-2 shadow-sm ring-1 border border-graytt ring-inset ring-graytt placeholder:text-graytt-dark focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6">
+
+                <!--Categoria-->
+                <label for="catepropo" class="block text-sm font-semibold leading-6 text-black mt-4">Categoria:</label>
+                <div class="inset-y-0 left-0 flex items-center">
+                    <select id="catepropo" name="catepropo" class="shadow-tt block w-52 rounded-xl border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                        <option value="" disabled selected>Selecionar</option>
+                        <option value="Brinquedo">Brinquedo</option>
+                        <option value="Mobilidade">Mobilidade</option>
+                        <option value="Movel">Móvel</option>
+                        <option value="Roupa">Roupa</option>
+                        <option value="Outro">Outro</option>
+                    </select>
                     <!--Tempo de uso-->
                     <div class="flex flex-col sm:flex-row mt-4 sm:mt-8">
                         <label for="uso_art" class="block text-sm sm:text-xl sm:font-normal font-semibold leading-6 text-black sm:mt-2 sm:mr-3">Tempo de Uso:</label>
