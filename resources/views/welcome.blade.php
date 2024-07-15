@@ -11,7 +11,7 @@
 </head>
 
 <body class="bg-backgtt">
-    <div class="h-full relative">
+    <div class="h-full min-h-screen relative">
         @include('navbar')
         <div class="bg-greentt-light">
             <div class="max-w-screen-xl px-4 mx-auto space-y-8 overflow-hidden sm:px-6 lg:px-8">
