@@ -38,6 +38,10 @@ Route::get('/announce', function () {
     return view('announcepro');
 });
 
+Route::get('/edannounce', function () {
+    return view('editannounce');
+});
+
 Route::get('/login', function () {
     return view('login');
 });
