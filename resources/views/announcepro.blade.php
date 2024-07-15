@@ -18,13 +18,13 @@
             <h1 class=" text-3xl lg:text-4xl font-bold text-center text-white font-fredokatt drop-shadow-tt mt-5">Anuncie um Novo Artigo</h1> <!--Título-->
             <!--input de imagem-->
             <div class="flex flex-col lg:flex-row lg:items-center lg:place-content-center mb-5">
-                <div class="sm:mr-8">
+                <div class="lg:mr-8">
                     <div class="mt-5 lg:mt-0">
                         <label for="screenshot">
                             <div class="bg-white w-full lg:h-80 lg:w-80 rounded-xl border border-graytt-light shadow-tt flex flex-col flex-wrap justify-center items-center">
                                 <div class="mt-2 mb-2 flex flex-col justify-center items-center transition ease-in-out delay-100  hover:-translate-y-1 hover:scale-[1.05] duration-300">
                                     <img src="{{asset('image/mais.svg')}}" alt="" width="100">
-                                    <p class="text-graytt text-xs text-center mt-2">Foto Principal do Artigo (Obrigatório)</p>
+                                    <p class="text-graytt text-xs text-center mt-2">Foto principal do artigo (Obrigatório)</p>
                                 </div>
                             </div>
                         </label>
@@ -124,7 +124,7 @@
 
                     <!--Tempo de uso-->
                     <div class="flex flex-col lg:flex-row mt-4 lg:mt-8">
-                        <label for="uso_art" class="block text-lg lg:text-xl lg:font-normal font-semibold leading-6 text-black lg:mt-2 lg:mr-3">Tempo de Uso:</label>
+                        <label for="uso_art" class="block text-lg lg:text-xl lg:font-normal font-semibold leading-6 text-black lg:mt-2 lg:mr-3">Tempo de uso:</label>
                         <input type="text" name="uso_art" id="uso_art" autocomplete="organization" class="shadow-tt block w-36 rounded-xl border-0 px-3.5 py-2 shadow-lg ring-1 border border-graytt ring-inset ring-graytt placeholder:text-graytt-dark focus:ring-2 focus:ring-inset lg:text-lg lg:leading-6">
                     </div>
                     <!--botões de confirmação-->
