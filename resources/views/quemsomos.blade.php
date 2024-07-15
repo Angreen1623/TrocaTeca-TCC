@@ -16,8 +16,8 @@
         <div>
             <!--O q é tt-->
 
-            <div class="bg-yellowtt-light">
-                <div class="max-w-screen-xl px-4 mx-auto space-y-8 overflow-hidden sm:px-6 lg:px-8">
+            <div class="bg-yellowtt-light fixed z-[-1]">
+                <div class="w-screen px-4 mx-auto space-y-8 overflow-hidden sm:px-6 lg:px-8">
                     <div class="lg:flex lg:justify-between lg:items-center flex flex-col-reverse lg:flex-row">
                         <nav class="mb-10 lg:mb-12 flex flex-col justify-center space-y-4 max-w-3xl lg:mt-8 lg:order-1">
                             <h2 class="text-3xl drop-shadow-tt text-left text-white sm:text-6xl" style="font-family: 'Fredoka'; white-space: nowrap;">
@@ -31,7 +31,9 @@
                     </div>
                 </div>
             </div>
-            <div class="bg-repeat bg-[url('/public/image/triangulo-verde.svg')] w-full h-8 -mt-px rotate-180 bg-yellowtt-light"></div>
+
+            <div class="pt-72">
+            <div class="bg-repeat bg-[url('/public/image/triangulo-verde.svg')] w-full h-8 -mt-px rotate-180 bg-transparent"></div>
 
             <!--Como funciona-->
             <div class="bg-greentt">
@@ -49,7 +51,9 @@
                     </div>
                 </div>
             </div>
+            </div>
             <div class="bg-repeat bg-[url('/public/image/triangulo-rosa.svg')] w-full h-8 -mt-px rotate-180 bg-greentt"></div>
+            
 
             <!--posso comprar?-->
             <div class="bg-pinktt">

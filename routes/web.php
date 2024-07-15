@@ -37,3 +37,11 @@ Route::get('/finalp', function () {
 Route::get('/announce', function () {
     return view('announcepro');
 });
+
+Route::get('/login', function () {
+    return view('login');
+});
+
+Route::get('/myaccount', function () {
+    return view('myaccount');
+});
