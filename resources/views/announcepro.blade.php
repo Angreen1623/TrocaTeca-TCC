@@ -18,7 +18,7 @@
             <h1 class=" text-3xl lg:text-4xl font-bold text-center text-white font-fredokatt drop-shadow-tt mt-5">Anuncie um Novo Artigo</h1> <!--Título-->
             <!--input de imagem-->
             <div class="flex flex-col lg:flex-row lg:items-center lg:place-content-center mb-5">
-                <div class="sm:mr-8">
+                <div class="lg:mr-8">
                     <div class="mt-5 lg:mt-0">
                         <label for="screenshot">
                             <div class="bg-white w-full lg:h-80 lg:w-80 rounded-xl border border-graytt-light shadow-tt flex flex-col flex-wrap justify-center items-center">
