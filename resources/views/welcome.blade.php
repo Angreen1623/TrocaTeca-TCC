@@ -13,7 +13,7 @@
 <body class="bg-backgtt">
     <div class="h-full min-h-screen relative">
         @include('navbar')
-        <div class="w-full fixed z-[-1]">
+        <div class="w-full fixed">
             <div class="bg-greentt-light ">
                 <div class="max-w-screen-xl px-4 mx-auto space-y-8 overflow-hidden sm:px-6 lg:px-8">
                     <div class="lg:flex lg:justify-between lg:items-center flex flex-col-reverse lg:flex-row mb-5">
@@ -35,8 +35,8 @@
             </div>
 
         </div>
-       <div>
-        <div class=" mt-[375px] bg-repeat bg-[url('/public/image/triangulo-bege.svg')] rotate-180 w-full h-8 -mt-px bg-transparent"></div>
+       <div class="z-10 relative">
+        <div class="mt-[375px] bg-repeat bg-[url('/public/image/triangulo-bege.svg')] rotate-180 w-full h-8 -mt-px bg-transparent"></div>
         <div class="space-y-8 overflow-hidden sm:px-6 lg:px-8 bg-backgtt w-full">
             <div class="max-w-screen-xl px-4 mx-auto">
                 <div class="lg:flex lg:justify-between lg:items-center flex flex-col-reverse lg:flex-row mb-5">
@@ -121,21 +121,6 @@
                                 <div class="text-xs font-bold uppercase text-blue-900 tracking-widest mb-2 truncate">Observação: </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="h-200 w-200">
-                        <div class="relative bg-blue-300 shadow-lg rounded-lg shadow-lg p-5 overflow-hidden">
-                            <!-- Card content -->
-                            <div class="relative pt-[1.5rem] pb-14">
-                                <h3 class="text-2xl font-extrabold text-indigo-50 leading-snug mb-2 truncate">Paciente:</h3>
-                                <div class="text-xs font-bold uppercase text-blue-900 tracking-widest mb-2">Consulta: </div>
-                                <div class="text-xs font-bold uppercase text-blue-900 tracking-widest mb-2">Nascimento: </div>
-                                <div class="text-xs font-bold uppercase text-blue-900 tracking-widest mb-2">Médico: </div>
-                                <div class="text-xs font-bold uppercase text-blue-900 tracking-widest mb-2">Data da Consulta: </div>
-                                <div class="text-xs font-bold uppercase text-blue-900 tracking-widest mb-2">Hora da Consulta: </div>
-                                <div class="text-xs font-bold uppercase text-blue-900 tracking-widest mb-2 truncate">Observação: </div>
-                            </div>
-                        </div>
-
                     </div>
                 </div>
             </div>
