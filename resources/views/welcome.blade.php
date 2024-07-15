@@ -14,7 +14,7 @@
     <div class="h-full min-h-screen relative">
         @include('navbar')
         <div class="w-full fixed">
-            <div class="bg-greentt-light ">
+            <div id="paralax" class="bg-greentt-light">
                 <div class="max-w-screen-xl px-4 mx-auto space-y-8 overflow-hidden sm:px-6 lg:px-8">
                     <div class="lg:flex lg:justify-between lg:items-center flex flex-col-reverse lg:flex-row mb-5">
                         <nav class="mb-7 flex flex-col justify-center items-center lg:items-start space-y-4 max-w-3xl lg:mt-0 lg:order-1">
@@ -36,7 +36,7 @@
 
         </div>
         <div class="z-10 relative">
-            <div class="mt-[375px] bg-repeat bg-[url('/public/image/triangulo-bege.svg')] rotate-180 w-full h-8 -mt-px bg-transparent"></div>
+            <div id="mt-paralax" class="bg-repeat bg-[url('/public/image/triangulo-bege.svg')] rotate-180 w-full h-8 -mt-px bg-transparent"></div>
             <div class="space-y-8 overflow-hidden sm:px-6 lg:px-8 bg-backgtt w-full">
                 <div class="max-w-screen-xl px-4 mx-auto">
                     <div class="lg:flex lg:justify-between lg:items-center flex flex-col-reverse lg:flex-row mb-5">
@@ -146,6 +146,20 @@
                 @include('footer')
             </div>
         </div>
+        <script>
+
+            var mt_paralax = document.getElementById("mt-paralax");
+            var paralax = document.getElementById('paralax');
+
+            mt_paralax.style.marginTop = paralax.offsetHeight-32+"px";
+
+            window.addEventListener('resize', screenResize);
+
+            function screenResize(){
+                mt_paralax.style.marginTop = paralax.offsetHeight-32+"px";
+            }
+
+        </script>
 </body>
 
 </html>
