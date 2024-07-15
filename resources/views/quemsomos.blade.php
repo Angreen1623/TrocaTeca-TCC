@@ -17,7 +17,7 @@
             <!--O q é tt-->
 
             <div class="bg-yellowtt-light">
-                <div class="w-screen px-4 mx-auto space-y-8 overflow-hidden sm:px-6 lg:px-8">
+                <div class="w-full px-4 mx-auto space-y-8 overflow-hidden sm:px-6 lg:px-8">
                     <div class="lg:flex lg:justify-between lg:items-center flex flex-col-reverse lg:flex-row">
                         <nav class="mb-10 lg:mb-12 flex flex-col justify-center space-y-4 max-w-3xl lg:mt-8 lg:order-1">
                             <h2 class="text-3xl drop-shadow-tt text-left text-white sm:text-6xl" style="font-family: 'Fredoka'; white-space: nowrap;">

@@ -19,7 +19,7 @@
 
 <nav id="navbar" class="w-full fixed z-40">
 
-    <div class="flex w-full py-2.5 px-7 md:ps-20 md:pe-7 bg-bluett align-item-center place-content-evenly items-center">
+    <div class="flex w-full py-2.5 px-7 md:ps-20 md:pe-7 bg-bluett align-item-center place-content-normal md:place-content-evenly items-center">
 
         <svg xmlns="http://www.w3.org/2000/svg" width="45" fill="currentColor" class="md:hidden block cursor-pointer" viewBox="0 0 16 16" onclick="sandwich()">
             <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
@@ -50,7 +50,7 @@
         <ul class="md:underline-animation hidden md:block"><a href="">Mensagens e Propostas</a></ul>
         <ul class="md:underline-animation hidden md:block"><a href="/about">Quem Somos</a></ul>
 
-        <div class="md:w-96 rounded-full flex bg-white items-center ps-5 md:hidden border-2 h-8">
+        <div class="w-96 rounded-full flex bg-white items-center ps-5 md:hidden border-2 h-8">
             <input type="text" id="pesquisa" class="h-7 w-full outline-0">
             <span class="flex items-center p-2">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-600 cursor-pointer" fill="none" viewBox="0 0 24 24" stroke="currentColor">
