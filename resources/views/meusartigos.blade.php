@@ -18,7 +18,7 @@
                 <div class="max-w-screen-xl px-4 mx-auto">
                     <div class="lg:flex lg:justify-between lg:items-center flex flex-col-reverse lg:flex-row">
                         <div class="mb-3 flex flex-col justify-center items-center lg:items-start space-y-4 max-w-3xl lg:mt-0 lg:order-1">
-                            <h2 class="mt-7 text-3xl text-center lg:text-left text-black sm:text-4xl" style="font-family: 'Fredoka';">
+                            <h2 class="mt-10 text-3xl text-center lg:text-left text-black sm:text-4xl" style="font-family: 'Fredoka';">
                                 Meus Artigos
                             </h2>
 
