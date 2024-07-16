@@ -10,7 +10,7 @@
         <div class="sm:mr-7">      
           <label for="motivochat" class="block text-sm font-semibold leading-6 text-white mt-6 ">Motivo da Denúncia:</label>
           <div class="mt-2.5">
-            <textarea name="motivochat" id="motivochat" rows="6" class="resize-none w-full sm:h-48 sm:w-80  block rounded-lg border-0 px-3.5 py-2 
+            <textarea name="motivochat" id="motivochat" rows="6" class="resize-none w-full sm:h-48 sm:w-80  block rounded-lg border border-graytt-light px-3.5 py-2 
             shadow-sm ring-1 ring-inset ring-graytt-light border border-graytt-light placeholder:text-graytt focus:ring-1 focus:ring-inset sm:text-sm 
             sm:leading-6 shadow-tt"placeholder="Descreva o motivo da denúncia..."></textarea>
           </div>

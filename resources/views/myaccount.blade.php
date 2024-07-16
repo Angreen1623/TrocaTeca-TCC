@@ -43,13 +43,13 @@
 
         <div>
 
-            <h3 class="text-3xl text-center lg:text-left sm:text-6xl mb-10 ml-8" style="font-family: 'Fredoka';">Informações da conta</h3>
+            <h3 class="text-3xl text-center lg:text-left sm:text-6xl mb-10 sm:ml-8" style="font-family: 'Fredoka';">Informações da conta</h3>
 
-            <div class="flex w-full content-evenly flex-wrap mb-14">
-                <div class="sm:border-r-4 border-black pl-24 sm:px-24 sm:w-1/2">
+            <div class="flex w-full content-evenly flex-wrap sm:mb-14">
+                <div class="sm:border-r-4 border-black px-24 sm:w-1/2 w-full">
 
                     <label for="nome" class="">Nome:</label>
-                    <input type="text" name="nome" id="nome" class="w-full shadow-tt mt-3 block w-full rounded-xl border-0 px-3.5 py-2 shadow-sm ring-1 border-2 border-graytt ring-inset ring-graytt placeholder:text-graytt-dark focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 mb-5">
+                    <input type="text" name="nome" id="nome" class="shadow-tt mt-3 block w-full rounded-xl border-0 px-3.5 py-2 shadow-sm ring-1 border-2 border-graytt ring-inset ring-graytt placeholder:text-graytt-dark focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 mb-5">
 
                     <label for="sobrenome" class="">Sobrenome:</label>
                     <input type="text" name="sobrenome" id="sobrenome" class="shadow-tt mt-3 block w-full rounded-xl border-0 px-3.5 py-2 shadow-sm ring-1 border-2 border-graytt ring-inset ring-graytt placeholder:text-graytt-dark focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 mb-5">
@@ -59,8 +59,8 @@
 
                     <label for="nasc" class="">Data de nascimento:</label>
                     <input type="date" name="nasc" id="nasc" class="shadow-tt mt-3 block w-full max-w-40 rounded-xl border-0 px-3.5 py-2 shadow-sm ring-1 border-2 border-graytt ring-inset ring-graytt placeholder:text-graytt-dark focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 mb-5">
-                </div>
-                <div class="pl-24 md:px-24 md:w-1/2">
+                </div><!--segundo trecho do formulário-->
+                <div class="px-24 sm:w-1/2 w-full">
 
                     <label for="estado" class="">Estado:</label>
                     <select id="estado" name="estado" class="shadow-tt mt-3 block w-36 rounded-xl border-0 px-3.5 py-2 shadow-sm ring-1 border-2 border-graytt ring-inset ring-graytt placeholder:text-graytt-dark focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 mb-5">
