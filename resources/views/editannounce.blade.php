@@ -83,23 +83,23 @@
                     <!--Nome do artigo-->
                     <div class="flex flex-col lg:flex-row mt-4 lg:mt-8">
                         <label for="nome_art" class="block text-lg lg:text-xl font-semibold lg:font-normal leading-6 text-black lg:mt-2 lg:mr-3 lg:text-nowrap">Nome do artigo:</label>
-                        <input type="text" name="nome_art" id="nome_art" autocomplete="organization" class="w-full shadow-tt block placeholder:text-graytt rounded-xl border-0 px-3.5 py-2 shadow-lg ring-1 border border-graytt ring-inset ring-graytt placeholder:text-graytt-dark focus:ring-2 focus:ring-inset lg:text-lg lg:leading-6">
+                        <input type="text" name="nome_art" id="nome_art" autocomplete="organization" class="w-full shadow-tt block placeholder:text-graytt rounded-xl border border-graytt-light px-3.5 py-2 shadow-lg ring-1 border border-graytt ring-inset ring-graytt placeholder:text-graytt-dark focus:ring-2 focus:ring-inset lg:text-lg lg:leading-6">
                     </div>
                     <div class="flex flex-col lg:flex-row mt-4 lg:mt-8">
                         <!--valor sugerido-->
                         <label for="val" class="block text-lg lg:text-xl font-semibold lg:font-normal leading-6 text-black lg:mt-2 lg:mr-3 lg:text-nowrap">Valor sugerido (opcional): R$</label>
-                        <input type="text" name="val" id="val" autocomplete="organization" class="shadow-tt block placeholder:text-graytt rounded-xl border-0 px-3.5 py-2 shadow-lg ring-1 border border-graytt ring-inset ring-graytt placeholder:text-graytt-dark focus:ring-2 focus:ring-inset lg:text-lg lg:leading-6">
+                        <input type="text" name="val" id="val" autocomplete="organization" class="shadow-tt block placeholder:text-graytt rounded-xl border border-graytt-light px-3.5 py-2 shadow-lg ring-1 border border-graytt ring-inset ring-graytt placeholder:text-graytt-dark focus:ring-2 focus:ring-inset lg:text-lg lg:leading-6">
                     </div>
                     <!--Item de Preferência-->
                     <div class="flex flex-col lg:flex-row mt-4 lg:mt-8">
                         <label for="pref" class="block text-lg lg:text-xl font-semibold lg:font-normal leading-6 text-black lg:mt-2 lg:mr-3 lg:text-nowrap">Preferência de troca:</label>
-                        <input type="text" name="pref" id="pref" autocomplete="organization" class=" w-full shadow-tt block rounded-xl border-0 px-3.5 py-2 shadow-lg ring-1 border border-graytt ring-inset ring-graytt placeholder:text-graytt-dark focus:ring-2 focus:ring-inset lg:text-lg lg:leading-6">
+                        <input type="text" name="pref" id="pref" autocomplete="organization" class=" w-full shadow-tt block rounded-xl border border-graytt-light px-3.5 py-2 shadow-lg ring-1 border border-graytt ring-inset ring-graytt placeholder:text-graytt-dark focus:ring-2 focus:ring-inset lg:text-lg lg:leading-6">
                     </div>
                     <!--Categoria-->
                     <div class="flex flex-col lg:flex-row mt-4 lg:mt-8">
                         <label for="catepropo" class="block text-lg lg:text-xl font-semibold lg:font-normal leading-6 text-black lg:mt-2 lg:mr-3">Categoria:</label>
                         <div class="inset-y-0 left-0 flex items-center">
-                            <select id="catepropo" name="catepropo" class="shadow-tt block w-52 rounded-xl border-0 px-3.5 py-2 text-graytt-dark shadow-lg ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 lg:text-lg lg:leading-6">
+                            <select id="catepropo" name="catepropo" class="shadow-tt block w-52 rounded-xl border border-graytt-light px-3.5 py-2 text-graytt-dark shadow-lg ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 lg:text-lg lg:leading-6">
                                 <option value="" disabled selected>Selecionar</option>
                                 <option value="Brinquedo">Brinquedo</option>
                                 <option value="Mobilidade">Mobilidade</option>
@@ -113,7 +113,7 @@
                     <div class="flex flex-col lg:flex-row mt-4 lg:mt-8">
                         <label for="condpropo" class="block text-lg lg:text-xl lg:font-normal font-semibold leading-6 text-black lg:mt-2 lg:mr-3">Condição:</label>
                         <div class="inset-y-0 left-0 flex items-center">
-                            <select id="condpropo" name="condpropo" class="shadow-tt block w-52 rounded-xl border-0 px-3.5 py-2 text-graytt-dark shadow-lg ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 lg:text-lg lg:leading-6">
+                            <select id="condpropo" name="condpropo" class="shadow-tt block w-52 rounded-xl border border-graytt-light px-3.5 py-2 text-graytt-dark shadow-lg ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 lg:text-lg lg:leading-6">
                                 <option value="" disabled selected>Selecionar</option>
                                 <option value="Novo">Novo</option>
                                 <option value="Seminovo">Seminovo</option>
@@ -125,7 +125,7 @@
                     <!--Tempo de uso-->
                     <div class="flex flex-col lg:flex-row mt-4 lg:mt-8">
                         <label for="uso_art" class="block text-lg lg:text-xl lg:font-normal font-semibold leading-6 text-black lg:mt-2 lg:mr-3">Tempo de uso:</label>
-                        <input type="text" name="uso_art" id="uso_art" autocomplete="organization" class="shadow-tt block w-36 rounded-xl border-0 px-3.5 py-2 shadow-lg ring-1 border border-graytt ring-inset ring-graytt placeholder:text-graytt-dark focus:ring-2 focus:ring-inset lg:text-lg lg:leading-6">
+                        <input type="text" name="uso_art" id="uso_art" autocomplete="organization" class="shadow-tt block w-36 rounded-xl border border-graytt-light px-3.5 py-2 shadow-lg ring-1 border border-graytt ring-inset ring-graytt placeholder:text-graytt-dark focus:ring-2 focus:ring-inset lg:text-lg lg:leading-6">
                     </div>
                     <!--botões de confirmação-->
                     <div class="flex flex-col lg:flex-row mt-4 sm:mr-0 mr-10 w-full justify-end">

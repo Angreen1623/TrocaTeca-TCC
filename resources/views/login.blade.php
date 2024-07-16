@@ -8,10 +8,10 @@
             
             <div>
                 <label for="email" class="text-white">E-mail:</label>
-                <input type="text" name="email" class="shadow-tt max-w-96 block w-full rounded-xl border-0 px-3.5 py-2 shadow-sm ring-1 border border-graytt ring-inset ring-graytt placeholder:text-graytt-dark focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 mb-5" id="email">
+                <input type="text" name="email" class="shadow-tt max-w-96 block w-full rounded-xl border border-graytt-light px-3.5 py-2 shadow-sm ring-1 border border-graytt ring-inset ring-graytt placeholder:text-graytt-dark focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 mb-5" id="email">
 
                 <label for="senha" class="text-white">Senha:</label>
-                <input type="text" name="senha" class="shadow-tt max-w-96 block w-full rounded-xl border-0 px-3.5 py-2 shadow-sm ring-1 border border-graytt ring-inset ring-graytt placeholder:text-graytt-dark focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 mb-5" id="senha">
+                <input type="text" name="senha" class="shadow-tt max-w-96 block w-full rounded-xl border border-graytt-light px-3.5 py-2 shadow-sm ring-1 border border-graytt ring-inset ring-graytt placeholder:text-graytt-dark focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 mb-5" id="senha">
             </div>
 
             <div class="flex justify-end">            

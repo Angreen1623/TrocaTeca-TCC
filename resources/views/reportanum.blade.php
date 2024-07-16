@@ -9,7 +9,7 @@
         <div class="sm:col-span-2">
         <label for="" class="block text-sm font-semibold leading-6 text-white mt-6 ">Motivo da Denúncia:</label>
         <div class="mt-2.5">
-          <textarea name="motivoanum" id="motivoanum" rows="6" class="resize-none block w-full rounded-lg border-0 px-3.5 py-2 
+          <textarea name="motivoanum" id="motivoanum" rows="6" class="resize-none block w-full rounded-lg border border-graytt-light px-3.5 py-2 
           shadow-sm ring-1 ring-inset ring-graytt-light placeholder:text-graytt focus:ring-1 focus:ring-inset sm:text-sm 
           sm:leading-6 shadow-tt"placeholder="Descreva o motivo da denúncia..."></textarea>
         </div>
