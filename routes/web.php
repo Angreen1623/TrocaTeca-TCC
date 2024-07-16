@@ -14,7 +14,7 @@ Route::get('/warning', function () {
     return view('warningm');
 });
 
-Route::get('/re', function () {
+Route::get('/reportanum', function () {
     return view('reportanum');
 });
 

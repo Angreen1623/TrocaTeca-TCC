@@ -28,6 +28,7 @@
   </div>
 </div>
 
+<!--esse script se diz respeito a o botão eu concordo estar precionado ou não-->
 <script>
   const checkbox = document.getElementById('confirm');
   const inativarButton = document.getElementById('inativarButton');
