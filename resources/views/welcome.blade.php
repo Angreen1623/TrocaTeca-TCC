@@ -57,33 +57,10 @@
                             </a>
                             <div class="mt-4 px-5 pb-5">
                                 <a href="#">
-                                    <p class="truncate lg:text-left lg:mt-2 text-black">Bob Esponja Agiota Seminovo</p>
+                                    <p class="truncate lg:text-left lg:mt-2 text-black">Produto</p>
                                 </a>
                                 <a href="#">
-                                    <p class="truncate lg:text-left lg:mt-2 text-stone-400">Brinquedo</p>
-                                </a>
-                                <div class="mt-2 flex items-center">
-                                    <p>
-                                        <span class="truncate lg:text-left lg:mt-2 text-black">Valor Sugerido:
-                                    </p>
-                                    <span class="text-1xl md:text-1xl lg:text-lg ml-2 font-bold text-pinktt">R$25,99</span>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!--Card do anúncio-->
-                        <div class="group my-1 flex w-full max-w-[260px] flex-col overflow-hidden rounded-xl border border-graytt-light shadow-tt bg-white transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 duration-300">
-                            <a class="relative mx-3 mt-3 flex h-48 overflow-hidden rounded-xl border-2 border-black" href="#">
-                                <img class="peer absolute top-0 right-0 h-full w-full object-cover" src="" alt="Imagem do Produto" />
-                                <img class="peer absolute top-0 -right-96 h-full w-full object-cover transition-all delay-100 duration-1000 hover:right-0 peer-hover:right-0" src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8c25lYWtlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" alt="Imagem do Produto" />
-                            </a>
-                            <div class="mt-4 px-5 pb-5">
-                                <a href="#">
-                                    <p class="truncate lg:text-left lg:mt-2 text-black">Bob Esponja Agiota Seminovo</p>
-                                </a>
-                                <a href="#">
-                                    <p class="truncate lg:text-left lg:mt-2 text-stone-400">Brinquedo</p>
+                                    <p class="truncate lg:text-left lg:mt-2 text-stone-400">Tipo</p>
                                 </a>
                                 <div class="mt-2 flex items-center">
                                     <p>
@@ -103,10 +80,10 @@
                             </a>
                             <div class="mt-4 px-5 pb-5">
                                 <a href="#">
-                                    <p class="truncate lg:text-left lg:mt-2 text-black">Bob Esponja Agiota Seminovo</p>
+                                    <p class="truncate lg:text-left lg:mt-2 text-black">Produto</p>
                                 </a>
                                 <a href="#">
-                                    <p class="truncate lg:text-left lg:mt-2 text-stone-400">Brinquedo</p>
+                                    <p class="truncate lg:text-left lg:mt-2 text-stone-400">Tipo</p>
                                 </a>
                                 <div class="mt-2 flex items-center">
                                     <p>
@@ -118,18 +95,41 @@
                             </div>
                         </div>
 
-                        <!--Card do anúncio-->
-                        <div class="group my-1 flex w-full max-w-[260px] flex-col overflow-hidden rounded-xl border border-graytt-light shadow-tt bg-white transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 duration-300">
+                         <!--Card do anúncio-->
+                         <div class="group my-1 flex w-full max-w-[260px] flex-col overflow-hidden rounded-xl border border-graytt-light shadow-tt bg-white transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 duration-300">
                             <a class="relative mx-3 mt-3 flex h-48 overflow-hidden rounded-xl border-2 border-black" href="#">
                                 <img class="peer absolute top-0 right-0 h-full w-full object-cover" src="" alt="Imagem do Produto" />
                                 <img class="peer absolute top-0 -right-96 h-full w-full object-cover transition-all delay-100 duration-1000 hover:right-0 peer-hover:right-0" src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8c25lYWtlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" alt="Imagem do Produto" />
                             </a>
                             <div class="mt-4 px-5 pb-5">
                                 <a href="#">
-                                    <p class="truncate lg:text-left lg:mt-2 text-black">Bob Esponja Agiota Seminovo</p>
+                                    <p class="truncate lg:text-left lg:mt-2 text-black">Produto</p>
                                 </a>
                                 <a href="#">
-                                    <p class="truncate lg:text-left lg:mt-2 text-stone-400">Brinquedo</p>
+                                    <p class="truncate lg:text-left lg:mt-2 text-stone-400">Tipo</p>
+                                </a>
+                                <div class="mt-2 flex items-center">
+                                    <p>
+                                        <span class="truncate lg:text-left lg:mt-2 text-black">Valor Sugerido:
+                                    </p>
+                                    <span class="text-1xl md:text-1xl lg:text-lg ml-2 font-bold text-pinktt">R$25,99</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                         <!--Card do anúncio-->
+                         <div class="group my-1 flex w-full max-w-[260px] flex-col overflow-hidden rounded-xl border border-graytt-light shadow-tt bg-white transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 duration-300">
+                            <a class="relative mx-3 mt-3 flex h-48 overflow-hidden rounded-xl border-2 border-black" href="#">
+                                <img class="peer absolute top-0 right-0 h-full w-full object-cover" src="" alt="Imagem do Produto" />
+                                <img class="peer absolute top-0 -right-96 h-full w-full object-cover transition-all delay-100 duration-1000 hover:right-0 peer-hover:right-0" src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8c25lYWtlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" alt="Imagem do Produto" />
+                            </a>
+                            <div class="mt-4 px-5 pb-5">
+                                <a href="#">
+                                    <p class="truncate lg:text-left lg:mt-2 text-black">Produto</p>
+                                </a>
+                                <a href="#">
+                                    <p class="truncate lg:text-left lg:mt-2 text-stone-400">Tipo</p>
                                 </a>
                                 <div class="mt-2 flex items-center">
                                     <p>
