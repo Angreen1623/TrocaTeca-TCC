@@ -2,7 +2,7 @@
 
 @include('sidebar')
 
-<div id="sandwich" class="fixed w-96 h-screen bg-white top-0 left-0 z-50 translate-x-[-100%] duration-300 max-w-96 w-full rounded-lg">
+<div id="sandwich" class="fixed w-96 h-screen bg-white top-0 left-0 z-50 translate-x-[-150%] duration-300 max-w-96 w-full rounded-lg">
     <span onclick="sandwich()" class="absolute cursor-pointer right-0">
         <img src="{{ asset('image/mais.svg') }}" alt="" width="30" class="rotate-45">
     </span>
@@ -75,12 +75,12 @@
     
     function sidebartt() {
         var sidebar = document.getElementById('sidebar');
-        sidebar.classList.toggle('translate-x-[-100%]');
+        sidebar.classList.toggle('translate-x-[-150%]');
     }
 
     function sandwich(){
         var sandwich = document.getElementById('sandwich');
-        sandwich.classList.toggle('translate-x-[-100%]');
+        sandwich.classList.toggle('translate-x-[-150%]');
     }
 
     function screenResize(){

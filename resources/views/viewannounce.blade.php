@@ -30,8 +30,8 @@
                 </div>
             </div>
 
-            <div class="flex place-content-center flex-col flex-wrap sm:flex-row sm:justify-between">
-                <div class="md:ml-5 flex flex-col max-w-80 w-full h-full justify-between mb-4 sm:mb-0">
+            <div class="flex place-content-center flex-col lg:flex-wrap lg:flex-row lg:justify-between lg:mx-0 mx-auto">
+                <div class="lg:ml-5 flex flex-col max-w-80 w-full h-full justify-between mb-4 lg:mb-0">
                     <div class="lg:mb-0 mb-5">
                         <div class="border-b border-black text-4xl font-fredokatt" style="font-family: 'Fredoka';">
                             Bob Esponja Agiota
@@ -50,8 +50,8 @@
                         <p> <span class="text-graytt"> Tempo de uso: </span> 2 anos </p>
                     </div>
                 </div>
-                <div class="flex w-fit sm:justify-end sm:items-end">
-                    <button id="openNewProposalButton" class="inline-flex px-4 py-2 h-fit justify-center w-full sm:w-auto shadow-tt bg-pinktt hover:bg-pinktt-dark text-white text-sm font-medium rounded-2xl transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 duration-300">
+                <div class="flex w-full lg:w-fit lg:justify-end lg:items-end">
+                    <button id="openNewProposalButton" class="inline-flex px-4 py-2 h-fit justify-center w-full lg:w-auto shadow-tt bg-pinktt hover:bg-pinktt-dark text-white text-sm font-medium rounded-2xl transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-105 duration-300">
                         Enviar Proposta
                     </button>
                 </div>
