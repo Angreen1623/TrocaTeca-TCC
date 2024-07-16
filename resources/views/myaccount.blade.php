@@ -25,7 +25,7 @@
                         </h2>
                         <p class="text-black text-md text-center md:text-left mb-1.5">Descrição de interesses:</p>
                         <p class="text-graytt mb-1">Estou interessado em carrinhos de bebê para um bebê de 5 meses; Brinquedos. </p>
-                        <p class="underline cursor-pointer">Editar</p>
+                        <p class="underline-animation cursor-pointer">Editar</p>
                     </div>
                     <div class="flex flex-col justify-center items-center md:items-start max-w-3xl md:mt-0">
                         <p>Trocando desde: 2024</p>
@@ -45,7 +45,6 @@
         <div class="bg-repeat bg-[url('/public/image/triangulo-amarelo.svg')] w-full h-8 -mt-px bg-backgtt mb-10"></div>
 
         <div>
-
             <h3 class="text-3xl text-center lg:text-left sm:text-6xl mb-10 sm:ml-8" style="font-family: 'Fredoka';">Informações da conta</h3>
 
             <div class="flex w-full content-evenly flex-wrap sm:mb-14">
@@ -61,15 +60,16 @@
                     <input type="text" name="email" id="email" class="shadow-tt mt-3 block w-full rounded-xl border-0 px-3.5 py-2 shadow-sm ring-1 border-2 border-graytt ring-inset ring-graytt placeholder:text-graytt-dark focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 mb-5">
 
                     <label for="nasc" class="">Data de nascimento:</label>
-                    <input type="date" name="nasc" id="nasc" class="shadow-tt mt-3 block w-full max-w-40 rounded-xl border-0 px-3.5 py-2 shadow-sm ring-1 border-2 border-graytt ring-inset ring-graytt placeholder:text-graytt-dark focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 mb-5">
+                    <input type="date" name="nasc" id="nasc" class="shadow-tt mt-3 text-graytt-dark block w-full max-w-40 rounded-xl border-0 px-3.5 py-2 shadow-sm ring-1 border-2 border-graytt ring-inset ring-graytt placeholder:text-graytt-dark focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 mb-5">
                 </div><!--segundo trecho do formulário-->
                 <div class="px-24 sm:w-1/2 w-full">
 
                     <label for="estado" class="">Estado:</label>
-                    <select id="estado" name="estado" class="shadow-tt mt-3 block w-36 rounded-xl border-0 px-3.5 py-2 shadow-sm ring-1 border-2 border-graytt ring-inset ring-graytt placeholder:text-graytt-dark focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 mb-5">
+                    <select id="estado" name="estado" class="custom-select text-graytt-dark shadow-tt mt-3 block w-36 rounded-xl border-0 px-3.5 py-2 shadow-sm ring-1 border-2 border-graytt ring-inset ring-graytt placeholder:text-graytt-dark focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 mb-5">
                         <option value="" disabled selected>Selecionar</option>
                         <option value="SP">SP</option>
                     </select>
+
 
                     <label for="cidade" class="">Cidade:</label>
                     <input type="text" name="cidade" id="cidade" class="shadow-tt mt-3 block w-full rounded-xl border-0 px-3.5 py-2 shadow-sm ring-1 border-2 border-graytt ring-inset ring-graytt placeholder:text-graytt-dark focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 mb-5">
@@ -87,8 +87,6 @@
                     Salvar alterações
                 </button>
             </div>
-    
-
         </div>
 
         @include('footer')

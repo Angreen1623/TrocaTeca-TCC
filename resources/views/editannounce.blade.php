@@ -99,7 +99,7 @@
                     <div class="flex flex-col lg:flex-row mt-4 lg:mt-8">
                         <label for="catepropo" class="block text-lg lg:text-xl font-semibold lg:font-normal leading-6 text-black lg:mt-2 lg:mr-3">Categoria:</label>
                         <div class="inset-y-0 left-0 flex items-center">
-                            <select id="catepropo" name="catepropo" class="shadow-tt block w-52 rounded-xl border border-graytt-light px-3.5 py-2 text-graytt-dark shadow-lg ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 lg:text-lg lg:leading-6">
+                            <select id="catepropo" name="catepropo" class="custom-select shadow-tt block w-52 rounded-xl border border-graytt-light px-3.5 py-2 text-graytt-dark shadow-lg ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 lg:text-lg lg:leading-6">
                                 <option value="" disabled selected>Selecionar</option>
                                 <option value="Brinquedo">Brinquedo</option>
                                 <option value="Mobilidade">Mobilidade</option>
@@ -113,7 +113,7 @@
                     <div class="flex flex-col lg:flex-row mt-4 lg:mt-8">
                         <label for="condpropo" class="block text-lg lg:text-xl lg:font-normal font-semibold leading-6 text-black lg:mt-2 lg:mr-3">Condição:</label>
                         <div class="inset-y-0 left-0 flex items-center">
-                            <select id="condpropo" name="condpropo" class="shadow-tt block w-52 rounded-xl border border-graytt-light px-3.5 py-2 text-graytt-dark shadow-lg ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 lg:text-lg lg:leading-6">
+                            <select id="condpropo" name="condpropo" class="custom-select shadow-tt block w-52 rounded-xl border border-graytt-light px-3.5 py-2 text-graytt-dark shadow-lg ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 lg:text-lg lg:leading-6">
                                 <option value="" disabled selected>Selecionar</option>
                                 <option value="Novo">Novo</option>
                                 <option value="Seminovo">Seminovo</option>
