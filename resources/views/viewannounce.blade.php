@@ -14,7 +14,7 @@
     <div class="h-full min-h-screen relative">
         @include('navbar')
 
-        <div class="flex flex-col flex-wrap lg:flex-row place-content-center my-16">
+        <div class="flex flex-col flex-wrap lg:flex-row place-content-center my-16 mr-0 xl:mr-36">
 
             <div class="mb-5 lg:mb-0 flex justify-center mx-10">
                 <div class="relative">
@@ -24,11 +24,12 @@
                             <path d="M7.002 12a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 5.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
                         </svg>
                     </div>
-                    <img src="{{ asset('image/img-placeholder.png') }}" alt="Imagem do produto" width="300" class="rounded-lg border-2 border-black">
+                    <img src="{{ asset('image/img-placeholder.png') }}" alt="Imagem do produto" width="500" class="rounded-lg border-2 border-black">
                 </div>
 
             </div>
-            <div class="ml-5 flex flex-col justify-between max-w-96 w-full">
+            <div class="flex place-content-center flex-col flex-wrap sm:flex-row sm:justify-between">
+                <div class="ml-5 flex flex-col max-w-80 w-full h-full justify-between mb-4 sm:mb-0">
                 <div class="lg:mb-0 mb-5">
                     <div class="border-b border-black text-4xl" style="font-family: 'Fredoka';">
                         Bob Esponja Agiota
@@ -41,17 +42,16 @@
                 <div class="max-w-72 lg:mb-0 mb-5">
                     <p><span class="text-graytt"> Preferência de troca: </span> Troco por isso isso ou aquilo ou aquilo outro.</p>
                 </div>
-                <div class="flex flex-col sm:flex-row">
-                    <div class="min-w-fit">
-                        <p> <span class="text-graytt"> Categoria: </span> Brinquedo  </p>
-                        <p> <span class="text-graytt"> Condição: </span> Usado  </p>
-                        <p> <span class="text-graytt"> Tempo de uso: </span> 2 anos </p>
-                    </div>
-                    <div class="flex w-full sm:justify-end sm:items-end">
-                        <button class="inline-flex px-4 py-2 h-fit justify-center w-full sm:w-auto shadow-tt bg-pinktt hover:bg-pinktt-dark text-white text-sm font-medium rounded-2xl transition ease-in-out delay-100  hover:-translate-y-1 hover:scale-110 duration-300">
-                            Enviar Proposta
-                        </button>
-                    </div>
+                <div class="min-w-fit">
+                    <p> <span class="text-graytt"> Categoria: </span> Brinquedo  </p>
+                    <p> <span class="text-graytt"> Condição: </span> Usado  </p>
+                    <p> <span class="text-graytt"> Tempo de uso: </span> 2 anos </p>
+                </div>
+                </div>
+                <div class="flex w-fit sm:justify-end sm:items-end">
+                    <button class="inline-flex px-4 py-2 h-fit  justify-center w-full sm:w-auto shadow-tt bg-pinktt hover:bg-pinktt-dark text-white text-sm font-medium rounded-2xl transition ease-in-out delay-100  hover:-translate-y-1 hover:scale-110 duration-300">
+                        Enviar Proposta
+                    </button>
                 </div>
             </div>
 
