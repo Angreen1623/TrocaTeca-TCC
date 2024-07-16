@@ -63,7 +63,7 @@
                             </h2>
                             <p class="leading-relaxed text-black text-left lg:mt-4 lg:mb-6">O TrocaTeca é uma plataforma dedicada única e exclusivamente para trocas, então não é possível fazer qualquer tipo de compra ou transação monetária. No máximo, é permitido informar um valor sugerido de seu artigo ao anunciá-lo, para que outros usuários possam oferecer algo de valor aproximado para a troca.</p>
                         </nav>
-                        <div class="flex justify-center lg:justify-end lg:order-2 mb-10 lg:mb-12 lg:mt-8">
+                        <div class="flex justify-center lg:justify-end lg:order-2 mb-10 lg:mb-12 mt-8">
                             <img src="{{ asset('image/cifrao.png') }}" alt="Logo do TrocaTeca" width="250" class="animate-rotate-left-right">
                         </div>
                     </div>
