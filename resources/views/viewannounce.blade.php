@@ -31,10 +31,10 @@
             <div class="ml-5 flex flex-col justify-between max-w-96 w-full">
                 <div class="lg:mb-0 mb-5">
                     <div class="border-b border-black text-4xl" style="font-family: 'Fredoka';">
-                        <p>Bob Esponja Agiota</p>
+                        Bob Esponja Agiota
                     </div>
                     <div class="text-lg">
-                        <p class="text-graytt">Valor sugerido: <span class="text-pinktt">R$25,00</span></p>
+                        <p class="text-graytt">Valor sugerido: <span class="text-pinktt font-bold">R$25,00</span></p>
                         <p class="text-graytt">Artigo publicado por: <span class="text-black underline">Reginaldo Ferreira</span></p>
                     </div>
                 </div>
