@@ -51,15 +51,15 @@
                     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 justify-items-center">
                         <!--Card do anúncio-->
                         <div class="group my-1 flex w-full max-w-[260px] flex-col overflow-hidden rounded-xl border border-graytt-light shadow-tt bg-white transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 duration-300">
-                            <a class="relative mx-3 mt-3 flex h-48 overflow-hidden rounded-xl border-2 border-black" href="#">
+                            <a class="relative mx-3 mt-3 flex h-48 overflow-hidden rounded-xl border-2 border-black" href="/viewannounce">
                                 <img class="peer absolute top-0 right-0 h-full w-full object-cover" src="" alt="Imagem do Produto" />
                                 <img class="peer absolute top-0 -right-96 h-full w-full object-cover transition-all delay-100 duration-1000 hover:right-0 peer-hover:right-0" src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8c25lYWtlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" alt="Imagem do Produto" />
                             </a>
                             <div class="mt-4 px-5 pb-5">
-                                <a href="#">
+                                <a href="/viewannounce">
                                     <p class="truncate lg:text-left lg:mt-2 text-black">Produto</p>
                                 </a>
-                                <a href="#">
+                                <a href="/viewannounce">
                                     <p class="truncate lg:text-left lg:mt-2 text-stone-400">Tipo</p>
                                 </a>
                                 <div class="mt-2 flex items-center">
@@ -74,15 +74,15 @@
 
                         <!--Card do anúncio-->
                         <div class="group my-1 flex w-full max-w-[260px] flex-col overflow-hidden rounded-xl border border-graytt-light shadow-tt bg-white transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 duration-300">
-                            <a class="relative mx-3 mt-3 flex h-48 overflow-hidden rounded-xl border-2 border-black" href="#">
+                            <a class="relative mx-3 mt-3 flex h-48 overflow-hidden rounded-xl border-2 border-black" href="/viewannounce">
                                 <img class="peer absolute top-0 right-0 h-full w-full object-cover" src="" alt="Imagem do Produto" />
                                 <img class="peer absolute top-0 -right-96 h-full w-full object-cover transition-all delay-100 duration-1000 hover:right-0 peer-hover:right-0" src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8c25lYWtlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" alt="Imagem do Produto" />
                             </a>
                             <div class="mt-4 px-5 pb-5">
-                                <a href="#">
+                                <a href="/viewannounce">
                                     <p class="truncate lg:text-left lg:mt-2 text-black">Produto</p>
                                 </a>
-                                <a href="#">
+                                <a href="/viewannounce">
                                     <p class="truncate lg:text-left lg:mt-2 text-stone-400">Tipo</p>
                                 </a>
                                 <div class="mt-2 flex items-center">
@@ -97,15 +97,15 @@
 
                          <!--Card do anúncio-->
                          <div class="group my-1 flex w-full max-w-[260px] flex-col overflow-hidden rounded-xl border border-graytt-light shadow-tt bg-white transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 duration-300">
-                            <a class="relative mx-3 mt-3 flex h-48 overflow-hidden rounded-xl border-2 border-black" href="#">
+                            <a class="relative mx-3 mt-3 flex h-48 overflow-hidden rounded-xl border-2 border-black" href="/viewannounce">
                                 <img class="peer absolute top-0 right-0 h-full w-full object-cover" src="" alt="Imagem do Produto" />
                                 <img class="peer absolute top-0 -right-96 h-full w-full object-cover transition-all delay-100 duration-1000 hover:right-0 peer-hover:right-0" src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8c25lYWtlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" alt="Imagem do Produto" />
                             </a>
                             <div class="mt-4 px-5 pb-5">
-                                <a href="#">
+                                <a href="/viewannounce">
                                     <p class="truncate lg:text-left lg:mt-2 text-black">Produto</p>
                                 </a>
-                                <a href="#">
+                                <a href="/viewannounce">
                                     <p class="truncate lg:text-left lg:mt-2 text-stone-400">Tipo</p>
                                 </a>
                                 <div class="mt-2 flex items-center">
@@ -120,15 +120,15 @@
 
                          <!--Card do anúncio-->
                          <div class="group my-1 flex w-full max-w-[260px] flex-col overflow-hidden rounded-xl border border-graytt-light shadow-tt bg-white transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 duration-300">
-                            <a class="relative mx-3 mt-3 flex h-48 overflow-hidden rounded-xl border-2 border-black" href="#">
+                            <a class="relative mx-3 mt-3 flex h-48 overflow-hidden rounded-xl border-2 border-black" href="/viewannounce">
                                 <img class="peer absolute top-0 right-0 h-full w-full object-cover" src="" alt="Imagem do Produto" />
                                 <img class="peer absolute top-0 -right-96 h-full w-full object-cover transition-all delay-100 duration-1000 hover:right-0 peer-hover:right-0" src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8c25lYWtlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" alt="Imagem do Produto" />
                             </a>
                             <div class="mt-4 px-5 pb-5">
-                                <a href="#">
+                                <a href="/viewannounce">
                                     <p class="truncate lg:text-left lg:mt-2 text-black">Produto</p>
                                 </a>
-                                <a href="#">
+                                <a href="/viewannounce">
                                     <p class="truncate lg:text-left lg:mt-2 text-stone-400">Tipo</p>
                                 </a>
                                 <div class="mt-2 flex items-center">

@@ -40,6 +40,14 @@
 
 /*Fim da animação do hover*/  
 
+/*Select personalizado*/
+.custom-select {
+  -webkit-appearance: none;  /* Remove a seta padrão no Chrome, Safari e Opera */
+  -moz-appearance: none;     /* Remove a seta padrão no Firefox */
+  appearance: none;          /* Remove a seta padrão no Edge */
+  background: white url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgZmlsbD0iY3VycmVudENvbG9yIiBjbGFzcz0iYmkgYmktY2FyZXQtZG93bi1maWxsIiB2aWV3Qm94PSIwIDAgMTYgMTYiPjxwYXRoIGQ9Ik03LjI0NyAxMS4xNCAyLjQ1MSA1LjY1OEMxLjg4NSA1LjAxMyAyLjM0NSA0IDMuMjA0IDRoOS41OTJhMSAxIDAgMCAxIC43NTMgMS42NTlsLTQuNzk2IDUuNDhhMSAxIDAgMCAxLTEuNTA2IDB6Ii8+PC9zdmc+') no-repeat right 1rem center;
+  padding-right: 2.5rem; /* Ajuste o padding para criar espaço para a seta */
+}
 
 /*Fonte do Fredoka*/
 /* hebrew */
