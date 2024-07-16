@@ -49,3 +49,7 @@ Route::get('/login', function () {
 Route::get('/myaccount', function () {
     return view('myaccount');
 });
+
+Route::get('/van', function () {
+    return view('viewannounce');
+});
