@@ -14,24 +14,24 @@
     <div class="h-full min-h-screen relative">
         @include('navbar')
         <div class="bg-yellowtt-light">
-            <div class="max-w-screen-xl py-20 px-6 mx-auto overflow-hidden sm:px-8 lg:px-10 flex place-content-between">
-                <div class="mb-5">
-                    <div class="mb-16 flex flex-col justify-center items-center lg:items-start max-w-3xl lg:mt-0 lg:order-1">
-                        <h2 class="text-3xl drop-shadow-tt text-center lg:text-left text-white sm:text-6xl mb-3" style="font-family: 'Fredoka';">
+            <div class="max-w-screen-xl py-20 px-6 mx-auto overflow-hidden sm:px-8 md:px-10 items-center flex flex-col md:flex-row place-content-between">
+                <div class="mb-5 order-2 md:order-1">
+                    <div class="mb-16 flex flex-col justify-center items-center md:items-start max-w-3xl md:mt-0">
+                        <h2 class="text-3xl drop-shadow-tt text-center md:text-left text-white sm:text-6xl mb-3" style="font-family: 'Fredoka';">
                             Minha Conta
                         </h2>
-                        <p class="text-black text-lg text-center lg:text-left mb-1.5">Descrição de interesses:</p>
+                        <p class="text-black text-md text-center md:text-left mb-1.5">Descrição de interesses:</p>
                         <p class="text-graytt mb-1">Estou interessado em carrinhos de bebê para um bebê de 5 meses; Brinquedos. </p>
                         <p class="underline cursor-pointer">Editar</p>
                     </div>
-                    <div class="flex flex-col justify-center items-center lg:items-start max-w-3xl lg:mt-0 lg:order-1">
+                    <div class="flex flex-col justify-center items-center md:items-start max-w-3xl md:mt-0">
                         <p>Trocando desde: 2024</p>
                         <p>Nº de trocas bem-sucedidas: **</p>
                     </div>
                 </div>
 
-                <div>
-                    <label for="perfil" class="bg-white p-10 rounded-full w-fit flex border border-black">
+                <div class="order-1 md:order-2 flex place-content-center h-fit mb-6 md:mb-0">
+                    <label for="perfil" class="bg-white p-10 rounded-full w-fit h-fit flex border border-black">
                         <img src="{{ asset('image/mais.svg') }}" width="120" height="120" alt="">
                     </label>
 
@@ -46,10 +46,10 @@
             <h3 class="text-3xl text-center lg:text-left sm:text-6xl mb-10 ml-8" style="font-family: 'Fredoka';">Informações da conta</h3>
 
             <div class="flex w-full content-evenly flex-wrap mb-14">
-                <div class="md:border-r-4 border-black px-24 md:w-1/2">
+                <div class="sm:border-r-4 border-black pl-24 sm:px-24 sm:w-1/2">
 
                     <label for="nome" class="">Nome:</label>
-                    <input type="text" name="nome" id="nome" class="shadow-tt mt-3 block w-full rounded-xl border-0 px-3.5 py-2 shadow-sm ring-1 border-2 border-graytt ring-inset ring-graytt placeholder:text-graytt-dark focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 mb-5">
+                    <input type="text" name="nome" id="nome" class="w-full shadow-tt mt-3 block w-full rounded-xl border-0 px-3.5 py-2 shadow-sm ring-1 border-2 border-graytt ring-inset ring-graytt placeholder:text-graytt-dark focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 mb-5">
 
                     <label for="sobrenome" class="">Sobrenome:</label>
                     <input type="text" name="sobrenome" id="sobrenome" class="shadow-tt mt-3 block w-full rounded-xl border-0 px-3.5 py-2 shadow-sm ring-1 border-2 border-graytt ring-inset ring-graytt placeholder:text-graytt-dark focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 mb-5">
@@ -60,7 +60,7 @@
                     <label for="nasc" class="">Data de nascimento:</label>
                     <input type="date" name="nasc" id="nasc" class="shadow-tt mt-3 block w-full max-w-40 rounded-xl border-0 px-3.5 py-2 shadow-sm ring-1 border-2 border-graytt ring-inset ring-graytt placeholder:text-graytt-dark focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 mb-5">
                 </div>
-                <div class="px-24 md:w-1/2">
+                <div class="pl-24 md:px-24 md:w-1/2">
 
                     <label for="estado" class="">Estado:</label>
                     <select id="estado" name="estado" class="shadow-tt mt-3 block w-36 rounded-xl border-0 px-3.5 py-2 shadow-sm ring-1 border-2 border-graytt ring-inset ring-graytt placeholder:text-graytt-dark focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 mb-5">
