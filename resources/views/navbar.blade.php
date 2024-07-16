@@ -8,7 +8,7 @@
     </span>
     <div class="flex flex-col ml-2 mt-3">
         <ul class="w-fit underline-animation cursor-pointer" onclick="sidebartt()">Filtros</ul>
-        <ul class="w-fit underline-animation"><a href="">Meus Artigos</a></ul>
+        <ul class="w-fit underline-animation"><a href="/meusartigos">Meus Artigos</a></ul>
         <ul class="w-fit underline-animation"><a href="">Meus Acordos</a></ul>
         <ul class="w-fit underline-animation"><a href="">Mensagens e Propostas</a></ul>
         <ul class="w-fit underline-animation"><a href="/about">Quem Somos</a></ul>
@@ -45,7 +45,7 @@
     <div class="flex place-content-evenly w-full p-2 border-b h-10 items-center border-black bg-white">
 
         <ul class="md:underline-animation hidden md:block cursor-pointer" onclick="sidebartt()">Filtros</ul>
-        <ul class="md:underline-animation hidden md:block"><a href="">Meus Artigos</a></ul>
+        <ul class="md:underline-animation hidden md:block"><a href="/meusartigos">Meus Artigos</a></ul>
         <ul class="md:underline-animation hidden md:block"><a href="">Meus Acordos</a></ul>
         <ul class="md:underline-animation hidden md:block"><a href="">Mensagens e Propostas</a></ul>
         <ul class="md:underline-animation hidden md:block"><a href="/about">Quem Somos</a></ul>
