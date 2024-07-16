@@ -1,5 +1,5 @@
 <div id="pt-footer"></div>
-<div class="absolute bottom-0 left-0 w-full" id="footer">
+<div class="absolute bottom-0 left-0 w-full z-50" id="footer">
 
     <div class="bg-repeat bg-[url('/public/image/triangulo.svg')] w-full h-8 -mt-px rotate-180"></div>
 
