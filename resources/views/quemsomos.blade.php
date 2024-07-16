@@ -32,7 +32,7 @@
                 </div>
             </div>
             <div class="bg-repeat bg-[url('/public/image/triangulo-verde.svg')] w-full h-8 -mt-px rotate-180 bg-yellowtt-light"></div>
-
+    
             <!--Como funciona-->
             <div class="bg-greentt">
                 <div class="max-w-screen-xl px-4 mx-auto space-y-8 overflow-hidden sm:px-6 lg:px-8">
