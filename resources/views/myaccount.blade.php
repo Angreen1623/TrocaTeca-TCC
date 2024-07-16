@@ -15,9 +15,12 @@
         @include('navbar')
         <div class="bg-yellowtt-light">
             <div class="max-w-screen-xl py-20 px-6 mx-auto overflow-hidden sm:px-8 md:px-10 items-center flex flex-col md:flex-row place-content-between">
+                <h2 class="text-3xl drop-shadow-tt text-center md:text-left text-white sm:text-6xl mb-3 md:hidden" style="font-family: 'Fredoka';">
+                    Minha Conta
+                </h2>
                 <div class="mb-5 order-2 md:order-1">
                     <div class="mb-16 flex flex-col justify-center items-center md:items-start max-w-3xl md:mt-0">
-                        <h2 class="text-3xl drop-shadow-tt text-center md:text-left text-white sm:text-6xl mb-3" style="font-family: 'Fredoka';">
+                        <h2 class="text-3xl drop-shadow-tt text-center md:text-left text-white sm:text-6xl mb-3 hidden md:block" style="font-family: 'Fredoka';">
                             Minha Conta
                         </h2>
                         <p class="text-black text-md text-center md:text-left mb-1.5">Descrição de interesses:</p>
