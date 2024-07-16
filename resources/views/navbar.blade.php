@@ -38,7 +38,7 @@
             </span>
         </div>
         <div>
-            <p class="hidden md:block"> <a href="/login" class="font-bold">Logar</a> ou <a href="" class="font-bold">cadastrar-se</a></p>
+            <p class="hidden md:block"> <a href="/login" class="underline-animation font-bold">Logar</a> ou <a href="" class="underline-animation font-bold">cadastrar-se</a></p>
         </div>
 
     </div>
