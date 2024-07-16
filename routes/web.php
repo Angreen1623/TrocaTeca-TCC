@@ -50,6 +50,10 @@ Route::get('/myaccount', function () {
     return view('myaccount');
 });
 
+Route::get('/meusartigos', function () {
+    return view('meusartigos');
+});
+
 Route::get('/ann', function () {
     return view('annoaccount');
 });
