@@ -2,7 +2,7 @@
 
 @include('sidebar')
 
-<div id="sandwich" class="fixed w-96 h-96 bg-bluett top-0 left-0 z-50 translate-x-[-100%] duration-300 max-w-96 w-full rounded-lg">
+<div id="sandwich" class="fixed w-96 h-screen bg-white top-0 left-0 z-50 translate-x-[-100%] duration-300 max-w-96 w-full rounded-lg">
     <span onclick="sandwich()" class="absolute cursor-pointer right-0">
         <img src="{{ asset('image/mais.svg') }}" alt="" width="30" class="rotate-45">
     </span>
