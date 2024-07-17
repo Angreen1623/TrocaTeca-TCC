@@ -30,7 +30,7 @@
                     </div>
 
                     <div>
-                        <span class="text-2xl">Angélica</span>
+                        <span class="text-3xl">Angélica</span>
                     </div>
 
                 </div>
