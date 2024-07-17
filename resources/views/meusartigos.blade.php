@@ -27,9 +27,9 @@
                     <hr class="h-px bg-black border-2 border-black">
 
 
-                    <!--Card do anúncio com preço sugerido-->
+                    <!--Card do anúncio sem preço sugerido-->
                     <div class="grid grid-cols-1 gap-4 justify-items-center">
-                        <div class="w-full max-w-xs mt-6 mb-9 sm:max-w-none">
+                        <div class="w-full max-w-48 mt-6 mb-9 sm:max-w-none">
                             <a href="#">
                                 <div class="flex flex-col sm:flex-row gap-3 bg-white rounded-3xl overflow-hidden items-center justify-start border-2 border-graytt-light shadow-tt transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-105 duration-300">
                                     <div class="flex justify-center w-full sm:w-auto">
@@ -49,9 +49,9 @@
 
                     <!--Card do anúncio com preço sugerido-->
                     <div class="grid grid-cols-1 gap-4 justify-items-center">
-                        <div class="w-full mt-6 mb-9">
+                        <div class="w-full max-w-48 mt-6 mb-9 sm:max-w-none">
                             <a href="#">
-                                <div class="flex gap-3 bg-white rounded-3xl overflow-hidden items-center justify-start border-2 border-graytt-light shadow-tt transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-105 duration-300">
+                                <div class="flex flex-col sm:flex-row gap-3 bg-white rounded-3xl overflow-hidden items-center justify-start border-2 border-graytt-light shadow-tt transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-105 duration-300">
                                     <div class="ml-3 mt-3 mb-3 overflow-hidden relative w-20 h-20 flex-shrink-0 border-2 border-graytt-light rounded-xl ">
                                         <img class="rounded-xl w-full h-full object-cover object-center transition duration-50" loading="lazy" src="">
                                     </div>
