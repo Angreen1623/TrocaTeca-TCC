@@ -41,6 +41,12 @@
                                         <p class="truncate text-black text-xs sm:text-lg md:text-xl lg:text-2xl xl:text-3xl">Bob esponja agiota novo</p>
                                         <p class="truncate text-stone-400 text-xs sm:text-sm md:text-base lg:text-base xl:text-lg">Tipo</p>
                                     </div>
+
+                                    <div class="sm:pl-6 flex sm:h-20 sm:basis-2/5 sm:border-l border-black items-end sm:mb-0 mb-3 invisible">
+                                        <p class="text-black text-xs sm:text-sm md:text-base lg:text-base xl:text-lg">Valor sugerido:
+                                        <h1 class="font-bold text-pinktt ml-2 text-xs sm:text-sm md:text-base lg:text-base xl:text-lg">25,99</h1>
+                                        </p>
+                                    </div>
                                 </div>
                             </a>
                         </div>
@@ -51,17 +57,17 @@
                     <div class="grid grid-cols-1 gap-4 justify-items-center">
                         <div class="w-full max-w-48 mt-6 mb-9 sm:max-w-none">
                             <a href="#">
-                                <div class="flex flex-col sm:flex-row gap-3 bg-white rounded-3xl overflow-hidden items-center justify-start border-2 border-graytt-light shadow-tt transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-105 duration-300">
+                                <div class="flex flex-col sm:flex-row gap-3 bg-white rounded-3xl overflow-hidden items-center sm:justify-start border-2 border-graytt-light shadow-tt transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-105 duration-300">
                                     <div class="ml-3 mt-3 mb-3 overflow-hidden relative w-20 h-20 flex-shrink-0 border-2 border-graytt-light rounded-xl ">
                                         <img class="rounded-xl w-full h-full object-cover object-center transition duration-50" loading="lazy" src="">
                                     </div>
-                                    <div class="basis-2/5 flex flex-col gap-2 py-2  w-full">
+                                    <div class="sm:basis-2/5 sm:w-full w-fit flex flex-col gap-2 py-2 text-center sm:text-left">
                                         <p class="truncate text-black text-xs sm:text-lg md:text-xl lg:text-2xl xl:text-3xl">Produto</p>
-                                        <p class="truncate text-stone-400 text-xs sm:text-sm md:text-base lg:text-base xl:text-lg">Tipo</p>
+                                        <p class="text-stone-400 text-xs sm:text-sm md:text-base lg:text-base xl:text-lg">Tipo</p>
                                     </div>
-                                    <div class="pl-6 flex h-20 basis-2/5 border-l border-black items-end pl-24">
-                                        <p class="truncate text-black text-xs sm:text-sm md:text-base lg:text-base xl:text-lg">Valor sugerido:
-                                        <h1 class="font-bold text-pinktt ml-2 text-xl">25,99</h1>
+                                    <div class="sm:pl-6 flex sm:h-20 sm:basis-2/5 sm:border-l border-black items-end sm:mb-0 mb-3">
+                                        <p class="text-black text-xs sm:text-sm md:text-base lg:text-base xl:text-lg">Valor sugerido:
+                                        <h1 class="font-bold text-pinktt ml-2 text-xs sm:text-sm md:text-base lg:text-base xl:text-lg">25,99</h1>
                                         </p>
                                     </div>
                                 </div>

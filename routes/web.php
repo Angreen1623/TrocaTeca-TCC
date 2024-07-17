@@ -10,30 +10,6 @@ Route::get('/about', function () {
     return view('quemsomos');
 });
 
-Route::get('/warning', function () {
-    return view('warningm');
-});
-
-Route::get('/reportanum', function () {
-    return view('reportanum');
-});
-
-Route::get('/give', function () {
-    return view('giveuptrade');
-});
-
-Route::get('/rechat', function () {
-    return view('reportchatm');
-});
-
-Route::get('/newpr', function () {
-    return view('newproposem');
-});
-
-Route::get('/finalp', function () {
-    return view('finalpropose');
-});
-
 Route::get('/announce', function () {
     return view('announcepro');
 });

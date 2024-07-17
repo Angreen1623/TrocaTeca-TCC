@@ -34,8 +34,8 @@
                     </div>
 
                     <div class="order-1 md:order-2 flex place-content-center h-fit mb-6 md:mb-0">
-                        <label for="perfil" class="bg-white p-10 rounded-full w-fit h-fit flex border border-black">
-                            <img src="{{ asset('image/reginaldo.jpg') }}" width="120" height="120" alt="">
+                        <label for="perfil" class="rounded-full w-44 h-44 flex border border-black overflow-hidden">
+                            <img src="{{ asset('image/reginaldo.jpg') }}" alt="">
                         </label>
                     </div>
                 </div>
