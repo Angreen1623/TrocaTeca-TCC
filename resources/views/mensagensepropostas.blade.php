@@ -46,7 +46,7 @@
                                         <p class="sm:truncate text-center sm:text-left text-black text-xs sm:text-sm md:text-base lg:text-base xl:text-lg">Proposta: Uma boneca Barbie</p>
                                     </div>
                                     <div class="flex place-content-end w-full sm:w-auto sm:h-20 items-end mr-6">
-                                        <p class="mr-2 mb-0.5 text-black text-xs hidden sm:block">Proposta em andamento</p>
+                                        <p class="mr-2 mb-0.5 text-black text-xs hidden lg:block">Proposta em andamento</p>
                                         <svg class="mb-3 sm:mb-0" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" zoomAndPan="magnify" viewBox="0 0 810 809.999993" height="20" preserveAspectRatio="xMidYMid meet" version="1.0">
                                             <path fill="#fff500" d="M 405 0 C 628.675781 0 810 181.324219 810 405 C 810 628.675781 628.675781 810 405 810 C 181.324219 810 0 628.675781 0 405 C 0 181.324219 181.324219 0 405 0 Z M 405 0 " fill-opacity="1" fill-rule="evenodd" />
                                         </svg>
@@ -76,7 +76,7 @@
                                         <p class="sm:truncate text-center sm:text-left text-black text-xs sm:text-sm md:text-base lg:text-base xl:text-lg">Proposta: Uma boneca Barbie</p>
                                     </div>
                                     <div class="flex place-content-end w-full sm:w-auto sm:h-20 items-end mr-6">
-                                        <p class="mr-2 mb-0.5 text-black text-xs hidden sm:block">Proposta finalizada</p>
+                                        <p class="mr-2 mb-0.5 text-black text-xs hidden lg:block">Proposta finalizada</p>
                                         <svg class="mb-3 sm:mb-0" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" zoomAndPan="magnify" viewBox="0 0 810 809.999993" height="20" preserveAspectRatio="xMidYMid meet" version="1.0">
                                             <path fill="#00BF63" d="M 405 0 C 628.675781 0 810 181.324219 810 405 C 810 628.675781 628.675781 810 405 810 C 181.324219 810 0 628.675781 0 405 C 0 181.324219 181.324219 0 405 0 Z M 405 0 " fill-opacity="1" fill-rule="evenodd" />
                                         </svg>
