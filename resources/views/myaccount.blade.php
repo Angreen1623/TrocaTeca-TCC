@@ -112,6 +112,8 @@
 
             document.getElementById('cancelInative').addEventListener('click', function () {
                 modalContainer.classList.add('hidden');
+                document.body.classList.remove('overflow-hidden');
+
             });
         });
 
