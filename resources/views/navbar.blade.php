@@ -7,9 +7,21 @@
         <img src="{{ asset('image/mais.svg') }}" alt="" width="30" class="rotate-45">
     </span>
     <div class="flex flex-col ml-2 mt-3">
-        <ul class="w-fit underline-animation cursor-pointer" onclick="sidebartt()">Filtros</ul>
+        <button class="group focus:outline-none">
+			<div class="flex flex-row w-fit items-center">
+				<span class="truncate underline-animation">Filtros</span>
+				<svg class="flex h-4 w-4 flex flex-row" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+					<path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+				</svg>
+			</div>
+			<div class="max-h-0 overflow-hidden duration-300 group-focus:max-h-40">
+				<a class="flex items-center h-8 px-4 text-sm hover:bg-gray-200" href="#"><p class="underline-animation">Item A</p></a>
+				<a class="flex items-center h-8 px-4 text-sm hover:bg-gray-200" href="#"><p class="underline-animation">Item B</p></a>
+				<a class="flex items-center h-8 px-4 text-sm hover:bg-gray-200" href="#"><p class="underline-animation">Item C</p></a>
+			</div>
+		</button>
         <ul class="w-fit underline-animation"><a href="/meusartigos">Meus Artigos</a></ul>
-        <ul class="w-fit underline-animation"><a href="">Meus Acordos</a></ul>
+        <ul class="w-fit underline-animation"><a href="/meusacordos">Meus Acordos</a></ul>
         <ul class="w-fit underline-animation"><a href="">Mensagens e Propostas</a></ul>
         <ul class="w-fit underline-animation"><a href="/about">Quem Somos</a></ul>
         <ul class="w-fit underline-animation"><a href="">Cadastrar</a></ul>
@@ -37,7 +49,7 @@
                 </svg>
             </span>
         </div>
-        <div>
+        <div class="sm:ml-6">
             <p class="hidden md:block"> <a href="/login" class="underline-animation font-bold">Logar</a> ou <a href="" class="underline-animation font-bold">Cadastrar-se</a></p>
         </div>
 
@@ -46,7 +58,7 @@
 
         <ul class="md:underline-animation hidden md:block cursor-pointer" onclick="sidebartt()">Filtros</ul>
         <ul class="md:underline-animation hidden md:block"><a href="/meusartigos">Meus Artigos</a></ul>
-        <ul class="md:underline-animation hidden md:block"><a href="">Meus Acordos</a></ul>
+        <ul class="md:underline-animation hidden md:block"><a href="/meusacordos">Meus Acordos</a></ul>
         <ul class="md:underline-animation hidden md:block"><a href="">Mensagens e Propostas</a></ul>
         <ul class="md:underline-animation hidden md:block"><a href="/about">Quem Somos</a></ul>
 
