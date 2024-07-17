@@ -19,7 +19,7 @@
                     <div class="lg:flex lg:justify-between lg:items-center flex flex-col-reverse lg:flex-row">
                         <div class="mb-3 flex flex-col justify-center items-center lg:items-start space-y-4 max-w-3xl lg:mt-0 lg:order-1">
                             <h2 class="mt-10 text-3xl text-center lg:text-left text-black sm:text-4xl" style="font-family: 'Fredoka';">
-                                Mensagens e Propostas
+                                Meus acordos
                             </h2>
 
                         </div>
@@ -27,7 +27,7 @@
                     <hr class="h-px bg-black border-2 border-black">
 
 
-                    <!--Card da mensagem e proposta-->
+                    <!--Card do acordo-->
                     <div class="grid grid-cols-1 gap-4 justify-items-center">
                         <div class="w-full mt-6 mb-9">
                             <a href="#">
@@ -44,6 +44,10 @@
                                         <p class="mb-2 truncate text-black text-xs sm:text-sm md:text-base lg:text-base xl:text-lg">Anúncio: 5 carrinhos hot wheels</p>
                                         <p class="truncate text-black text-xs sm:text-sm md:text-base lg:text-base xl:text-lg">Proposta: Uma boneca Barbie</p>
                                     </div>
+                                    <div class="truncate max-w-46 flex flex-col gap-2 py-2 w-full ml-20 pl-6 h-20 border-l border-black pl-24">
+                                        <p class="mt-1 mb-5 truncate text-black text-black text-xs">Data de encontro: xx/xx/xxxx</p>
+                                        <p class="truncate text-black text-black text-xs">Local de encontro: xxxxxxxxxxxx</p>
+                                    </div>
                                     <div class="flex place-content-end w-full h-20 items-end mr-6">
                                         <p class="mr-2 mb-0.5 text-black text-xs">Proposta em andamento</p>
                                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" zoomAndPan="magnify" viewBox="0 0 810 809.999993" height="20" preserveAspectRatio="xMidYMid meet" version="1.0">
@@ -53,6 +57,7 @@
                                 </div>
                             </a>
                         </div>
+
 
                         <!--Card do acordo finalizado-->
 
@@ -71,6 +76,10 @@
                                         <p class="mb-2 truncate text-black text-xs sm:text-sm md:text-base lg:text-base xl:text-lg">Anúncio: 5 carrinhos hot wheels</p>
                                         <p class="truncate text-black text-xs sm:text-sm md:text-base lg:text-base xl:text-lg">Proposta: Uma boneca Barbie</p>
                                     </div>
+                                    <div class="truncate max-w-46 flex flex-col gap-2 py-2 w-full ml-20 pl-6 h-20 border-l border-black pl-24">
+                                        <p class="mt-1 mb-5 truncate text-black text-black text-xs">Data de encontro: xx/xx/xxxx</p>
+                                        <p class="truncate text-black text-black text-xs">Local de encontro: xxxxxxxxxxxx</p>
+                                    </div>
                                     <div class="flex place-content-end w-full h-20 items-end mr-6">
                                         <p class="mr-2 mb-0.5 text-black text-xs">Proposta finalizada</p>
                                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" zoomAndPan="magnify" viewBox="0 0 810 809.999993" height="20" preserveAspectRatio="xMidYMid meet" version="1.0">
@@ -80,6 +89,9 @@
                                 </div>
                             </a>
                         </div>
+
+
+
 
 
                     </div>

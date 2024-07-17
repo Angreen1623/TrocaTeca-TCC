@@ -65,3 +65,7 @@ Route::get('/viewannounce', function () {
 Route::get('/mep', function () {
     return view('mensagensepropostas');
 });
+
+Route::get('/meusacordos', function () {
+    return view('meusacordos');
+});
