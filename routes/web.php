@@ -61,3 +61,11 @@ Route::get('/ann', function () {
 Route::get('/viewannounce', function () {
     return view('viewannounce');
 });
+
+Route::get('/mep', function () {
+    return view('mensagensepropostas');
+});
+
+Route::get('/meusacordos', function () {
+    return view('meusacordos');
+});
