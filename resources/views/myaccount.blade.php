@@ -115,6 +115,10 @@
             });
         });
 
+      document.getElementById('openwarningButton').addEventListener('click', function () {
+            document.body.classList.add('overflow-hidden');
+            document.getElementById('modalContainer').classList.remove('hidden');
+        });
         </script>   
 </body>
 
