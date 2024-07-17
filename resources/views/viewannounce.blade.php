@@ -85,25 +85,15 @@
 
       //Incluir o modal de enviar proposta
         document.addEventListener('DOMContentLoaded', function () {
-        const openReportButton = document.getElementById('openReportButton');
-        const modalContainer = document.getElementById('modalContainer');
         const openNewProposalButton = document.getElementById('openNewProposalButton');
         const modalNewProposal = document.getElementById('modalNewProposal');
 
-        openReportButton.addEventListener('click', function (e) {
-            e.preventDefault();
-            modalContainer.classList.remove('hidden');
-        });
 
         openNewProposalButton.addEventListener('click', function (e) {
             e.preventDefault();
             modalNewProposal.classList.remove('hidden');
         });
-
-        document.getElementById('cancelReport').addEventListener('click', function () {
-            modalContainer.classList.add('hidden');
-        });
-
+        
         document.getElementById('cancelNewProposal').addEventListener('click', function () {
             modalNewProposal.classList.add('hidden');
         });
