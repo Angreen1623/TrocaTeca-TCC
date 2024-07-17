@@ -89,9 +89,9 @@
                             </div>
                         </div>
                         
-                        <!-- Card do acordo finalizado -->
+<!-- Card do acordo finalizado -->
 
-                        <div class="grid grid-cols-1 gap-4 justify-items-center w-full">
+<div class="grid grid-cols-1 gap-4 justify-items-center w-full">
                             <div class="w-full max-w-48 mt-6 mb-9 lg:max-w-none">
                                 <a href="#">
                                     <div class="flex flex-col lg:flex-row gap-3 bg-white rounded-3xl overflow-hidden items-center justify-start border-2 border-graytt-light shadow-tt transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-105 duration-300">
@@ -147,7 +147,7 @@
                                     </div>
                                 </a>
                             </div>
-                        </div>
+                        </div>                      
                         
                     </div>
                 </div>
