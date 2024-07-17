@@ -45,3 +45,7 @@ Route::get('/mep', function () {
 Route::get('/meusacordos', function () {
     return view('meusacordos');
 });
+
+Route::get('/chat', function () {
+    return view('chat');
+});
