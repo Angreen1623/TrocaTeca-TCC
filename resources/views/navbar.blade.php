@@ -70,7 +70,7 @@
         <ul class="md:underline-animation hidden md:block cursor-pointer" onclick="sidebartt()">Filtros</ul>
         <ul class="md:underline-animation hidden md:block"><a href="/meusartigos">Meus Artigos</a></ul>
         <ul class="md:underline-animation hidden md:block"><a href="/meusacordos">Meus Acordos</a></ul>
-        <ul class="md:underline-animation hidden md:block"><a href="">Mensagens e Propostas</a></ul>
+        <ul class="md:underline-animation hidden md:block"><a href="/mep">Mensagens e Propostas</a></ul>
         <ul class="md:underline-animation hidden md:block"><a href="/about">Quem Somos</a></ul>
 
         <div class="w-96 rounded-full flex bg-white items-center ps-5 md:hidden border-2 h-8">

@@ -62,13 +62,12 @@
         @include('footer')
     </div>
 
-      <!-- Incluir os modais de denunciar anúncio e enviar proposta-->  
+    <!-- Incluir os modais de denunciar anúncio e enviar proposta-->
     @include('reportanum')
     @include('newproposem')
 
     <script>
-      
-      //Incluir o modal de denunciar anúncio 
+        //inclusão do modal de denuniar
         document.addEventListener('DOMContentLoaded', function () {
             const openReportButton = document.getElementById('openReportButton');
             const modalContainer = document.getElementById('modalContainer');
@@ -76,30 +75,30 @@
             openReportButton.addEventListener('click', function (e) {
                 e.preventDefault();
                 modalContainer.classList.remove('hidden');
+                document.body.classList.add('overflow-hidden');
             });
 
             document.getElementById('cancelReport').addEventListener('click', function () {
                 modalContainer.classList.add('hidden');
+                document.body.classList.remove('overflow-hidden');
+            });
+            //inclusão do modal de nova proposta
+            const openNewProposalButton = document.getElementById('openNewProposalButton');
+            const modalNewProposal = document.getElementById('modalNewProposal');
+
+            openNewProposalButton.addEventListener('click', function (e) {
+                e.preventDefault();
+                modalNewProposal.classList.remove('hidden');
+                document.body.classList.add('overflow-hidden');
+            });
+
+            document.getElementById('cancelNewProposal').addEventListener('click', function () {
+                modalNewProposal.classList.add('hidden');
+                document.body.classList.remove('overflow-hidden');
             });
         });
-
-      //Incluir o modal de enviar proposta
-        document.addEventListener('DOMContentLoaded', function () {
-        const openNewProposalButton = document.getElementById('openNewProposalButton');
-        const modalNewProposal = document.getElementById('modalNewProposal');
-
-
-        openNewProposalButton.addEventListener('click', function (e) {
-            e.preventDefault();
-            modalNewProposal.classList.remove('hidden');
-        });
-        
-        document.getElementById('cancelNewProposal').addEventListener('click', function () {
-            modalNewProposal.classList.add('hidden');
-        });
-    });
     </script>
-    
+
 </body>
 
 </html>
