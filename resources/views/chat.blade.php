@@ -41,7 +41,7 @@
                     <button id="openGiveupButton" type="button" class="mb-3 p-3 bg-white border-black border rounded-xl hover:bg-graytt-light text-black text-md font-medium rounded-2xl">
                     Desistir da troca
                     </button>
-                        <button type="button" class="bg-white p-3 border-black border rounded-xl hover:bg-graytt-light text-black text-md font-medium rounded-2xl">
+                        <button id="openDenunButton" type="button" class="bg-white p-3 border-black border rounded-xl hover:bg-graytt-light text-black text-md font-medium rounded-2xl">
                             Denunciar conversa</button>
                     </div>
                 </div>
@@ -51,7 +51,6 @@
         </div>
 
         <div class="">
-
         </div>
 
         <div class="absolute bottom-0 left-0 w-full z-50">
@@ -83,8 +82,44 @@
     </div>
 
     @include ('giveuptrade')
+    @include ('reportchatm')
 
     <script lang="Javascript">
+
+        //modal de desistir da troca
+            document.addEventListener('DOMContentLoaded', function () {
+            const openGiveupButton = document.getElementById('openGiveupButton');
+            const modalContainer = document.getElementById('modalContainer');
+
+             openGiveupButton.addEventListener('click', function (e) {
+                e.preventDefault();
+                modalContainer.classList.remove('hidden');
+                document.body.classList.add('overflow-hidden');
+            });
+
+            document.getElementById('cancelGiveupButton').addEventListener('click', function () {
+                modalContainer.classList.add('hidden');
+                document.body.classList.remove('overflow-hidden');
+            });
+        }); 
+
+        //modal de denunciar conversa
+            document.addEventListener('DOMContentLoaded', function () {
+            const openDenunButton = document.getElementById('openDenunButton');
+            const modalContainer = document.getElementById('modalContainer');
+
+            openDenunButton.addEventListener('click', function (e) {
+                e.preventDefault();
+                modalContainer.classList.remove('hidden');
+                document.body.classList.add('overflow-hidden');
+            });
+
+            document.getElementById('cancelDenunButton').addEventListener('click', function () {
+                modalContainer.classList.add('hidden');
+                document.body.classList.remove('overflow-hidden');
+            });
+        }); 
+
         //footer do chat de conversa
         var pt_footer = document.getElementById("pt-footer");
         var footer = document.getElementById('footer');
@@ -100,32 +135,8 @@
         //menu flutuante
         function menuflutuante(){
             var menuflu = document.getElementById("menuflu");
-
-
             menuflu.classList.toggle('hidden');
         }
-
-        function menuflutuante() {
-            document.getElementById('menuflu').classList.toggle('hidden');
-        }
-
-        //modal de desistir da troca
-            document.addEventListener('DOMContentLoaded', function () {
-               const openGiveupButton = document.getElementById('openGiveupButton');
-               const modalContainer = document.getElementById('modalContainer');
-
-             openGiveupButton.addEventListener('click', function (e) {
-                e.preventDefault();
-                modalContainer.classList.remove('hidden');
-                document.body.classList.add('overflow-hidden');
-            });
-
-            document.getElementById('cancelGiveupButton').addEventListener('click', function () {
-                modalContainer.classList.add('hidden');
-                document.body.classList.remove('overflow-hidden');
-            });
-        });       
-        
 
     </script>
 </body>
