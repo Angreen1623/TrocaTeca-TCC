@@ -31,8 +31,7 @@
                         <!-- Card do acordo finalizado -->
 
                         <div class="grid grid-cols-1 gap-4 justify-items-center w-full">
-                            <div class="w-full max-w-48 mt-6 mb-9 lg:max-w-none">
-                                <a href="#">
+                            <div class="w-full max-w-48 mt-6 mb-9 lg:max-w-none cursor-pointer" id="openReportButton">
                                     <div class="flex flex-col lg:flex-row gap-3 bg-white rounded-3xl overflow-hidden items-center justify-start border-2 border-graytt-light shadow-tt transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-105 duration-300">
                                         <div class="flex justify-center w-full lg:w-auto">
                                             <div class="ml-3 mt-3 mb-3 overflow-hidden relative w-20 h-20 flex-shrink-0 border-2 border-graytt-light rounded-full">
@@ -54,7 +53,6 @@
                                             </svg>
                                         </div>
                                     </div>
-                                </a>
                             </div>
                         </div>
 
@@ -96,6 +94,36 @@
         </div>
         @include('footer')
     </div>
+ <!-- Incluir os modais de denunciar anúncio e enviar proposta-->
+ @include('modalvalidar')
+    <script>
+        //inclusão do modal de validar
+        document.addEventListener('DOMContentLoaded', function () {
+            const openReportButton = document.getElementById('openReportButton');
+            const modalContainer = document.getElementById('modalContainer');
+
+            openReportButton.addEventListener('click', function (e) {
+                e.preventDefault();
+                modalContainer.classList.remove('hidden');
+                document.body.classList.add('overflow-hidden');
+            });
+
+            document.getElementById('cancelInative').addEventListener('click', function () {
+                modalContainer.classList.add('hidden');
+                document.body.classList.remove('overflow-hidden');
+            });
+        });
+    </script>
+
+</body>
+
+</html>
+
+
+
+
+
+
 </body>
 
 </html>
