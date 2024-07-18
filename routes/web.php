@@ -49,3 +49,7 @@ Route::get('/meusacordos', function () {
 Route::get('/chat', function () {
     return view('chat');
 });
+
+Route::get('/validar', function () {
+    return view('modalvalidar');
+});
