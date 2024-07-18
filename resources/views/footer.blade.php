@@ -4,13 +4,14 @@
     <div class="bg-repeat bg-[url('/public/image/triangulo.svg')] w-full h-8 -mt-px rotate-180"></div>
 
     <footer class="bg-greentt-light flex">
-
-        <div class="place-content-center">
-            <img src="{{ asset('image/logo.png') }}" width="300" alt="">
+    <div class="flex flex-col w-full items-center sm:flex-row justify-between px-10">
+        <div class="place-content-center mt-3 sm:mt-0">
+            <img src="{{ asset('image/logo-full.png') }}" width="300" alt="">
         </div>
 
-        <div class="max-w-screen-xl px-4 py-12 mx-auto space-y-8 overflow-hidden sm:px-6 lg:px-8">   
-            <nav class="flex flex-wrap -mx-5 -my-2">
+        <div class="max-w-screen-xl px-4 py-12 space-y-8 overflow-hidden sm:px-6 lg:px-8">   
+            <nav class="flex flex-wrap justify-center sm:justify-end -mx-5 -my-2">
+             <div class="flex"> 
                 <div class="px-5 py-2">
                     <a href="/about" class="text-base leading-6 underline-animation">
                         Quem somos
@@ -26,6 +27,10 @@
                         Team
                     </a>
                 </div>
+
+            </div>
+
+            <div class="flex">
                 <div class="px-5 py-2">
                     <a href="#" class="text-base leading-6 underline-animation">
                         Pricing
@@ -41,8 +46,11 @@
                         Terms
                     </a>
                 </div>
+            </div>
+
             </nav>
-            <div class="flex justify-end mt-8 space-x-6">
+
+            <div class="flex place-content-center sm:justify-end mt-8 space-x-6">
                 <a href="#" class="">
                     <span class="sr-only">Facebook</span>
                     <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 24 24">
@@ -62,10 +70,11 @@
                     </svg>
                 </a>
             </div>
-            <div class="place-content-end">
-                <p class="mt-8 text-base text-right leading-6"> © 2024 TrocaTeca, Inc. All rights will be reserved. </p>
+            <div>
+                <p class="mt-8 text-base text-center sm:text-right leading-6"> © 2024 TrocaTeca, Inc. All rights will be reserved. </p>
             </div>
         </div>
+    </div>
     </footer>
 </div>
 
