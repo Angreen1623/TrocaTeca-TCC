@@ -26,7 +26,6 @@
                     </div>
                     <hr class="h-px bg-black border-2 border-black">
 
-
                     <!--Card do anúncio sem preço sugerido-->
                     <div class="grid grid-cols-1 gap-4 justify-items-center">
                         <div class="w-full max-w-48 mt-6 mb-9 sm:max-w-none">
