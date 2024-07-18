@@ -37,7 +37,7 @@
 
                 <div class="h-10 w-10 flex cursor-pointer relative" onclick="menuflutuante()">
                     <svg fill="#000000" viewBox="0 0 32 32" enable-background="new 0 0 32 32" id="Glyph" version="1.1" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M13,16c0,1.654,1.346,3,3,3s3-1.346,3-3s-1.346-3-3-3S13,14.346,13,16z" id="XMLID_294_"></path><path d="M13,26c0,1.654,1.346,3,3,3s3-1.346,3-3s-1.346-3-3-3S13,24.346,13,26z" id="XMLID_295_"></path><path d="M13,6c0,1.654,1.346,3,3,3s3-1.346,3-3s-1.346-3-3-3S13,4.346,13,6z" id="XMLID_297_"></path></g></svg>
-                    <div id="menuflu" class="flex flex-col absolute hidden justify-center bg-bluett w-52 px-3 py-2 bottom-[-180px] left-[-190px] border-black border rounded-b-lg rounded-l-lg">
+                    <div id="menuflu" class="flex flex-col absolute hidden justify-center bg-bluett w-56 px-3 py-2 bottom-[-170px] left-[-205px] border-black border rounded-b-lg rounded-l-lg">
                     <button id="openGiveupButton" type="button" class="mb-3 p-3 bg-white border-black border rounded-xl hover:bg-graytt-light text-black text-md font-medium rounded-2xl">
                     Desistir da troca
                     </button>
