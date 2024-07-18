@@ -82,6 +82,7 @@
                 modalContainer.classList.add('hidden');
                 document.body.classList.remove('overflow-hidden');
             });
+            
             //inclusão do modal de nova proposta
             const openNewProposalButton = document.getElementById('openNewProposalButton');
             const modalNewProposal = document.getElementById('modalNewProposal');
