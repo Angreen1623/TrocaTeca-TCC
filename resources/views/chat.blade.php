@@ -109,21 +109,24 @@
             document.getElementById('menuflu').classList.toggle('hidden');
         }
 
-//modal de desistir da troca
-document.addEventListener('DOMContentLoaded', function() {
-    const openGiveupButton = document.getElementById('openGiveupButton');
-    const giveupModal = document.getElementById('giveupModal');
+        //modal de desistir da troca
+            document.addEventListener('DOMContentLoaded', function () {
+               const openGiveupButton = document.getElementById('openGiveupButton');
+               const modalContainer = document.getElementById('modalContainer');
 
-    openGiveupButton.addEventListener('click', () => {
-        giveupModal.classList.remove('hidden'); // Mostra o modal
-        document.body.classList.add('overflow-hidden'); // Impede o scroll da página de fundo
-    });
+             openGiveupButton.addEventListener('click', function (e) {
+                e.preventDefault();
+                modalContainer.classList.remove('hidden');
+                document.body.classList.add('overflow-hidden');
+            });
 
-    document.getElementById('cancelGiveupButton').addEventListener('click', () => {
-        giveupModal.classList.add('hidden'); // Esconde o modal ao cancelar
-        document.body.classList.remove('overflow-hidden'); // Remove a restrição de scroll
-    });
-});
+            document.getElementById('cancelGiveupButton').addEventListener('click', function () {
+                modalContainer.classList.add('hidden');
+                document.body.classList.remove('overflow-hidden');
+            });
+        });       
+        
+
     </script>
 </body>
 
