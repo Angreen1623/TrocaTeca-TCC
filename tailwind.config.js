@@ -18,6 +18,7 @@ module.exports = {
         emerald: colors.emerald,
         indigo: colors.indigo,
         yellow: colors.yellow,
+
         backgtt: {
           DEFAULT: '#FFFAF4', // creme do background do site
         },
@@ -46,7 +47,7 @@ module.exports = {
         yellowtt: {
           light: '#FFFB94', //amarelo da conta do perfil dos usuários
           default: '#FFF500', //amarelo do identificador de proposta em andamento
-        }
+        },
       },
       fontFamily: { //fontes do site
         'fredokatt': ['Fredoka', 'sans-serif'],

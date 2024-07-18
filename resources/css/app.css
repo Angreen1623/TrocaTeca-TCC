@@ -40,6 +40,12 @@
 
 /*Fim da animação do hover*/  
 
+/*cor das sombras*/
+.bg-shadowtt {
+ background-color: hsla(0, 0%, 0%, 0.300);
+}
+
+
 /*Select personalizado*/
 .custom-select {
   -webkit-appearance: none;  /* Remove a seta padrão no Chrome, Safari e Opera */
