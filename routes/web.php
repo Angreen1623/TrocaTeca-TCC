@@ -19,8 +19,8 @@ Route::get('/edannounce', function () {
     return view('editannounce');
 });
 
-Route::get('/login', function () {
-    return view('login');
+Route::get('/loginb', function () {
+    return view('loginb');
 });
 
 Route::get('/myaccount', function () {
