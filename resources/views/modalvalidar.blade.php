@@ -34,7 +34,7 @@
         01/01/24
       </p>
       <hr class="h-px bg-black border-2 border-black">
-      <h1 class="text-lg sm:text-xl md:text-2xl lg:text-xl font-bold text-left text-black font-fredokatt mb-1">Atenção: Valide a troca somente mediante ao encontro e recebimento do artigo.</h1>
+      <h1 class="text-lg sm:text-xl md:text-2xl lg:text-xl font-bold text-left text-redtt font-fredokatt mb-1">Atenção: Valide a troca somente mediante ao encontro e recebimento do artigo.</h1>
       <!-- Checkbox de confirmação de consentimento -->
       <div class="mt-4 flex items-center gap-2">
         <input type="checkbox" id="confirm" name="confirm" class="mr-2 peer">
