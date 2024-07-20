@@ -106,16 +106,16 @@
         //modal de denunciar conversa
             document.addEventListener('DOMContentLoaded', function () {
             const openDenunButton = document.getElementById('openDenunButton');
-            const modalContainer = document.getElementById('modalContainer');
+            const DenunContainer = document.getElementById('DenunContainer');
 
             openDenunButton.addEventListener('click', function (e) {
                 e.preventDefault();
-                modalContainer.classList.remove('hidden');
+                DenunContainer.classList.remove('hidden');
                 document.body.classList.add('overflow-hidden');
             });
 
             document.getElementById('cancelDenunButton').addEventListener('click', function () {
-                modalContainer.classList.add('hidden');
+                DenunContainer.classList.add('hidden');
                 document.body.classList.remove('overflow-hidden');
             });
         }); 
