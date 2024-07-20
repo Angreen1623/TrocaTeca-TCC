@@ -12,9 +12,9 @@
 
 <body>
     <!--Modal de cadastrar de conta-->
-    <div class="w-screen h-screen z-[45] relative left-0 top-0 bg-backgtt bg-repeat bg-[length:870px_654px] bg-[url('/public/image/bg-icons.png')] bg-auto">
-        <div class="relative z-50 inset-0 flex items-center justify-center p-4 sm:p-8">
-            <div class="w-full max-w-5xl rounded-3xl bg-bluett py-6 sm:py-8 px-16 shadow-2xl items-center drop-shadow-tt border-2 border-graytt-light">
+    <div class="w-full min-h-screen z-[45] bg-backgtt bg-repeat bg-[length:870px_654px] bg-[url('/public/image/bg-icons.png')] bg-auto flex justify-center items-center px-10 py-5">
+        <div class="relative z-50 inset-0 flex items-center justify-center w-full max-w-5xl">
+            <div class="w-full max-w-5xl rounded-3xl bg-bluett py-6 sm:py-8 px-16 shadow-2xl items-center justify-center drop-shadow-tt border-2 border-graytt-light">
             <form method="POST" action="{{ route('register') }}">
             @csrf
                 <div class="flex flex-col md:flex-row"> 
@@ -24,7 +24,7 @@
 
                             <div>
                                 <label for="name" class="text-white">Nome:</label>
-                                <input id="name" type="text" name="name" class="shadow-tt max-w-96 block w-full rounded-xl border border-graytt-light px-3.5 py-2 shadow-sm ring-1 border-graytt ring-inset ring-graytt placeholder:text-graytt-dark focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6">
+                                <input id="name" type="text" name="name" class="shadow-tt md:max-w-96 block w-full rounded-xl border border-graytt-light px-3.5 py-2 shadow-sm ring-1 border-graytt ring-inset ring-graytt placeholder:text-graytt-dark focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6">
                                 @error('name')
                                 <span class="text-red-500 text-sm mt-1">{{ $message }}</span>
                                 @enderror
@@ -32,7 +32,7 @@
 
                             <div>
                                 <label for="sobrenome" class="text-white">Sobrenome:</label>
-                                <input id="sobrenome" type="text" name="sobrenome" class="shadow-tt max-w-96 block w-full rounded-xl border border-graytt-light px-3.5 py-2 shadow-sm ring-1 border-graytt ring-inset ring-graytt placeholder:text-graytt-dark focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6">
+                                <input id="sobrenome" type="text" name="sobrenome" class="shadow-tt md:-w-96 block w-full rounded-xl border border-graytt-light px-3.5 py-2 shadow-sm ring-1 border-graytt ring-inset ring-graytt placeholder:text-graytt-dark focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6">
                                 @error('sobrenome')
                                 <span class="text-red-500 text-sm mt-1">{{ $message }}</span>
                                 @enderror
@@ -40,7 +40,7 @@
 
                             <div>
                                 <label for="email" class="text-white">E-mail:</label>
-                                <input id="email" type="text" name="email" class="shadow-tt max-w-96 block w-full rounded-xl border border-graytt-light px-3.5 py-2 shadow-sm ring-1 border-graytt ring-inset ring-graytt placeholder:text-graytt-dark focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6">
+                                <input id="email" type="text" name="email" class="shadow-tt md:max-w-96 block w-full rounded-xl border border-graytt-light px-3.5 py-2 shadow-sm ring-1 border-graytt ring-inset ring-graytt placeholder:text-graytt-dark focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6">
                                 @error('email')
                                 <span class="text-red-500 text-sm mt-1">{{ $message }}</span>
                                 @enderror
@@ -69,7 +69,7 @@
 
                         <div>
                             <label for="cidade" class="text-white">Cidade:</label>
-                            <input id="cidade" type="text" name="cidade" class="shadow-tt max-w-96 block w-full rounded-xl border border-graytt-light px-3.5 py-2 shadow-sm ring-1 border-graytt ring-inset ring-graytt placeholder:text-graytt-dark focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6">
+                            <input id="cidade" type="text" name="cidade" class="shadow-tt md:max-w-96 block w-full rounded-xl border border-graytt-light px-3.5 py-2 shadow-sm ring-1 border-graytt ring-inset ring-graytt placeholder:text-graytt-dark focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6">
                             @error('cidade')
                             <span class="text-red-500 text-sm mt-1">{{ $message }}</span>
                             @enderror
@@ -77,7 +77,7 @@
 
                         <div>
                             <label for="password" class="text-white">Senha:</label>
-                            <input id="password" type="password" name="password" class="shadow-tt max-w-96 block w-full rounded-xl border border-graytt-light px-3.5 py-2 shadow-sm ring-1 border-graytt ring-inset ring-graytt placeholder:text-graytt-dark focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6">
+                            <input id="password" type="password" name="password" class="shadow-tt md:max-w-96 block w-full rounded-xl border border-graytt-light px-3.5 py-2 shadow-sm ring-1 border-graytt ring-inset ring-graytt placeholder:text-graytt-dark focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6">
                             @error('password')
                             <span class="text-red-500 text-sm mt-1">{{ $message }}</span>
                             @enderror
@@ -85,7 +85,7 @@
 
                         <div>
                             <label for="password_confirmation" class="text-white">Confirmar senha:</label>
-                            <input id="password_confirmation" type="password" name="password_confirmation" class="shadow-tt max-w-96 block w-full rounded-xl border border-graytt-light px-3.5 py-2 shadow-sm ring-1 border-graytt ring-inset ring-graytt placeholder:text-graytt-dark focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6">
+                            <input id="password_confirmation" type="password" name="password_confirmation" class="shadow-tt md:max-w-96 block w-full rounded-xl border border-graytt-light px-3.5 py-2 shadow-sm ring-1 border-graytt ring-inset ring-graytt placeholder:text-graytt-dark focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6">
                             @error('password_confirmation')
                             <span class="text-red-500 text-sm mt-1">{{ $message }}</span>
                             @enderror
