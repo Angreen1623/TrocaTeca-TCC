@@ -55,6 +55,10 @@ Route::get('/validar', function () {
     return view('modalvalidar');
 });
 
+Route::get('/registertt', function () {
+    return view('registertt');
+});
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
