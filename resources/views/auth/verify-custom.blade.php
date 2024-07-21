@@ -18,14 +18,17 @@
         }
 
         .container {
-            background-color: #C0D3F7; /* Cor do quadrado */
+            background-color: #C0D3F7;
+            /* Cor do quadrado */
             width: 100%;
             max-width: 600px;
             padding: 20px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             text-align: center;
-            border: 2px solid #ccc; /* Adiciona um contorno ao redor do conteúdo */
-            border-radius: 10px; /* Opcional: adiciona bordas arredondadas ao quadrado */
+            border: 2px solid #ccc;
+            /* Adiciona um contorno ao redor do conteúdo */
+            border-radius: 10px;
+            /* Opcional: adiciona bordas arredondadas ao quadrado */
         }
 
         header img {
@@ -36,19 +39,23 @@
         header h1 {
             font-family: 'Fredoka', sans-serif;
             margin: 20px 0;
-            color: white; /* Cor do título */
+            color: white;
+            /* Cor do título */
         }
 
         p {
             font-size: 16px;
             margin: 15px 0;
-            color: black; /* Cor do texto */
+            color: black;
+            /* Cor do texto */
         }
 
         a {
             display: inline-block;
-            background-color: #D67D93; /* Nova cor do botão */
-            color: white !important; /* Cor do texto do botão */
+            background-color: #D67D93;
+            /* Nova cor do botão */
+            color: white !important;
+            /* Cor do texto do botão */
             padding: 10px 20px;
             border-radius: 20px;
             text-decoration: none;
@@ -58,13 +65,20 @@
 
         footer p {
             font-size: 14px;
-            color: #777; /* Cor do texto do rodapé */
+            color: #777;
+            /* Cor do texto do rodapé */
             margin: 10px 0;
         }
 
         .highlight {
-            color: black; /* Cor do texto em negrito */
+            color: black;
+            /* Cor do texto em negrito */
             font-weight: bold;
+        }
+
+        .logo {
+            height: 150px;
+            width: 300px;
         }
     </style>
 </head>
@@ -72,16 +86,14 @@
 <body>
     <div class="container">
         <header>
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white cursor-pointer" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-            </svg>
+            <img src="https://i.im.ge/2024/07/21/VRpmGK.logo-full.png" class="logo">
             <h1>Verificação de E-mail Cadastrado</h1>
         </header>
 
         <div class="content">
             <p>Olá, {{ $user->name }}</p>
-            <p>Agradecemos sua entrada em nosso sistema. Por medidas de segurança, por favor verifique esse e-mail cadastrado pressionando o botão de verificação.</p>
-            
+            <p>Agradecemos sua entrada em nosso sistema. Por medidas de segurança, por favor verifique esse e-mail cadastrado pressionando o botão de verificação:</p>
+
             <a href="{{ $url }}">Verificar endereço de e-mail</a>
             <p>Prepare-se para criar uma infância mais divertida e sustentável com o TrocaTeca</p>
             <p class="highlight">Ignore este e-mail caso não tenha feito nenhum cadastro.</p>
