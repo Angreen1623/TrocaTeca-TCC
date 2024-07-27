@@ -32,7 +32,7 @@
 
                             <div>
                                 <label for="sobrenome" class="text-white">Sobrenome:</label>
-                                <input id="sobrenome" type="text" name="sobrenome" class="shadow-tt md:-w-96 block w-full rounded-xl border border-graytt-light px-3.5 py-2 shadow-sm ring-1 border-graytt ring-inset ring-graytt placeholder:text-graytt-dark focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6">
+                                <input id="sobrenome" type="text" name="sobrenome" class="shadow-tt md:max-w-96 block w-full rounded-xl border border-graytt-light px-3.5 py-2 shadow-sm ring-1 border-graytt ring-inset ring-graytt placeholder:text-graytt-dark focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6">
                                 @error('sobrenome')
                                 <span class="text-red-500 text-sm mt-1">{{ $message }}</span>
                                 @enderror
