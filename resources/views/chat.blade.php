@@ -15,7 +15,7 @@
 
         <div class="w-full z-40">
 
-            <div class="flex w-full py-2.5 px-5 bg-bluett place-content-between items-center">
+            <div class="flex w-full py-2.5 px-5 bg-bluett place-content-between items-center border-b border-black">
 
                 <div class="flex items-center">
 
@@ -53,13 +53,13 @@
         <div class="">
         </div>
 
-        <div class="absolute bottom-0 left-0 w-full z-50">
+        <div class="absolute bottom-0 left-0 w-full z-50 ">
 
             <form action="">
-                <div class="flex w-full py-2.5 px-7 md:ps-20 md:pe-7 bg-bluett align-item-center place-content-between items-center">
+                <div class="flex w-full py-2.5 px-7 md:ps-20 md:pe-7 bg-bluett align-item-center place-content-between items-center border-t border-black">
 
                 
-                    <input type="text" name="mensagem" id="" placeholder="Escrever mensagem" class="w-full h-10 pl-3 rounded-xl border-2 border-black truncate">
+                    <input type="text" name="mensagem" id="" placeholder="Digite sua mensagem" class="w-full h-10 pl-3 rounded-xl truncate">
 
                     <button type="submit" class="ml-8">
                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="45" height="45" zoomAndPan="magnify" viewBox="0 0 66 66"  preserveAspectRatio="xMidYMid meet" version="1.0"><defs><clipPath id="34d675a8fd">
