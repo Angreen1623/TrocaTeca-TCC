@@ -11,9 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('denuncia_artigos', function (Blueprint $table) {
+        Schema::create('denuncias', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('denunciador_id')->constrained();
+            $table->foreignId('id_denunciador')->constrained('users')->onUpdate('cascade');
             $table->String('dt_hr_denun');
             $table->String('mensagem_denun');
             $table->timestamps();
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('denuncia_artigos');
+        Schema::dropIfExists('denuncias');
     }
 };
