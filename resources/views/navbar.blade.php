@@ -74,15 +74,21 @@
             <p class="relative">
                 <div class="w-16 h-16 cursor-pointer" onclick="menupopup()">
                     <svg fill="#FFFFFF" viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M 27.9999 51.9063 C 41.0546 51.9063 51.9063 41.0781 51.9063 28 C 51.9063 14.9453 41.0312 4.0937 27.9765 4.0937 C 14.8983 4.0937 4.0937 14.9453 4.0937 28 C 4.0937 41.0781 14.9218 51.9063 27.9999 51.9063 Z M 27.9999 35.9922 C 20.9452 35.9922 15.5077 38.5 13.1405 41.3125 C 9.9999 37.7968 8.1014 33.1328 8.1014 28 C 8.1014 16.9609 16.9140 8.0781 27.9765 8.0781 C 39.0155 8.0781 47.8983 16.9609 47.9219 28 C 47.9219 33.1563 46.0234 37.8203 42.8593 41.3359 C 40.4921 38.5234 35.0546 35.9922 27.9999 35.9922 Z M 27.9999 32.0078 C 32.4999 32.0547 36.0390 28.2109 36.0390 23.1719 C 36.0390 18.4375 32.4765 14.5 27.9999 14.5 C 23.4999 14.5 19.9140 18.4375 19.9609 23.1719 C 19.9843 28.2109 23.4765 31.9609 27.9999 32.0078 Z"></path></g></svg> 
-                    <div id="menupop" class="flex flex-col absolute hidden justify-center bg-bluett w-56 px-3 py-2 z-50 bottom-[-150px] left-[-190px] border-black border rounded-b-lg rounded-l-lg">
-                        <button id="openGiveupButton" type="button" class="mb-3 p-3 bg-white border-black border rounded-xl hover:bg-graytt-light text-black text-md font-medium rounded-2xl">
-                            Desistir da troca
-                        </button>
-                        <button id="openDenunButton" type="button" class="bg-white p-3 border-black border rounded-xl hover:bg-graytt-light text-black text-md font-medium rounded-2xl">
-                            Denunciar conversa
-                        </button>
-                    </div>
+                <!-- Menu Pop-up -->
+                <div id="menupop" class="flex flex-col absolute hidden justify-center bg-bluett w-56 px-3 py-2 z-50 bottom-[-150px] left-[-190px] border-black border rounded-b-lg rounded-l-lg">
+                    <button id="openProfileButton" type="button" class="mb-3 p-3 bg-white border-black border rounded-xl hover:bg-graytt-light text-black text-md font-medium rounded-2xl">
+                        Ver Perfil
+                    </button>
+                    <button id="openLogoutButton" type="button" class="bg-white p-3 border-black border rounded-xl hover:bg-graytt-light text-black text-md font-medium rounded-2xl">
+                        Sair da conta
+                    </button>
                 </div>
+
+                <!-- Logout Form -->
+                <form id="logout-form" method="POST" action="{{ route('logout') }}" class="hidden">
+                    @csrf
+                </form>
+                    </div>
                 <!-- Ou qualquer outra informação que você deseja mostrar para usuários autenticados -->
             </p>
         @endauth
@@ -140,4 +146,15 @@
         var menupop = document.getElementById("menupop");
         menupop.classList.toggle('hidden');
     }
+
+    //menupop
+    document.getElementById('openProfileButton').addEventListener('click', function() {
+        window.location.href = '{{ url("/myaccount") }}';
+    });
+
+    document.getElementById('openLogoutButton').addEventListener('click', function() {
+        if (confirm('Você tem certeza que deseja sair?')) {
+            document.getElementById('logout-form').submit();
+        }
+    });
 </script>
