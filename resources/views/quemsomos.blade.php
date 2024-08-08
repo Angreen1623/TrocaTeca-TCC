@@ -32,7 +32,7 @@
                 </div>
             </div>
             <div class="bg-repeat bg-[url('/public/image/triangulo-verde.svg')] w-full h-8 -mt-px rotate-180 bg-yellowtt-light"></div>
-    
+
             <!--Como funciona-->
             <div class="bg-greentt">
                 <div class="max-w-screen-xl px-4 mx-auto space-y-8 overflow-hidden sm:px-6 lg:px-8">
@@ -49,46 +49,66 @@
                     </div>
                 </div>
             </div>
-            </div>
-            <div class="bg-repeat bg-[url('/public/image/triangulo-rosa.svg')] w-full h-8 -mt-px rotate-180 bg-greentt"></div>
-            
-
-            <!--posso comprar?-->
-            <div class="bg-pinktt">
-                <div class="max-w-screen-xl px-4 mx-auto space-y-8 overflow-hidden sm:px-6 lg:px-8">
-                    <div class="lg:flex lg:justify-between lg:items-center flex flex-col-reverse lg:flex-row">
-                        <nav class="mb-10 lg:mb-12 flex flex-col justify-center space-y-4 max-w-3xl lg:mt-8 lg:order-1">
-                            <h2 class="text-3xl drop-shadow-tt text-left text-white sm:text-6xl" style="font-family: 'Fredoka'; white-space: nowrap;">
-                                Posso comprar os artigos?
-                            </h2>
-                            <p class="leading-relaxed text-black text-left lg:mt-4 lg:mb-6">O TrocaTeca é uma plataforma dedicada única e exclusivamente para trocas, então não é possível fazer qualquer tipo de compra ou transação monetária. No máximo, é permitido informar um valor sugerido de seu artigo ao anunciá-lo, para que outros usuários possam oferecer algo de valor aproximado para a troca.</p>
-                        </nav>
-                        <div class="flex justify-center lg:justify-end lg:order-2 mb-10 lg:mb-12 mt-8">
-                            <img src="{{ asset('image/cifrao.png') }}" alt="Logo do TrocaTeca" width="250" class="animate-rotate-left-right">
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="bg-repeat bg-[url('/public/image/triangulo-bege.svg')] w-full h-8 -mt-px rotate-180 bg-pinktt"></div>
-            <!--Negociação-->
-            <div class="bg-backgtt">
-                <div class="max-w-screen-xl px-4 mx-auto space-y-8 overflow-hidden sm:px-6 lg:px-8">
-                    <div class="lg:flex lg:justify-between lg:items-center flex flex-col lg:flex-row-reverse">
-                        <div class="flex justify-center lg:justify-start lg:order-2 mb-10 lg:mb-12 lg:mt-8">
-                            <img src="{{ asset('image/chat.png') }}" alt="Como funciona" width="300" class="animate-rotate-left-right mt-6">
-                        </div>
-                        <nav class="mb-10 lg:mb-12 flex flex-col justify-center space-y-4 max-w-3xl lg:mt-8 lg:order-1">
-                            <h2 class="text-3xl drop-shadow-tt text-left text-black sm:text-6xl" style="font-family: 'Fredoka'; white-space: nowrap;">
-                                Negociação
-                            </h2>
-                            <p class="leading-relaxed text-black text-left lg:mt-4 lg:mb-6">Toda a negociação é feita através de um chat em tempo real. Primeiro, você envia uma proposta para quem anunciou o artigo, e essa proposta chegará em forma de mensagem para essa pessoa. É a partir daí que ambas as partes vão negociar e combinar os detalhes da entrega dos itens, como local, data e hora. A confirmação e comprovação da troca se dá através da validação de ambas as partes que receberam os itens.</p>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-            @include('footer')
         </div>
+        <div class="bg-repeat bg-[url('/public/image/triangulo-rosa.svg')] w-full h-8 -mt-px rotate-180 bg-greentt"></div>
+
+
+        <!--posso comprar?-->
+        <div class="bg-pinktt">
+            <div class="max-w-screen-xl px-4 mx-auto space-y-8 overflow-hidden sm:px-6 lg:px-8">
+                <div class="lg:flex lg:justify-between lg:items-center flex flex-col-reverse lg:flex-row">
+                    <nav class="mb-10 lg:mb-12 flex flex-col justify-center space-y-4 max-w-3xl lg:mt-8 lg:order-1">
+                        <h2 class="text-xl drop-shadow-tt text-left text-white sm:text-5xl md:text-5xl" style="font-family: 'Fredoka'; white-space: nowrap;">
+                            Posso comprar os artigos?
+                        </h2>
+                        <p class="leading-relaxed text-black text-left lg:mt-4 lg:mb-6">O TrocaTeca é uma plataforma dedicada única e exclusivamente para trocas, então não é possível fazer qualquer tipo de compra ou transação monetária. No máximo, é permitido informar um valor sugerido de seu artigo ao anunciá-lo, para que outros usuários possam oferecer algo de valor aproximado para a troca.</p>
+                    </nav>
+                    <div class="flex justify-center lg:justify-end lg:order-2 mb-10 lg:mb-12 mt-8">
+                        <img src="{{ asset('image/cifrao.png') }}" alt="Logo do TrocaTeca" width="250" class="animate-rotate-left-right">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-repeat bg-[url('/public/image/triangulo-bege.svg')] w-full h-8 -mt-px rotate-180 bg-pinktt"></div>
+        <!--Negociação-->
+        <div class="bg-backgtt">
+            <div class="max-w-screen-xl px-4 mx-auto space-y-8 overflow-hidden sm:px-6 lg:px-8">
+                <div class="lg:flex lg:justify-between lg:items-center flex flex-col lg:flex-row-reverse">
+                    <div class="flex justify-center lg:justify-start lg:order-2 mb-10 lg:mb-12 lg:mt-8">
+                        <img src="{{ asset('image/chat.png') }}" alt="Como funciona" width="300" class="animate-rotate-left-right mt-6">
+                    </div>
+                    <nav class="mb-10 lg:mb-12 flex flex-col justify-center space-y-4 max-w-3xl lg:mt-8 lg:order-1">
+                        <h2 class="text-3xl drop-shadow-tt text-left text-black sm:text-6xl" style="font-family: 'Fredoka'; white-space: nowrap;">
+                            Negociação
+                        </h2>
+                        <p class="leading-relaxed text-black text-left lg:mt-4 lg:mb-6">Toda a negociação é feita através de um chat em tempo real. Primeiro, você envia uma proposta para quem anunciou o artigo, e essa proposta chegará em forma de mensagem para essa pessoa. É a partir daí que ambas as partes vão negociar e combinar os detalhes da entrega dos itens, como local, data e hora, e com todas os detalhes acordados, basta encerrar a negociação para gerar o devido acordo. A confirmação e comprovação da troca se dá através da validação do acordo por ambas as partes que receberam os itens.</p>
+                    </nav>
+                </div>
+                <hr class="h-px bg-black border-2 border-black">
+                <!--perguntas-->
+                <div class="container flex flex-col justify-center px-4 py-8 mx-auto md:p-8">
+                    <h2 class="text-xl drop-shadow-tt text-left text-black sm:text-5xl md:text-5xl mb-6" style="font-family: 'Fredoka'; white-space: nowrap;">Mais perguntas frequentes</h2>
+                    <div class="space-y-4">
+                        <details class="w-full rounded-xl border-2 border-graytt-light shadow-tt transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-105 duration-300">
+                            <summary class="px-4 py-6">Desisti da troca após gerar o acordo, e agora?</summary>
+                            <p class="px-4 py-6 pt-0 ml-4 -mt-4 dark:text-gray-600">Basta não validar a troca. O acordo será automaticamente dado como improcedente se nenhuma das partes o validar até o dia e hora combinados. </p>
+                        </details>
+                        <details class="w-full rounded-xl border-2 border-graytt-light shadow-tt transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-105 duration-300">
+                            <summary class="px-4 py-6 focus:outline-none focus-visible:dark:ring-violet-600">Lorem at arcu rutrum viverra metus sapien venenatis lobortis odio?</summary>
+                            <p class="px-4 py-6 pt-0 ml-4 -mt-4 dark:text-gray-600">Tincidunt ut hac condimentum rhoncus phasellus nostra. Magna porttitor egestas tincidunt neque vehicula potenti. </p>
+                        </details>
+                        <details class="w-full rounded-xl border-2 border-graytt-light shadow-tt transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-105 duration-300">
+                            <summary class="px-4 py-6 focus:outline-none focus-visible:dark:ring-violet-600">Eleifend feugiat sollicitudin laoreet adipiscing bibendum suscipit erat?</summary>
+                            <p class="px-4 py-6 pt-0 ml-4 -mt-4 dark:text-gray-600">Justo libero tellus integer tincidunt justo semper consequat venenatis aliquet imperdiet. Ultricies urna proin fusce nulla pretium sodales vel magna et massa euismod vulputate sed. </p>
+                        </details>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        @include('footer')
+    </div>
 
 </body>
 
