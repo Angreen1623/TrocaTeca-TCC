@@ -1,4 +1,5 @@
 @include('sidebar')
+<!--sidebar (apenas no celular)-->
 <div id="sandwich" class="fixed z-[60] w-screen h-screen left-0 top-0 translate-x-[-150%] bg-shadowtt">
   <div class=" drop-shadow-2xl absolute w-96 h-screen bg-white top-0 left-0 z-[70] duration-300 max-w-96 w-full rounded-lg">
     <div class="bg-bluett border-b border-black w-full h-20 flex place-content-center items-center">
@@ -62,8 +63,9 @@
     </div>
   </div>
 </div>
-<nav id="navbar" class="w-full fixed z-40">
 
+<!--navbar (todo o site em geral)-->
+<nav id="navbar" class="w-full fixed z-40">
     <div class="flex w-full py-2.5 px-7 md:ps-20 md:pe-7 bg-bluett align-item-center place-content-normal md:place-content-evenly items-center">
 
         <svg xmlns="http://www.w3.org/2000/svg" width="45" fill="currentColor" class="md:hidden block cursor-pointer" viewBox="0 0 16 16" onclick="sandwich()">
