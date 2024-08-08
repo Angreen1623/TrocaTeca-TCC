@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('artigos', function (Blueprint $table) {
             $table->id();
             $table->String('nome_artigo');
-            $table->String('valor_sugerido_artigo')->nullable();
+            $table->Float('valor_sugerido_artigo')->nullable();
             $table->String('preferencia_troca_artigo')->nullable();
             $table->String('categoria_artigo');
             $table->String('condicao_artigo');

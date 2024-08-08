@@ -18,7 +18,7 @@ return new class extends Migration
             $table->String('categoria_proposta');
             $table->String('condicao_proposta');
             $table->String('tempo_uso_proposta');
-            $table->String('endereco_img_prop');
+            $table->Text('endereco_img_prop');
             $table->timestamps();
         });
     }

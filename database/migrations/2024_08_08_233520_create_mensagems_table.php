@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('id_usuario')->constrained('users')->onUpdate('cascade');
             $table->foreignId('id_proposta')->constrained('propostas')->onDelete('cascade')->onUpdate('cascade');
-            $table->String('conteudo_mensagem');
-            $table->String('endereco_anexo');
+            $table->Text('conteudo_mensagem');
+            $table->Text('endereco_anexo');
             $table->Boolean('visto');
             $table->timestamps();
         });

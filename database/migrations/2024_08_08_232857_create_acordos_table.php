@@ -17,7 +17,7 @@ return new class extends Migration
             $table->String('anuncio');
             $table->String('data_encontro');
             $table->String('local_encontro');
-            $table->String('status_acordo');
+            $table->tinyInteger('status_acordo');
             $table->timestamps();
         });
     }

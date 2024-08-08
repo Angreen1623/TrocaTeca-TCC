@@ -14,8 +14,7 @@ return new class extends Migration
         Schema::create('denuncias', function (Blueprint $table) {
             $table->id();
             $table->foreignId('id_denunciador')->constrained('users')->onUpdate('cascade');
-            $table->String('dt_hr_denun');
-            $table->String('mensagem_denun');
+            $table->Text('mensagem_denun');
             $table->timestamps();
         });
     }
