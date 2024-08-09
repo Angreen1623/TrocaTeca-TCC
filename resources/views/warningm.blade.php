@@ -1,7 +1,5 @@
-@vite('resources/css/app.css')
-
 <!-- Modal de inativação de conta -->
-<div id="modalContainer" class="fixed z-[60] w-screen h-screen left-0 top-0 hidden bg-shadowtt">
+<div id="modalWarning" class="fixed z-[60] w-screen h-screen left-0 top-0 hidden bg-shadowtt">
   <div class="fixed z-50 inset-0 flex items-center justify-center p-4 sm:p-8 ">
     <div class="w-full max-w-2xl rounded-3xl bg-bluett p-6 sm:p-8 shadow-2xl">
       <h1 class="text-xl sm:text-2xl md:text-3xl font-bold text-center text-white font-fredokatt drop-shadow-tt">AVISO!</h1> <!-- Título de aviso -->
@@ -28,20 +26,3 @@
     </div>
   </div>
 </div>
-<!--esse script se diz respeito a o botão eu concordo estar precionado ou não-->
-<script>
-  const checkbox = document.getElementById('confirm');
-  const inativarButton = document.getElementById('inativarButton');
-
-  checkbox.addEventListener('change', function() {
-    if (checkbox.checked) {
-      inativarButton.disabled = false;
-      inativarButton.classList.remove('opacity-50', 'cursor-not-allowed');
-      inativarButton.classList.add('hover:bg-redtt-dark', 'transition', 'ease-in-out', 'delay-100', 'hover:-translate-y-1', 'hover:scale-110', 'duration-300');
-    } else {
-      inativarButton.disabled = true;
-      inativarButton.classList.remove('hover:bg-redtt-dark', 'transition', 'ease-in-out', 'delay-100', 'hover:-translate-y-1', 'hover:scale-110', 'duration-300');
-      inativarButton.classList.add('opacity-50', 'cursor-not-allowed');
-    }
-  });
-</script>

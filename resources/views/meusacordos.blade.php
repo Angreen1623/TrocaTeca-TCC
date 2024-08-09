@@ -97,30 +97,20 @@
         //inclusão do modal de validar
         document.addEventListener('DOMContentLoaded', function() {
             const abrirValidar = document.getElementById('abrirValidar');
-            const modalContainer = document.getElementById('modalContainer');
+            const modalValid = document.getElementById('modalValid');
 
             abrirValidar.addEventListener('click', function(e) {
                 e.preventDefault();
-                modalContainer.classList.remove('hidden');
+                modalValid.classList.remove('hidden');
                 document.body.classList.add('overflow-hidden');
             });
 
             document.getElementById('cancelInative').addEventListener('click', function() {
-                modalContainer.classList.add('hidden');
+                modalValid.classList.add('hidden');
                 document.body.classList.remove('overflow-hidden');
             });
         });
     </script>
 
 </body>
-
-</html>
-
-
-
-
-
-
-</body>
-
 </html>
