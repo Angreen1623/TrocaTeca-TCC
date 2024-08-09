@@ -89,16 +89,16 @@
         //modal de desistir da troca
             document.addEventListener('DOMContentLoaded', function () {
             const openGiveupButton = document.getElementById('openGiveupButton');
-            const modalContainer = document.getElementById('modalContainer');
+            const modalGiveup = document.getElementById('modalGiveup');
 
              openGiveupButton.addEventListener('click', function (e) {
                 e.preventDefault();
-                modalContainer.classList.remove('hidden');
+                modalGiveup.classList.remove('hidden');
                 document.body.classList.add('overflow-hidden');
             });
 
             document.getElementById('cancelGiveupButton').addEventListener('click', function () {
-                modalContainer.classList.add('hidden');
+                modalGiveup.classList.add('hidden');
                 document.body.classList.remove('overflow-hidden');
             });
         }); 

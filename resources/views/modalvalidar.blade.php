@@ -1,6 +1,5 @@
-@vite('resources/css/app.css')
 
-<div id="modalContainer" class="fixed z-[60] w-screen h-screen left-0 top-0 hidden bg-shadowtt">
+<div id="modalValid" class="fixed z-[60] w-screen h-screen left-0 top-0 hidden bg-shadowtt">
   <div class="fixed z-50 inset-0 flex items-center justify-center p-2 sm:p-4 md:p-6 lg:p-8">
     <div class="relative w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg rounded-3xl bg-bluett p-4 sm:p-6 md:p-8 shadow-2xl">
       <!-- Imagem no canto superior direito -->
@@ -53,30 +52,31 @@
   </div>
 </div>
 
-<!-- Script atualizado -->
 <script>
+  //Modal de validação de troca
   document.addEventListener('DOMContentLoaded', function() {
     const abrirValidar = document.getElementById('abrirValidar');
-    const modalContainer = document.getElementById('modalContainer');
+    const modalValid = document.getElementById('modalValid');
     const closeModalImage = document.getElementById('closeModalImage');
 
     abrirValidar.addEventListener('click', function(e) {
       e.preventDefault();
-      modalContainer.classList.remove('hidden');
+      modalValid.classList.remove('hidden');
       document.body.classList.add('overflow-hidden');
     });
 
     closeModalImage.addEventListener('click', function() {
-      modalContainer.classList.add('hidden');
+      modalValid.classList.add('hidden');
       document.body.classList.remove('overflow-hidden');
     });
 
     document.getElementById('cancelInative').addEventListener('click', function() {
-      modalContainer.classList.add('hidden');
+      modalValid.classList.add('hidden');
       document.body.classList.remove('overflow-hidden');
     });
   });
 
+  //checar se a checkbox está precionada ou não (mmodal de validar)
   const checkbox = document.getElementById('confirm');
   const inativarButton = document.getElementById('inativarButton');
 

@@ -67,7 +67,7 @@
                         <input type="email" name="email" id="email" value="{{ old('email', auth()->user()->email) }}" class="shadow-tt mt-3 block w-full rounded-xl border-0 px-3.5 py-2 shadow-sm ring-1 border-2 border-graytt ring-inset ring-graytt placeholder:text-graytt-dark focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 mb-5">
 
                         <label for="datan" class="">Data de nascimento:</label>
-                        <input type="date" name="datan" id="datan" value="{{ old('datan', auth()->user()->datan) }}" class="shadow-tt mt-3 text-graytt-dark block w-full max-w-40 rounded-xl border-0 px-3.5 py-2 shadow-sm ring-1 border-2 border-graytt ring-inset ring-graytt placeholder:text-graytt-dark focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 mb-5">
+                        <input type="date" disabled name="datan" id="datan" value="{{ old('datan', auth()->user()->datan) }}" class="shadow-tt mt-3 text-graytt-dark block w-full max-w-40 rounded-xl border-0 px-3.5 py-2 shadow-sm ring-1 border-2 border-graytt ring-inset ring-graytt placeholder:text-graytt-dark focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 mb-5">
                         <label for="estado">Estado:</label>
                         <select id="estado" name="estado" class="custom-select text-graytt-dark shadow-tt mt-3 block w-36 rounded-xl border-0 px-3.5 py-2 shadow-sm ring-1 border-2 border-graytt ring-inset ring-graytt placeholder:text-graytt-dark focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 mb-5">
                             <option value="" disabled selected>Selecionar</option>
@@ -115,31 +115,7 @@
 
             @include('footer')
         </div>
-
         @include('warningm')
-
-        <script>
-            //Incluir o modal de inativar conta 
-            document.addEventListener('DOMContentLoaded', function() {
-                const openwarningButton = document.getElementById('openwarningButton');
-                const modalContainer = document.getElementById('modalContainer');
-
-                openwarningButton.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    modalContainer.classList.remove('hidden');
-                });
-
-                document.getElementById('cancelInative').addEventListener('click', function() {
-                    modalContainer.classList.add('hidden');
-                    document.body.classList.remove('overflow-hidden');
-                });
-            });
-
-            document.getElementById('openwarningButton').addEventListener('click', function() {
-                document.body.classList.add('overflow-hidden');
-                document.getElementById('modalContainer').classList.remove('hidden');
-            });
-        </script>
 </body>
 
 </html>

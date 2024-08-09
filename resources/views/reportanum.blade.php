@@ -1,7 +1,5 @@
-@vite('resources/css/app.css')
-
 <!--Modal de denunciar anúncio-->
-<div id="modalContainer" class="fixed z-[60] w-screen h-screen left-0 top-0 hidden bg-shadowtt">
+<div id="modalReportanun" class="fixed z-[60] w-screen h-screen left-0 top-0 hidden bg-shadowtt">
     <div class="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-8">
         <div class="w-full max-w-2xl rounded-3xl bg-bluett p-6 sm:p-8 shadow-2xl">
             <h1 class="text-2xl sm:text-4xl font-bold text-center text-white font-fredokatt drop-shadow-tt">Denunciar Anúncio</h1>

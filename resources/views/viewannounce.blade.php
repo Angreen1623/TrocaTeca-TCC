@@ -71,14 +71,14 @@
     const isAuthenticated = document.body.getAttribute('data-authenticated') === '1';
 
     const openReportButton = document.getElementById('openReportButton');
-    const modalContainer = document.getElementById('modalContainer');
+    const modalReportanun = document.getElementById('modalReportanun');
     const openNewProposalButton = document.getElementById('openNewProposalButton');
     const modalNewProposal = document.getElementById('modalNewProposal');
 
     openReportButton.addEventListener('click', function(e) {
         e.preventDefault();
         if (isAuthenticated) {
-            modalContainer.classList.remove('hidden');
+            modalReportanun.classList.remove('hidden');
             document.body.classList.add('overflow-hidden');
         } else {
             window.location.href = "{{ route('login') }}"; // Redireciona para a página de login
@@ -86,10 +86,11 @@
     });
 
     document.getElementById('cancelReport').addEventListener('click', function() {
-        modalContainer.classList.add('hidden');
+        modalReportanun.classList.add('hidden');
         document.body.classList.remove('overflow-hidden');
     });
 
+    //oinclusão do modal de nova proposta
     openNewProposalButton.addEventListener('click', function(e) {
         e.preventDefault();
         if (isAuthenticated) {
