@@ -71,15 +71,27 @@
                         <label for="estado">Estado:</label>
                         <select id="estado" name="estado" class="custom-select text-graytt-dark shadow-tt mt-3 block w-36 rounded-xl border-0 px-3.5 py-2 shadow-sm ring-1 border-2 border-graytt ring-inset ring-graytt placeholder:text-graytt-dark focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 mb-5">
                             <option value="" disabled selected>Selecionar</option>
-                            <option value="SP" {{ old('estado', auth()->user()->estado) == 'SP' ? 'selected' : '' }}>SP</option>
+                            <option value="AC" {{ old('estado', auth()->user()->estado) == 'AC' ? 'selected' : '' }}>AC</option><option value="AL" {{ old('estado', auth()->user()->estado) == 'AL' ? 'selected' : '' }}>AL</option>
+                            <option value="AP" {{ old('estado', auth()->user()->estado) == 'AP' ? 'selected' : '' }}>AP</option><option value="AM" {{ old('estado', auth()->user()->estado) == 'AM' ? 'selected' : '' }}>AM</option>
+                            <option value="BA" {{ old('estado', auth()->user()->estado) == 'BA' ? 'selected' : '' }}>BA</option><option value="CE" {{ old('estado', auth()->user()->estado) == 'CE' ? 'selected' : '' }}>CE</option>
+                            <option value="DF" {{ old('estado', auth()->user()->estado) == 'DF' ? 'selected' : '' }}>DF</option><option value="ES" {{ old('estado', auth()->user()->estado) == 'ES' ? 'selected' : '' }}>ES</option>
+                            <option value="GO" {{ old('estado', auth()->user()->estado) == 'GO' ? 'selected' : '' }}>GO</option><option value="MA" {{ old('estado', auth()->user()->estado) == 'MA' ? 'selected' : '' }}>MA</option>
+                            <option value="MT" {{ old('estado', auth()->user()->estado) == 'MT' ? 'selected' : '' }}>MT</option><option value="MS" {{ old('estado', auth()->user()->estado) == 'MS' ? 'selected' : '' }}>MS</option>
+                            <option value="MG" {{ old('estado', auth()->user()->estado) == 'MG' ? 'selected' : '' }}>MG</option><option value="PA" {{ old('estado', auth()->user()->estado) == 'PA' ? 'selected' : '' }}>PA</option>
+                            <option value="PB" {{ old('estado', auth()->user()->estado) == 'PB' ? 'selected' : '' }}>PB</option><option value="PR" {{ old('estado', auth()->user()->estado) == 'PR' ? 'selected' : '' }}>PR</option>
+                            <option value="PE" {{ old('estado', auth()->user()->estado) == 'PE' ? 'selected' : '' }}>PE</option><option value="PI" {{ old('estado', auth()->user()->estado) == 'PI' ? 'selected' : '' }}>PI</option>
+                            <option value="RJ" {{ old('estado', auth()->user()->estado) == 'RJ' ? 'selected' : '' }}>RJ</option><option value="RN" {{ old('estado', auth()->user()->estado) == 'RN' ? 'selected' : '' }}>RN</option>
+                            <option value="RS" {{ old('estado', auth()->user()->estado) == 'RS' ? 'selected' : '' }}>RS</option><option value="RO" {{ old('estado', auth()->user()->estado) == 'RO' ? 'selected' : '' }}>RO</option>
+                            <option value="RR" {{ old('estado', auth()->user()->estado) == 'RR' ? 'selected' : '' }}>RR</option><option value="SC" {{ old('estado', auth()->user()->estado) == 'SC' ? 'selected' : '' }}>SC</option>
+                            <option value="SP" {{ old('estado', auth()->user()->estado) == 'SP' ? 'selected' : '' }}>SP</option><option value="SE" {{ old('estado', auth()->user()->estado) == 'SE' ? 'selected' : '' }}>SE</option><option value="TO" {{ old('estado', auth()->user()->estado) == 'TO' ? 'selected' : '' }}>TO</option>
                         </select>
-
-                        <label for="cidade">Cidade:</label>
-                        <input type="text" name="cidade" id="cidade" value="{{ old('cidade', auth()->user()->cidade) }}" class="shadow-tt mt-3 block w-full rounded-xl border-0 px-3.5 py-2 shadow-sm ring-1 border-2 border-graytt ring-inset ring-graytt placeholder:text-graytt-dark focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 mb-5">
-                </form>
-            </div>
+                
+              </div>
                 <!--segundo trecho do formulário-->
                 <div class="px-24 sm:w-1/2 w-full">
+                <label for="cidade">Cidade:</label>
+                <input type="text" name="cidade" id="cidade" value="{{ old('cidade', auth()->user()->cidade) }}" class="shadow-tt mt-3 block w-full rounded-xl border-0 px-3.5 py-2 shadow-sm ring-1 border-2 border-graytt ring-inset ring-graytt placeholder:text-graytt-dark focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 mb-5">
+            </form>
                     <form method="POST" action="{{ route('password.update') }}">
                         @csrf
                         @method('PUT')
