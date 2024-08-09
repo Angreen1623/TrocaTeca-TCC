@@ -14,7 +14,7 @@ Route::middleware('auth')->group(function () {
         return view('myaccount');
     });
 
-    Route::get('/meusartigos', function () {
+    Route::get('meusartigos', function () {
         return view('meusartigos');
     });
 
@@ -37,7 +37,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/announce', function () {
         return view('announcepro');
     });
-    Route::post('/add_artigo', [ArtigoController::class, 'create']);
+    Route::post('artigo/create', [ArtigoController::class, 'create'])->name('artigo.add');
 
     Route::get('/edannounce', function () {
         return view('editannounce');

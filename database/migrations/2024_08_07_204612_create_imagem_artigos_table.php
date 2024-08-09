@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('imagem_artigos', function (Blueprint $table) {
             $table->id();
             $table->Boolean('imagem_principal');
-            $table->Text('Endereco_imagem');
+            $table->Text('endereco_imagem');
             $table->foreignId('id_artigo')->constrained('artigos')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
