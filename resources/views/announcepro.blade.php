@@ -17,12 +17,12 @@
         <div class="flex flex-col h-full items-center">
             <h1 class=" text-3xl lg:text-4xl font-bold text-center text-white font-fredokatt drop-shadow-tt mt-6">Anuncie um Novo Artigo</h1> <!--Título-->
             <!--input de imagem-->
-            <form method="POST" action="add_artigo">
+            <form method="POST" action="{{ route('artigo.add') }}" enctype="multipart/form-data">
             @csrf
                 <div class="flex flex-col lg:flex-row lg:items-center lg:place-content-center mb-5">
                     <div class="lg:mr-8">
                         <div class="mt-5 lg:mt-0">
-                            <label for="screenshot">
+                            <label for="img_principal">
                                 <div class="bg-white w-full lg:h-80 lg:w-80 rounded-xl border border-graytt-light shadow-tt flex flex-col flex-wrap justify-center items-center">
                                     <div class="mt-2 mb-2 flex flex-col justify-center items-center transition ease-in-out delay-100  hover:-translate-y-1 hover:scale-[1.05] duration-300">
                                         <img src="{{asset('image/mais.svg')}}" alt="" width="100">
@@ -30,51 +30,25 @@
                                     </div>
                                 </div>
                             </label>
-                            <input type="file" name="capdenun" id="screenshot" class="hidden border border-graytt-light">
+                            <input type="file" name="img_principal" id="img_principal" class="hidden border border-graytt-light" required accept="image/*">
                         <!--input das imagem pequenas-->        
 
                             <div class="flex lg:flex-row justify-between">
 
-                                <div>
-                                    <input type="file" name="capdenun" id="screenshot" class="hidden ">
-                                    <label for="screenshot">
-                                    <div class="mt-3 bg-white p-3 sm:mr-3 rounded-xl border border-graytt-light shadow-tt flex flex-col justify-center items-center">
-                                        <div class="flex flex-col justify-center items-center transition ease-in-out delay-100  hover:-translate-y-1 hover:scale-[1.05] duration-300">
-                                            <img src="{{asset('image/mais.svg')}}" alt="" width="30">
+                                @for ($i = 0; $i < 4; $i++)
+
+                                    <div>
+                                        <input type="file" name="img[{{$i}}]" id="imagem{{$i+1}}" class="hidden">
+                                        <label for="imagem{{$i+1}}">
+                                        <div class="mt-3 bg-white p-3 last:mr-0 sm:mr-3 rounded-xl border border-graytt-light shadow-tt flex flex-col justify-center items-center">
+                                            <div class="flex flex-col justify-center items-center transition ease-in-out delay-100  hover:-translate-y-1 hover:scale-[1.05] duration-300">
+                                                <img src="{{asset('image/mais.svg')}}" alt="" width="30">
+                                            </div>
                                         </div>
+                                        </label>
                                     </div>
-                                    </label>
-                                </div>      
-                                <div>
-                                    <input type="file" name="capdenun" id="screenshot" class="hidden">
-                                    <label for="screenshot">
-                                    <div class="mt-3 bg-white p-3 sm:mr-3 rounded-xl border border-graytt-light shadow-tt flex flex-col justify-center items-center">
-                                        <div class="flex flex-col justify-center items-center transition ease-in-out delay-100  hover:-translate-y-1 hover:scale-[1.05] duration-300">
-                                            <img src="{{asset('image/mais.svg')}}" alt="" width="30">
-                                        </div>
-                                    </div>
-                                    </label>
-                                </div>      
-                                <div>
-                                    <input type="file" name="capdenun" id="screenshot" class="hidden">
-                                    <label for="screenshot">
-                                    <div class="mt-3 bg-white p-3 sm:mr-3 rounded-xl border border-graytt-light shadow-tt flex flex-col justify-center items-center">
-                                        <div class="flex flex-col justify-center items-center transition ease-in-out delay-100  hover:-translate-y-1 hover:scale-[1.05] duration-300">
-                                            <img src="{{asset('image/mais.svg')}}" alt="" width="30">
-                                        </div>
-                                    </div>
-                                    </label>
-                                </div>      
-                                <div>
-                                    <input type="file" name="capdenun" id="screenshot" class="hidden">
-                                    <label for="screenshot">
-                                    <div class="mt-3 bg-white p-3 rounded-xl border border-graytt-light shadow-tt flex flex-col justify-center items-center">
-                                        <div class="flex flex-col justify-center items-center transition ease-in-out delay-100  hover:-translate-y-1 hover:scale-[1.05] duration-300">
-                                            <img src="{{asset('image/mais.svg')}}" alt="" width="30">
-                                        </div>
-                                    </div>
-                                    </label>
-                                </div>      
+
+                                @endfor    
                                 
                             </div>
                         </div>
