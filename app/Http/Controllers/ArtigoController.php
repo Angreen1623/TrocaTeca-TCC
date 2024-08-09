@@ -12,7 +12,6 @@ class ArtigoController extends Controller
 {
     public function create(Request $req){
         $artg = new Artigo;
-        $img = new Imagem_artigo;
         $artg->nome_artigo = $req->nome_art;
         $artg->valor_sugerido_artigo = $req->val;
         $artg->preferencia_troca_artigo = $req->pref;
@@ -23,19 +22,31 @@ class ArtigoController extends Controller
 
         $artg->save();
 
+        $img = new Imagem_artigo;
+
         $img->imagem_principal = 1;
-        $img->endereco_imagem = $req->img_principal;
+
+        $imagem = "image/users-img/". uniqid("", true) . "." . pathinfo($_FILES['img_principal']['name'], PATHINFO_EXTENSION);
+        move_uploaded_file($_FILES['img_principal']["tmp_name"], $imagem);
+        $img->endereco_imagem = $imagem;
+
         $img->id_artigo = $artg->id;
 
         $img->save();
 
         if ($req->img) {
-            foreach ($req->img as $imagens) {
-                $img = new Imagem_artigo;
-                $img->imagem_principal = 0;
-                $img->endereco_imagem = $imagens;
-                $img->id_artigo = $artg->id;
-                $img->save();
+            foreach ($_FILES['img']['name'] as $key => $name) {
+                if($name != ""){
+                    $img = new Imagem_artigo;
+                    $img->imagem_principal = 0;
+                        
+                    $imagem = "image/users-img/". uniqid("", true) . "." . pathinfo($name, PATHINFO_EXTENSION);
+                    move_uploaded_file($_FILES['img']["tmp_name"][$key], $imagem);
+                    $img->endereco_imagem = $imagem;
+
+                    $img->id_artigo = $artg->id;
+                    $img->save();
+                }
             }
         }
 
