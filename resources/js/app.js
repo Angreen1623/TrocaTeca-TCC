@@ -42,4 +42,5 @@ checkbox.addEventListener('change', function () {
         inativarButton.classList.remove('hover:bg-redtt-dark', 'transition', 'ease-in-out', 'delay-100', 'hover:-translate-y-1', 'hover:scale-110', 'duration-300');
         inativarButton.classList.add('opacity-50', 'cursor-not-allowed');
     }
+
 });

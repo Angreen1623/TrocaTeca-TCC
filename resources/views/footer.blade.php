@@ -7,7 +7,7 @@
     <footer class="bg-greentt-light flex">
     <div class="flex flex-col w-full items-center sm:flex-row justify-between px-10">
         <div class="place-content-center mt-3 sm:mt-0">
-            <img src="{{ asset('image/logo-full.png') }}" width="300" alt="">
+           <a href="/welcome"><img src="{{ asset('image/logo-full.png') }}" width="300" class="transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 duration-300" alt="logo do trocateca"></a>
         </div>
 
     <!--Redirecionamento de páginas-->
