@@ -3,53 +3,45 @@
 
     <div class="bg-repeat bg-[url('/public/image/triangulo.svg')] w-full h-8 -mt-px rotate-180"></div>
 
+    <!--Logo do TrocaTeca-->
     <footer class="bg-greentt-light flex">
     <div class="flex flex-col w-full items-center sm:flex-row justify-between px-10">
         <div class="place-content-center mt-3 sm:mt-0">
             <img src="{{ asset('image/logo-full.png') }}" width="300" alt="">
         </div>
 
+    <!--Redirecionamento de páginas-->
         <div class="max-w-screen-xl px-4 py-12 space-y-8 overflow-hidden sm:px-6 lg:px-8">   
             <nav class="flex flex-wrap justify-center sm:justify-end -mx-5 -my-2">
              <div class="flex"> 
                 <div class="px-5 py-2">
-                    <a href="/about" class="text-base leading-6 underline-animation">
-                        Quem somos
+                    <a href="/meusartigos" class="text-center sm:text-base leading-6 underline-animation">
+                        Meus Artigos
                     </a>
                 </div>
                 <div class="px-5 py-2">
-                    <a href="#" class="text-base leading-6 underline-animation">
-                        Blog
+                    <a href="/meusacordos" class="text-center sm:text-base leading-6 underline-animation">
+                        Meus acordos
                     </a>
                 </div>
                 <div class="px-5 py-2">
-                    <a href="#" class="text-base leading-6 underline-animation">
-                        Team
+                    <a href="/mensagensepropostas" class="text-center sm:text-base leading-6 underline-animation">
+                        Mensagens e Propostas
                     </a>
                 </div>
-
             </div>
 
             <div class="flex">
                 <div class="px-5 py-2">
-                    <a href="#" class="text-base leading-6 underline-animation">
-                        Pricing
-                    </a>
-                </div>
-                <div class="px-5 py-2">
-                    <a href="#" class="text-base leading-6 underline-animation">
-                        Contact
-                    </a>
-                </div>
-                <div class="px-5 py-2">
-                    <a href="#" class="text-base leading-6 underline-animation">
-                        Terms
+                    <a href="/about" class="text-base leading-6 underline-animation">
+                        Quem Somos
                     </a>
                 </div>
             </div>
 
             </nav>
 
+        <!--Redes Sociais-->
             <div class="flex place-content-center sm:justify-end mt-8 space-x-6">
                 <a href="#" class="">
                     <span class="sr-only">Facebook</span>

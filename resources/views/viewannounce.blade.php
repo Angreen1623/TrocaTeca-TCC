@@ -10,7 +10,7 @@
     @vite('resources/js/app.js')
 </head>
 
-<body class="bg-backgtt">
+<body class="bg-backgtt" data-authenticated="{{ auth()->check() }}">
     <div class="h-full min-h-screen relative">
         @include('navbar')
 
@@ -58,7 +58,6 @@
             </div>
 
         </div>
-
         @include('footer')
     </div>
 
@@ -68,36 +67,44 @@
 
     <script>
         //inclusão do modal de denuniar
-        document.addEventListener('DOMContentLoaded', function () {
-            const openReportButton = document.getElementById('openReportButton');
-            const modalContainer = document.getElementById('modalContainer');
+        document.addEventListener('DOMContentLoaded', function() {
+    const isAuthenticated = document.body.getAttribute('data-authenticated') === '1';
 
-            openReportButton.addEventListener('click', function (e) {
-                e.preventDefault();
-                modalContainer.classList.remove('hidden');
-                document.body.classList.add('overflow-hidden');
-            });
+    const openReportButton = document.getElementById('openReportButton');
+    const modalContainer = document.getElementById('modalContainer');
+    const openNewProposalButton = document.getElementById('openNewProposalButton');
+    const modalNewProposal = document.getElementById('modalNewProposal');
 
-            document.getElementById('cancelReport').addEventListener('click', function () {
-                modalContainer.classList.add('hidden');
-                document.body.classList.remove('overflow-hidden');
-            });
-            
-            //inclusão do modal de nova proposta
-            const openNewProposalButton = document.getElementById('openNewProposalButton');
-            const modalNewProposal = document.getElementById('modalNewProposal');
+    openReportButton.addEventListener('click', function(e) {
+        e.preventDefault();
+        if (isAuthenticated) {
+            modalContainer.classList.remove('hidden');
+            document.body.classList.add('overflow-hidden');
+        } else {
+            window.location.href = "{{ route('login') }}"; // Redireciona para a página de login
+        }
+    });
 
-            openNewProposalButton.addEventListener('click', function (e) {
-                e.preventDefault();
-                modalNewProposal.classList.remove('hidden');
-                document.body.classList.add('overflow-hidden');
-            });
+    document.getElementById('cancelReport').addEventListener('click', function() {
+        modalContainer.classList.add('hidden');
+        document.body.classList.remove('overflow-hidden');
+    });
 
-            document.getElementById('cancelNewProposal').addEventListener('click', function () {
-                modalNewProposal.classList.add('hidden');
-                document.body.classList.remove('overflow-hidden');
-            });
-        });
+    openNewProposalButton.addEventListener('click', function(e) {
+        e.preventDefault();
+        if (isAuthenticated) {
+            modalNewProposal.classList.remove('hidden');
+            document.body.classList.add('overflow-hidden');
+        } else {
+            window.location.href = "{{ route('login') }}";
+        }
+    });
+
+    document.getElementById('cancelNewProposal').addEventListener('click', function() {
+        modalNewProposal.classList.add('hidden');
+        document.body.classList.remove('overflow-hidden');
+    });
+});
     </script>
 
 </body>

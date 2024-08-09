@@ -13,6 +13,8 @@
 <body class="bg-backgtt">
     <div class="h-full min-h-screen relative">
         @include('navbar')
+
+    <!--Parte superior do minha conta-->    
         <div class="bg-yellowtt-light">
             <div class="max-w-screen-xl py-20 px-6 mx-auto overflow-hidden sm:px-8 md:px-10 items-center flex flex-col md:flex-row place-content-between">
                 <h2 class="text-3xl drop-shadow-tt text-center md:text-left text-white sm:text-6xl mb-3 md:hidden" style="font-family: 'Fredoka';">
@@ -44,11 +46,13 @@
         </div>
         <div class="bg-repeat bg-[url('/public/image/triangulo-amarelo.svg')] w-full h-8 -mt-px bg-backgtt mb-10"></div>
 
+        <!--Parte que corresponde ao formulário-->
         <div>
             <h3 class="text-3xl text-center lg:text-left sm:text-6xl mb-10 sm:ml-8" style="font-family: 'Fredoka';">Informações da conta</h3>
 
             <div class="flex w-full content-evenly flex-wrap sm:mb-14">
                 <div class="sm:border-r-4 border-black px-24 sm:w-1/2 w-full">
+                    <!--Primeiro trecho do fromu-->
                     <form id="upprofile" method="POST" action="{{ route('profile.update') }}">
                         @csrf
                         @method('PATCH')
@@ -95,6 +99,7 @@
                     </form>
                 </div>
             </div>    
+            <!--Botões de Confirmação-->
                 <div class="flex w-full flex-wrap mb-24 px-24 justify-between">
                     <button id="openwarningButton" class="my-4 sm:my-0 inline-flex items-center px-4 py-3 justify-center w-full sm:w-auto bg-redtt shadow-tt hover:bg-redtt-dark text-white text-md font-medium rounded-2xl transition ease-in-out delay-100  hover:-translate-y-1 hover:scale-110 duration-300">
                         <svg class="h-8 w-8 mr-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="44" zoomAndPan="magnify" viewBox="0 0 33 32.999998" height="44" preserveAspectRatio="xMidYMid meet" version="1.0"><defs><clipPath id="5f64fcf4cc"><path d="M 14.535156 15.070312 L 16.035156 15.070312 L 16.035156 16.570312 L 14.535156 16.570312 Z M 14.535156 15.070312 " clip-rule="nonzero" /></clipPath><clipPath id="42420438bd"><path d="M 0 15 L 29 15 L 29 32.25 L 0 32.25 Z M 0 15 " clip-rule="nonzero" /></clipPath></defs><g clip-path="url(#5f64fcf4cc)"><path fill="#000000" d="M 15.285156 15.070312 C 15.699219 15.070312 16.035156 15.40625 16.035156 15.820312 C 16.035156 16.234375 15.699219 16.570312 15.285156 16.570312 C 14.871094 16.570312 14.535156 16.234375 14.535156 15.820312 C 14.535156 15.40625 14.871094 15.070312 15.285156 15.070312 Z M 15.285156 15.070312 " fill-opacity="1" fill-rule="evenodd" /></g><path fill="#ffffff" d="M 23.703125 26.152344 C 23.535156 26.152344 23.363281 26.082031 23.242188 25.949219 C 23.003906 25.695312 23.015625 25.296875 23.269531 25.058594 L 28.214844 20.4375 C 28.46875 20.199219 28.867188 20.214844 29.105469 20.46875 C 29.34375 20.722656 29.332031 21.121094 29.074219 21.359375 L 24.132812 25.980469 C 24.011719 26.09375 23.855469 26.152344 23.703125 26.152344 Z M 23.703125 26.152344 " fill-opacity="1" fill-rule="nonzero" /><path fill="#ffffff" d="M 28.644531 26.152344 C 28.492188 26.152344 28.335938 26.09375 28.214844 25.980469 L 23.269531 21.359375 C 23.015625 21.121094 23.003906 20.722656 23.242188 20.46875 C 23.480469 20.214844 23.878906 20.199219 24.132812 20.4375 L 29.074219 25.058594 C 29.332031 25.296875 29.34375 25.695312 29.105469 25.949219 C 28.980469 26.082031 28.8125 26.152344 28.644531 26.152344 Z M 28.644531 26.152344 " fill-opacity="1" fill-rule="nonzero" /><path fill="#ffffff" d="M 26.171875 29.921875 C 22.472656 29.921875 19.460938 26.910156 19.460938 23.210938 C 19.460938 19.507812 22.472656 16.496094 26.171875 16.496094 C 29.875 16.496094 32.886719 19.507812 32.886719 23.210938 C 32.886719 26.910156 29.875 29.921875 26.171875 29.921875 Z M 26.171875 17.757812 C 23.167969 17.757812 20.722656 20.203125 20.722656 23.210938 C 20.722656 26.214844 23.167969 28.660156 26.171875 28.660156 C 29.179688 28.660156 31.625 26.214844 31.625 23.210938 C 31.625 20.203125 29.179688 17.757812 26.171875 17.757812 Z M 26.171875 17.757812 " fill-opacity="1" fill-rule="nonzero" /><path fill="#ffffff" d="M 14.90625 16.460938 C 10.371094 16.460938 6.679688 12.765625 6.679688 8.230469 C 6.679688 3.691406 10.371094 0 14.90625 0 C 19.445312 0 23.136719 3.691406 23.136719 8.230469 C 23.136719 12.765625 19.445312 16.460938 14.90625 16.460938 Z M 14.90625 1.261719 C 11.066406 1.261719 7.941406 4.386719 7.941406 8.230469 C 7.941406 12.070312 11.066406 15.195312 14.90625 15.195312 C 18.75 15.195312 21.875 12.070312 21.875 8.230469 C 21.875 4.386719 18.75 1.261719 14.90625 1.261719 Z M 14.90625 1.261719 " fill-opacity="1" fill-rule="nonzero" /><g clip-path="url(#42420438bd)"><path fill="#ffffff" d="M 28.355469 32.320312 L 0.917969 32.320312 L 0.835938 31.78125 C 0.0078125 26.246094 1.949219 22.0625 3.722656 19.53125 C 5.640625 16.792969 7.734375 15.371094 7.824219 15.3125 L 7.984375 15.203125 L 9.632812 15.203125 L 9.816406 15.382812 C 11.269531 16.792969 13.125 17.601562 14.90625 17.601562 C 16.691406 17.601562 18.542969 16.792969 19.996094 15.382812 L 20.179688 15.203125 L 21.640625 15.203125 C 21.988281 15.203125 22.269531 15.488281 22.269531 15.835938 C 22.269531 16.183594 21.988281 16.46875 21.640625 16.46875 L 20.6875 16.46875 C 19.03125 17.992188 16.9375 18.863281 14.90625 18.863281 C 12.878906 18.863281 10.785156 17.992188 9.128906 16.46875 L 8.378906 16.46875 C 7.320312 17.253906 0.996094 22.355469 2.011719 31.058594 L 28.355469 31.058594 C 28.703125 31.058594 28.984375 31.339844 28.984375 31.6875 C 28.984375 32.039062 28.703125 32.320312 28.355469 32.320312 Z M 28.355469 32.320312 " fill-opacity="1" fill-rule="nonzero" /></g></svg>
