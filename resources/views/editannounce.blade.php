@@ -20,6 +20,11 @@
             <div class="flex flex-col lg:flex-row lg:items-center lg:place-content-center mb-5">
                 <div class="lg:mr-8">
                     <div class="mt-5 lg:mt-0">
+                    <!--Início do formulário-->
+                    <form id="edtann" method="POST" action=""> 
+                    @csrf
+                    @method('PATCH')
+
                         <label for="screenshot">
                             <div class="bg-white w-full lg:h-80 lg:w-80 rounded-xl border border-graytt-light shadow-tt flex flex-col flex-wrap justify-center items-center">
                                 <div class="mt-2 mb-2 flex flex-col justify-center items-center transition ease-in-out delay-100  hover:-translate-y-1 hover:scale-[1.05] duration-300">
@@ -83,17 +88,17 @@
                     <!--Nome do artigo-->
                     <div class="flex flex-col lg:flex-row mt-4 lg:mt-8">
                         <label for="nome_art" class="block text-lg lg:text-xl font-semibold lg:font-normal leading-6 text-black lg:mt-2 lg:mr-3 lg:text-nowrap">Nome do artigo:</label>
-                        <input type="text" name="nome_art" id="nome_art" autocomplete="organization" class="w-full shadow-tt block placeholder:text-graytt rounded-xl border border-graytt-light px-3.5 py-2 shadow-lg ring-1 border border-graytt ring-inset ring-graytt placeholder:text-graytt-dark focus:ring-2 focus:ring-inset lg:text-lg lg:leading-6">
+                        <input type="text" name="nome_art" id="nome_art" value="{{$artigo->nome_artigo}}"  autocomplete="organization" class="w-full shadow-tt block placeholder:text-graytt rounded-xl border border-graytt-light px-3.5 py-2 shadow-lg ring-1 border border-graytt ring-inset ring-graytt placeholder:text-graytt-dark focus:ring-2 focus:ring-inset lg:text-lg lg:leading-6">
                     </div>
                     <div class="flex flex-col lg:flex-row mt-4 lg:mt-8">
                         <!--valor sugerido-->
-                        <label for="val" class="block text-lg lg:text-xl font-semibold lg:font-normal leading-6 text-black lg:mt-2 lg:mr-3 lg:text-nowrap">Valor sugerido (opcional): R$</label>
-                        <input type="text" name="val" id="val" autocomplete="organization" class="shadow-tt block placeholder:text-graytt rounded-xl border border-graytt-light px-3.5 py-2 shadow-lg ring-1 border border-graytt ring-inset ring-graytt placeholder:text-graytt-dark focus:ring-2 focus:ring-inset lg:text-lg lg:leading-6">
+                        <label for="vals" class="block text-lg lg:text-xl font-semibold lg:font-normal leading-6 text-black lg:mt-2 lg:mr-3 lg:text-nowrap">Valor sugerido (opcional): R$</label>
+                        <input type="text" name="vals" id="vals" value="{{$artigo->valor_sugerido_artigo}}" autocomplete="organization" class="shadow-tt block placeholder:text-graytt rounded-xl border border-graytt-light px-3.5 py-2 shadow-lg ring-1 border border-graytt ring-inset ring-graytt placeholder:text-graytt-dark focus:ring-2 focus:ring-inset lg:text-lg lg:leading-6">
                     </div>
                     <!--Item de Preferência-->
                     <div class="flex flex-col lg:flex-row mt-4 lg:mt-8">
                         <label for="pref" class="block text-lg lg:text-xl font-semibold lg:font-normal leading-6 text-black lg:mt-2 lg:mr-3 lg:text-nowrap">Preferência de troca:</label>
-                        <input type="text" name="pref" id="pref" autocomplete="organization" class=" w-full shadow-tt block rounded-xl border border-graytt-light px-3.5 py-2 shadow-lg ring-1 border border-graytt ring-inset ring-graytt placeholder:text-graytt-dark focus:ring-2 focus:ring-inset lg:text-lg lg:leading-6">
+                        <input type="text" name="pref" id="pref" value="{{$artigo->preferencia_troca_artigo}}" autocomplete="organization" class=" w-full shadow-tt block rounded-xl border border-graytt-light px-3.5 py-2 shadow-lg ring-1 border border-graytt ring-inset ring-graytt placeholder:text-graytt-dark focus:ring-2 focus:ring-inset lg:text-lg lg:leading-6">
                     </div>
                     <!--Categoria-->
                     <div class="flex flex-col lg:flex-row mt-4 lg:mt-8">
@@ -113,7 +118,7 @@
                     <div class="flex flex-col lg:flex-row mt-4 lg:mt-8">
                         <label for="condpropo" class="block text-lg lg:text-xl lg:font-normal font-semibold leading-6 text-black lg:mt-2 lg:mr-3">Condição:</label>
                         <div class="inset-y-0 left-0 flex items-center">
-                            <select id="condpropo" name="condpropo" class="custom-select shadow-tt block w-52 rounded-xl border border-graytt-light px-3.5 py-2 text-graytt-dark shadow-lg ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 lg:text-lg lg:leading-6">
+                            <select id="condpropo" name="condpropo" value="{{$artigo->condicao_artigo}}" class="custom-select shadow-tt block w-52 rounded-xl border border-graytt-light px-3.5 py-2 text-graytt-dark shadow-lg ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 lg:text-lg lg:leading-6">
                                 <option value="" disabled selected>Selecionar</option>
                                 <option value="Novo">Novo</option>
                                 <option value="Seminovo">Seminovo</option>
@@ -125,8 +130,9 @@
                     <!--Tempo de uso-->
                     <div class="flex flex-col lg:flex-row mt-4 lg:mt-8">
                         <label for="uso_art" class="block text-lg lg:text-xl lg:font-normal font-semibold leading-6 text-black lg:mt-2 lg:mr-3">Tempo de uso:</label>
-                        <input type="text" name="uso_art" id="uso_art" autocomplete="organization" class="shadow-tt block w-36 rounded-xl border border-graytt-light px-3.5 py-2 shadow-lg ring-1 border border-graytt ring-inset ring-graytt placeholder:text-graytt-dark focus:ring-2 focus:ring-inset lg:text-lg lg:leading-6">
+                        <input type="text" name="uso_art" id="uso_art" value="{{$artigo->tempo_uso_artigo}}"  autocomplete="organization" class="shadow-tt block w-36 rounded-xl border border-graytt-light px-3.5 py-2 shadow-lg ring-1 border border-graytt ring-inset ring-graytt placeholder:text-graytt-dark focus:ring-2 focus:ring-inset lg:text-lg lg:leading-6">
                     </div>
+                </form>
                     <!--botões de confirmação-->
                     <div class="flex flex-col lg:flex-row mt-4 sm:mr-0 mr-10 w-full justify-end">
                         <button class="mr-3 inline-flex items-center p-2 justify-center w-26 lg:w-auto shadow-tt bg-pinktt hover:bg-pinktt-dark text-white text-lg font-medium rounded-2xl transition ease-in-out delay-100  hover:-translate-y-1 hover:scale-110 duration-300">

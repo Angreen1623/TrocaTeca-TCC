@@ -7,6 +7,7 @@ use App\Models\Imagem_artigo;
 use Faker\Provider\Image;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ArtigoController extends Controller
 {
@@ -41,5 +42,15 @@ class ArtigoController extends Controller
 
         return redirect()->to('/meusartigos');
         
+    }
+
+    public function select(Request $req){
+        $artg = Artigo::where('id_usuario_ofertante', $req->user()->id)->get();
+        return view('meusartigos')->with("artigo", $artg);
+    }
+
+    public function edit(Request $req){
+        $artg = Artigo::find($req->id);
+        return view('editannounce')->with("artigo", $artg);
     }
 }

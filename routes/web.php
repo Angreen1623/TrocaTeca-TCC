@@ -5,18 +5,20 @@ use App\Http\Controllers\ArtigoController;
 use App\Models\Artigo;
 use Illuminate\Support\Facades\Route;
 
-
-
-
 // Adicionando middleware 'auth' para as rotas que requerem login
 Route::middleware('auth')->group(function () {
     Route::get('/myaccount', function () {
         return view('myaccount');
     });
 
-    Route::get('meusartigos', function () {
-        return view('meusartigos');
+    Route::get('/meusartigos', [ArtigoController::class, 'select']);
+
+    Route::get('/announce', function () {
+        return view('announcepro');
     });
+
+    Route::post('artigo/create', [ArtigoController::class, 'create'])->name('artigo.add');
+    Route::get('/editannounce/{id}', [ArtigoController::class, 'edit'])->name('profile.edit');
 
     Route::get('/mep', function () {
         return view('mensagensepropostas');
@@ -32,15 +34,6 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/validar', function () {
         return view('modalvalidar');
-    });
-
-    Route::get('/announce', function () {
-        return view('announcepro');
-    });
-    Route::post('artigo/create', [ArtigoController::class, 'create'])->name('artigo.add');
-
-    Route::get('/edannounce', function () {
-        return view('editannounce');
     });
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
