@@ -11,11 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('imagem_artigos', function (Blueprint $table) {
-            $table->id();
-            $table->Boolean('imagem_principal');
-            $table->Text('Endereco_imagem');
-            $table->foreignId('id_artigo')->constrained('artigos')->onDelete('cascade')->onUpdate('cascade');
+        Schema::create('relacao_user_props', function (Blueprint $table) {
+            $table->foreignId('id_usuario')->constrained('users')->onUpdate('cascade');
+            $table->foreignId('id_proposta')->constrained('propostas')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }
@@ -25,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('imagem_artigos');
+        Schema::dropIfExists('relacao_user_props');
     }
 };

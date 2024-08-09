@@ -21,6 +21,9 @@ return new class extends Migration
             $table->string('cidade')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->tinyInteger('cont_advertencias');
+            $table->String('estado_conta');
+            $table->text('info_sobremim');
             $table->rememberToken();
             $table->timestamps();
         });

@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ArtigoController;
+use App\Models\Artigo;
 use Illuminate\Support\Facades\Route;
 
 
@@ -32,13 +34,14 @@ Route::middleware('auth')->group(function () {
         return view('modalvalidar');
     });
 
-Route::get('/announce', function () {
-    return view('announcepro');
-});
+    Route::get('/announce', function () {
+        return view('announcepro');
+    });
+    Route::post('/add_artigo', [ArtigoController::class, 'create']);
 
-Route::get('/edannounce', function () {
-    return view('editannounce');
-});
+    Route::get('/edannounce', function () {
+        return view('editannounce');
+    });
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

@@ -14,14 +14,12 @@ return new class extends Migration
         Schema::create('artigos', function (Blueprint $table) {
             $table->id();
             $table->String('nome_artigo');
-            $table->String('valor_sugerido_artigo')->nullable();
+            $table->Float('valor_sugerido_artigo')->nullable();
             $table->String('preferencia_troca_artigo')->nullable();
             $table->String('categoria_artigo');
             $table->String('condicao_artigo');
             $table->String('tempo_uso_artigo');
-            $table->foreignId('id_usuario_ofertante')->constrained(
-                table: 'users', indexName: 'id'
-            );
+            $table->foreignId('id_usuario_ofertante')->constrained('users')->onUpdate('cascade');
             $table->timestamps();
         });
     }

@@ -11,11 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('imagem_artigos', function (Blueprint $table) {
+        Schema::create('propostas', function (Blueprint $table) {
             $table->id();
-            $table->Boolean('imagem_principal');
-            $table->Text('Endereco_imagem');
             $table->foreignId('id_artigo')->constrained('artigos')->onDelete('cascade')->onUpdate('cascade');
+            $table->String('nome_proposta');
+            $table->String('categoria_proposta');
+            $table->String('condicao_proposta');
+            $table->String('tempo_uso_proposta');
+            $table->Text('endereco_img_prop');
             $table->timestamps();
         });
     }
@@ -25,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('imagem_artigos');
+        Schema::dropIfExists('propostas');
     }
 };
