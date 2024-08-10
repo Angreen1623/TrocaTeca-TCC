@@ -23,8 +23,9 @@
                     <div class="lg:mr-8">
                         <div class="mt-5 lg:mt-0">
                             <label for="img_principal">
-                                <div class="bg-white w-full lg:h-80 lg:w-80 rounded-xl border border-graytt-light shadow-tt flex flex-col flex-wrap justify-center items-center">
-                                    <div class="mt-2 mb-2 flex flex-col justify-center items-center transition ease-in-out delay-100  hover:-translate-y-1 hover:scale-[1.05] duration-300">
+                                <div class="add-img-p bg-white w-30 h-30 lg:h-80 lg:w-80 rounded-xl border border-graytt-light shadow-tt flex flex-col flex-wrap justify-center items-center overflow-hidden ">
+                                    <img src="" class="hidden w-full">
+                                    <div class="placeholder-img mt-2 mb-2 flex flex-col justify-center items-center transition ease-in-out delay-100  hover:-translate-y-1 hover:scale-[1.05] duration-300">
                                         <img src="{{asset('image/mais.svg')}}" alt="" width="100">
                                         <p class="text-graytt text-xs text-center mt-2">Foto principal do artigo (Obrigatório)</p>
                                     </div>
@@ -40,8 +41,9 @@
                                     <div>
                                         <input type="file" name="img[{{$i}}]" id="imagem{{$i+1}}" class="hidden">
                                         <label for="imagem{{$i+1}}">
-                                        <div class="mt-3 bg-white p-3 last:mr-0 sm:mr-3 rounded-xl border border-graytt-light shadow-tt flex flex-col justify-center items-center">
-                                            <div class="flex flex-col justify-center items-center transition ease-in-out delay-100  hover:-translate-y-1 hover:scale-[1.05] duration-300">
+                                        <div class="add-img{{ $i+1 }} mt-3 bg-white w-14 h-14 last:mr-0 sm:mr-3 rounded-xl border border-graytt-light shadow-tt flex flex-col justify-center items-center overflow-hidden">
+                                            <img src="" class="hidden w-full">
+                                            <div class="placeholder-img flex flex-col justify-center items-center transition ease-in-out delay-100  hover:-translate-y-1 hover:scale-[1.05] duration-300 m-3">
                                                 <img src="{{asset('image/mais.svg')}}" alt="" width="30">
                                             </div>
                                         </div>
@@ -113,6 +115,43 @@
                 </div>
             </form>
         </div>
+
+        <script>
+            let paiimg = '.add-img-p';
+            let img = document.querySelector(paiimg+' img');
+            let placeholder = document.querySelector(paiimg+' .placeholder-img');
+            let inputArquivo = document.querySelector("#img_principal");
+
+            inputArquivo.onchange = function () { //Função para atualizar a interface do usuário quando um arquivo é selecionado.
+
+            if (inputArquivo.files.length > 0) {  //Verifica se há um arquivo selecionado.
+                img.src = URL.createObjectURL(inputArquivo.files[0]); // Cria uma URL temporária para o arquivo selecionado e atualiza a imagem.
+                img.classList.remove('hidden');
+
+                placeholder.classList.add('hidden');
+            }
+
+            };
+
+            for (let i = 1; i < 5; i++) {
+                let paiimg = '.add-img' + i;
+                let img = document.querySelector(paiimg+' img');
+                let placeholder = document.querySelector(paiimg+' .placeholder-img');
+                let inputArquivo = document.querySelector("#imagem" + i);
+
+                // Verifica se o elemento foi encontrado antes de adicionar o evento
+                if (img && inputArquivo) {
+                    inputArquivo.onchange = function() {
+                        if (inputArquivo.files.length > 0) {
+                            img.src = URL.createObjectURL(inputArquivo.files[0]); // Cria uma URL temporária para o arquivo selecionado e atualiza a imagem.
+                            img.classList.remove('hidden');
+
+                            placeholder.classList.add('hidden');
+                        }
+                    };
+                }
+            }
+        </script>
         @include('footer')
     </div>
 </body>
