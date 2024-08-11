@@ -90,17 +90,45 @@
                 <div class="container flex flex-col justify-center px-4 py-8 mx-auto md:p-8">
                     <h2 class="text-xl drop-shadow-tt text-left text-black sm:text-5xl md:text-5xl mb-6" style="font-family: 'Fredoka'; white-space: nowrap;">Mais perguntas frequentes</h2>
                     <div class="space-y-4">
-                        <details class="w-full rounded-xl border-2 border-graytt-light shadow-tt transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-105 duration-300">
+                        <details class="bg-white w-full rounded-xl border-2 border-graytt-light shadow-tt transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-105 duration-300">
                             <summary class="px-4 py-6">Desisti da troca após gerar o acordo, e agora?</summary>
-                            <p class="px-4 py-6 pt-0 ml-4 -mt-4 dark:text-gray-600">Basta não validar a troca. O acordo será automaticamente dado como improcedente se nenhuma das partes o validar até o dia e hora combinados. </p>
+                            <p class="px-4 py-6 pt-0 ml-4 -mt-4 dark:text-gray-600">Basta não validar a troca e avisar a outra parte envolvida. O acordo será automaticamente dado como improcedente se nenhuma das partes o validar até o dia e hora combinados. </p>
                         </details>
-                        <details class="w-full rounded-xl border-2 border-graytt-light shadow-tt transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-105 duration-300">
-                            <summary class="px-4 py-6 focus:outline-none focus-visible:dark:ring-violet-600">Lorem at arcu rutrum viverra metus sapien venenatis lobortis odio?</summary>
-                            <p class="px-4 py-6 pt-0 ml-4 -mt-4 dark:text-gray-600">Tincidunt ut hac condimentum rhoncus phasellus nostra. Magna porttitor egestas tincidunt neque vehicula potenti. </p>
+                        <details class="bg-white w-full rounded-xl border-2 border-graytt-light shadow-tt transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-105 duration-300">
+                            <summary class="px-4 py-6 focus:outline-none focus-visible:dark:ring-violet-600">Posso negociar a troca através de um contato pessoal?</summary>
+                            <p class="px-4 py-6 pt-0 ml-4 -mt-4 dark:text-gray-600">Para manter a integridade do processo de troca e pela segurança de todos, não recomendamos nenhuma forma de comunicação entre os usuários que não seja através do nosso chat próprio.</p>
                         </details>
-                        <details class="w-full rounded-xl border-2 border-graytt-light shadow-tt transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-105 duration-300">
-                            <summary class="px-4 py-6 focus:outline-none focus-visible:dark:ring-violet-600">Eleifend feugiat sollicitudin laoreet adipiscing bibendum suscipit erat?</summary>
-                            <p class="px-4 py-6 pt-0 ml-4 -mt-4 dark:text-gray-600">Justo libero tellus integer tincidunt justo semper consequat venenatis aliquet imperdiet. Ultricies urna proin fusce nulla pretium sodales vel magna et massa euismod vulputate sed. </p>
+                        <details class="bg-white w-full rounded-xl border-2 border-graytt-light shadow-tt transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-105 duration-300">
+                            <summary class="px-4 py-6 focus:outline-none focus-visible:dark:ring-violet-600">Só posso trocar se me encontrar com o trocador?</summary>
+                            <p class="px-4 py-6 pt-0 ml-4 -mt-4 dark:text-gray-600">Só podemos ter controle sobre trocas que sejam feitas em encontros físicos entre os dois trocadores, e portanto, não recomendamos outras formas, como o Correios. </p>
+                        </details>
+                        <details class="bg-white w-full rounded-xl border-2 border-graytt-light shadow-tt transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-105 duration-300">
+                            <summary class="px-4 py-6 focus:outline-none focus-visible:dark:ring-violet-600">Como o TrocaTeca garante minha segurança nos encontros de trocas?</summary>
+                            <p class="px-4 py-6 pt-0 ml-4 -mt-4 dark:text-gray-600">Como constante nos Termos de Serviço, recomendamos que o trocador sempre combine as trocas em locais públicos e em horários adequados. Evite compartilhar informações pessoais, como endereço residencial, e reforçamos que o uso do chat da plataforma para toda a comunicação é crucial para a segurança de todos os usuários.</p>
+                        </details>
+                        <details class="bg-white w-full rounded-xl border-2 border-graytt-light shadow-tt transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-105 duration-300">
+                            <summary class="px-4 py-6 focus:outline-none focus-visible:dark:ring-violet-600">O trocador não apareceu no local combinado. O que faço?</summary>
+                            <p class="px-4 py-6 pt-0 ml-4 -mt-4 dark:text-gray-600">Se o trocador não cumprir algo do que foi combinado no acordo, sem dar satisfações, por favor não hesite em denunciar este usuário para que as devidas providências sejam tomadas. </p>
+                        </details>
+                        <details class="bg-white w-full rounded-xl border-2 border-graytt-light shadow-tt transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-105 duration-300">
+                            <summary class="px-4 py-6 focus:outline-none focus-visible:dark:ring-violet-600">E se o trocador me oferecer dinhero pelo meu anúncio?</summary>
+                            <p class="px-4 py-6 pt-0 ml-4 -mt-4 dark:text-gray-600">Não podemos ter esse controle. Recomendamos a todos os usuários que respeitem os termos estabelecidos e o propósito do TrocaTeca, e que denunciem uma ocorrência que vá contra isso. </p>
+                        </details>
+                        <details class="bg-white w-full rounded-xl border-2 border-graytt-light shadow-tt transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-105 duration-300">
+                            <summary class="px-4 py-6 focus:outline-none focus-visible:dark:ring-violet-600">Posso anunciar artigos que não sejam infantis?</summary>
+                            <p class="px-4 py-6 pt-0 ml-4 -mt-4 dark:text-gray-600">Recomendamos que anúncios que fujam do propósito do sistema sejam denunciados, já que estão passíveis à punição. No entanto, é completamente aceitável oferecer um item que não seja infantil em troca do que está anunciado.</p>
+                        </details>
+                        <details class="bg-white w-full rounded-xl border-2 border-graytt-light shadow-tt transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-105 duration-300">
+                            <summary class="px-4 py-6 focus:outline-none focus-visible:dark:ring-violet-600">Posso negociar mais de um artigo com um mesmo trocador?</summary>
+                            <p class="px-4 py-6 pt-0 ml-4 -mt-4 dark:text-gray-600">Sim, dois trocadores podem negociar mais de um item por vez, mas no sistema serão tratados como duas negociações diferentes.</p>
+                        </details>
+                        <details class="bg-white w-full rounded-xl border-2 border-graytt-light shadow-tt transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-105 duration-300">
+                            <summary class="px-4 py-6 focus:outline-none focus-visible:dark:ring-violet-600">O que fazer se o artigo que recebi está danificado ou não condiz com a descrição?</summary>
+                            <p class="px-4 py-6 pt-0 ml-4 -mt-4 dark:text-gray-600">Recomendamos o encontro físico entre os usuários para que ambos realizem a conferência dos artigos no ato da troca, mas se algo assim ainda ocorrer, por favor entre em contato conosco imediatamente ou realize uma denúncia de usuário através do chat. </p>
+                        </details>
+                        <details class="bg-white w-full rounded-xl border-2 border-graytt-light shadow-tt transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-105 duration-300">
+                            <summary class="px-4 py-6 focus:outline-none focus-visible:dark:ring-violet-600">Como posso entrar em contato com a equipe do TrocaTeca?</summary>
+                            <p class="px-4 py-6 pt-0 ml-4 -mt-4 dark:text-gray-600">Os usuários podem entrar em contato diretamente com a equipe do TrocaTeca através das redes sociais - @TrocaTeca - ou através do Email - trocatecaltda@gmail.com </p>
                         </details>
                     </div>
                 </div>
