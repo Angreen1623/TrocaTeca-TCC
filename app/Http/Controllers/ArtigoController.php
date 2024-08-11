@@ -78,4 +78,10 @@ class ArtigoController extends Controller
         ]);
         return redirect()->to('/meusartigos');
   }
+
+  public function delete(Request $req){
+    $artg = Artigo::find($req->id);
+    $artg->delete();
+    return redirect()->to('/meusartigos');
+}
 }
