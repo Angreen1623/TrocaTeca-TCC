@@ -66,7 +66,7 @@
                         <div class="flex flex-col lg:flex-row mt-4 lg:mt-8">
                             <!--valor sugerido-->
                             <label for="val" class="block text-lg lg:text-xl font-semibold lg:font-normal leading-6 text-black lg:mt-2 lg:mr-3 lg:text-nowrap">Valor sugerido (opcional): R$</label>
-                            <input type="text" name="val" id="val" required autocomplete="organization" class="border border-graytt-light shadow-tt block placeholder:text-graytt rounded-xl border border-graytt-light px-3.5 py-2 shadow-lg ring-1 ring-inset ring-graytt placeholder:text-graytt-dark focus:ring-2 focus:ring-inset lg:text-lg lg:leading-6">
+                            <input type="text" name="val" id="val" autocomplete="organization" class="border border-graytt-light shadow-tt block placeholder:text-graytt rounded-xl border border-graytt-light px-3.5 py-2 shadow-lg ring-1 ring-inset ring-graytt placeholder:text-graytt-dark focus:ring-2 focus:ring-inset lg:text-lg lg:leading-6">
                         </div>
                         <!--Item de Preferência-->
                         <div class="flex flex-col lg:flex-row mt-4 lg:mt-8">

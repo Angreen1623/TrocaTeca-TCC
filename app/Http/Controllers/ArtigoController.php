@@ -64,4 +64,18 @@ class ArtigoController extends Controller
         $artg = Artigo::find($req->id);
         return view('editannounce')->with("artigo", $artg);
     }
+
+    public function update(Request $req){
+        $artg = Artigo::find($req->id);
+        $artg->update(
+        [
+            "nome_artigo" => $req->nome_artigo ,
+            "valor_sugerido_artigo" => $req->valor_sugerido_artigo,
+            "preferencia_troca_artigo" => $req->preferencia_troca_artigo,
+            "categoria_artigo" => $req->categoria_artigo,
+            "condicao_artigo" => $req->condicao_artigo,
+            "tempo_uso_artigo" => $req->tempo_uso_artigo
+        ]);
+        return redirect()->to('/meusartigos');
+  }
 }

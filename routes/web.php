@@ -19,6 +19,7 @@ Route::middleware('auth')->group(function () {
 
     Route::post('artigo/create', [ArtigoController::class, 'create'])->name('artigo.add');
     Route::get('/editannounce/{id}', [ArtigoController::class, 'edit'])->name('profile.edit');
+    Route::patch('/atualizar/{id}', [ArtigoController::class, 'update'])->name('artigo.update');
 
     Route::get('/mep', function () {
         return view('mensagensepropostas');
