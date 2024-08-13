@@ -7,6 +7,7 @@ use App\Http\Requests\Auth\LoginRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\ValidationException;
 use Illuminate\View\View;
 
 class AuthenticatedSessionController extends Controller
@@ -22,14 +23,34 @@ class AuthenticatedSessionController extends Controller
     /**
      * Handle an incoming authentication request.
      */
-    public function store(LoginRequest $request): RedirectResponse
+    public function store(Request $request): RedirectResponse
     {
-        $request->authenticate();
+        // Valida os dados de entrada
+        $credentials = $request->validate([
+            'email' => ['required', 'email'],
+            'password' => ['required'],
+        ]);
+
+        // Verifica se o usuário está inativado
+        $user = Auth::getProvider()->retrieveByCredentials($credentials);
+        if ($user && $user->estado_conta === 'inativado') {
+            throw ValidationException::withMessages([
+                'email' => __('A conta está inativada.'),
+            ]);
+        }
+
+        // Tenta autenticar o usuário
+        if (!Auth::attempt($credentials, $request->filled('remember'))) {
+            throw ValidationException::withMessages([
+                'email' => __('As credenciais fornecidas estão incorretas.'),
+            ]);
+        }
 
         $request->session()->regenerate();
 
         return redirect()->intended(route('welcome', absolute: false));
     }
+
 
     /**
      * Destroy an authenticated session.
