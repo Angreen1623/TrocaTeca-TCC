@@ -56,13 +56,14 @@ class ArtigoController extends Controller
     }
 
     public function select(Request $req){
-        $artg = Artigo::where('id_usuario_ofertante', $req->user()->id)->get();
-        return view('meusartigos')->with("artigo", $artg);
+        $artg = Artigo::where('id_usuario_ofertante', $req->user()->id)->with('imagens')->get();
+        return view('meusartigos')->with('artigo', $artg);
     }
 
     public function edit(Request $req){
         $artg = Artigo::find($req->id);
-        return view('editannounce')->with("artigo", $artg);
+        $img = Imagem_artigo::where('id_artigo', $req->id)->get();
+        return view('editannounce')->with(['artigo' => $artg, 'imagens' => $img]);
     }
 
     public function update(Request $req){

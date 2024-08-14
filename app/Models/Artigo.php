@@ -18,4 +18,9 @@ class Artigo extends Model
         'id_usuario_ofertante',
         'tempo_uso_artigo'
     ];
+
+    public function imagens()
+    {
+        return $this->hasMany(Imagem_artigo::class, 'id_artigo');
+    }
 }

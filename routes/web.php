@@ -18,7 +18,7 @@ Route::middleware('auth')->group(function () {
     });
 
     Route::post('artigo/create', [ArtigoController::class, 'create'])->name('artigo.add');
-    Route::get('/editannounce/{id}', [ArtigoController::class, 'edit'])->name('profile.edit');
+    Route::get('/editannounce/{id}', [ArtigoController::class, 'edit'])->name('artigo.edit');
     Route::patch('/atualizar/{id}', [ArtigoController::class, 'update'])->name('artigo.update');
     Route::delete('/excluir/{id}', [ArtigoController::class, 'delete'])->name('artigo.delete');
 

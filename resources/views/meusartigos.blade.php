@@ -38,7 +38,11 @@
                                     <!-- Imagem e informações básicas -->
                                     <div class="flex justify-center w-full sm:w-auto">
                                         <div class="ml-3 mt-3 mb-3 overflow-hidden relative w-20 h-20 flex-shrink-0 border-2 border-graytt-light rounded-xl">
-                                            <img class="rounded-xl w-full h-full object-cover object-center transition duration-50" loading="lazy" src="">
+                                            @foreach($artg->imagens as $imagem)
+                                                @if($imagem->imagem_principal)
+                                                    <img class="rounded-xl w-full h-full object-cover object-center transition duration-50" loading="lazy" src="{{ asset($imagem->endereco_imagem) }}">
+                                                @endif
+                                            @endforeach
                                         </div>
                                     </div>
                                     <div class="flex flex-col gap-2 py-2 w-full text-center sm:text-left">

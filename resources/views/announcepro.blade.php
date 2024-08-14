@@ -22,9 +22,9 @@
                 <div class="flex flex-col lg:flex-row lg:items-center lg:place-content-center mb-5">
                     <div class="lg:mr-8">
                         <div class="mt-5 lg:mt-0">
-                            <label for="img_principal">
-                                <div class="add-img-p bg-white w-30 h-30 lg:h-80 lg:w-80 rounded-xl border border-graytt-light shadow-tt flex flex-col flex-wrap justify-center items-center overflow-hidden ">
-                                    <img src="" class="hidden w-full">
+                            <label for="img_principal" class="flex flex-col items-center">
+                                <div class="add-img-p bg-white w-64 h-32 lg:h-80 lg:w-80 rounded-xl border border-graytt-light shadow-tt flex flex-col flex-wrap justify-center items-center overflow-hidden">
+                                    <img src="" class="hidden h-full object-cover">
                                     <div class="placeholder-img mt-2 mb-2 flex flex-col justify-center items-center transition ease-in-out delay-100  hover:-translate-y-1 hover:scale-[1.05] duration-300">
                                         <img src="{{asset('image/mais.svg')}}" alt="" width="100">
                                         <p class="text-graytt text-xs text-center mt-2">Foto principal do artigo (Obrigatório)</p>
@@ -42,7 +42,7 @@
                                         <input type="file" name="img[{{$i}}]" id="imagem{{$i+1}}" class="hidden">
                                         <label for="imagem{{$i+1}}">
                                         <div class="add-img{{ $i+1 }} mt-3 bg-white w-14 h-14 last:mr-0 sm:mr-3 rounded-xl border border-graytt-light shadow-tt flex flex-col justify-center items-center overflow-hidden">
-                                            <img src="" class="hidden w-full">
+                                            <img src="" class="hidden object-cover h-full">
                                             <div class="placeholder-img flex flex-col justify-center items-center transition ease-in-out delay-100  hover:-translate-y-1 hover:scale-[1.05] duration-300 m-3">
                                                 <img src="{{asset('image/mais.svg')}}" alt="" width="30">
                                             </div>
