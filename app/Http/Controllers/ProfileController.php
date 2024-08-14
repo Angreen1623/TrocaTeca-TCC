@@ -57,4 +57,26 @@ class ProfileController extends Controller
 
         return Redirect::to('/');
     }
+
+    /*inativação da conta do usuário*/
+    public function inativate(Request $request)
+    {
+        $user = $request->user(); // Obtém o usuário autenticado
+
+        if ($user) {
+            // Atualiza o estado da conta para 'inativado'
+            $user->estado_conta = 'inativado';
+            $user->save();
+    
+            // Faz o logout do usuário
+            Auth::logout();
+            // Invalida a sessão
+            $request->session()->invalidate();
+            // Regenera o token CSRF para a segurança
+            $request->session()->regenerateToken();
+        }
+    
+        // Redireciona para a página de boas-vindas
+        return redirect()->to('/welcome');
+    }
 }

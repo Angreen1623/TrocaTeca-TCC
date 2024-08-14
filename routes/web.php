@@ -41,6 +41,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::patch('/profile/inativate', [ProfileController::class, 'inativate'])->middleware('auth')->name('profile.inativate');
 });
 
 // Rotas públicas
@@ -62,11 +63,6 @@ Route::get('/', function () {
 
 Route::get('/about', function () {
     return view('quemsomos');
-});
-
-// Outras rotas
-Route::get('/dashboard', function () {
-    return view('dashboard');
 });
 
 require __DIR__.'/auth.php';
