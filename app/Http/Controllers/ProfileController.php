@@ -77,6 +77,6 @@ class ProfileController extends Controller
         }
     
         // Redireciona para a página de boas-vindas
-        return redirect()->to('/welcome');
+        return redirect('/');
     }
 }

@@ -60,10 +60,14 @@ class ArtigoController extends Controller
         return view('meusartigos')->with('artigo', $artg);
     }
 
+    public function list(){
+        $artg = Artigo::all();
+        return view('welcome')->with('artigo', $artg);
+    }
+
     public function edit(Request $req){
-        $artg = Artigo::find($req->id);
-        $img = Imagem_artigo::where('id_artigo', $req->id)->get();
-        return view('editannounce')->with(['artigo' => $artg, 'imagens' => $img]);
+        $artg = Artigo::with('imagens')->find($req->id);
+        return view('editannounce')->with('artigo', $artg);
     }
 
     public function update(Request $req){

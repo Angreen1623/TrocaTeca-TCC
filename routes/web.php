@@ -45,20 +45,15 @@ Route::middleware('auth')->group(function () {
 });
 
 // Rotas públicas
-Route::get('/welcome', function () {
-    return view('welcome');
-})->middleware(['auth', 'verified'])->name('welcome');
+Route::get('/', [ArtigoController::class, 'list'])->name('welcome');
+
 
 Route::get('/ann', function () {
     return view('annoaccount');
 });
 
-Route::get('/viewannounce', function () {
+Route::get('/viewannounce/{{id_artigo}}', function () {
     return view('viewannounce');
-});
-
-Route::get('/', function () {
-    return view('welcome');
 });
 
 Route::get('/about', function () {

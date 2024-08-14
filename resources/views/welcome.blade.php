@@ -49,90 +49,55 @@
 
 
                     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 justify-items-center">
+
                         <!--Card do anúncio-->
-                        <div class="group my-1 flex w-full max-w-[260px] flex-col overflow-hidden rounded-xl border border-graytt-light shadow-tt bg-white transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 duration-300">
-                            <a href="/viewannounce">
-                                <div class="relative mx-3 mt-3 flex h-48 overflow-hidden rounded-xl border-2 border-black">
-                                    <img class="peer absolute top-0 right-0 h-full w-full object-cover" src="" alt="Imagem do Produto" />
-                                    <img class="peer absolute top-0 -right-96 h-full w-full object-cover transition-all delay-100 duration-1000 hover:right-0 peer-hover:right-0" src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8c25lYWtlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" alt="Imagem do Produto" />
-                                </div>
-                                <div class="mt-4 px-5 pb-5">
-                                    <p class="truncate lg:text-left lg:mt-2 text-black">Produto</p>
+                        @if($artigo)
+                            @foreach($artigo as $artg)
+                                @if(!auth()->check() || $artg->id_usuario_ofertante != auth()->user()->id)
+                                    <div class="group my-1 flex w-full max-w-[260px] flex-col overflow-hidden rounded-xl border border-graytt-light shadow-tt bg-white transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 duration-300">
+                                        <a href="/viewannounce/{{$artg->id}}">
+                                            <div class="relative mx-3 mt-3 flex h-48 overflow-hidden rounded-xl border-2 border-black">
+                                                @foreach($artg->imagens as $imagem)
+                                                    @if($imagem->imagem_principal)
+                                                        <img class="peer absolute top-0 right-0 h-full w-full object-cover" loading="lazy" src="{{ asset($imagem->endereco_imagem) }}">
+                                                    @endif
+                                                @endforeach
 
-                                    <p class="truncate lg:text-left lg:mt-2 text-stone-400">Tipo</p>
-                                    <div class="mt-2 flex items-center">
-                                        <p>
-                                            <span class="truncate lg:text-left lg:mt-2 text-black">Valor Sugerido:
-                                        </p>
-                                            <span class="text-1xl md:text-1xl lg:text-lg ml-2 font-bold text-pinktt">R$25,99</span>
-                                        </p>
+                                                @foreach($artg->imagens as $imagem)
+                                                    @if(!$imagem->imagem_principal)
+                                                        <img class="peer absolute top-0 -right-96 h-full w-full object-cover transition-all delay-100 duration-1000 hover:right-0 peer-hover:right-0" src="{{ asset($imagem->endereco_imagem) }}" alt="Imagem do Produto" />
+                                                    @endif
+                                                @endforeach
+                                            </div>
+                                            <div class="mt-4 px-5 pb-5">
+                                                <p class="truncate lg:text-left lg:mt-2 text-black">{{$artg->nome_artigo}}</p>
+
+                                                <p class="truncate lg:text-left lg:mt-2 text-stone-400">{{$artg->categoria_artigo}}</p>
+
+                                                @if($artg->valor_sugerido_artigo)
+                                                <div class="mt-2 flex items-center">
+                                                    <p>
+                                                        <span class="truncate lg:text-left lg:mt-2 text-black">Valor Sugerido:
+                                                    </p>
+                                                        <span class="text-1xl md:text-1xl lg:text-lg ml-2 font-bold text-pinktt">R${{$artg->valor_sugerido_artigo}}</span>
+                                                    </p>
+                                                </div>
+                                                @endif
+                                            </div>
+                                        </a>
                                     </div>
-                                </div>
-                            </a>
-                        </div>
 
-                        <div class="group my-1 flex w-full max-w-[260px] flex-col overflow-hidden rounded-xl border border-graytt-light shadow-tt bg-white transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 duration-300">
-                            <a href="/viewannounce">
-                                <div class="relative mx-3 mt-3 flex h-48 overflow-hidden rounded-xl border-2 border-black">
-                                    <img class="peer absolute top-0 right-0 h-full w-full object-cover" src="" alt="Imagem do Produto" />
-                                    <img class="peer absolute top-0 -right-96 h-full w-full object-cover transition-all delay-100 duration-1000 hover:right-0 peer-hover:right-0" src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8c25lYWtlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" alt="Imagem do Produto" />
-                                </div>
-                                <div class="mt-4 px-5 pb-5">
-                                    <p class="truncate lg:text-left lg:mt-2 text-black">Produto</p>
+                                @else
+                                    Buscando artigos...
+                                @endif
+                                
+                            @endforeach
 
-                                    <p class="truncate lg:text-left lg:mt-2 text-stone-400">Tipo</p>
-                                    <div class="mt-2 flex items-center">
-                                        <p>
-                                            <span class="truncate lg:text-left lg:mt-2 text-black">Valor Sugerido:
-                                        </p>
-                                            <span class="text-1xl md:text-1xl lg:text-lg ml-2 font-bold text-pinktt">R$25,99</span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
+                        @else
 
-                        <div class="group my-1 flex w-full max-w-[260px] flex-col overflow-hidden rounded-xl border border-graytt-light shadow-tt bg-white transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 duration-300">
-                            <a href="/viewannounce">
-                                <div class="relative mx-3 mt-3 flex h-48 overflow-hidden rounded-xl border-2 border-black">
-                                    <img class="peer absolute top-0 right-0 h-full w-full object-cover" src="" alt="Imagem do Produto" />
-                                    <img class="peer absolute top-0 -right-96 h-full w-full object-cover transition-all delay-100 duration-1000 hover:right-0 peer-hover:right-0" src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8c25lYWtlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" alt="Imagem do Produto" />
-                                </div>
-                                <div class="mt-4 px-5 pb-5">
-                                    <p class="truncate lg:text-left lg:mt-2 text-black">Produto</p>
+                        Buscando artigos...
 
-                                    <p class="truncate lg:text-left lg:mt-2 text-stone-400">Tipo</p>
-                                    <div class="mt-2 flex items-center">
-                                        <p>
-                                            <span class="truncate lg:text-left lg:mt-2 text-black">Valor Sugerido:
-                                        </p>
-                                            <span class="text-1xl md:text-1xl lg:text-lg ml-2 font-bold text-pinktt">R$25,99</span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-
-                        <div class="group my-1 flex w-full max-w-[260px] flex-col overflow-hidden rounded-xl border border-graytt-light shadow-tt bg-white transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 duration-300">
-                            <a href="/viewannounce">
-                                <div class="relative mx-3 mt-3 flex h-48 overflow-hidden rounded-xl border-2 border-black">
-                                    <img class="peer absolute top-0 right-0 h-full w-full object-cover" src="" alt="Imagem do Produto" />
-                                    <img class="peer absolute top-0 -right-96 h-full w-full object-cover transition-all delay-100 duration-1000 hover:right-0 peer-hover:right-0" src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8c25lYWtlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" alt="Imagem do Produto" />
-                                </div>
-                                <div class="mt-4 px-5 pb-5">
-                                    <p class="truncate lg:text-left lg:mt-2 text-black">Produto</p>
-
-                                    <p class="truncate lg:text-left lg:mt-2 text-stone-400">Tipo</p>
-                                    <div class="mt-2 flex items-center">
-                                        <p>
-                                            <span class="truncate lg:text-left lg:mt-2 text-black">Valor Sugerido:
-                                        </p>
-                                            <span class="text-1xl md:text-1xl lg:text-lg ml-2 font-bold text-pinktt">R$25,99</span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
+                        @endif
                     </div>
                 </div>
                 @include('footer')
