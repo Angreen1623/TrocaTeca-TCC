@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+use App\Models\User;
+use App\Models\Artigo;
 
 class ProfileController extends Controller
 {
@@ -78,5 +80,18 @@ class ProfileController extends Controller
     
         // Redireciona para a página de boas-vindas
         return redirect('/');
+    }
+
+    /*ver perfil do anunciante*/
+    public function viewProfileanun($id)
+    {
+        // Busca o usuário pelo ID
+        $user = User::findOrFail($id);
+
+        // Busca os artigos do usuário
+        $artigos = Artigo::where('id_usuario_ofertante', $id)->with('imagens')->get();
+
+        // Retorna a view com os dados do usuário e seus artigos
+        return view('annoaccount', compact('user', 'artigos'));
     }
 }

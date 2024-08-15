@@ -22,7 +22,7 @@
                 @csrf
                 @method('PATCH')
                     <div class="lg:mr-8">
-                        <div class="mt-5 lg:mt-0">
+                        <div class="mt-5 lg:mt-0 ">
                         <!--Início do formulário-->
 
                             <div class="mt-5 lg:mt-0">

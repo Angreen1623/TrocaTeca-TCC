@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
+
 class ArtigoController extends Controller
 {
     public function create(Request $req){
@@ -88,5 +89,12 @@ class ArtigoController extends Controller
     $artg = Artigo::find($req->id);
     $artg->delete();
     return redirect()->to('/meusartigos');
+}
+
+/*ver dados do artigo do usuário ofertante*/
+public function viewAnnounce($id_artigo)
+{
+    $artigo = Artigo::with(['imagens', 'user'])->findOrFail($id_artigo);
+    return view('viewannounce')->with('artigo', $artigo);
 }
 }
