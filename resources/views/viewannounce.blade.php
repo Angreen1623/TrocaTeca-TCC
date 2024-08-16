@@ -38,7 +38,7 @@
                         </div>
                         <div class="text-lg">
                             <p class="text-graytt">Valor sugerido: <span class="text-pinktt font-bold">R${{ $artigo->valor_sugerido_artigo }}</span></p>
-                            <p class="text-graytt">Artigo publicado por: <a href="{{ route('viewProfileanun', $artigo->id_usuario_ofertante) }}"><span class="text-black underline">{{ $artigo->user->name }}</span></a></p>
+                            <p class="text-graytt">Artigo publicado por: <a href="{{ route('viewProfileanun', $artigo->id_usuario_ofertante) }}"><span class="text-black underline">{{ $artigo->user->name }} {{ $artigo->user->sobrenome }}</span></a></p>
                         </div>
                     </div>
                     <div class="max-w-72 lg:mb-0 mb-5">
