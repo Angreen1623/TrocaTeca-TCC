@@ -53,7 +53,7 @@
             <div class="flex w-full content-evenly flex-wrap sm:mb-14">
                 <div class="sm:border-r-4 border-black px-24 sm:w-1/2 w-full">
                     <!--Primeiro trecho do fromu-->
-                    <form id="upprofile" method="POST" action="{{ route('profile.update') }}">
+                                        <form id="upprofile" method="POST" action="{{ route('profile.update') }}">
                         @csrf
                         @method('PATCH')
 
@@ -67,7 +67,7 @@
                         <input type="email" name="email" id="email" value="{{ old('email', auth()->user()->email) }}" class="shadow-tt mt-3 block w-full rounded-xl border-0 px-3.5 py-2 shadow-sm ring-1 border-2 border-graytt ring-inset ring-graytt placeholder:text-graytt-dark focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 mb-5">
 
                         <label for="datan" class="">Data de nascimento:</label>
-                        <input type="date" disabled name="datan" id="datan" value="{{ old('datan', auth()->user()->datan) }}" class="shadow-tt mt-3 text-graytt-dark block w-full max-w-40 rounded-xl border-0 px-3.5 py-2 shadow-sm ring-1 border-2 border-graytt ring-inset ring-graytt placeholder:text-graytt-dark focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 mb-5">
+                        <input type="date" name="datan" id="datan" value="{{ old('datan', auth()->user()->datan) }}" class="shadow-tt mt-3 text-graytt-dark block w-full max-w-40 rounded-xl border-0 px-3.5 py-2 shadow-sm ring-1 border-2 border-graytt ring-inset ring-graytt placeholder:text-graytt-dark focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 mb-5">
                         <label for="estado">Estado:</label>
                         <select id="estado" name="estado" class="custom-select text-graytt-dark shadow-tt mt-3 block w-36 rounded-xl border-0 px-3.5 py-2 shadow-sm ring-1 border-2 border-graytt ring-inset ring-graytt placeholder:text-graytt-dark focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 mb-5">
                             <option value="" disabled selected>Selecionar</option>
@@ -85,13 +85,14 @@
                             <option value="RR" {{ old('estado', auth()->user()->estado) == 'RR' ? 'selected' : '' }}>RR</option><option value="SC" {{ old('estado', auth()->user()->estado) == 'SC' ? 'selected' : '' }}>SC</option>
                             <option value="SP" {{ old('estado', auth()->user()->estado) == 'SP' ? 'selected' : '' }}>SP</option><option value="SE" {{ old('estado', auth()->user()->estado) == 'SE' ? 'selected' : '' }}>SE</option><option value="TO" {{ old('estado', auth()->user()->estado) == 'TO' ? 'selected' : '' }}>TO</option>
                         </select>
-                
-              </div>
+
+                 
+            </div>
                 <!--segundo trecho do formulário-->
                 <div class="px-24 sm:w-1/2 w-full">
-                <label for="cidade">Cidade:</label>
-                <input type="text" name="cidade" id="cidade" value="{{ old('cidade', auth()->user()->cidade) }}" class="shadow-tt mt-3 block w-full rounded-xl border-0 px-3.5 py-2 shadow-sm ring-1 border-2 border-graytt ring-inset ring-graytt placeholder:text-graytt-dark focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 mb-5">
-            </form>
+                    <label for="cidade">Cidade:</label>
+                    <input type="text" name="cidade" id="cidade" value="{{ old('cidade', auth()->user()->cidade) }}" class="shadow-tt mt-3 block w-full rounded-xl border-0 px-3.5 py-2 shadow-sm ring-1 border-2 border-graytt ring-inset ring-graytt placeholder:text-graytt-dark focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 mb-5">
+                    </form>
                     <form method="POST" action="{{ route('password.update') }}">
                         @csrf
                         @method('PUT')
