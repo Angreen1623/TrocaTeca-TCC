@@ -88,7 +88,7 @@
         <!-- Exibir apenas para usuários não autenticados -->
         @guest
             <p class="">
-                <a href="/welcome" class="underline-animation font-bold">Logar</a> ou
+                <a href="/login" class="underline-animation font-bold">Logar</a> ou
                 <a href="/register" class="underline-animation font-bold">Cadastrar-se</a>
             </p>
         @endguest
