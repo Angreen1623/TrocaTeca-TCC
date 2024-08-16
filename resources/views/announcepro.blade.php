@@ -54,7 +54,7 @@
                                 
                             </div>
                         </div>
-                        </div>
+                    </div>
 
                     <!--input de texto-->
                     <div class="max-w-xl">

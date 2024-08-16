@@ -26,7 +26,7 @@
                             </svg>
                         </a>
                     </button>
-                    <img src="{{ asset('image/img-placeholder.png') }}" alt="Imagem do produto" width="500" class="rounded-lg border-2 border-black">
+                    <img src="{{ asset($artigo->imagens->first()->endereco_imagem) }}" alt="Imagem do produto" width="500" class="rounded-lg border-2 border-black">
                 </div>
             </div>
 
@@ -34,22 +34,24 @@
                 <div class="lg:ml-5 flex flex-col max-w-80 w-full h-full justify-between mb-4 lg:mb-0">
                     <div class="lg:mb-0 mb-5">
                         <div class="border-b border-black text-4xl font-fredokatt" style="font-family: 'Fredoka';">
-                            Bob Esponja Agiota
+                            {{ $artigo->nome_artigo }}
                         </div>
                         <div class="text-lg">
-                            <p class="text-graytt">Valor sugerido: <span class="text-pinktt font-bold">R$25,00</span></p>
-                            <p class="text-graytt">Artigo publicado por: <a href="/ann"><span class="text-black underline">Reginaldo Ferreira</span></a></p>
+                            <p class="text-graytt">Valor sugerido: <span class="text-pinktt font-bold">R${{ $artigo->valor_sugerido_artigo }}</span></p>
+                            <p class="text-graytt">Artigo publicado por: <a href="{{ route('viewProfileanun', $artigo->id_usuario_ofertante) }}"><span class="text-black underline">{{ $artigo->user->name }}</span></a></p>
                         </div>
                     </div>
                     <div class="max-w-72 lg:mb-0 mb-5">
-                        <p><span class="text-graytt"> Preferência de troca: </span> Troco por isso isso ou aquilo ou aquilo outro.</p>
+                        <p><span class="text-graytt"> Preferência de troca: </span> {{ $artigo->preferencia_troca_artigo }}</p>
                     </div>
                     <div class="min-w-fit">
-                        <p> <span class="text-graytt"> Categoria: </span> Brinquedo </p>
-                        <p> <span class="text-graytt"> Condição: </span> Usado </p>
-                        <p> <span class="text-graytt"> Tempo de uso: </span> 2 anos </p>
+                        <p> <span class="text-graytt"> Categoria: </span> {{ $artigo->categoria_artigo }} </p>
+                        <p> <span class="text-graytt"> Condição: </span> {{ $artigo->condicao_artigo }} </p>
+                        <p> <span class="text-graytt"> Tempo de uso: </span> {{ $artigo->tempo_uso_artigo }} </p>
                     </div>
                 </div>
+            </div>
+
                 <div class="flex w-full lg:w-fit lg:justify-end lg:items-end">
                     <button id="openNewProposalButton" class="inline-flex px-4 py-2 h-fit justify-center w-full lg:w-auto shadow-tt bg-pinktt hover:bg-pinktt-dark text-white text-sm font-medium rounded-2xl transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-105 duration-300">
                         Enviar Proposta
@@ -68,44 +70,44 @@
     <script>
         //inclusão do modal de denuniar
         document.addEventListener('DOMContentLoaded', function() {
-    const isAuthenticated = document.body.getAttribute('data-authenticated') === '1';
+            const isAuthenticated = document.body.getAttribute('data-authenticated') === '1';
 
-    const openReportButton = document.getElementById('openReportButton');
-    const modalReportanun = document.getElementById('modalReportanun');
-    const openNewProposalButton = document.getElementById('openNewProposalButton');
-    const modalNewProposal = document.getElementById('modalNewProposal');
+            const openReportButton = document.getElementById('openReportButton');
+            const modalReportanun = document.getElementById('modalReportanun');
+            const openNewProposalButton = document.getElementById('openNewProposalButton');
+            const modalNewProposal = document.getElementById('modalNewProposal');
 
-    openReportButton.addEventListener('click', function(e) {
-        e.preventDefault();
-        if (isAuthenticated) {
-            modalReportanun.classList.remove('hidden');
-            document.body.classList.add('overflow-hidden');
-        } else {
-            window.location.href = "{{ route('login') }}"; // Redireciona para a página de login
-        }
-    });
+            openReportButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                if (isAuthenticated) {
+                    modalReportanun.classList.remove('hidden');
+                    document.body.classList.add('overflow-hidden');
+                } else {
+                    window.location.href = "{{ route('login') }}"; // Redireciona para a página de login
+                }
+            });
 
-    document.getElementById('cancelReport').addEventListener('click', function() {
-        modalReportanun.classList.add('hidden');
-        document.body.classList.remove('overflow-hidden');
-    });
+            document.getElementById('cancelReport').addEventListener('click', function() {
+                modalReportanun.classList.add('hidden');
+                document.body.classList.remove('overflow-hidden');
+            });
 
-    //oinclusão do modal de nova proposta
-    openNewProposalButton.addEventListener('click', function(e) {
-        e.preventDefault();
-        if (isAuthenticated) {
-            modalNewProposal.classList.remove('hidden');
-            document.body.classList.add('overflow-hidden');
-        } else {
-            window.location.href = "{{ route('login') }}";
-        }
-    });
+            //oinclusão do modal de nova proposta
+            openNewProposalButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                if (isAuthenticated) {
+                    modalNewProposal.classList.remove('hidden');
+                    document.body.classList.add('overflow-hidden');
+                } else {
+                    window.location.href = "{{ route('login') }}";
+                }
+            });
 
-    document.getElementById('cancelNewProposal').addEventListener('click', function() {
-        modalNewProposal.classList.add('hidden');
-        document.body.classList.remove('overflow-hidden');
-    });
-});
+            document.getElementById('cancelNewProposal').addEventListener('click', function() {
+                modalNewProposal.classList.add('hidden');
+                document.body.classList.remove('overflow-hidden');
+            });
+        });
     </script>
 
 </body>

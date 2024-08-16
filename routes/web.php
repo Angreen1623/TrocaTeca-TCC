@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ArtigoController;
+use App\Http\Controllers\DenunciartigoController;
 use App\Models\Artigo;
 use Illuminate\Support\Facades\Route;
 
@@ -45,21 +46,17 @@ Route::middleware('auth')->group(function () {
 });
 
 // Rotas públicas
-Route::get('/welcome', function () {
-    return view('welcome');
-})->middleware(['auth', 'verified'])->name('welcome');
+Route::get('/welcome', [ArtigoController::class, 'list'])->middleware(['auth', 'verified'])->name('welcome');
+Route::get('/', [ArtigoController::class, 'list']);
+
 
 Route::get('/ann', function () {
     return view('annoaccount');
 });
 
-Route::get('/viewannounce', function () {
-    return view('viewannounce');
-});
+Route::get('/perfilanunciante/{id}', [ProfileController::class, 'viewProfileanun'])->name('viewProfileanun');
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/viewannounce/{id_artigo}', [ArtigoController::class, 'viewAnnounce'])->name('artigo.view');
 
 Route::get('/about', function () {
     return view('quemsomos');

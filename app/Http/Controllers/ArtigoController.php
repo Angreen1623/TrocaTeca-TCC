@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
+
 class ArtigoController extends Controller
 {
     public function create(Request $req){
@@ -60,10 +61,14 @@ class ArtigoController extends Controller
         return view('meusartigos')->with('artigo', $artg);
     }
 
+    public function list(){
+        $artg = Artigo::all();
+        return view('welcome')->with('artigo', $artg);
+    }
+
     public function edit(Request $req){
-        $artg = Artigo::find($req->id);
-        $img = Imagem_artigo::where('id_artigo', $req->id)->get();
-        return view('editannounce')->with(['artigo' => $artg, 'imagens' => $img]);
+        $artg = Artigo::with('imagens')->find($req->id);
+        return view('editannounce')->with('artigo', $artg);
     }
 
     public function update(Request $req){
@@ -84,5 +89,12 @@ class ArtigoController extends Controller
     $artg = Artigo::find($req->id);
     $artg->delete();
     return redirect()->to('/meusartigos');
+}
+
+/*ver dados do artigo do usuário ofertante*/
+public function viewAnnounce($id_artigo)
+{
+    $artigo = Artigo::with(['imagens', 'user'])->findOrFail($id_artigo);
+    return view('viewannounce')->with('artigo', $artigo);
 }
 }

@@ -23,4 +23,10 @@ class Artigo extends Model
     {
         return $this->hasMany(Imagem_artigo::class, 'id_artigo');
     }
+
+    public function user()
+{
+    return $this->belongsTo(User::class, 'id_usuario_ofertante');
+}
+
 }
