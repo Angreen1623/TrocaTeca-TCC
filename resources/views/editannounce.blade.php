@@ -18,53 +18,49 @@
             <h1 class=" text-3xl lg:text-4xl font-bold text-center text-white font-fredokatt drop-shadow-tt mt-5">Edite seu Artigo</h1> <!--Título-->
             <!--input de imagem-->
             <div class="flex flex-col lg:flex-row lg:items-center lg:place-content-center mb-5">
-                <form id="edtann" action="/atualizar/{{$artigo->id}}" method="POST"> 
-                @csrf
-                @method('PATCH')
                     <div class="lg:mr-8">
                         <div class="mt-5 lg:mt-0 ">
                         <!--Início do formulário-->
-
+                        <form id="edtann" action="/atualizar/{{$artigo->id}}" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            @method('PATCH')
                             <div class="mt-5 lg:mt-0">
+                                <!-- Input para a imagem principal -->
                                 <label for="img_principal" class="flex flex-col items-center">
                                     <div class="add-img-p bg-white w-64 h-32 lg:h-80 lg:w-80 rounded-xl border border-graytt-light shadow-tt flex flex-col flex-wrap justify-center items-center overflow-hidden">
                                         @foreach($artigo->imagens as $imagem)
                                             @if($imagem->imagem_principal)
-                                                <img class="h-full object-cover" loading="lazy" src="{{ asset($imagem->endereco_imagem) }}">
+                                                <img id="principal_img" class="h-full object-cover" loading="lazy" src="{{ asset($imagem->endereco_imagem) }}">
                                             @endif
                                         @endforeach
+                                        <div id="principal_placeholder" class="placeholder-img mt-2 mb-2 flex flex-col justify-center items-center transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-[1.05] duration-300">
+                                            <img src="{{asset('image/mais.svg')}}" alt="" width="100">
+                                            <p class="text-graytt text-xs text-center mt-2">Foto principal do artigo (Obrigatório)</p>
+                                        </div>
                                     </div>
                                 </label>
-                                <input type="file" name="img_principal" id="img_principal" class="hidden border border-graytt-light" required accept="image/*">
-                            <!--input das imagem pequenas-->        
+                                <input type="file" name="img_principal" id="img_principal" class="hidden border border-graytt-light" accept="image/*">
 
+                                <!-- Input para imagens secundárias -->
                                 <div class="flex lg:flex-row justify-between">
-
                                     @for ($i = 0; $i < 4; $i++)
-
                                         <div>
                                             <input type="file" name="img[{{$i}}]" id="imagem{{$i+1}}" class="hidden">
                                             <label for="imagem{{$i+1}}">
-                                            <div class="add-img{{ $i+1 }} mt-3 bg-white w-14 h-14 last:mr-0 sm:mr-3 rounded-xl border border-graytt-light shadow-tt flex flex-col justify-center items-center overflow-hidden">
-                                                @if(isset($artigo->imagens[$i+1]))
-
-                                                    @if(!$artigo->imagens[$i+1]->imagem_principal)
-                                                        <img class="h-full object-cover h-full" loading="lazy" src="{{ asset($artigo->imagens[$i+1]->endereco_imagem) }}">
+                                                <div class="add-img{{ $i+1 }} mt-3 bg-white w-14 h-14 last:mr-0 sm:mr-3 rounded-xl border border-graytt-light shadow-tt flex flex-col justify-center items-center overflow-hidden">
+                                                    @if(isset($artigo->imagens[$i+1]))
+                                                        @if(!$artigo->imagens[$i+1]->imagem_principal)
+                                                            <img id="img{{$i+1}}" class="h-full object-cover h-full" loading="lazy" src="{{ asset($artigo->imagens[$i+1]->endereco_imagem) }}">
+                                                        @endif
+                                                    @else
+                                                        <div id="placeholder{{$i+1}}" class="placeholder-img flex flex-col justify-center items-center transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-[1.05] duration-300 m-3">
+                                                            <img src="{{asset('image/mais.svg')}}" alt="" width="30">
+                                                        </div>
                                                     @endif
-
-                                                @else
-
-                                                <div class="placeholder-img flex flex-col justify-center items-center transition ease-in-out delay-100  hover:-translate-y-1 hover:scale-[1.05] duration-300 m-3">
-                                                    <img src="{{asset('image/mais.svg')}}" alt="" width="30">
                                                 </div>
-                                                
-                                                @endif
-                                            </div>
                                             </label>
                                         </div>
-
-                                    @endfor    
-                                    
+                                    @endfor
                                 </div>
                             </div>
 
@@ -122,6 +118,7 @@
                             <input type="text" name="tempo_uso_artigo" id="tempo_uso_artigo" value="{{$artigo->tempo_uso_artigo}}"  autocomplete="organization" class="shadow-tt block w-36 rounded-xl border border-graytt-light px-3.5 py-2 shadow-lg ring-1 border border-graytt ring-inset ring-graytt placeholder:text-graytt-dark focus:ring-2 focus:ring-inset lg:text-lg lg:leading-6">
                         </div>
                     </form>
+                    
                     <!--botões de confirmação-->
                     <div class="flex flex-col lg:flex-row mt-4 sm:mr-0 mr-10 w-full justify-end">
                         <form action="/excluir/{{ $artigo->id }}" method="POST">

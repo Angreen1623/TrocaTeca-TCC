@@ -86,17 +86,8 @@
                                             </div>
                                         </a>
                                     </div>
-
-                                @else
-                                    Buscando artigos...
-                                @endif
-                                
+                                @endif                          
                             @endforeach
-
-                        @else
-
-                        Buscando artigos...
-
                         @endif
                     </div>
                 </div>
