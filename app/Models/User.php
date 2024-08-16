@@ -24,6 +24,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'estado',
         'cidade',
         'password',
+        'info_sobremim',
     ];
 
     /**

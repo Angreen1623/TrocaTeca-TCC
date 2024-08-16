@@ -21,7 +21,8 @@ class ProfileUpdateRequest extends FormRequest
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', Rule::unique(User::class)->ignore($this->user()->id)],
             'datan' => ['required', 'date'],
             'estado' => ['required', 'string', 'max:50'],
-            'cidade' => ['required', 'string', 'max:50'],       
+            'cidade' => ['required', 'string', 'max:50'],   
+            'info_sobremim' => ['nullable', 'string', 'max:255'],    
         ];
     }
 }

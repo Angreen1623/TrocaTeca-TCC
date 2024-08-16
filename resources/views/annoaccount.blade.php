@@ -25,7 +25,7 @@
                             {{ $user->name }} {{ $user->sobrenome }}
                             </h2>
                             <p class="text-black text-md text-center md:text-left mb-1.5">Descrição de interesses:</p>
-                            <p class="text-graytt mb-1">Estou interessado em carrinhos de bebê para um bebê de 5 meses; Brinquedos. </p>
+                            <p class="text-graytt mb-1">{{ $user->info_sobremim }}</p>
                         </div>
                         <div class="flex flex-col justify-center items-center md:items-start max-w-3xl md:mt-0">
                             <p>Trocando desde: {{ $user->created_at->format('Y') }}</p>
