@@ -33,10 +33,6 @@
                                                 <img id="principal_img" class="h-full object-cover" loading="lazy" src="{{ asset($imagem->endereco_imagem) }}">
                                             @endif
                                         @endforeach
-                                        <div id="principal_placeholder" class="placeholder-img mt-2 mb-2 flex flex-col justify-center items-center transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-[1.05] duration-300">
-                                            <img src="{{asset('image/mais.svg')}}" alt="" width="100">
-                                            <p class="text-graytt text-xs text-center mt-2">Foto principal do artigo (Obrigatório)</p>
-                                        </div>
                                     </div>
                                 </label>
                                 <input type="file" name="img_principal" id="img_principal" class="hidden border border-graytt-light" accept="image/*">

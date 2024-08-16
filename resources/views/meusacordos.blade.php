@@ -88,9 +88,9 @@
                 </div>
             </div>
         </div>
+        @include('footer')
     </div>
-    @include('footer')
-    </div>
+    
     <!-- Incluir os modais de denunciar anúncio e enviar proposta-->
     @include('modalvalidar')
     <script>

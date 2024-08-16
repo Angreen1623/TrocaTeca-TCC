@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ArtigoController;
 use App\Http\Controllers\DenunciartigoController;
+use App\Http\Controllers\PropostaController;
 use App\Models\Artigo;
 use Illuminate\Support\Facades\Route;
 
@@ -56,6 +57,7 @@ Route::get('/ann', function () {
 
 Route::get('/perfilanunciante/{id}', [ProfileController::class, 'viewProfileanun'])->name('viewProfileanun');
 
+Route::post('/propose/create', [PropostaController::class, 'create'])->middleware(['auth', 'verified'])->name('propose.add');
 Route::get('/viewannounce/{id_artigo}', [ArtigoController::class, 'viewAnnounce'])->name('artigo.view');
 
 Route::get('/about', function () {

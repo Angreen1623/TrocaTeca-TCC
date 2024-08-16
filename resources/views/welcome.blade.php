@@ -62,12 +62,9 @@
                                                         <img class="peer absolute top-0 right-0 h-full w-full object-cover" loading="lazy" src="{{ asset($imagem->endereco_imagem) }}">
                                                     @endif
                                                 @endforeach
-
-                                                @foreach($artg->imagens as $imagem)
-                                                    @if(!$imagem->imagem_principal)
-                                                        <img class="peer absolute top-0 -right-96 h-full w-full object-cover transition-all delay-100 duration-1000 hover:right-0 peer-hover:right-0" src="{{ asset($imagem->endereco_imagem) }}" alt="Imagem do Produto" />
-                                                    @endif
-                                                @endforeach
+                                                @if(isset($artg->imagens[1]))
+                                                    <img class="peer absolute top-0 -right-96 h-full w-full object-cover transition-all delay-100 duration-1000 hover:right-0 peer-hover:right-0" src="{{ asset($artg->imagens[1]->endereco_imagem) }}" alt="Imagem do Produto" />
+                                                @endif
                                             </div>
                                             <div class="mt-4 px-5 pb-5">
                                                 <p class="truncate lg:text-left lg:mt-2 text-black">{{$artg->nome_artigo}}</p>
