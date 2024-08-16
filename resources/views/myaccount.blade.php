@@ -21,7 +21,7 @@
                     Minha Conta
                 </h2>
                 <div class="mb-5 order-2 md:order-1">
-                    <div class="mb-16 flex flex-col justify-center items-center md:items-start max-w-3xl md:mt-0">
+                <div class="mb-16 flex flex-col items-center md:items-start max-w-3xl md:mt-0">
                         <h2 class="text-3xl drop-shadow-tt text-center md:text-left text-white sm:text-6xl mb-3 hidden md:block" style="font-family: 'Fredoka';">
                             Minha Conta
                         </h2>
@@ -29,9 +29,9 @@
                             @csrf
                             @method('PATCH')
 
-                            <label for="info_sobremim">Descrição de interesses:</label>
+                            <label for="info_sobremim" class="block text-lg font-medium text-black">Descrição de interesses:</label>
                             <input type="text" id="info_sobremim" name="info_sobremim" value="{{ old('info_sobremim', auth()->user()->info_sobremim) }}" placeholder="Informe seus interesses"
-                                class="bg-transparent border-none text-black placeholder-graytt-dark focus:outline-none w-full mt-3 mb-5">
+                                class="bg-transparent border-none text-black placeholder-graytt-dark focus:outline-none w-full mt-3 mb-5 py-2 px-4 rounded-md">
                     </div>
                     <div class="flex flex-col justify-center items-center md:items-start max-w-3xl md:mt-0">
                         <p>Trocando desde: {{ auth()->user()->created_at->format('Y') }}</p>
