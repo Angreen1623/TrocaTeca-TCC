@@ -3,8 +3,10 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ArtigoController;
 use App\Http\Controllers\DenunciartigoController;
+use App\Http\Controllers\MensagemController;
 use App\Http\Controllers\PropostaController;
 use App\Models\Artigo;
+use App\Models\Proposta;
 use Illuminate\Support\Facades\Route;
 
 // Adicionando middleware 'auth' para as rotas que requerem login
@@ -30,9 +32,9 @@ Route::middleware('auth')->group(function () {
         return view('meusacordos');
     });
 
-    Route::get('/chat', function () {
-        return view('chat');
-    });
+    Route::get('/chat/{id}', [PropostaController::class, 'showMessage'])->name('view_messages');
+    Route::post('/creatingpropose', [MensagemController::class, 'createFirst'])->name('createFirst');
+    Route::post('/sendmessage/{id}', [MensagemController::class, 'create']);
 
     Route::get('/validar', function () {
         return view('modalvalidar');

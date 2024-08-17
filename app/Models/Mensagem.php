@@ -8,4 +8,20 @@ use Illuminate\Database\Eloquent\Model;
 class Mensagem extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'id_usuario',
+        'id_proposa',
+        'conteudo_mensagem',
+        'endereco_anexo',
+        'visto'
+    ];
+
+    public function user(){
+        return $this->belongsTo(User::class, 'id_usuario');
+    }
+
+    public function proposta(){
+        return $this->belongsTo(Proposta::class, 'id_proposta', 'id');
+    }
 }

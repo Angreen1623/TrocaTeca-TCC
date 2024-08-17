@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Proposta;
+use App\Models\Mensagem;
 use Illuminate\Http\Request;
 
 class PropostaController extends Controller
@@ -25,14 +26,37 @@ class PropostaController extends Controller
 
         $prst->save();
 
+        $mensagens = new Mensagem();
+
+        $mensagem = "Proposta: ".$prst->nome_proposta." 
+        Categoria: ".$prst->categoria_proposta." 
+        Tempo de uso: ".$prst->tempo_uso_proposta;
+
+        $mensagens->id_usuario = $prst->id_usuario_int;
+        $mensagens->id_proposta = $prst->id;
+        $mensagens->conteudo_mensagem = $mensagem;
+        $mensagens->endereco_anexo = $prst->endereco_img_prop;
+        $mensagens->visto = 0;
+
+        $mensagens->save();
+
         return redirect('/mep');
 
     }
 
     public function show(Request $req){
         $prst = new Proposta();
-        $prst = $prst::where('id_usuario_int', $req->user()->id)->with('artigo')->get();
+        $prst = $prst::where('id_usuario_int', $req->user()->id)->orWhereHas('artigo', function ($query) use ($req) {
+            $query->where('id_usuario_ofertante', $req->user()->id);
+        })->with('artigo')->orderBy('created_at', 'desc')->get();
 
         return view('mensagensepropostas')->with('propostas', $prst);
+    }
+
+    public function showMessage(Request $req, $id){
+        $propostas = new Proposta();
+        $propostas = $propostas::where('id', $id)->with(['artigo.user'])->with('mensagem')->with('user')->get();
+
+        return view('chat', compact('propostas', 'id'));
     }
 }

@@ -29,4 +29,14 @@ class Artigo extends Model
         return $this->belongsTo(User::class, 'id_usuario_ofertante');
     }
 
+    public function denuncia_artigo()
+    {
+        return $this->hasOne(Imagem_artigo::class, 'id_artigo');
+    }
+
+    public function proposta()
+    {
+        return $this->hasMany(Proposta::class, 'id_artigo');
+    }
+
 }

@@ -25,4 +25,10 @@ class Proposta extends Model
     public function user(){
         return $this->belongsTo(User::class, 'id_usuario_int');
     }
+    public function acordo(){
+        return $this->hasOne(Acordo::class, 'id');
+    }
+    public function mensagem(){
+        return $this->hasMany(Mensagem::class, 'id_proposta', 'id');
+    }
 }

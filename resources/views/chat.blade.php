@@ -19,19 +19,42 @@
 
                 <div class="flex items-center">
 
-                    <a href="mep">
+                    <a href="../mep">
                         <div class="w-10 h-10 mr-4">
                             <svg fill="#000000" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M23.505 0c0.271 0 0.549 0.107 0.757 0.316 0.417 0.417 0.417 1.098 0 1.515l-14.258 14.264 14.050 14.050c0.417 0.417 0.417 1.098 0 1.515s-1.098 0.417-1.515 0l-14.807-14.807c-0.417-0.417-0.417-1.098 0-1.515l15.015-15.022c0.208-0.208 0.486-0.316 0.757-0.316z"></path> </g></svg>
                         </div>
                     </a>
 
+                    @foreach($propostas as $prop)
+                    @if($prop->user->imagem_usuario)
+
+                    <div class="w-16 h-16 mr-3">
+                        <img src="{{ asset($prop->user->imagem_usuario) }}" alt="">
+                    </div>
+                    
+                    @else
+
                     <div class="w-16 h-16 mr-3">
                         <svg fill="#000000" viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M 27.9999 51.9063 C 41.0546 51.9063 51.9063 41.0781 51.9063 28 C 51.9063 14.9453 41.0312 4.0937 27.9765 4.0937 C 14.8983 4.0937 4.0937 14.9453 4.0937 28 C 4.0937 41.0781 14.9218 51.9063 27.9999 51.9063 Z M 27.9999 35.9922 C 20.9452 35.9922 15.5077 38.5 13.1405 41.3125 C 9.9999 37.7968 8.1014 33.1328 8.1014 28 C 8.1014 16.9609 16.9140 8.0781 27.9765 8.0781 C 39.0155 8.0781 47.8983 16.9609 47.9219 28 C 47.9219 33.1563 46.0234 37.8203 42.8593 41.3359 C 40.4921 38.5234 35.0546 35.9922 27.9999 35.9922 Z M 27.9999 32.0078 C 32.4999 32.0547 36.0390 28.2109 36.0390 23.1719 C 36.0390 18.4375 32.4765 14.5 27.9999 14.5 C 23.4999 14.5 19.9140 18.4375 19.9609 23.1719 C 19.9843 28.2109 23.4765 31.9609 27.9999 32.0078 Z"></path></g></svg>
                     </div>
 
+                    @endif
+
+                    @if($prop->user->id == Auth()->user()->id)
+
                     <div>
-                        <span class="text-3xl">Angélica</span>
+                        <span class="text-3xl">{{$prop->artigo->user->name}}</span>
                     </div>
+                    
+                    @else
+
+                    <div>
+                        <span class="text-3xl">{{$prop->user->name}}</span>
+
+                    </div>
+
+                    @endif
+                    @endforeach
 
                 </div>
 
@@ -50,12 +73,33 @@
 
         </div>
 
-        <div class="">
+        <div class="flex flex-col">
+            @if($propostas)
+            @foreach($propostas as $prop)
+            @foreach($prop->mensagem as $msg)
+
+            @if($msg->user->id == Auth()->user()->id)
+
+                <div class="text-right">
+                    <p>{{ $msg->conteudo_mensagem }}</p>
+                </div>
+
+            @else
+
+                <div class="text-left">
+                    <p>{{ $msg->conteudo_mensagem }}</p>
+                </div>
+
+            @endif
+            @endforeach
+            @endforeach
+            @endif
         </div>
 
         <div class="absolute bottom-0 left-0 w-full z-50 ">
 
-            <form action="">
+            <form action="/sendmessage/{{$id}}" method="post" enctype="multipart/form-data">
+                @csrf
                 <div class="flex w-full py-2.5 px-7 md:ps-20 md:pe-7 bg-bluett align-item-center place-content-between items-center border-t border-black">
 
                 
@@ -73,6 +117,7 @@
                             <g clip-path="url(#875f43e762)"><path fill="#ffffff" d="M 60.546875 12.757812 L 58.898438 14.320312 C 58.773438 14.441406 58.578125 14.4375 58.453125 14.316406 L 54.96875 10.773438 C 54.769531 10.574219 54.421875 10.714844 54.421875 10.996094 L 54.421875 23.25 C 54.421875 23.425781 54.285156 23.566406 54.109375 23.566406 L 51.777344 23.566406 C 51.605469 23.566406 51.460938 23.425781 51.460938 23.25 L 51.460938 10.609375 C 51.460938 10.328125 51.121094 10.183594 50.921875 10.378906 L 46.871094 14.394531 C 46.738281 14.523438 46.523438 14.515625 46.402344 14.367188 L 45.023438 12.652344 C 44.925781 12.523438 44.933594 12.34375 45.050781 12.230469 L 52.570312 4.71875 C 52.691406 4.597656 52.894531 4.597656 53.015625 4.71875 L 60.554688 12.304688 C 60.679688 12.429688 60.675781 12.636719 60.546875 12.757812 Z M 52.800781 0.257812 C 45.160156 0.257812 38.960938 6.453125 38.960938 14.097656 C 38.960938 21.742188 45.160156 27.9375 52.800781 27.9375 C 60.445312 27.9375 66.640625 21.742188 66.640625 14.097656 C 66.640625 6.453125 60.445312 0.257812 52.800781 0.257812 " fill-opacity="1" fill-rule="nonzero"/></g></svg>
                         </svg>
                     </button>
+                    <input type="file" name="anexo" class="hidden">
                 
                 </div>
             </form>
