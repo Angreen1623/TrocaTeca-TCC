@@ -19,6 +19,7 @@ return new class extends Migration
             $table->String('condicao_proposta');
             $table->String('tempo_uso_proposta');
             $table->Text('endereco_img_prop');
+            $table->foreignId('id_usuario_int')->constrained('users')->onUpdate('cascade');
             $table->timestamps();
         });
     }

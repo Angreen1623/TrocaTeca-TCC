@@ -20,9 +20,19 @@ class PropostaController extends Controller
         move_uploaded_file($_FILES['img_principal']["tmp_name"], $imagem);
         $prst->endereco_img_prop = $imagem;
 
+        $prst->id_usuario_int = $req->user()->id;
+        $prst->status_proposta = 0;
+
         $prst->save();
 
         return redirect('/mep');
 
+    }
+
+    public function show(Request $req){
+        $prst = new Proposta();
+        $prst = $prst::where('id_usuario_int', $req->user()->id)->with('artigo')->get();
+
+        return view('mensagensepropostas')->with('propostas', $prst);
     }
 }

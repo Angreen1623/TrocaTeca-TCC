@@ -24,6 +24,7 @@ return new class extends Migration
             $table->tinyInteger('cont_advertencias')->nullable();
             $table->string('estado_conta')->nullable();
             $table->text('info_sobremim')->nullable();
+            $table->text('imagem_usuario')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

@@ -24,9 +24,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/atualizar/{id}', [ArtigoController::class, 'update'])->name('artigo.update');
     Route::delete('/excluir/{id}', [ArtigoController::class, 'delete'])->name('artigo.delete');
 
-    Route::get('/mep', function () {
-        return view('mensagensepropostas');
-    });
+    Route::get('/mep', [PropostaController::class, 'show']);
 
     Route::get('/meusacordos', function () {
         return view('meusacordos');

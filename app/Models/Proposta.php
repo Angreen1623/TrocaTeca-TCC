@@ -15,6 +15,14 @@ class Proposta extends Model
         'categoria_proposta',
         'condicao_proposta',
         'tempo_uso_proposta',
-        'endereco_img_prop'
+        'endereco_img_prop',
+        'id_usuario_int'
     ];
+
+    public function artigo(){
+        return $this->belongsTo(Artigo::class, 'id_artigo');
+    }
+    public function user(){
+        return $this->belongsTo(User::class, 'id_usuario_int');
+    }
 }
