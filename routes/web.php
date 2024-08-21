@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ArtigoController;
+use App\Http\Controllers\DenunciaController;
 use App\Http\Controllers\DenunciartigoController;
 use App\Http\Controllers\MensagemController;
 use App\Http\Controllers\PropostaController;
@@ -39,6 +40,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/validar', function () {
         return view('modalvalidar');
     });
+
+    Route::post('/reportingannounce/{id}', [DenunciaController::class, 'createDenunciaArtigo']);
+    Route::post('/reportinguser/{id}', [DenunciaController::class, 'createDenunciaUser']);
+
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

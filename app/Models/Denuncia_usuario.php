@@ -8,4 +8,18 @@ use Illuminate\Database\Eloquent\Model;
 class Denuncia_usuario extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'id_artigo',
+        'denunciado',
+        'endereco_img_denun'
+    ];
+
+    public function denuncia(){
+        return $this->belongsTo(Denuncia::class, 'id', 'id_denuncia');
+    }
+
+    public function user(){
+        return $this->belongsTo(User::class, 'id', 'denunciado');
+    }
 }

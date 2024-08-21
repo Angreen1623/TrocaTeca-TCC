@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('denuncia_usuarios', function (Blueprint $table) {
-            $table->foreignId('id_artigo')->constrained('artigos')->onDelete('cascade')->onUpdate('cascade');
             $table->foreignId('id_denuncia')->constrained('denuncias')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('denunciado')->constrained('users')->onDelete('cascade')->onUpdate('cascade');
             $table->Text('endereco_img_denun');
             $table->timestamps();
         });

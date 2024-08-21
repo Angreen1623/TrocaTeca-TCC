@@ -16,6 +16,7 @@ class Proposta extends Model
         'condicao_proposta',
         'tempo_uso_proposta',
         'endereco_img_prop',
+        'status_proposta',
         'id_usuario_int'
     ];
 
