@@ -1,20 +1,19 @@
 @vite('resources/css/app.css')
 
 @foreach($propostas as $prop)
-    @if($prop->user->id == Auth()->user()->id)
-    <form method="post" action="/reportinguser/{{ $prop->artigo->user->id }}" enctype="multipart/form-data">
-    @else
-    <form method="post" action="/reportinguser/{{ $prop->user->id }}" enctype="multipart/form-data">
+@if($prop->user->id == Auth()->user()->id)
+<form method="post" action="/reportinguser/{{ $prop->artigo->user->id }}" enctype="multipart/form-data">
+  @else
+  <form method="post" action="/reportinguser/{{ $prop->user->id }}" enctype="multipart/form-data">
     @endif
     @endforeach
 
     @csrf
-<!--Modal de denunciar chat de comunicação-->
-<div id="DenunContainer" class="fixed z-[60] w-screen h-screen left-0 top-0 hidden bg-shadowtt">
-    
+    <!--Modal de denunciar chat de comunicação-->
+    <div id="DenunContainer" class="fixed z-[60] w-screen h-screen left-0 top-0 hidden bg-shadowtt">
+
       <div class="fixed inset-0 flex items-center justify-center p-4 sm:p-8">
 
-    
         <div class="w-full max-w-2xl rounded-3xl bg-bluett p-6 sm:p-8 shadow-2xl">
           <h1 class="text-2xl sm:text-4xl font-bold text-center text-white font-fredokatt drop-shadow-tt">Denunciar Conversa</h1> <!--Título de aviso-->
 
@@ -54,26 +53,26 @@
             </button>
           </div>
         </div>
-    
+
       </div>
- 
-</div> 
-</form>
 
-<script>
-  let paiimg = '.add-img';
-  let img = document.querySelector(paiimg+' img');
-  let placeholder = document.querySelector(paiimg+' .placeholder-img');
-  let inputArquivo = document.querySelector("#screenshot");
+    </div>
+  </form>
 
-  inputArquivo.onchange = function () { //Função para atualizar a interface do usuário quando um arquivo é selecionado.
+  <script>
+    let paiimg = '.add-img';
+    let img = document.querySelector(paiimg + ' img');
+    let placeholder = document.querySelector(paiimg + ' .placeholder-img');
+    let inputArquivo = document.querySelector("#screenshot");
 
-    if (inputArquivo.files.length > 0) {  //Verifica se há um arquivo selecionado.
-      img.src = URL.createObjectURL(inputArquivo.files[0]); // Cria uma URL temporária para o arquivo selecionado e atualiza a imagem.
-      img.classList.remove('hidden');
+    inputArquivo.onchange = function() { //Função para atualizar a interface do usuário quando um arquivo é selecionado.
 
-      placeholder.classList.add('hidden');
-    }
+      if (inputArquivo.files.length > 0) { //Verifica se há um arquivo selecionado.
+        img.src = URL.createObjectURL(inputArquivo.files[0]); // Cria uma URL temporária para o arquivo selecionado e atualiza a imagem.
+        img.classList.remove('hidden');
 
-  };
-</script>
+        placeholder.classList.add('hidden');
+      }
+
+    };
+  </script>

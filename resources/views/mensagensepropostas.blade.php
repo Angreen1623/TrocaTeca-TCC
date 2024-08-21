@@ -44,9 +44,9 @@
 
                                     <div class="flex justify-center w-full sm:w-auto">
 
-                                        @if($proposta->user->imagem_usuario)
+                                        @if($proposta->artigo->user->imagem_usuario)
                                         <div class="ml-3 mt-3 mb-3 overflow-hidden relative w-20 h-20 flex-shrink-0 border-2 border-graytt-light rounded-full">
-                                            <img class="rounded-full w-full h-full object-cover object-center transition duration-50" loading="lazy" src="{{ asset($proposta->user->imagem_usuario) }}">
+                                            <img class="rounded-full w-full h-full object-cover object-center transition duration-50" loading="lazy" src="{{ asset($proposta->artigo->user->imagem_usuario) }}">
                                         </div>
                                         
                                         @else
@@ -66,7 +66,7 @@
                                 @else
 
                                     <div class="flex justify-center w-full sm:w-auto">
-                                        @if($proposta->artigo->user->imagem_usuario)
+                                        @if($proposta->user->imagem_usuario)
                                         <div class="ml-3 mt-3 mb-3 overflow-hidden relative w-20 h-20 flex-shrink-0 border-2 border-graytt-light rounded-full">
                                             <img class="rounded-full w-full h-full object-cover object-center transition duration-50" loading="lazy" src="{{ asset($proposta->user->imagem_usuario) }}">
                                         </div>
