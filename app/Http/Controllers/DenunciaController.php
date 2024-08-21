@@ -47,8 +47,6 @@ class DenunciaController extends Controller
 
         $D_user->save();
 
-        $prst = new Proposta();
-
         $propostas = Proposta::where('id_usuario_int', $id) // Corrigido de $D_user->id para $id
         ->orWhereHas('artigo', function ($query) use ($id) { // Corrigido de $D_user->id para $id
             $query->where('id_usuario_ofertante', $id);

@@ -59,4 +59,17 @@ class PropostaController extends Controller
 
         return view('chat', compact('propostas', 'id'));
     }
+
+    public function updateStatusCancel($id){
+
+        $propostas = new Proposta();
+        $propostas = $propostas::where('id', $id)->get();
+
+        foreach ($propostas as $proposta) {
+            $proposta->status_proposta = 2;
+            $proposta->save();
+        }
+
+        return redirect('/mep');
+    }
 }

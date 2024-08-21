@@ -36,6 +36,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/chat/{id}', [PropostaController::class, 'showMessage'])->name('view_messages');
     Route::post('/creatingpropose', [MensagemController::class, 'createFirst'])->name('createFirst');
     Route::post('/sendmessage/{id}', [MensagemController::class, 'create']);
+    Route::get('/cancelingpropose/{id}', [PropostaController::class, 'updateStatusCancel'])->name('updateStatusCancel');
 
     Route::get('/validar', function () {
         return view('modalvalidar');
