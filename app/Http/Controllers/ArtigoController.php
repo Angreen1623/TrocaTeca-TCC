@@ -59,12 +59,12 @@ class ArtigoController extends Controller
     }
 
     public function search(Request $req){
-        $artg = Artigo::where('nome_artigo', 'LIKE', $req->search.'%')->whereNotIn('id_usuario_ofertante', [$req->user()->id])->with('imagens')->get();
+        $artg = Artigo::where('nome_artigo', 'LIKE', $req->search.'%')->with('imagens')->get();
         return view('announcements')->with('artigo', $artg);
     }
 
-    public function list(Request $req){
-        $artg = Artigo::whereNotIn('id_usuario_ofertante', [$req->user()->id])->get();
+    public function list(){
+        $artg = Artigo::all();
         return view('welcome')->with('artigo', $artg);
     }
 
