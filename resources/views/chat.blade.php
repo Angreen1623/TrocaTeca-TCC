@@ -28,8 +28,8 @@
                     @foreach($propostas as $prop)
                     @if($prop->user->imagem_usuario)
 
-                    <div class="w-16 h-16 mr-3">
-                        <img src="{{ asset($prop->user->imagem_usuario) }}" alt="">
+                    <div class="w-16 h-16 mr-3 rounded-full overflow-hidden flex justify-center items-center">
+                        <img class="object-cover h-full" src="{{ asset($prop->user->imagem_usuario) }}" alt="">
                     </div>
                     
                     @else
