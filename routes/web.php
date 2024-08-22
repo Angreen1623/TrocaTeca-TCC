@@ -45,8 +45,6 @@ Route::middleware('auth')->group(function () {
     Route::post('/reportingannounce/{id}', [DenunciaController::class, 'createDenunciaArtigo']);
     Route::post('/reportinguser/{id}', [DenunciaController::class, 'createDenunciaUser']);
 
-    Route::get('/search', [ArtigoController::class, 'search'])->name('search');
-
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
@@ -60,6 +58,8 @@ Route::get('/', [ArtigoController::class, 'list']);
 Route::get('/ann', function () {
     return view('annoaccount');
 });
+
+Route::get('/search', [ArtigoController::class, 'search'])->name('search');
 
 Route::get('/perfilanunciante/{id}', [ProfileController::class, 'viewProfileanun'])->name('viewProfileanun');
 
