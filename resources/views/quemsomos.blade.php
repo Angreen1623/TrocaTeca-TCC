@@ -104,7 +104,7 @@
                         </details>
                         <details class="cursor-pointer bg-white w-full rounded-xl border-2 border-graytt-light shadow-tt transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-105 duration-300">
                             <summary class="px-4 py-6 focus:outline-none focus-visible:dark:ring-violet-600">Como o TrocaTeca garante minha segurança nos encontros de trocas?</summary>
-                            <p class="px-4 py-6 pt-0 ml-4 -mt-4 dark:text-gray-600">Como constante nos Termos de Serviço, recomendamos que o trocador sempre combine as trocas em locais públicos e em horários adequados. Evite compartilhar informações pessoais, como endereço residencial, e reforçamos que o uso do chat da plataforma para toda a comunicação é crucial para a segurança de todos os usuários.</p>
+                            <p class="px-4 py-6 pt-0 ml-4 -mt-4 dark:text-gray-600">Como constante nos <a class="underline-animation text-base font-bold text-black hover:text-graytt-900 focus:outline-none focus:ring-0 visited:text-black" href="/termos" target="_blank" rel="noopener noreferrer">Termos de Uso</a>, recomendamos que o trocador sempre combine as trocas em locais públicos e em horários adequados. Evite compartilhar informações pessoais, como endereço residencial, e reforçamos que o uso do chat da plataforma para toda a comunicação é crucial para a segurança de todos os usuários.</p>
                         </details>
                         <details class="cursor-pointer bg-white w-full rounded-xl border-2 border-graytt-light shadow-tt transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-105 duration-300">
                             <summary class="px-4 py-6 focus:outline-none focus-visible:dark:ring-violet-600">O trocador não apareceu no local combinado. O que faço?</summary>
@@ -129,6 +129,10 @@
                         <details class="cursor-pointer bg-white w-full rounded-xl border-2 border-graytt-light shadow-tt transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-105 duration-300">
                             <summary class="px-4 py-6 focus:outline-none focus-visible:dark:ring-violet-600">Como posso entrar em contato com a equipe do TrocaTeca?</summary>
                             <p class="px-4 py-6 pt-0 ml-4 -mt-4 dark:text-gray-600">Os usuários podem entrar em contato diretamente com a equipe do TrocaTeca através das redes sociais - @TrocaTeca - ou através do Email - trocatecaltda@gmail.com </p>
+                        </details>
+                        <details class="cursor-pointer bg-white w-full rounded-xl border-2 border-graytt-light shadow-tt transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-105 duration-300">
+                            <summary class="px-4 py-6 focus:outline-none focus-visible:dark:ring-violet-600">Ainda tenho dúvidas sobre o TrocaTeca</summary>
+                            <p class="px-4 py-6 pt-0 ml-4 -mt-4 dark:text-gray-600">Sua dúvida pode ja ter sido respondida nos <a class="underline-animation text-base font-bold text-black hover:text-graytt-900 focus:outline-none focus:ring-0 visited:text-black" href="/termos" target="_blank" rel="noopener noreferrer">Termos de Uso</a>. Se ainda assim persistirem as dúvidas, entre em contato.  </p>
                         </details>
                     </div>
                 </div>
