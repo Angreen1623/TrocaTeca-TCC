@@ -3,11 +3,9 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ArtigoController;
 use App\Http\Controllers\DenunciaController;
-use App\Http\Controllers\DenunciartigoController;
 use App\Http\Controllers\MensagemController;
 use App\Http\Controllers\PropostaController;
-use App\Models\Artigo;
-use App\Models\Proposta;
+use App\Http\Controllers\AcordoController;
 use Illuminate\Support\Facades\Route;
 
 // Adicionando middleware 'auth' para as rotas que requerem login
@@ -29,6 +27,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/mep', [PropostaController::class, 'show']);
 
+    Route::post('acordo/create/{id}', [AcordoController::class, 'create']);
     Route::get('/meusacordos', function () {
         return view('meusacordos');
     });

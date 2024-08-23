@@ -15,8 +15,10 @@ return new class extends Migration
             $table->id();
             $table->foreignId('id_proposta')->constrained('propostas')->onDelete('cascade')->onUpdate('cascade');
             $table->String('anuncio');
+            $table->String('categoria_acordo');
             $table->String('data_encontro');
             $table->String('local_encontro');
+            $table->String('imagem_acordo');
             $table->tinyInteger('status_acordo');
             $table->timestamps();
         });
