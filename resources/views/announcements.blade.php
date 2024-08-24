@@ -43,7 +43,7 @@
                                     <p>
                                         <span class="truncate lg:text-left lg:mt-2 text-black">Valor Sugerido:
                                     </p>
-                                    <span class="text-1xl md:text-1xl lg:text-lg ml-2 font-bold text-pinktt">R${{$artg->valor_sugerido_artigo}}</span>
+                                    <span class="truncate text-1xl md:text-1xl lg:text-lg ml-2 font-bold text-pinktt">R${{$artg->valor_sugerido_artigo}}</span>
                                     </p>
                                 </div>
                                 @endif

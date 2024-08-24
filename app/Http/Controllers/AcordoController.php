@@ -27,6 +27,39 @@ class AcordoController extends Controller
         $acordo->save();
 
         return redirect()->back();
+    }
 
+    public function show(Request $req){
+        $acordos = Acordo::whereHas('proposta', function($query) use ($req) {
+            $query->where('id_usuario_int', $req->user()->id);
+        })->orWhereHas('proposta.artigo', function ($query) use ($req) {
+            $query->where('id_usuario_ofertante', $req->user()->id);
+        })->with('proposta.artigo.user')->get();
+
+        return view('meusacordos', compact('acordos'));
+    }
+
+    public function validar(Request $req, $id){
+        $acordo = new Acordo();
+
+        $acordo = $acordo::find($id)->with('proposta.artigo.user')->get();
+
+        foreach($acordo as $acordo){
+            if($acordo->status_acordo == 0){
+
+                if($acordo->proposta->id_usuario_int == $req->user()->id){
+                    $acordo->status_acordo = 1; //usuario interessado confirmou
+                }elseif($acordo->proposta->artigo->id_usuario_ofertante == $req->user()->id){
+                    $acordo->status_acordo = 2; //usuário ofertante confirmou
+                }
+
+            }else{
+                $acordo->status_acordo = 3; //ambos confirmaram
+            }
+        }
+
+        $acordo->save();
+
+        return redirect()->back();
     }
 }

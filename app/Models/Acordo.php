@@ -9,16 +9,20 @@ class acordo extends Model
 {
     use HasFactory;
 
+    protected $primaryKey = 'id';
+
     protected $fillable = [
         'id_proposta',
         'anuncio',
         'data_encontro',
         'local_encontro',
         'categoria_acordo',
+        'imagem_acordo',
         'status_acordo'
     ];
 
-    public function proposta(){
-        return $this->belongsTo(Proposta::class, 'id', 'id_proposta');
+    public function proposta()
+    {
+        return $this->belongsTo(Proposta::class, 'id_proposta');
     }
 }

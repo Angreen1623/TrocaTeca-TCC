@@ -28,9 +28,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/mep', [PropostaController::class, 'show']);
 
     Route::post('acordo/create/{id}', [AcordoController::class, 'create']);
-    Route::get('/meusacordos', function () {
-        return view('meusacordos');
-    });
+    Route::get('validarTroca/{id}', [AcordoController::class, 'validar']);
+    Route::get('/meusacordos', [AcordoController::class, 'show']);
 
     Route::get('/chat/{id}', [PropostaController::class, 'showMessage'])->name('view_messages');
     Route::post('/creatingpropose', [MensagemController::class, 'createFirst'])->name('createFirst');

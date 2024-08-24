@@ -9,6 +9,8 @@ class Proposta extends Model
 {
     use HasFactory;
 
+    protected $primaryKey = 'id';
+
     protected $fillable = [
         'id_artigo',
         'nome_proposta',
@@ -27,7 +29,7 @@ class Proposta extends Model
         return $this->belongsTo(User::class, 'id_usuario_int');
     }
     public function acordo(){
-        return $this->hasOne(Acordo::class, 'id');
+        return $this->hasOne(Acordo::class, 'id_proposta');
     }
     public function mensagem(){
         return $this->hasMany(Mensagem::class, 'id_proposta', 'id');
