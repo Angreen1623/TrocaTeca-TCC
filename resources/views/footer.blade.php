@@ -37,6 +37,12 @@
                         Quem Somos
                     </a>
                 </div>
+
+                <div class="px-5 py-2">
+                    <a href="/termos" class="text-base leading-6 underline-animation">
+                        Termos de Uso
+                    </a>
+                </div>
             </div>
 
             </nav>

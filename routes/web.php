@@ -68,4 +68,8 @@ Route::get('/about', function () {
     return view('quemsomos');
 });
 
+Route::get('/termos', function () {
+    return view('termosdeuso');
+});
+
 require __DIR__.'/auth.php';
