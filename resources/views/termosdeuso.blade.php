@@ -230,7 +230,6 @@
                 </p>
                 <p class="mb-12 text-base text-center text-graytt">&copy; TrocaTeca {{ date('Y') }}</p>
             </div>
-            @include('footer')
         </div>
 </body>
 
