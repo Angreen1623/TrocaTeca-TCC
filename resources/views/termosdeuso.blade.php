@@ -77,13 +77,13 @@
 
                     <li class='list-disc'>
                         <p class="text-base">
-                            O TrocaTeca pode intervir e alterar dados cadastrais na conta do usuário ao aplicar punições ou emitir ocorrências em relação a dados que vão contra o bom senso e que sejam ofensivos em qualquer nível que seja;
+                            O TrocaTeca pode intervir e alterar dados cadastrais na conta do usuário ao aplicar punições ou emitir advertências em relação a dados que vão contra o bom senso ou que sejam ofensivos em qualquer nível que seja;
                         </p>
                     </li>
 
                     <li class='list-disc'>
                         <p class="text-base font-bold">
-                            Ao concordar com os termos de uso, você assume concordar com os itens descritos acima, assumindo também a completa responsabilidade, legitimidade, veracidade e transparência dos dados cadastrais informados, admitindo conhecer
+                            Ao concordar com os termos de uso, você assume concordar com os itens descritos acima, assumindo também a completa responsabilidade quanto à legitimidade, veracidade e transparência dos dados cadastrais informados, admitindo conhecer
                             e responder pelas consequências civis e criminais ocasionadas pela falta de exatidão nos dados informados.
                         </p>
                     </li>
@@ -114,7 +114,7 @@
 
                     <li class='list-disc'>
                         <p class="text-base">
-                            O TrocaTeca pode intervir e alterar as informações de anúncios ou retirá-los do sistema ao aplicar punições ou emitir ocorrências em relação a anúncios que vão contra o bom senso ou que sejam ofensivos em qualquer nível que seja;
+                            O TrocaTeca pode intervir e alterar as informações de anúncios ou retirá-los do sistema ao aplicar punições ou emitir advertências em relação a anúncios que vão contra o bom senso ou que sejam ofensivos em qualquer nível que seja;
                         </p>
                     </li>
 

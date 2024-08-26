@@ -47,13 +47,13 @@
                             @endif>
                                 <div class="flex flex-col lg:flex-row gap-3 bg-white rounded-3xl overflow-hidden items-center justify-start border-2 border-graytt-light shadow-tt transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-105 duration-300">
                                     <div class="flex justify-center w-full lg:w-auto">
-                                        <div class="ml-3 mt-3 mb-3 overflow-hidden relative w-20 h-20 flex-shrink-0 border-2 border-graytt-light rounded-full">
-                                            <img class="rounded-full w-full h-full object-cover object-center transition duration-50" loading="lazy" src="{{ asset($arc->imagem_acordo) }}">
+                                        <div class="ml-3 mt-3 mb-3 overflow-hidden relative w-20 h-20 flex-shrink-0 border-2 border-graytt-light rounded-xl">
+                                            <img class="rounded-xl w-full h-full object-cover object-center transition duration-50" loading="lazy" src="{{ asset($arc->imagem_acordo) }}">
                                         </div>
                                     </div>
                                     <div class="max-w-46 lg:flex lg:flex-col lg:gap-2 lg:py-2 lg:pl-4 lg:flex-1 truncate">
                                         <p class="text-center lg:text-left mb-2  text-black text-xs lg:text-sm md:text-xs lg:text-base xl:text-lg truncate">Anúncio: {{ $arc->proposta->artigo->nome_artigo }}</p>
-                                        <p class=" text-center lg:text-left text-black text-xs lg:text-sm md:text-xs lg:text-base xl:text-lg truncate">Proposta: {{ $arc->proposta->nome_proposta }}</p>
+                                        <p class=" text-center lg:text-left text-black text-xs lg:text-sm md:text-xs lg:text-base xl:text-lg truncate">Proposta: {{ $arc->anuncio }}</p>
                                     </div>
                                     <div class="max-w-46 lg:flex lg:flex-col lg:gap-2 lg:py-2 lg:border-l lg:border-black lg:pl-4 lg:flex-1 truncate">
                                         <p class="text-center lg:text-left mb-2 text-black text-xs lg:text-sm md:text-xs lg:text-base xl:text-lg text-nowrap ">Encontro: {{ $arc->data_encontro }}</p>
