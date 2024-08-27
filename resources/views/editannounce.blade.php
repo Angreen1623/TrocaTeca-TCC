@@ -39,6 +39,7 @@
 
                                 <!-- Input para imagens secundárias -->
                                 <div class="flex lg:flex-row justify-between">
+
                                     @for ($i = 0; $i < 4; $i++)
                                         <div>
                                             <input type="file" name="img[{{$i}}]" id="imagem{{$i+1}}" class="hidden">
@@ -49,6 +50,7 @@
                                                             <img id="img{{$i+1}}" class="h-full object-cover h-full" loading="lazy" src="{{ asset($artigo->imagens[$i+1]->endereco_imagem) }}">
                                                         @endif
                                                     @else
+                                                        <img src="" class="hidden object-cover h-full">
                                                         <div id="placeholder{{$i+1}}" class="placeholder-img flex flex-col justify-center items-center transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-[1.05] duration-300 m-3">
                                                             <img src="{{asset('image/mais.svg')}}" alt="" width="30">
                                                         </div>
@@ -57,6 +59,7 @@
                                             </label>
                                         </div>
                                     @endfor
+                                    
                                 </div>
                             </div>
 
@@ -132,6 +135,43 @@
             </div>
         </div>
         @include('footer')
+
+        <script>
+            let paiimg = '.add-img-p';
+            let img = document.querySelector(paiimg+' img');
+            let placeholder = document.querySelector(paiimg+' .placeholder-img');
+            let inputArquivo = document.querySelector("#img_principal");
+
+            inputArquivo.onchange = function () { //Função para atualizar a interface do usuário quando um arquivo é selecionado.
+
+            if (inputArquivo.files.length > 0) {  //Verifica se há um arquivo selecionado.
+                img.src = URL.createObjectURL(inputArquivo.files[0]); // Cria uma URL temporária para o arquivo selecionado e atualiza a imagem.
+                img.classList.remove('hidden');
+
+                placeholder.classList.add('hidden');
+            }
+
+            };
+
+            for (let i = 1; i < 5; i++) {
+                let paiimg = '.add-img' + i;
+                let img = document.querySelector(paiimg+' img');
+                let placeholder = document.querySelector(paiimg+' .placeholder-img');
+                let inputArquivo = document.querySelector("#imagem" + i);
+
+                // Verifica se o elemento foi encontrado antes de adicionar o evento
+                if (img && inputArquivo) {
+                    inputArquivo.onchange = function() {
+                        if (inputArquivo.files.length > 0) {
+                            img.src = URL.createObjectURL(inputArquivo.files[0]); // Cria uma URL temporária para o arquivo selecionado e atualiza a imagem.
+                            img.classList.remove('hidden');
+
+                            placeholder.classList.add('hidden');
+                        }
+                    };
+                }
+            }
+        </script>
     </div>
 </body>
 

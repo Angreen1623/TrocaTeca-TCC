@@ -31,7 +31,8 @@ Route::middleware('auth')->group(function () {
     Route::get('validarTroca/{id}', [AcordoController::class, 'validar']);
     Route::get('/meusacordos', [AcordoController::class, 'show']);
 
-    Route::get('/chat/{id}', [PropostaController::class, 'showMessage'])->name('view_messages');
+    Route::get('/chat/{id}', [PropostaController::class, 'showPropose'])->name('view_messages');
+    Route::get('/mensagens/{id}', [PropostaController::class, 'showMessage']);
     Route::post('/creatingpropose', [MensagemController::class, 'createFirst'])->name('createFirst');
     Route::post('/sendmessage/{id}', [MensagemController::class, 'create']);
     Route::get('/cancelingpropose/{id}', [PropostaController::class, 'updateStatusCancel'])->name('updateStatusCancel');

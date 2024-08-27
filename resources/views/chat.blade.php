@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TrocaTeca</title>
     <link rel="shortcut icon" href="{{ asset('image/t.png') }}">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     @vite('resources/css/app.css')
     @vite('resources/js/app.js')
 </head>
@@ -106,7 +107,7 @@
 
                         @if($prop->user->id == Auth()->user()->id)
                         <button id="openFinalButton" type="button" class="last:mb-0 mb-3 bg-white p-3 border-black border rounded-xl hover:bg-graytt-light text-black text-md font-medium rounded-2xl">
-                            Encerrar troca
+                            Enviar proposta final
                         </button>
                         @endif
                     </div>
@@ -116,37 +117,8 @@
 
         </div>
 
-        <div class="flex flex-col">
-            @if($propostas)
-            @foreach($propostas as $prop)
-            @foreach($prop->mensagem as $msg)
-
-            @if($msg->user->id == Auth()->user()->id)
-
-            <div class="text-right flex flex-col items-end">
-                @if($msg->endereco_anexo)
-                <div class="w-32 ">
-                    <img src="{{ asset($msg->endereco_anexo) }}" alt="">
-                </div>
-                @endif
-                <p>{{ $msg->conteudo_mensagem }}</p>
-            </div>
-
-            @else
-
-            <div class="text-left flex flex-col items-start">
-                @if($msg->endereco_anexo)
-                    <div class="w-32">
-                        <img src="{{ asset($msg->endereco_anexo) }}" alt="">
-                    </div>
-                @endif
-                <p>{{ $msg->conteudo_mensagem }}</p>
-            </div>
-
-            @endif
-            @endforeach
-            @endforeach
-            @endif
+        <div id="mensagens" class="flex flex-col">
+            
         </div>
 
         <div class="absolute bottom-0 left-0 w-full z-50 ">
@@ -251,6 +223,36 @@
             var menuflu = document.getElementById("menuflu");
             menuflu.classList.toggle('hidden');
         }
+
+        //Chat ao vivo
+
+        $(document).ready(function(){
+            run();
+        })
+            var timerI = null;
+            var timerR = false;
+
+            function stop(){
+                if(timerR){
+                    clearTimeout(timerI);
+                    timerR = false;
+                }
+            }
+
+            function run(){
+                stop();
+                list();
+            }
+            function list(){
+                $.ajax({
+                    url:"../mensagens/<?php foreach($propostas as $prop){ print $prop->id; }?>",
+                    success: function(textStatus){
+                        $("#mensagens").html(textStatus);
+                    }
+                })
+                timerI = setTimeout("list()", 3000);
+                timerR = true;
+            }
     </script>
 </body>
 

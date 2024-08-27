@@ -53,11 +53,18 @@ class PropostaController extends Controller
         return view('mensagensepropostas')->with('propostas', $prst);
     }
 
-    public function showMessage(Request $req, $id){
+    public function showPropose(Request $req, $id){
         $propostas = new Proposta();
-        $propostas = $propostas::where('id', $id)->with(['artigo.user'])->with('mensagem')->with('user')->get();
+        $propostas = $propostas::find($id)->with(['artigo.user'])->with('mensagem')->with('user')->get();
 
         return view('chat', compact('propostas', 'id'));
+    }
+
+    public function showMessage(Request $req, $id){
+        $propostas = new Proposta();
+        $propostas = $propostas::find($id)->with(['artigo.user'])->with('mensagem')->with('user')->get();
+
+        return view('messages', compact('propostas', 'id'));
     }
 
     public function updateStatusCancel($id){

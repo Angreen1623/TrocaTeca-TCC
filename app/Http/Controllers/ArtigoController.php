@@ -84,6 +84,37 @@ class ArtigoController extends Controller
             "condicao_artigo" => $req->condicao_artigo,
             "tempo_uso_artigo" => $req->tempo_uso_artigo
         ]);
+
+        if($req->hasFile('imagem_principal')){
+            $img = new Imagem_artigo;
+
+            $img->imagem_principal = 1;
+
+            $imagem = "image/users-img/". uniqid("", true) . "." . pathinfo($_FILES['img_principal']['name'], PATHINFO_EXTENSION);
+            move_uploaded_file($_FILES['img_principal']["tmp_name"], $imagem);
+            $img->endereco_imagem = $imagem;
+
+            $img->id_artigo = $artg->id;
+
+            $img->save();
+        }
+
+        if ($req->hasFile('img')) {
+            foreach ($_FILES['img']['name'] as $key => $name) {
+                if($name != ""){
+                    $img = new Imagem_artigo;
+                    $img->imagem_principal = 0;
+                        
+                    $imagem = "image/users-img/". uniqid("", true) . "." . pathinfo($name, PATHINFO_EXTENSION);
+                    move_uploaded_file($_FILES['img']["tmp_name"][$key], $imagem);
+                    $img->endereco_imagem = $imagem;
+
+                    $img->id_artigo = $artg->id;
+                    $img->save();
+                }
+            }
+        }
+        
         return redirect()->to('/meusartigos');
   }
 

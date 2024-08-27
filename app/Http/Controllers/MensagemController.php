@@ -18,9 +18,9 @@ class MensagemController extends Controller
         $mensagens->conteudo_mensagem = $req->mensagem;
 
         if($req->anexo){
-            $imagem = "image/users-img/". uniqid("", true) . "." . pathinfo($_FILES['anexo']['name'], PATHINFO_EXTENSION);
-            move_uploaded_file($_FILES['anexo']["tmp_name"], $imagem);
-            $mensagens->endereco_anexo = $imagem;
+            $anexo = "image/users-img/". uniqid("", true) . "." . pathinfo($_FILES['anexo']['name'], PATHINFO_EXTENSION);
+            move_uploaded_file($_FILES['anexo']["tmp_name"], $anexo);
+            $mensagens->endereco_anexo = $anexo;
         }
 
         $mensagens->visto = 0;

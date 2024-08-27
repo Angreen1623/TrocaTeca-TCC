@@ -91,7 +91,12 @@
     </div>
 
     <!-- Incluir os modais de denunciar anúncio e enviar proposta-->
-    @include('modalvalidar')
+    @if(isset($acordos))
+    @foreach($acordos as $arc)
+        @include('modalvalidar')
+    @endforeach
+    @endif
+
     <script>
         //inclusão do modal de validar
         document.addEventListener('DOMContentLoaded', function() {

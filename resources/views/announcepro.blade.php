@@ -50,7 +50,7 @@
                                         </label>
                                     </div>
 
-                                @endfor    
+                                @endfor
                                 
                             </div>
                         </div>
