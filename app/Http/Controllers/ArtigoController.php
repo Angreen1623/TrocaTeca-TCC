@@ -85,18 +85,16 @@ class ArtigoController extends Controller
             "tempo_uso_artigo" => $req->tempo_uso_artigo
         ]);
 
-        if($req->hasFile('imagem_principal')){
+        if($req->hasFile('img_principal')){
             $img = new Imagem_artigo;
 
-            $img->imagem_principal = 1;
+            $img = $img::where('imagem_principal', 1);
 
             $imagem = "image/users-img/". uniqid("", true) . "." . pathinfo($_FILES['img_principal']['name'], PATHINFO_EXTENSION);
             move_uploaded_file($_FILES['img_principal']["tmp_name"], $imagem);
-            $img->endereco_imagem = $imagem;
-
-            $img->id_artigo = $artg->id;
-
-            $img->save();
+            $img->update([
+                "endereco_imagem" => $imagem
+            ]);
         }
 
         if ($req->hasFile('img')) {

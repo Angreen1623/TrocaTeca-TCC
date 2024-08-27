@@ -149,6 +149,8 @@
 
     window.addEventListener('resize', screenResize);
 
+    window.onload = function () { screenResize() } 
+
     function sidebartt() {
         document.body.classList.toggle('overflow-hidden');
         var sidebar = document.getElementById('sidebar');

@@ -28,9 +28,9 @@ class PropostaController extends Controller
 
         $mensagens = new Mensagem();
 
-        $mensagem = "Proposta: ".$prst->nome_proposta." 
-        Categoria: ".$prst->categoria_proposta." 
-        Tempo de uso: ".$prst->tempo_uso_proposta;
+        $mensagem = "Proposta: ".$prst->nome_proposta."
+Categoria: ".$prst->categoria_proposta." 
+Tempo de uso: ".$prst->tempo_uso_proposta;
 
         $mensagens->id_usuario = $prst->id_usuario_int;
         $mensagens->id_proposta = $prst->id;

@@ -10,7 +10,7 @@
         <img src="{{ asset($msg->endereco_anexo) }}" alt="">
     </div>
     @endif
-    <p>{{ $msg->conteudo_mensagem }}</p>
+    <pre>{{ $msg->conteudo_mensagem }}</pre>
 </div>
 
 @else
@@ -21,7 +21,7 @@
             <img src="{{ asset($msg->endereco_anexo) }}" alt="">
         </div>
     @endif
-    <p>{{ $msg->conteudo_mensagem }}</p>
+    <pre>{{ $msg->conteudo_mensagem }}</pre>
 </div>
 
 @endif

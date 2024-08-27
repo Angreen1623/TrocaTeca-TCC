@@ -93,9 +93,11 @@
             var mt_paralax = document.getElementById("mt-paralax");
             var paralax = document.getElementById('paralax');
 
-            mt_paralax.style.marginTop = paralax.offsetHeight - 32 + "px";
+            screenResize();
 
             window.addEventListener('resize', screenResize);
+
+            window.onload = function () { screenResize() } 
 
             function screenResize() {
                 mt_paralax.style.marginTop = paralax.offsetHeight - 32 + "px";
