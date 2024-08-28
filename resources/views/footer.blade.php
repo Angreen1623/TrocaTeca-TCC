@@ -25,7 +25,7 @@
                     </a>
                 </div>
                 <div class="px-5 py-2">
-                    <a href="/mensagensepropostas" class="text-center sm:text-base leading-6 underline-animation">
+                    <a href="/mep" class="text-center sm:text-base leading-6 underline-animation">
                         Mensagens e Propostas
                     </a>
                 </div>
