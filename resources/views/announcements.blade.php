@@ -17,6 +17,11 @@
             <div class="max-w-screen-xl px-4 mx-auto">
 
                 @if(count($artigo) > 0)
+                <div class="mb-7 mt-10 flex flex-col justify-center items-center space-y-4 max-w-3xl w-full mx-auto">
+                     <h3 class="mt-7 text-2xl text-center text-black sm:text-4xl" style="font-family: 'Fredoka';">
+                        Aqui estão os resultados para: {{ $searchTerm }}
+                     </h3>
+                </div>
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 justify-items-center mt-14">
 
                     <!--Card do anúncio-->
@@ -56,11 +61,16 @@
                 </div>
                 @else
 
-                <div class="mb-7 mt-10 flex flex-col justify-center items-center space-y-4 max-w-3xl lg:mt-0 lg:order-1 w-full">
-                    <h2 class="mt-7 text-3xl  text-center lg:text-left text-black sm:text-4xl" style="font-family: 'Fredoka';">
-                        Nenhum artigo encontrado.
-                    </h2>
+                <div class="mb-7 mt-10 flex flex-col justify-center items-center space-y-4 max-w-3xl w-full mx-auto">
+                     <h3 class="mt-7 text-2xl text-center text-black sm:text-4xl" style="font-family: 'Fredoka';">
+                        OPS! Nenhum resultado foi encontrado para: {{ $searchTerm }}
+                     </h3>
+                     <p class="text-center whitespace-pre-line">
+                         Parece que não existe artigos com esse nome.
+                         verifique se digitou corretamente e tente denovo!
+                    </p>
                 </div>
+
 
                 @endif
             </div>
