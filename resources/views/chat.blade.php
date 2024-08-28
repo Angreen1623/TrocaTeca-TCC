@@ -128,7 +128,14 @@
                 <div class="flex w-full py-2.5 px-7 md:ps-20 md:pe-7 bg-bluett align-item-center place-content-between items-center border-t border-black">
 
 
-                    <input type="text" name="mensagem" id="" placeholder="Digite sua mensagem" class="w-full h-10 pl-3 rounded-xl truncate">
+                    <input type="text" name="mensagem" id="" 
+                    @if($prop->status_proposta == 0)
+                    placeholder="Proposta em aprovação..." disabled
+                    @elseif(isset($prop->acordo) && $prop->acordo->status_acordo == 0)
+                    placeholder="Acordo em aprovação..." disabled
+                    @else
+                    placeholder="Digite sua mensagem"
+                    @endif class="w-full h-10 pl-3 rounded-xl truncate">
 
                     <button type="submit" class="ml-8">
                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="45" height="45" zoomAndPan="magnify" viewBox="0 0 66 66" preserveAspectRatio="xMidYMid meet" version="1.0">
@@ -245,7 +252,7 @@
             }
             function list(){
                 $.ajax({
-                    url:"../mensagens/<?php foreach($propostas as $prop){ print $prop->id; }?>",
+                    url:"../menssagens/<?php print $prop->id; ?>",
                     success: function(textStatus){
                         $("#mensagens").html(textStatus);
                     }

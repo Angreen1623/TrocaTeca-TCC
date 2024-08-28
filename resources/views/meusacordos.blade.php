@@ -34,8 +34,8 @@
                         <div class="grid grid-cols-1 gap-4 justify-items-center w-full">
 
                             @php
-                            if(($arc->status_acordo) == 3 || ($arc->proposta->id_usuario_int == Auth()->user()->id && $arc->status_acordo == 1) ||
-                             ($arc->proposta->artigo->id_usuario_ofertante == Auth()->user()->id && $arc->status_acordo == 2))
+                            if(($arc->status_acordo) == 4 || ($arc->proposta->id_usuario_int == Auth()->user()->id && $arc->status_acordo == 2) ||
+                             ($arc->proposta->artigo->id_usuario_ofertante == Auth()->user()->id && $arc->status_acordo == 3))
                                 $enabled = false;
                             else
                                 $enabled = true;
@@ -60,17 +60,17 @@
                                         <p class="lg:truncate text-center lg:text-left text-black text-xs lg:text-sm md:text-xs lg:text-base xl:text-lg truncate">{{ $arc->local_encontro }}</p>
                                     </div>
                                     <div class="flex place-content-end w-full lg:w-auto lg:h-20 items-end mr-6">
-                                        @if($arc->status_acordo == 0 or $arc->status_acordo == 1 or $arc->status_acordo == 2) <!--em andamento 0-2-->
+                                        @if($arc->status_acordo == 1 or $arc->status_acordo == 2 or $arc->status_acordo == 3) <!--em andamento 0-2-->
                                         <p class="mr-2 mb-0.5 text-black text-xs hidden lg:block">Acordo em andamento</p>
                                         <svg class="mb-3 lg:mb-0" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" zoomAndPan="magnify" viewBox="0 0 810 809.999993" height="20" preserveAspectRatio="xMidYMid meet" version="1.0">
                                             <path fill="#fff500" d="M 405 0 C 628.675781 0 810 181.324219 810 405 C 810 628.675781 628.675781 810 405 810 C 181.324219 810 0 628.675781 0 405 C 0 181.324219 181.324219 0 405 0 Z M 405 0 " fill-opacity="1" fill-rule="evenodd" />
                                         </svg>
-                                        @elseif($arc->status_acordo == 3) <!--concluída-->
+                                        @elseif($arc->status_acordo == 4) <!--concluída-->
                                         <p class="mr-2 mb-0.5 text-black text-xs hidden lg:block">Acordo finalizado</p>
                                         <svg class="mb-3 lg:mb-0" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" zoomAndPan="magnify" viewBox="0 0 810 809.999993" height="20" preserveAspectRatio="xMidYMid meet" version="1.0">
                                             <path fill="#00BF63" d="M 405 0 C 628.675781 0 810 181.324219 810 405 C 810 628.675781 628.675781 810 405 810 C 181.324219 810 0 628.675781 0 405 C 0 181.324219 181.324219 0 405 0 Z M 405 0 " fill-opacity="1" fill-rule="evenodd" />
                                         </svg>
-                                        @elseif($arc->status_acordo == 4) <!--cancelada-->
+                                        @elseif($arc->status_acordo == 5) <!--cancelada-->
                                         <p class="mr-2 mb-0.5 text-black text-xs hidden lg:block">Acordo cancelado</p>
                                         <svg class="mb-3 lg:mb-0" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" zoomAndPan="magnify" viewBox="0 0 810 809.999993" height="20" preserveAspectRatio="xMidYMid meet" version="1.0">
                                             <path fill="#ff3131" d="M 405 0 C 628.675781 0 810 181.324219 810 405 C 810 628.675781 628.675781 810 405 810 C 181.324219 810 0 628.675781 0 405 C 0 181.324219 181.324219 0 405 0 Z M 405 0 " fill-opacity="1" fill-rule="evenodd" />
