@@ -26,15 +26,18 @@ Route::middleware('auth')->group(function () {
     Route::delete('/excluir/{id}', [ArtigoController::class, 'delete'])->name('artigo.delete');
 
     Route::get('/mep', [PropostaController::class, 'show']);
-
+    
+    Route::get('/acceptingfinalpropose/{id}', [AcordoController::class, 'updateStatusAccept']);
+    Route::get('/denyingfinalpropose/{id}', [AcordoController::class, 'updateStatusDeny']);
     Route::post('acordo/create/{id}', [AcordoController::class, 'create']);
-    Route::get('validarTroca/{id}', [AcordoController::class, 'validar']);
+    Route::get('validarTroca/{id}', [AcordoController::class, 'updateStatusAgree']);
     Route::get('/meusacordos', [AcordoController::class, 'show']);
 
     Route::get('/chat/{id}', [PropostaController::class, 'showPropose'])->name('view_messages');
-    Route::get('/mensagens/{id}', [PropostaController::class, 'showMessage']);
+    Route::get('/menssagens/{id}', [PropostaController::class, 'showMessage']);
     Route::post('/creatingpropose', [MensagemController::class, 'createFirst'])->name('createFirst');
     Route::post('/sendmessage/{id}', [MensagemController::class, 'create']);
+    Route::get('/acceptingpropose/{id}', [PropostaController::class, 'updateStatusChatting']);
     Route::get('/cancelingpropose/{id}', [PropostaController::class, 'updateStatusCancel'])->name('updateStatusCancel');
 
     Route::get('/validar', function () {

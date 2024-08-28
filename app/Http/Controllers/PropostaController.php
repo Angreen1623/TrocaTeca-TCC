@@ -22,7 +22,7 @@ class PropostaController extends Controller
         $prst->endereco_img_prop = $imagem;
 
         $prst->id_usuario_int = $req->user()->id;
-        $prst->status_proposta = 0;
+        $prst->status_proposta = 0; //proposta pendente
 
         $prst->save();
 
@@ -55,14 +55,21 @@ Tempo de uso: ".$prst->tempo_uso_proposta;
 
     public function showPropose(Request $req, $id){
         $propostas = new Proposta();
-        $propostas = $propostas::find($id)->with(['artigo.user'])->with('mensagem')->with('user')->get();
+        $propostas = $propostas::find($id)->with('acordo')->with(['artigo.user'])->with('mensagem')->with('user')->get();
 
         return view('chat', compact('propostas', 'id'));
     }
 
     public function showMessage(Request $req, $id){
-        $propostas = new Proposta();
-        $propostas = $propostas::find($id)->with(['artigo.user'])->with('mensagem')->with('user')->get();
+        $propostas = Proposta::find($id)->with('acordo')->with(['artigo.user'])->with('mensagem')->with('user')->get();
+        foreach($propostas as $prop){
+            foreach($prop->mensagem as $msgs){
+                if($msgs->id_usuario != $req->user()->id){
+                    $msgs->visto = true;
+                    $msgs->save();
+                }
+            }
+        }
 
         return view('messages', compact('propostas', 'id'));
     }
@@ -73,10 +80,23 @@ Tempo de uso: ".$prst->tempo_uso_proposta;
         $propostas = $propostas::where('id', $id)->get();
 
         foreach ($propostas as $proposta) {
-            $proposta->status_proposta = 2;
+            $proposta->status_proposta = 3; //proposta cancelada
             $proposta->save();
         }
 
         return redirect('/mep');
+    }
+
+    public function updateStatusChatting($id){
+
+        $propostas = new Proposta();
+        $propostas = $propostas::find($id)->get();
+
+        foreach ($propostas as $proposta) {
+            $proposta->status_proposta = 1; //proposta em andamento
+            $proposta->save();
+        }
+
+        return redirect()->back();
     }
 }

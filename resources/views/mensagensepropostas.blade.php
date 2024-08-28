@@ -32,14 +32,8 @@
                     <div class="grid grid-cols-1 gap-4 justify-items-center">
 
                         <div class="w-full max-w-48 mt-6 mb-9 sm:max-w-none">
-                            @if(!$proposta->status_proposta == 2)
                             <a href="/chat/{{ $proposta->id }}">
                             <div class="flex flex-col sm:flex-row gap-3 bg-white rounded-3xl overflow-hidden items-center justify-start border-2 border-graytt-light shadow-tt transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-105 duration-300">
-                            @else
-                            <div>
-                            <div class="flex flex-col sm:flex-row gap-3 bg-white rounded-3xl overflow-hidden items-center justify-start border-2 border-graytt-light shadow-tt transition ease-in-out delay-100">
-                            @endif
-
                                 @if($proposta->user->id == Auth()->user()->id)
 
                                     <div class="flex justify-center w-full sm:w-auto">
@@ -92,19 +86,27 @@
                                     </div>
                                     @if($proposta->status_proposta == 0)
                                     <div class="flex place-content-end w-full sm:w-auto sm:h-20 items-end mr-6">
+                                        <p class="mr-2 mb-0.5 text-black text-xs hidden lg:block">Proposta pendente</p>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
+                                        <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0"/>
+                                        <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8m8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7"/>
+                                        </svg>
+                                    </div>
+                                    @elseif($proposta->status_proposta == 1)
+                                    <div class="flex place-content-end w-full sm:w-auto sm:h-20 items-end mr-6">
                                         <p class="mr-2 mb-0.5 text-black text-xs hidden lg:block">Proposta em andamento</p>
                                         <svg class="mb-3 sm:mb-0" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" zoomAndPan="magnify" viewBox="0 0 810 809.999993" height="20" preserveAspectRatio="xMidYMid meet" version="1.0">
                                             <path fill="#fff500" d="M 405 0 C 628.675781 0 810 181.324219 810 405 C 810 628.675781 628.675781 810 405 810 C 181.324219 810 0 628.675781 0 405 C 0 181.324219 181.324219 0 405 0 Z M 405 0 " fill-opacity="1" fill-rule="evenodd" />
                                         </svg>
                                     </div>
-                                    @elseif($proposta->status_proposta == 1)
+                                    @elseif($proposta->status_proposta == 2)
                                     <div class="flex place-content-end w-full sm:w-auto sm:h-20 items-end mr-6">
                                         <p class="mr-2 mb-0.5 text-black text-xs hidden lg:block">Proposta finalizada</p>
                                         <svg class="mb-3 sm:mb-0" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" zoomAndPan="magnify" viewBox="0 0 810 809.999993" height="20" preserveAspectRatio="xMidYMid meet" version="1.0">
                                             <path fill="#00BF63" d="M 405 0 C 628.675781 0 810 181.324219 810 405 C 810 628.675781 628.675781 810 405 810 C 181.324219 810 0 628.675781 0 405 C 0 181.324219 181.324219 0 405 0 Z M 405 0 " fill-opacity="1" fill-rule="evenodd" />
                                         </svg>
                                     </div>
-                                    @elseif($proposta->status_proposta == 2)
+                                    @elseif($proposta->status_proposta == 3)
                                     <div class="flex place-content-end w-full sm:w-auto sm:h-20 items-end mr-6">
                                         <p class="mr-2 mb-0.5 text-black text-xs hidden lg:block">Proposta Cancelada</p>
                                         <svg class="mb-3 sm:mb-0" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" zoomAndPan="magnify" viewBox="0 0 810 809.999993" height="20" preserveAspectRatio="xMidYMid meet" version="1.0">
@@ -113,11 +115,7 @@
                                     </div>
                                     @endif
                                 </div>
-                            @if(!$proposta->status_proposta == 2)
                             </a>
-                            @else
-                            </div>
-                            @endif
                         </div>
                     </div>
 
