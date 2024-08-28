@@ -12,9 +12,9 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth')->group(function () {
     Route::get('/myaccount', function () {
         return view('myaccount');
-    });
+    })->name('myaccount');
 
-    Route::get('/meusartigos', [ArtigoController::class, 'select']);
+    Route::get('/meusartigos', [ArtigoController::class, 'select'])->name('meusartigos');
 
     Route::get('/announce', function () {
         return view('announcepro');
@@ -25,13 +25,13 @@ Route::middleware('auth')->group(function () {
     Route::patch('/atualizar/{id}', [ArtigoController::class, 'update'])->name('artigo.update');
     Route::delete('/excluir/{id}', [ArtigoController::class, 'delete'])->name('artigo.delete');
 
-    Route::get('/mep', [PropostaController::class, 'show']);
+    Route::get('/mep', [PropostaController::class, 'show'])->name('mep');
     
     Route::get('/acceptingfinalpropose/{id}', [AcordoController::class, 'updateStatusAccept']);
     Route::get('/denyingfinalpropose/{id}', [AcordoController::class, 'updateStatusDeny']);
     Route::post('acordo/create/{id}', [AcordoController::class, 'create']);
     Route::get('validarTroca/{id}', [AcordoController::class, 'updateStatusAgree']);
-    Route::get('/meusacordos', [AcordoController::class, 'show']);
+    Route::get('/meusacordos', [AcordoController::class, 'show'])->name('meusacordos');
 
     Route::get('/chat/{id}', [PropostaController::class, 'showPropose'])->name('view_messages');
     Route::get('/menssagens/{id}', [PropostaController::class, 'showMessage']);
@@ -55,7 +55,7 @@ Route::middleware('auth')->group(function () {
 
 // Rotas públicas
 Route::get('/welcome', [ArtigoController::class, 'list'])->middleware(['auth', 'verified'])->name('welcome');
-Route::get('/', [ArtigoController::class, 'list']);
+Route::get('/', [ArtigoController::class, 'list'])->name('index');;
 
 Route::get('/ann', function () {
     return view('annoaccount');
@@ -70,10 +70,10 @@ Route::get('/viewannounce/{id_artigo}', [ArtigoController::class, 'viewAnnounce'
 
 Route::get('/about', function () {
     return view('quemsomos');
-});
+})->name('about');
 
 Route::get('/termos', function () {
     return view('termosdeuso');
-});
+})->name('termos');
 
 require __DIR__.'/auth.php';

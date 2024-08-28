@@ -7,7 +7,7 @@
     <footer class="bg-greentt-light flex">
     <div class="flex flex-col w-full items-center sm:flex-row justify-between px-10">
         <div class="place-content-center mt-3 sm:mt-0">
-            <a href="/welcome"><img src="{{ asset('image/logo-full.png') }}" width="300" class="transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 duration-300" alt="logo do trocateca"></a>
+            <a href="{{ route('welcome') }}"><img src="{{ asset('image/logo-full.png') }}" width="300" class="transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 duration-300" alt="logo do trocateca"></a>
         </div>
 
     <!--Redirecionamento de páginas-->
@@ -15,17 +15,17 @@
             <nav class="flex flex-wrap justify-center sm:justify-end -mx-5 -my-2">
              <div class="flex"> 
                 <div class="px-5 py-2">
-                    <a href="/meusartigos" class="text-center sm:text-base leading-6 underline-animation">
+                    <a href="{{ route('meusartigos') }}" class="text-center sm:text-base leading-6 underline-animation">
                         Meus Artigos
                     </a>
                 </div>
                 <div class="px-5 py-2">
-                    <a href="/meusacordos" class="text-center sm:text-base leading-6 underline-animation">
+                    <a href="{{ route('meusacordos') }}" class="text-center sm:text-base leading-6 underline-animation">
                         Meus acordos
                     </a>
                 </div>
                 <div class="px-5 py-2">
-                    <a href="/mensagensepropostas" class="text-center sm:text-base leading-6 underline-animation">
+                    <a href="{{ route('mep') }}" class="text-center sm:text-base leading-6 underline-animation">
                         Mensagens e Propostas
                     </a>
                 </div>
@@ -33,13 +33,13 @@
 
             <div class="flex">
                 <div class="px-5 py-2">
-                    <a href="/about" class="text-base leading-6 underline-animation">
+                    <a href="{{ route('about') }}" class="text-base leading-6 underline-animation">
                         Quem Somos
                     </a>
                 </div>
 
                 <div class="px-5 py-2">
-                <a class="underline-animation text-base text-black hover:text-graytt-900 focus:outline-none focus:ring-0 visited:text-black" href="/termos" target="_blank" rel="noopener noreferrer">
+                <a class="underline-animation text-base text-black hover:text-graytt-900 focus:outline-none focus:ring-0 visited:text-black" href="{{ route('termos') }}" target="_blank" rel="noopener noreferrer">
                         Termos de Uso
                     </a>
                 </div>
