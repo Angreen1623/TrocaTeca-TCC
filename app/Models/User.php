@@ -56,4 +56,5 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasManyThrough(Acordo::class, Proposta::class, 'id_usuario_int', 'id_proposta', 'id', 'id')
                     ->where('status_acordo', 4); // Aqui, considerando o status 4 como troca bem-sucedida
     }
+    
 }

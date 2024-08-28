@@ -9,7 +9,8 @@ use Illuminate\Support\Facades\DB;
 
 class ArtigoController extends Controller
 {
-    public function create(Request $req){
+    public function create(Request $req)
+    {
         $artg = new Artigo;
         $artg->nome_artigo = $req->nome_art;
         $artg->valor_sugerido_artigo = $req->val;
@@ -25,7 +26,7 @@ class ArtigoController extends Controller
 
         $img->imagem_principal = 1;
 
-        $imagem = "image/users-img/". uniqid("", true) . "." . pathinfo($_FILES['img_principal']['name'], PATHINFO_EXTENSION);
+        $imagem = "image/users-img/" . uniqid("", true) . "." . pathinfo($_FILES['img_principal']['name'], PATHINFO_EXTENSION);
         move_uploaded_file($_FILES['img_principal']["tmp_name"], $imagem);
         $img->endereco_imagem = $imagem;
 
@@ -35,11 +36,11 @@ class ArtigoController extends Controller
 
         if ($req->img) {
             foreach ($_FILES['img']['name'] as $key => $name) {
-                if($name != ""){
+                if ($name != "") {
                     $img = new Imagem_artigo;
                     $img->imagem_principal = 0;
-                        
-                    $imagem = "image/users-img/". uniqid("", true) . "." . pathinfo($name, PATHINFO_EXTENSION);
+
+                    $imagem = "image/users-img/" . uniqid("", true) . "." . pathinfo($name, PATHINFO_EXTENSION);
                     move_uploaded_file($_FILES['img']["tmp_name"][$key], $imagem);
                     $img->endereco_imagem = $imagem;
 
@@ -50,76 +51,102 @@ class ArtigoController extends Controller
         }
 
         return redirect()->to('/meusartigos');
-        
     }
 
-    public function select(Request $req){
+    public function select(Request $req)
+    {
         $artg = Artigo::where('id_usuario_ofertante', $req->user()->id)->with('imagens')->get();
         return view('meusartigos')->with('artigo', $artg);
     }
 
     public function search(Request $req)
     {
-        $artg = Artigo::select('artigos.*')
-            ->join('users', 'users.id', '=', 'artigos.id_usuario_ofertante')
-            ->leftJoin(DB::raw('(SELECT id_usuario_int, COUNT(*) as trocas_bem_sucedidas 
-                                  FROM acordos
-                                  JOIN propostas ON propostas.id = acordos.id_proposta
-                                  WHERE status_acordo = 4
-                                  GROUP BY id_usuario_int) as acordos_count'),
-                       'users.id', '=', 'acordos_count.id_usuario_int')
-            ->where('artigos.nome_artigo', 'LIKE', $req->search . '%')
-            ->whereNull('users.estado_conta') // Filtra apenas usuários ativos
-            ->with('imagens')
-            ->orderByDesc('acordos_count.trocas_bem_sucedidas') // Ordena pela quantidade de trocas bem-sucedidas
-            ->orderByDesc('artigos.created_at') // Ordena por data de criação
+        // Subconsulta para contar acordos bem-sucedidos por usuário
+        $subQuery = DB::table('acordos')
+            ->join('propostas', 'acordos.id_proposta', '=', 'propostas.id')
+            ->where('acordos.status_acordo', 4)
+            ->select('propostas.id_usuario_int', DB::raw('COUNT(*) as trocas_bem_sucedidas'))
+            ->groupBy('propostas.id_usuario_int');
+    
+        // Consulta principal
+        $artg = Artigo::where('nome_artigo', 'LIKE', $req->search . '%')
+            ->whereHas('user', function ($query) {
+                $query->whereNull('estado_conta'); // Apenas usuários com estado da conta como null
+            })
+            ->whereDoesntHave('proposta', function ($query) {
+                $query->whereHas('acordos', function ($query) {
+                    $query->where('status_acordo', 4); // Excluir artigos com acordos bem-sucedidos
+                });
+            })
+            ->with(['imagens', 'user'])
+            ->leftJoinSub($subQuery, 'acordos_count', function ($join) {
+                $join->on('artigos.id_usuario_ofertante', '=', 'acordos_count.id_usuario_int');
+            })
+            ->orderByDesc('acordos_count.trocas_bem_sucedidas') // Ordenar pela quantidade de trocas bem-sucedidas
+            ->orderByDesc('artigos.created_at') // Ordenar por data de criação
             ->get();
-        
-        return view('announcements')->with('artigo', $artg);
+    
+    return view('announcements', [
+        'artigo' => $artg,
+        'searchTerm' => $req->search // Passa o termo de pesquisa para a view
+    ]);
     }
 
-    public function list(){
-        $artg = Artigo::select('artigos.*')
-            ->join('users', 'users.id', '=', 'artigos.id_usuario_ofertante')
-            ->leftJoin(DB::raw('(SELECT id_usuario_int, COUNT(*) as trocas_bem_sucedidas 
-                                  FROM acordos
-                                  JOIN propostas ON propostas.id = acordos.id_proposta
-                                  WHERE status_acordo = 4
-                                  GROUP BY id_usuario_int) as acordos_count'),
-                       'users.id', '=', 'acordos_count.id_usuario_int')
-            ->whereNull('users.estado_conta') // Exclui artigos de usuários inativados
-            ->with('imagens')
-            ->orderByDesc('acordos_count.trocas_bem_sucedidas') // Prioriza usuários com mais trocas bem-sucedidas
-            ->orderByDesc('artigos.created_at') // E depois os mais recentes
-            ->get();
+    public function list()
+{
+    // Subconsulta para contar acordos bem-sucedidos por usuário
+    $subQuery = DB::table('acordos')
+        ->join('propostas', 'acordos.id_proposta', '=', 'propostas.id')
+        ->where('acordos.status_acordo', 4)
+        ->select('propostas.id_usuario_int', DB::raw('COUNT(*) as trocas_bem_sucedidas'))
+        ->groupBy('propostas.id_usuario_int');
 
-        return view('welcome')->with('artigo', $artg);
-    }
+    // Consulta principal para listar artigos
+    $artg = Artigo::select('artigos.*')
+        ->join('users', 'users.id', '=', 'artigos.id_usuario_ofertante')
+        ->leftJoinSub($subQuery, 'acordos_count', function ($join) {
+            $join->on('users.id', '=', 'acordos_count.id_usuario_int');
+        })
+        ->whereNull('users.estado_conta') // Exclui artigos de usuários inativados
+        ->whereDoesntHave('proposta', function ($query) {
+            $query->whereHas('acordos', function ($query) {
+                $query->where('status_acordo', 4); // Excluir artigos com acordos bem-sucedidos
+            });
+        })
+        ->with('imagens', 'user') // Carrega relações de imagens e usuário
+        ->orderByDesc('acordos_count.trocas_bem_sucedidas') // Prioriza usuários com mais trocas bem-sucedidas
+        ->orderByDesc('artigos.created_at') // E depois os mais recentes
+        ->get();
 
+    return view('welcome')->with('artigo', $artg);
+}
 
-    public function edit(Request $req){
+    public function edit(Request $req)
+    {
         $artg = Artigo::with('imagens')->find($req->id);
         return view('editannounce')->with('artigo', $artg);
     }
 
-    public function update(Request $req){
+    public function update(Request $req)
+    {
         $artg = Artigo::find($req->id);
         $artg->update(
-        [
-            "nome_artigo" => $req->nome_artigo ,
-            "valor_sugerido_artigo" => $req->valor_sugerido_artigo,
-            "preferencia_troca_artigo" => $req->preferencia_troca_artigo,
-            "categoria_artigo" => $req->categoria_artigo,
-            "condicao_artigo" => $req->condicao_artigo,
-            "tempo_uso_artigo" => $req->tempo_uso_artigo
-        ]);
+            [
+                "nome_artigo" => $req->nome_artigo,
+                "valor_sugerido_artigo" => $req->valor_sugerido_artigo,
+                "preferencia_troca_artigo" => $req->preferencia_troca_artigo,
+                "categoria_artigo" => $req->categoria_artigo,
+                "condicao_artigo" => $req->condicao_artigo,
+                "tempo_uso_artigo" => $req->tempo_uso_artigo
+            ]
+        );
 
-        if($req->hasFile('img_principal')){
+        if ($req->hasFile('img_principal')) {
             $img = new Imagem_artigo;
 
             $img = $img::where('imagem_principal', 1);
 
-            $imagem = "image/users-img/". uniqid("", true) . "." . pathinfo($_FILES['img_principal']['name'], PATHINFO_EXTENSION);
+            $imagem = "image/users-img/" . uniqid("", true) . "." . pathinfo($_FILES['img_principal']['name'], PATHINFO_EXTENSION);
             move_uploaded_file($_FILES['img_principal']["tmp_name"], $imagem);
             $img->update([
                 "endereco_imagem" => $imagem
@@ -128,11 +155,11 @@ class ArtigoController extends Controller
 
         if ($req->hasFile('img')) {
             foreach ($_FILES['img']['name'] as $key => $name) {
-                if($name != ""){
+                if ($name != "") {
                     $img = new Imagem_artigo;
                     $img->imagem_principal = 0;
-                        
-                    $imagem = "image/users-img/". uniqid("", true) . "." . pathinfo($name, PATHINFO_EXTENSION);
+
+                    $imagem = "image/users-img/" . uniqid("", true) . "." . pathinfo($name, PATHINFO_EXTENSION);
                     move_uploaded_file($_FILES['img']["tmp_name"][$key], $imagem);
                     $img->endereco_imagem = $imagem;
 
@@ -141,14 +168,15 @@ class ArtigoController extends Controller
                 }
             }
         }
-        
-        return redirect()->to('/meusartigos');
-  }
 
-  public function delete(Request $req){
-    $artg = Artigo::find($req->id);
-    $artg->delete();
-    return redirect()->to('/meusartigos');
+        return redirect()->to('/meusartigos');
+    }
+
+    public function delete(Request $req)
+    {
+        $artg = Artigo::find($req->id);
+        $artg->delete();
+        return redirect()->to('/meusartigos');
     }
 
     /*ver dados do artigo do usuário ofertante*/
