@@ -25,6 +25,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'cidade',
         'password',
         'info_sobremim',
+        'estado_conta',
     ];
 
     /**
@@ -48,5 +49,11 @@ class User extends Authenticatable implements MustVerifyEmail
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function acordosBemSucedidos()
+    {
+        return $this->hasManyThrough(Acordo::class, Proposta::class, 'id_usuario_int', 'id_proposta', 'id', 'id')
+                    ->where('status_acordo', 4); // Aqui, considerando o status 4 como troca bem-sucedida
     }
 }

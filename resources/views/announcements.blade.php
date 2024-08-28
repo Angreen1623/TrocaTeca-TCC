@@ -56,7 +56,7 @@
                 </div>
                 @else
 
-                <div class="mb-7 mt-10 flex flex-col justify-center items-center lg:items-start space-y-4 max-w-3xl lg:mt-0 lg:order-1 w-full">
+                <div class="mb-7 mt-10 flex flex-col justify-center items-center space-y-4 max-w-3xl lg:mt-0 lg:order-1 w-full">
                     <h2 class="mt-7 text-3xl  text-center lg:text-left text-black sm:text-4xl" style="font-family: 'Fredoka';">
                         Nenhum artigo encontrado.
                     </h2>

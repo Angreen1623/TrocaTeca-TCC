@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Artigo;
 use App\Models\Imagem_artigo;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\DB;
 
 class ArtigoController extends Controller
 {
@@ -58,15 +58,44 @@ class ArtigoController extends Controller
         return view('meusartigos')->with('artigo', $artg);
     }
 
-    public function search(Request $req){
-        $artg = Artigo::where('nome_artigo', 'LIKE', $req->search.'%')->with('imagens')->get();
+    public function search(Request $req)
+    {
+        $artg = Artigo::select('artigos.*')
+            ->join('users', 'users.id', '=', 'artigos.id_usuario_ofertante')
+            ->leftJoin(DB::raw('(SELECT id_usuario_int, COUNT(*) as trocas_bem_sucedidas 
+                                  FROM acordos
+                                  JOIN propostas ON propostas.id = acordos.id_proposta
+                                  WHERE status_acordo = 4
+                                  GROUP BY id_usuario_int) as acordos_count'),
+                       'users.id', '=', 'acordos_count.id_usuario_int')
+            ->where('artigos.nome_artigo', 'LIKE', $req->search . '%')
+            ->whereNull('users.estado_conta') // Filtra apenas usuários ativos
+            ->with('imagens')
+            ->orderByDesc('acordos_count.trocas_bem_sucedidas') // Ordena pela quantidade de trocas bem-sucedidas
+            ->orderByDesc('artigos.created_at') // Ordena por data de criação
+            ->get();
+        
         return view('announcements')->with('artigo', $artg);
     }
 
     public function list(){
-        $artg = Artigo::all();
+        $artg = Artigo::select('artigos.*')
+            ->join('users', 'users.id', '=', 'artigos.id_usuario_ofertante')
+            ->leftJoin(DB::raw('(SELECT id_usuario_int, COUNT(*) as trocas_bem_sucedidas 
+                                  FROM acordos
+                                  JOIN propostas ON propostas.id = acordos.id_proposta
+                                  WHERE status_acordo = 4
+                                  GROUP BY id_usuario_int) as acordos_count'),
+                       'users.id', '=', 'acordos_count.id_usuario_int')
+            ->whereNull('users.estado_conta') // Exclui artigos de usuários inativados
+            ->with('imagens')
+            ->orderByDesc('acordos_count.trocas_bem_sucedidas') // Prioriza usuários com mais trocas bem-sucedidas
+            ->orderByDesc('artigos.created_at') // E depois os mais recentes
+            ->get();
+
         return view('welcome')->with('artigo', $artg);
     }
+
 
     public function edit(Request $req){
         $artg = Artigo::with('imagens')->find($req->id);

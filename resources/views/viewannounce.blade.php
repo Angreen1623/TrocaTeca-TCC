@@ -14,10 +14,10 @@
     <div class="h-full min-h-screen relative">
         @include('navbar')
 
-            <div class="flex flex-col flex-wrap lg:flex-row place-content-center my-16 mr-0 xl:mr-36">
-
-                <div class="mb-5 lg:mb-0 flex justify-center mx-10">
-                    <div class="relative">
+        <div class="flex flex-col flex-wrap lg:flex-row place-content-center my-16 mr-0 xl:mr-36">
+            <div class="mb-5 lg:mb-0 flex justify-center mx-10">
+                <div class="relative">
+                    @if(auth()->id() !== $artigo->id_usuario_ofertante)
                         <button id="openReportButton" class="absolute bg-redtt w-fit h-fit p-2 rounded-full -left-[25px] -top-[25px] transition ease-in-out delay-100  hover:-translate-y-1 hover:scale-110 duration-300">
                             <a href="#">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="white" viewBox="0 0 16 16">
@@ -26,40 +26,43 @@
                                 </svg>
                             </a>
                         </button>
-                        <div class="w-96 h-96 overflow-hidden rounded-lg border-2 border-black">
-                            <img src="{{ asset($artigo->imagens->first()->endereco_imagem) }}" alt="Imagem do produto" width="500" class="h-full object-cover">
-                        </div>
+                    @endif
+                    <div class="w-96 h-96 overflow-hidden rounded-lg border-2 border-black">
+                        <img src="{{ asset($artigo->imagens->first()->endereco_imagem) }}" alt="Imagem do produto" width="500" class="h-full object-cover">
                     </div>
                 </div>
+            </div>
 
-                <div class="flex place-content-center flex-col lg:flex-wrap lg:flex-row lg:justify-between lg:mx-0 mx-auto">
-                    <div class="lg:ml-5 flex flex-col max-w-80 w-full h-full justify-between mb-4 lg:mb-0">
-                        <div class="lg:mb-0 mb-5">
-                            <div class="border-b border-black text-4xl font-fredokatt" style="font-family: 'Fredoka';">
-                                {{ $artigo->nome_artigo }}
-                            </div>
-                            <div class="text-lg">
-                                <p class="text-graytt">Valor sugerido: <span class="text-pinktt font-bold">R${{ $artigo->valor_sugerido_artigo }}</span></p>
-                                <p class="text-graytt">Artigo publicado por: <a href="{{ route('viewProfileanun', $artigo->id_usuario_ofertante) }}"><span class="text-black underline">{{ $artigo->user->name }} {{ $artigo->user->sobrenome }}</span></a></p>
-                            </div>
+            <div class="flex place-content-center flex-col lg:flex-wrap lg:flex-row lg:justify-between lg:mx-0 mx-auto">
+                <div class="lg:ml-5 flex flex-col max-w-80 w-full h-full justify-between mb-4 lg:mb-0">
+                    <div class="lg:mb-0 mb-5">
+                        <div class="border-b border-black text-4xl font-fredokatt" style="font-family: 'Fredoka';">
+                            {{ $artigo->nome_artigo }}
                         </div>
-                        <div class="max-w-72 lg:mb-0 mb-5">
-                            <p><span class="text-graytt"> Preferência de troca: </span> {{ $artigo->preferencia_troca_artigo }}</p>
-                        </div>
-                        <div class="min-w-fit">
-                            <p> <span class="text-graytt"> Categoria: </span> {{ $artigo->categoria_artigo }} </p>
-                            <p> <span class="text-graytt"> Condição: </span> {{ $artigo->condicao_artigo }} </p>
-                            <p> <span class="text-graytt"> Tempo de uso: </span> {{ $artigo->tempo_uso_artigo }} </p>
+                        <div class="text-lg">
+                            <p class="text-graytt">Valor sugerido: <span class="text-pinktt font-bold">R${{ $artigo->valor_sugerido_artigo }}</span></p>
+                            <p class="text-graytt">Artigo publicado por: <a href="{{ route('viewProfileanun', $artigo->id_usuario_ofertante) }}"><span class="text-black underline">{{ $artigo->user->name }} {{ $artigo->user->sobrenome }}</span></a></p>
                         </div>
                     </div>
+                    <div class="max-w-72 lg:mb-0 mb-5">
+                        <p><span class="text-graytt"> Preferência de troca: </span> {{ $artigo->preferencia_troca_artigo }}</p>
+                    </div>
+                    <div class="min-w-fit">
+                        <p> <span class="text-graytt"> Categoria: </span> {{ $artigo->categoria_artigo }} </p>
+                        <p> <span class="text-graytt"> Condição: </span> {{ $artigo->condicao_artigo }} </p>
+                        <p> <span class="text-graytt"> Tempo de uso: </span> {{ $artigo->tempo_uso_artigo }} </p>
+                    </div>
                 </div>
+            </div>
 
+            @if(auth()->id() !== $artigo->id_usuario_ofertante)
                 <div class="flex w-full lg:w-fit lg:justify-end lg:items-end">
                     <button id="openNewProposalButton" class="inline-flex px-4 py-2 h-fit justify-center w-full lg:w-auto shadow-tt bg-pinktt hover:bg-pinktt-dark text-white text-sm font-medium rounded-2xl transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-105 duration-300">
                         Enviar Proposta
                     </button>
                 </div>
-            </div>
+            @endif
+        </div>
         
         @include('footer')
     </div>
@@ -69,7 +72,7 @@
     @include('newproposem')
 
     <script>
-        //inclusão do modal de denuniar
+        //inclusão do modal de denunciar
         document.addEventListener('DOMContentLoaded', function() {
             const isAuthenticated = document.body.getAttribute('data-authenticated') === '1';
 
@@ -78,36 +81,40 @@
             const openNewProposalButton = document.getElementById('openNewProposalButton');
             const modalNewProposal = document.getElementById('modalNewProposal');
 
-            openReportButton.addEventListener('click', function(e) {
-                e.preventDefault();
-                if (isAuthenticated) {
-                    modalReportanun.classList.remove('hidden');
-                    document.body.classList.add('overflow-hidden');
-                } else {
-                    window.location.href = "{{ route('login') }}"; // Redireciona para a página de login
-                }
-            });
+            if (openReportButton) {
+                openReportButton.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    if (isAuthenticated) {
+                        modalReportanun.classList.remove('hidden');
+                        document.body.classList.add('overflow-hidden');
+                    } else {
+                        window.location.href = "{{ route('login') }}"; // Redireciona para a página de login
+                    }
+                });
 
-            document.getElementById('cancelReport').addEventListener('click', function() {
-                modalReportanun.classList.add('hidden');
-                document.body.classList.remove('overflow-hidden');
-            });
+                document.getElementById('cancelReport').addEventListener('click', function() {
+                    modalReportanun.classList.add('hidden');
+                    document.body.classList.remove('overflow-hidden');
+                });
+            }
 
-            //oinclusão do modal de nova proposta
-            openNewProposalButton.addEventListener('click', function(e) {
-                e.preventDefault();
-                if (isAuthenticated) {
-                    modalNewProposal.classList.remove('hidden');
-                    document.body.classList.add('overflow-hidden');
-                } else {
-                    window.location.href = "{{ route('login') }}";
-                }
-            });
+            //inclusão do modal de nova proposta
+            if (openNewProposalButton) {
+                openNewProposalButton.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    if (isAuthenticated) {
+                        modalNewProposal.classList.remove('hidden');
+                        document.body.classList.add('overflow-hidden');
+                    } else {
+                        window.location.href = "{{ route('login') }}";
+                    }
+                });
 
-            document.getElementById('cancelNewProposal').addEventListener('click', function() {
-                modalNewProposal.classList.add('hidden');
-                document.body.classList.remove('overflow-hidden');
-            });
+                document.getElementById('cancelNewProposal').addEventListener('click', function() {
+                    modalNewProposal.classList.add('hidden');
+                    document.body.classList.remove('overflow-hidden');
+                });
+            }
         });
     </script>
 
