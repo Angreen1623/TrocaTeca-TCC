@@ -26,7 +26,7 @@
                 <p class="mb-6 text-base">
                     Bem vindo ao TrocaTeca. Agradecemos por se cadastrar, mas não podemos deixar de combinar algumas coisas antes: Abaixo, estão os Termos de Uso
                     do TrocaTeca, e para garantir que todos tenham uma boa experiência ao usufruir do nosso sistema, pedimos que leia
-                    cautelosamente o conteúdo da página. Asssim, você pode sanar possíveis dúvidas e saber o que deve ou não fazer. Lembre-se de que os Termos de Uso
+                    cautelosamente o conteúdo da página. Assim, você pode sanar possíveis dúvidas e saber o que deve ou não fazer. Lembre-se de que os Termos de Uso
                     são um mecanismo de segurança para os usuários do TrocaTeca e conhecê-los é essencial para uma navegação livre de adversidades.
                 </p>
 
