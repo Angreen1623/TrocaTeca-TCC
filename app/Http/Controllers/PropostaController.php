@@ -54,14 +54,13 @@ Tempo de uso: ".$prst->tempo_uso_proposta;
     }
 
     public function showPropose(Request $req, $id){
-        $propostas = new Proposta();
-        $propostas = $propostas::find($id)->with('acordo')->with(['artigo.user'])->with('mensagem')->with('user')->get();
+        $propostas = Proposta::where('id', $id)->with('acordo')->with(['artigo.user'])->with('mensagem')->with('user')->get();
 
         return view('chat', compact('propostas', 'id'));
     }
 
     public function showMessage(Request $req, $id){
-        $propostas = Proposta::find($id)->with('acordo')->with(['artigo.user'])->with('mensagem')->with('user')->get();
+        $propostas = Proposta::where('id', $id)->with('acordo')->with(['artigo.user'])->with('mensagem')->with('user')->get();
         foreach($propostas as $prop){
             foreach($prop->mensagem as $msgs){
                 if($msgs->id_usuario != $req->user()->id){

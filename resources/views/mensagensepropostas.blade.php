@@ -32,7 +32,15 @@
                     <div class="grid grid-cols-1 gap-4 justify-items-center">
 
                         <div class="w-full max-w-48 mt-6 mb-9 sm:max-w-none">
-                            <a href="/chat/{{ $proposta->id }}">
+                            
+                            <a 
+                            @if($proposta->user->id == Auth()->user()->id && $proposta->status_proposta == 0)
+                            class="pointer-events-none cursor-default"
+                            @else
+                            href="/chat/{{ $proposta->id }}"
+                            @endif
+                            >
+
                             <div class="flex flex-col sm:flex-row gap-3 bg-white rounded-3xl overflow-hidden items-center justify-start border-2 border-graytt-light shadow-tt transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-105 duration-300">
                                 @if($proposta->user->id == Auth()->user()->id)
 

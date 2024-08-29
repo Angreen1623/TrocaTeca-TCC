@@ -38,7 +38,7 @@
 
                         @if($prop->artigo->user->imagem_usuario)
                         <div class="w-16 h-16 mr-3 rounded-full overflow-hidden flex justify-center items-center">
-                            <img class="object-cover h-full" src="{{ asset($proposta->artigo->user->imagem_usuario) }}" alt="">
+                            <img class="object-cover h-full" src="{{ asset($prop->artigo->user->imagem_usuario) }}" alt="">
                         </div>
 
                         @else
@@ -137,7 +137,7 @@
                     placeholder="Acordo em aprovação..." disabled
                     @else
                     placeholder="Digite sua mensagem"
-                    @endif class="w-full h-10 pl-3 rounded-xl truncate">
+                    @endif class="w-full h-10 pl-3 rounded-xl truncate" autofocus>
 
                     <button type="submit" class="ml-8">
                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="45" height="45" zoomAndPan="magnify" viewBox="0 0 66 66" preserveAspectRatio="xMidYMid meet" version="1.0">
