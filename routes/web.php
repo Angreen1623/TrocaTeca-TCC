@@ -10,9 +10,7 @@ use Illuminate\Support\Facades\Route;
 
 // Adicionando middleware 'auth' para as rotas que requerem login
 Route::middleware('auth')->group(function () {
-    Route::get('/myaccount', function () {
-        return view('myaccount');
-    })->name('myaccount');
+    Route::get('/myaccount', [ProfileController::class, 'show'])->name('myaccount');
 
     Route::get('/meusartigos', [ArtigoController::class, 'select'])->name('meusartigos');
 

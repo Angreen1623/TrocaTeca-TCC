@@ -99,13 +99,15 @@ class ProfileController extends Controller
         $trocasBemSucedidas = DB::table('users')
         ->join('propostas', 'users.id', '=', 'propostas.id_usuario_int')
         ->join('acordos', 'propostas.id', '=', 'acordos.id_proposta')
-        ->where('acordos.status_acordo', 4)->count();
+        ->where('acordos.status_acordo', 4)
+        ->where('users.id', $id)->count();
 
         $trocasBemSucedidas += DB::table('users')
         ->join('artigos', 'users.id', '=', 'artigos.id_usuario_ofertante')
         ->join('propostas', 'artigos.id', '=', 'propostas.id_artigo')
         ->join('acordos', 'propostas.id', '=', 'acordos.id_proposta')
-        ->where('acordos.status_acordo', 4)->count();
+        ->where('acordos.status_acordo', 4)
+        ->where('users.id', $id)->count();
 
         // Busca os artigos do usuário que não têm acordos bem-sucedidos
         $artigos = Artigo::where('id_usuario_ofertante', $id)
@@ -117,5 +119,22 @@ class ProfileController extends Controller
 
         // Retorna a view com os dados do usuário, seus artigos e trocas bem-sucedidas
         return view('annoaccount', compact('user', 'artigos', 'trocasBemSucedidas'));
+    }
+
+    public function show(Request $req){
+        $trocasBemSucedidas = DB::table('users')
+        ->join('propostas', 'users.id', '=', 'propostas.id_usuario_int')
+        ->join('acordos', 'propostas.id', '=', 'acordos.id_proposta')
+        ->where('acordos.status_acordo', 4)
+        ->where('users.id', $req->user()->id)->count();
+
+        $trocasBemSucedidas += DB::table('users')
+        ->join('artigos', 'users.id', '=', 'artigos.id_usuario_ofertante')
+        ->join('propostas', 'artigos.id', '=', 'propostas.id_artigo')
+        ->join('acordos', 'propostas.id', '=', 'acordos.id_proposta')
+        ->where('acordos.status_acordo', 4)
+        ->where('users.id', $req->user()->id)->count();
+
+        return view('myaccount', compact('trocasBemSucedidas'));
     }
 }

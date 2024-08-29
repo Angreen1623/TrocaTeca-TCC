@@ -35,7 +35,7 @@
                     </div>
                     <div class="flex flex-col justify-center items-center md:items-start max-w-3xl md:mt-0">
                         <p>Trocando desde: {{ auth()->user()->created_at->format('Y') }}</p>
-                        <p>Nº de trocas bem-sucedidas: **</p>
+                        <p>Nº de trocas bem-sucedidas: {{ $trocasBemSucedidas }}</p>
                     </div>
                 </div>
 
