@@ -12,7 +12,7 @@
 </head>
 
 <body class="bg-backgtt">
-    <div class="bg-backgtt bg-repeat bg-[length:870px_654px] bg-[url('/public/image/bg-icons.png')] bg-auto h-full min-h-screen relative">
+    <div class="bg-backgtt max-h-screen bg-repeat bg-[length:870px_654px] bg-[url('/public/image/bg-icons.png')] bg-auto h-full relative overflow-hidden">
 
         <div class="w-full z-40">
 
@@ -20,7 +20,7 @@
 
                 <div class="flex items-center">
 
-                    <a href="../mep">
+                    <a href="{{ route('mep') }}">
                         <div class="w-10 h-10 mr-4">
                             <svg fill="#000000" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
                                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -117,11 +117,13 @@
 
         </div>
 
-        <div id="mensagens" class="flex flex-col">
+        <div id="mensagens" class="flex flex-col overflow-auto h-[80vh]">
             
         </div>
 
-        <div class="absolute bottom-0 left-0 w-full z-50 ">
+        <div id="pt-footer"></div>
+
+        <div class="absolute bottom-0 left-0 w-full z-50" id="footer">
 
             <form action="/sendmessage/{{$id}}" method="post" enctype="multipart/form-data">
                 @csrf
@@ -150,7 +152,7 @@
                         </svg>
                     </button>
 
-                    <button type="button" class="ml-8">
+                    <button type="anexo" class="ml-8">
                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="45" height="45" zoomAndPan="magnify" viewBox="0 0 67.5 66" preserveAspectRatio="xMidYMid meet" version="1.0">
                             <g clip-path="url(#e7162953ae)">
                                 <path fill="#ffffff" d="M 49.722656 55.59375 C 49.574219 55.804688 49.164062 55.972656 48.625 55.992188 C 48.574219 56.023438 48.511719 56.023438 48.375 56.023438 L 19.921875 56.023438 C 17.789062 56.023438 15.621094 55.992188 13.488281 55.972656 C 12.507812 55.972656 11.507812 55.9375 10.53125 55.9375 C 9.617188 55.9375 8.710938 56.117188 7.765625 56.023438 C 7.730469 56.023438 7.710938 56.023438 7.648438 55.992188 C 7.578125 55.992188 7.480469 55.972656 7.386719 55.90625 C 6.796875 55.527344 8.019531 54.613281 8.238281 54.332031 C 8.890625 53.511719 16.085938 43.429688 16.1875 43.3125 C 17.15625 41.867188 18.480469 41.050781 19.859375 41.050781 C 21.898438 41.050781 22.929688 43.214844 24.539062 44.121094 C 26.640625 45.351562 28.019531 43.710938 29.058594 42.050781 C 29.761719 40.949219 30.480469 39.820312 31.171875 38.6875 C 31.582031 38.03125 32.011719 37.339844 32.421875 36.648438 C 32.925781 35.859375 33.421875 35.078125 33.929688 34.265625 L 34.933594 32.628906 C 35.03125 32.5 35.09375 32.410156 35.160156 32.28125 C 35.535156 31.742188 35.964844 31.398438 36.3125 31.398438 C 36.636719 31.398438 37.015625 31.742188 37.359375 32.3125 C 40.875 38.601562 44.421875 44.972656 47.871094 51.15625 L 49.542969 54.179688 C 49.691406 54.394531 49.757812 54.644531 49.824219 54.835938 C 49.855469 55.085938 49.886719 55.394531 49.722656 55.59375 Z M 16.871094 16.519531 C 20.992188 16.488281 24.324219 19.808594 24.324219 23.960938 C 24.324219 28.074219 21.058594 31.375 16.9375 31.398438 C 12.820312 31.398438 9.5 28.042969 9.5 23.960938 C 9.5 19.871094 12.789062 16.550781 16.871094 16.519531 Z M 52.800781 30.960938 C 43.488281 30.960938 35.933594 23.414062 35.933594 14.097656 C 35.933594 11.945312 36.339844 9.890625 37.070312 8.003906 L 7.417969 8.003906 C 6.757812 8.003906 6.105469 8.066406 5.476562 8.164062 C 2.363281 8.664062 0.0429688 11.273438 0.0429688 14.351562 C 0.0429688 28.980469 0.0117188 43.59375 0.0429688 58.191406 C 0.0429688 61.867188 3.246094 65.097656 6.921875 65.132812 L 50.265625 65.132812 C 51.550781 65.132812 52.710938 64.722656 53.714844 63.972656 C 55.632812 62.5 56.484375 60.484375 56.484375 58.105469 C 56.515625 50.847656 56.515625 43.5625 56.515625 36.269531 L 56.515625 30.550781 C 55.320312 30.816406 54.078125 30.960938 52.800781 30.960938 " fill-opacity="1" fill-rule="nonzero" />
@@ -175,6 +177,17 @@
     @include ('finalpropose')
 
     <script lang="Javascript">
+
+        window.addEventListener('resize', screenResize);
+    
+        screenResize();
+
+        function screenResize(){
+            var pt_footer = document.getElementById("pt-footer");
+            var footer = document.getElementById('footer');
+            pt_footer.style.paddingTop = footer.offsetHeight+"px";
+        }
+
         //modal de desistir da troca
         document.addEventListener('DOMContentLoaded', function() {
             const openGiveupButton = document.getElementById('openGiveupButton');
