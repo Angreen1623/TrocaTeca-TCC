@@ -117,7 +117,7 @@
 
         </div>
 
-        <div id="mensagens" class="flex flex-col overflow-auto h-[80vh]">
+        <div id="mensagens" class="flex flex-col overflow-auto h-[80vh] p-3">
             
         </div>
 
@@ -163,7 +163,7 @@
                         </svg>
                         </svg>
                     </button>
-                    <input type="file" name="anexo" class="hidden">
+                    <input type="file" name="anexo" class="hidden" accept="image/*">
 
                 </div>
             </form>
