@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 use App\Models\User;
 use App\Models\Artigo;
+use Illuminate\Support\Facades\DB;
 
 class ProfileController extends Controller
 {
@@ -92,7 +93,17 @@ class ProfileController extends Controller
         $user = User::findOrFail($id);
 
         // Conta o número de trocas bem-sucedidas
-        $trocasBemSucedidas = $user->acordosBemSucedidos->count();
+
+        $trocasBemSucedidas = DB::table('users')
+        ->join('propostas', 'users.id', '=', 'propostas.id_usuario_int')
+        ->join('acordos', 'propostas.id', '=', 'acordos.id_proposta')
+        ->where('acordos.status_acordo', 4)->count();
+
+        $trocasBemSucedidas += DB::table('users')
+        ->join('artigos', 'users.id', '=', 'artigos.id_usuario_ofertante')
+        ->join('propostas', 'artigos.id', '=', 'propostas.id_artigo')
+        ->join('acordos', 'propostas.id', '=', 'acordos.id_proposta')
+        ->where('acordos.status_acordo', 4)->count();
 
         // Busca os artigos do usuário que não têm acordos bem-sucedidos
         $artigos = Artigo::where('id_usuario_ofertante', $id)
