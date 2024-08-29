@@ -52,7 +52,7 @@
                             </div>
                         </div>
                     </label>
-                    <input name="imagem_usuario" id="imagem_usuario" type="file" accept="image/*" required class="hidden">
+                    <input name="imagem_usuario" id="imagem_usuario" type="file" accept="image/*" class="hidden">
                 </div>
             </div>
         </div>

@@ -35,9 +35,11 @@ class ProfileController extends Controller
             $request->user()->email_verified_at = null;
         }
 
-        $imagem = "image/users-img/" . uniqid("", true) . "." . pathinfo($_FILES['imagem_usuario']['name'], PATHINFO_EXTENSION);
-        move_uploaded_file($_FILES['imagem_usuario']["tmp_name"], $imagem);
-        $user->imagem_usuario =  $imagem;
+        if($request->hasFile('imagem_usuario')){
+            $imagem = "image/users-img/" . uniqid("", true) . "." . pathinfo($_FILES['imagem_usuario']['name'], PATHINFO_EXTENSION);
+            move_uploaded_file($_FILES['imagem_usuario']["tmp_name"], $imagem);
+            $user->imagem_usuario =  $imagem;
+        }
 
         $user->save();
         return back()->with('status', 'profile-updated');
