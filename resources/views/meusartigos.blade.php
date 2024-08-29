@@ -66,6 +66,33 @@
                         @endforeach
                     @endif
 
+                    @if(count($artigo_sucedido) > 0)
+                        @foreach($artigo_sucedido as $artg)
+                        <div class="grid grid-cols-1 gap-4 justify-items-center">
+                            <div class="w-full max-w-48 mt-6 mb-9 sm:max-w-none">
+                                    <div class="flex flex-col sm:flex-row gap-3 bg-white rounded-3xl overflow-hidden items-center justify-start border-2 border-graytt-light shadow-tt">
+
+                                        <!-- Imagem e informações básicas -->
+                                        <div class="flex justify-center w-full sm:w-auto">
+                                            <div class="ml-3 mt-3 mb-3 overflow-hidden relative w-20 h-20 flex-shrink-0 border-2 border-graytt-light rounded-xl">
+                                                @foreach($artg->imagens as $imagem)
+                                                    @if($imagem->imagem_principal)
+                                                        <img class="rounded-xl w-full h-full object-cover object-center transition duration-50" loading="lazy" src="{{ asset($imagem->endereco_imagem) }}">
+                                                    @endif
+                                                @endforeach
+                                            </div>
+                                        </div>
+                                        <div class="flex flex-col gap-2 py-2 w-full text-center sm:text-left">
+                                            <p class="truncate text-black text-xs sm:text-lg md:text-xl lg:text-2xl xl:text-3xl">{{ $artg->nome_artigo }}</p>
+                                            <p class="truncate text-stone-400 text-xs sm:text-sm md:text-base lg:text-base xl:text-lg">Troca realizada</p>
+                                        </div>
+
+                                    </div>
+                            </div>
+                        </div>
+                        @endforeach
+                    @endif
+
                     <div class="grid grid-cols-1 gap-4 justify-items-center">
                             <div class="w-full max-w-48 mt-6 mb-9 sm:max-w-none">
                                 <a href="/announce">

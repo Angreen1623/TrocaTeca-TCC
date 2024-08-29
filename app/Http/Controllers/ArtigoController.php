@@ -17,6 +17,7 @@ class ArtigoController extends Controller
         $artg->preferencia_troca_artigo = $req->pref;
         $artg->categoria_artigo = $req->catepropo;
         $artg->condicao_artigo = $req->condpropo;
+        $artg->status_artigo = 1;
         $artg->id_usuario_ofertante = $req->user()->id;
         $artg->tempo_uso_artigo = $req->uso_art;
 
@@ -53,10 +54,21 @@ class ArtigoController extends Controller
         return redirect()->to('/meusartigos');
     }
 
-    public function select(Request $req)
+    public function select(Request $req) //apresentar meus próprios anúncios
     {
-        $artg = Artigo::where('id_usuario_ofertante', $req->user()->id)->with('imagens')->get();
-        return view('meusartigos')->with('artigo', $artg);
+        $artigo = Artigo::where('id_usuario_ofertante', $req->user()->id)
+            ->whereDoesntHave('proposta', function ($query) {
+                $query->whereHas('acordos', function ($query) {
+                    $query->where('status_acordo', 4); // Excluir artigos com acordos bem-sucedidos
+                });
+            })->with('imagens')->get();
+        $artigo_sucedido = Artigo::where('id_usuario_ofertante', $req->user()->id)
+        ->whereHas('proposta', function ($query) {
+            $query->whereHas('acordos', function ($query) {
+                $query->where('status_acordo', 4); // Excluir artigos com acordos bem-sucedidos
+            });
+        })->with('imagens')->get();
+        return view('meusartigos', compact('artigo', 'artigo_sucedido'));
     }
 
     public function search(Request $req)
@@ -70,6 +82,7 @@ class ArtigoController extends Controller
     
         // Consulta principal
         $artg = Artigo::where('nome_artigo', 'LIKE', $req->search . '%')
+            ->where('status_artigo', '!=', '0')
             ->whereHas('user', function ($query) {
                 $query->whereNull('estado_conta'); // Apenas usuários com estado da conta como null
             })
@@ -103,6 +116,7 @@ class ArtigoController extends Controller
 
     // Consulta principal para listar artigos
     $artg = Artigo::select('artigos.*')
+        ->where('status_artigo', '!=', '0')
         ->join('users', 'users.id', '=', 'artigos.id_usuario_ofertante')
         ->leftJoinSub($subQuery, 'acordos_count', function ($join) {
             $join->on('users.id', '=', 'acordos_count.id_usuario_int');

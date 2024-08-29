@@ -39,7 +39,7 @@
                                 @for ($i = 0; $i < 4; $i++)
 
                                     <div>
-                                        <input type="file" name="img[{{$i}}]" id="imagem{{$i+1}}" class="hidden">
+                                        <input type="file" name="img[{{$i}}]" id="imagem{{$i+1}}" class="hidden" accept="image/*">
                                         <label for="imagem{{$i+1}}">
                                         <div class="add-img{{ $i+1 }} mt-3 bg-white w-14 h-14 last:mr-0 sm:mr-3 rounded-xl border border-graytt-light shadow-tt flex flex-col justify-center items-center overflow-hidden">
                                             <img src="" class="hidden object-cover h-full">
