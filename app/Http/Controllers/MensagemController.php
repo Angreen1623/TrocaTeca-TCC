@@ -3,13 +3,38 @@
 namespace App\Http\Controllers;
 
 use App\Models\Mensagem;
-use Illuminate\Contracts\Session\Session;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 
 class MensagemController extends Controller
 {
 
     public function create(Request $req, $id){
+
+        $validator = Validator::make($req->all(), [
+            'mensagem' => 'sometimes|string|max:255',
+            'anexo' => 'sometimes|image|max:10240'
+        ], [
+            'mensagem.sometimes' => 'Uma mensagem vazia não pode ser enviada.',
+            'anexo.sometimes' => '',
+
+            'mensagem.string' => 'O campo nome deve conter apenas texto.',
+            'anexo.image' => 'Tipo de arquivo incorreto inserido no campo para imagens.',
+
+            'mensagem.max' => 'O campo nome deve conter no maximo 255 caracteres.',
+            'anexo.max' => 'O arquivo do anexo é muito pesado.',
+
+        ]);
+        
+        $validator->sometimes('mensagem', 'required', function ($input) {
+            return $input->anexo == null;
+        });
+        
+        $validator->sometimes('anexo', 'required', function ($input) {
+            return $input->mensagem == null;
+        });
+
+        if ($validator->fails()) return redirect()->back()->withErrors($validator)->withInput();
 
         $mensagens = new Mensagem();
 
