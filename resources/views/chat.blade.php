@@ -129,12 +129,13 @@
                 @csrf
                 <div class="flex w-full py-2.5 px-7 md:ps-20 md:pe-7 bg-bluett align-item-center place-content-between items-center border-t border-black">
 
-
                     <input type="text" name="mensagem" id="" 
                     @if($prop->status_proposta == 0)
                     placeholder="Proposta em aprovação..." disabled
                     @elseif(isset($prop->acordo) && $prop->acordo->status_acordo == 0)
                     placeholder="Acordo em aprovação..." disabled
+                    @elseif($prop->status_proposta == 2)
+                    placeholder="Troca finalizada" disabled
                     @else
                     placeholder="Digite sua mensagem"
                     @endif class="w-full h-10 pl-3 rounded-xl truncate" autofocus>
