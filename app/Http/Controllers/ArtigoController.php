@@ -5,12 +5,51 @@ namespace App\Http\Controllers;
 use App\Models\Artigo;
 use App\Models\Imagem_artigo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
 
 class ArtigoController extends Controller
 {
     public function create(Request $req)
     {
+
+        $req->merge(['val' => str_replace(',', '.', $req->input('val'))]);
+
+        $validator = Validator::make($req->all(), [
+            'nome_art' => 'required|string|max:100',
+            'val' => 'nullable|numeric',
+            'pref' => 'nullable|string|max:50',
+            'catepropo' => 'required|string|max:10',
+            'condpropo' => 'required|string|max:8',
+            'uso_art' => 'required|string|max:25',
+            'img_principal' => 'required|image|max:10240',
+            'img' => 'max:10240'
+        ], [
+            'nome_art.required' => 'O campo nome do artigo é obrigatório.',
+            'catepropo.required' => 'O campo categoria é obrigatório.',
+            'condpropo.required' => 'O campo condição é obrigatório.',
+            'uso_art.required' => 'O campo tempo de uso é obrigatório.',
+
+            'nome_art.string' => 'O campo nome deve conter apenas texto.',
+            'val.numeric' => 'O campo valor sugerido deve conter apenas números.',
+            'pref.string' => 'O campo preferência de troca deve conter apenas texto.',
+            'catepropo.string' => 'O campo categoria deve conter apenas texto.',
+            'condpropo.string' => 'O campo condição deve conter apenas texto.',
+            'uso_art.string' => 'O campo tempo de uso deve conter apenas texto.',
+            'img_principal.image' => 'Tipo de arquivo incorreto inserido no campo da imagem.',
+
+            'nome_art.max' => 'O campo nome deve conter no maximo 100 caracteres.',
+            'pref.max' => 'O campo preferência de troca deve conter no maximo 50 caracteres.',
+            'catepropo.max' => 'O campo categoria deve conter no maximo 10 caracteres.',
+            'condpropo.max' => 'O campo condição deve conter no maximo 8 caracteres.',
+            'uso_art.max' => 'O campo tempo de uso deve conter no maximo 25 caracteres.',
+            'img_principal.max' => 'O arquivo da imagem é muito pesado.',
+            'img.max' => 'Um arquivo das imagens é muito pesado.',
+
+        ]);
+
+        if ($validator->fails()) return redirect()->back()->withErrors($validator)->withInput();
+
         $artg = new Artigo;
         $artg->nome_artigo = $req->nome_art;
         $artg->valor_sugerido_artigo = $req->val;
@@ -143,6 +182,8 @@ class ArtigoController extends Controller
 
     public function update(Request $req)
     {
+        $req->merge(['val' => str_replace(',', '.', $req->input('val'))]);
+
         $artg = Artigo::find($req->id);
         $artg->update(
             [

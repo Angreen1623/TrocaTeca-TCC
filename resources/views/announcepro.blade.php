@@ -60,22 +60,22 @@
                     <div class="max-w-xl">
                         <!--Nome do artigo-->
                         <div class="flex flex-col lg:flex-row mt-4 lg:mt-8">
-                            <label for="nome_art" class="block text-lg lg:text-xl font-semibold lg:font-normal leading-6 text-black lg:mt-2 lg:mr-3 lg:text-nowrap">Nome do artigo:</label>
+                            <label for="nome_art" class="block text-lg lg:text-xl font-semibold lg:font-normal leading-6 text-black lg:mt-2 lg:mr-3 lg:text-nowrap">Nome do artigo*:</label>
                             <input type="text" name="nome_art" id="nome_art" required autocomplete="organization" class="border border-graytt-light w-full shadow-tt block placeholder:text-graytt rounded-xl border border-graytt-light px-3.5 py-2 shadow-lg ring-1 ring-inset ring-graytt placeholder:text-graytt-dark focus:ring-2 focus:ring-inset lg:text-lg lg:leading-6">
                         </div>
                         <div class="flex flex-col lg:flex-row mt-4 lg:mt-8">
                             <!--valor sugerido-->
-                            <label for="val" class="block text-lg lg:text-xl font-semibold lg:font-normal leading-6 text-black lg:mt-2 lg:mr-3 lg:text-nowrap">Valor sugerido (opcional): R$</label>
+                            <label for="val" class="block text-lg lg:text-xl font-semibold lg:font-normal leading-6 text-black lg:mt-2 lg:mr-3 lg:text-nowrap">Valor sugerido: R$</label>
                             <input type="text" name="val" id="val" autocomplete="organization" class="border border-graytt-light shadow-tt block placeholder:text-graytt rounded-xl border border-graytt-light px-3.5 py-2 shadow-lg ring-1 ring-inset ring-graytt placeholder:text-graytt-dark focus:ring-2 focus:ring-inset lg:text-lg lg:leading-6">
                         </div>
                         <!--Item de Preferência-->
                         <div class="flex flex-col lg:flex-row mt-4 lg:mt-8">
                             <label for="pref" class="block text-lg lg:text-xl font-semibold lg:font-normal leading-6 text-black lg:mt-2 lg:mr-3 lg:text-nowrap">Preferência de troca:</label>
-                            <input type="text" name="pref" id="pref" required autocomplete="organization" class=" w-full shadow-tt block rounded-xl border border-graytt-light px-3.5 py-2 shadow-lg ring-1 border border-graytt ring-inset ring-graytt placeholder:text-graytt-dark focus:ring-2 focus:ring-inset lg:text-lg lg:leading-6">
+                            <input type="text" name="pref" id="pref" autocomplete="organization" class=" w-full shadow-tt block rounded-xl border border-graytt-light px-3.5 py-2 shadow-lg ring-1 border border-graytt ring-inset ring-graytt placeholder:text-graytt-dark focus:ring-2 focus:ring-inset lg:text-lg lg:leading-6">
                         </div>
                         <!--Categoria-->
                         <div class="flex flex-col lg:flex-row mt-4 lg:mt-8">
-                            <label for="catepropo" class="block text-lg lg:text-xl font-semibold lg:font-normal leading-6 text-black lg:mt-2 lg:mr-3">Categoria:</label>
+                            <label for="catepropo" class="block text-lg lg:text-xl font-semibold lg:font-normal leading-6 text-black lg:mt-2 lg:mr-3">Categoria*:</label>
                             <div class="inset-y-0 left-0 flex items-center">
                                 <select id="catepropo" name="catepropo" required class="custom-select shadow-tt block w-52 rounded-xl border border-graytt-light px-3.5 py-2 text-graytt-dark shadow-lg ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 lg:text-lg lg:leading-6">
                                     <option value="" disabled selected>Selecionar</option>
@@ -89,7 +89,7 @@
                         </div>
                         <!--Condição-->
                         <div class="flex flex-col lg:flex-row mt-4 lg:mt-8">
-                            <label for="condpropo" class="block text-lg lg:text-xl lg:font-normal font-semibold leading-6 text-black lg:mt-2 lg:mr-3">Condição:</label>
+                            <label for="condpropo" class="block text-lg lg:text-xl lg:font-normal font-semibold leading-6 text-black lg:mt-2 lg:mr-3">Condição*:</label>
                             <div class="inset-y-0 left-0 flex items-center">
                                 <select id="condpropo" name="condpropo" required class="custom-select shadow-tt block w-52 rounded-xl border border-graytt-light px-3.5 py-2 text-graytt-dark shadow-lg ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 lg:text-lg lg:leading-6">
                                     <option value="" disabled selected>Selecionar</option>
@@ -102,7 +102,7 @@
 
                         <!--Tempo de uso-->
                         <div class="flex flex-col lg:flex-row mt-4 lg:mt-8">
-                            <label for="uso_art" class="block text-lg lg:text-xl lg:font-normal font-semibold leading-6 text-black lg:mt-2 lg:mr-3">Tempo de uso:</label>
+                            <label for="uso_art" class="block text-lg lg:text-xl lg:font-normal font-semibold leading-6 text-black lg:mt-2 lg:mr-3">Tempo de uso*:</label>
                             <input type="text" name="uso_art" id="uso_art" required autocomplete="organization" class="shadow-tt block w-36 rounded-xl border border-graytt-light px-3.5 py-2 shadow-lg ring-1 border border-graytt ring-inset ring-graytt placeholder:text-graytt-dark focus:ring-2 focus:ring-inset lg:text-lg lg:leading-6">
                         </div>
                         <!--botões de confirmação-->
@@ -114,6 +114,15 @@
                     </div>
                 </div>
             </form>
+            @if ($errors->any())
+            <div class="mt-4">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                    <li class="text-red-500">{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+            @endif
         </div>
 
         <script>
