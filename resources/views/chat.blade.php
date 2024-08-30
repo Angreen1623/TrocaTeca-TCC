@@ -105,7 +105,7 @@
                             Denunciar conversa
                         </button>
 
-                        @if($prop->user->id == Auth()->user()->id)
+                        @if($prop->user->id == Auth()->user()->id && $prop->status_proposta != 2 && !isset($prop->acordo))
                         <button id="openFinalButton" type="button" class="last:mb-0 mb-3 bg-white p-3 border-black border rounded-xl hover:bg-graytt-light text-black text-md font-medium rounded-2xl">
                             Enviar proposta final
                         </button>
