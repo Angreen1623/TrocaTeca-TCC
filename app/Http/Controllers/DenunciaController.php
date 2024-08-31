@@ -6,11 +6,22 @@ use App\Models\Denuncia;
 use App\Models\Denuncia_artigo;
 use App\Models\Denuncia_usuario;
 use App\Models\Proposta;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 
 class DenunciaController extends Controller
 {
     public function createDenunciaArtigo(Request $req, $id){
+        $validator = Validator::make($req->all(), [
+            'motivoanum' => 'required|string|max:255',
+        ], [
+            'motivoanum.required' => 'O campo motivo da denuncia é obrigatório.',
+            'motivoanum.string' => 'O campo motivo da denuncia deve conter apenas texto.',
+            'motivoanum.max' => 'O campo motivo da denuncia deve conter no maximo 255 caracteres.',
+        ]);
+
+        if ($validator->fails()) return redirect()->back()->withErrors($validator)->withInput();
+
         $denun = New Denuncia();
         $D_artg = New Denuncia_artigo();
 
@@ -28,6 +39,23 @@ class DenunciaController extends Controller
     }
 
     public function createDenunciaUser(Request $req, $id){
+        $validator = Validator::make($req->all(), [
+            'motivochat' => 'required|string|max:255',
+            'screenshot' => 'required|image|max:10240',
+        ], [
+            'motivochat.required' => 'O campo motivo da denuncia é obrigatório.',
+            'screenshot.required' => 'O campo da captura de tela é obrigatório.',
+
+            'motivochat.string' => 'O campo motivo da denuncia deve conter apenas texto.',
+            'screenshot.image' => 'Tipo de arquivo incorreto inserido no campo da captura de tela.',
+
+            'motivochat.max' => 'O campo motivo da denuncia deve conter no maximo 255 caracteres.',
+            'screenshot.max' => 'O arquivo da captura de tela é muito pesado.',
+
+        ]);
+
+        if ($validator->fails()) return redirect()->back()->withErrors($validator)->withInput();
+
         $denun = New Denuncia();
         $D_user = New Denuncia_usuario();
 

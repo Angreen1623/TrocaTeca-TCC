@@ -100,7 +100,8 @@ Local do encontro: ".$acordo->local_encontro;
                     $acordo->status_acordo = 3; //usuário ofertante confirmou
                 }
 
-            }elseif($acordo->status_acordo == 2 || $acordo->status_acordo == 3){
+            }elseif(($acordo->status_acordo == 3 && $acordo->proposta->id_usuario_int == $req->user()->id) || 
+            ($acordo->status_acordo == 2 && $acordo->proposta->artigo->id_usuario_ofertante == $req->user()->id)){
                 $acordo->status_acordo = 4; //ambos confirmaram
                 $acordo->proposta->status_proposta = 2;
                 $acordo->proposta->save();

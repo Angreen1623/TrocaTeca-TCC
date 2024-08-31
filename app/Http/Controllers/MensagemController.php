@@ -12,11 +12,11 @@ class MensagemController extends Controller
     public function create(Request $req, $id){
 
         $validator = Validator::make($req->all(), [
-            'mensagem' => 'sometimes|string|max:255',
-            'anexo' => 'sometimes|image|max:10240'
+            'mensagem' => 'sometimes|max:255',
+            'anexo' => 'sometimes|max:10240'
         ], [
-            'mensagem.sometimes' => 'Uma mensagem vazia não pode ser enviada.',
-            'anexo.sometimes' => '',
+            'mensagem.required' => '',
+            'anexo.required' => '',
 
             'mensagem.string' => 'O campo nome deve conter apenas texto.',
             'anexo.image' => 'Tipo de arquivo incorreto inserido no campo para imagens.',
@@ -26,11 +26,11 @@ class MensagemController extends Controller
 
         ]);
         
-        $validator->sometimes('mensagem', 'required', function ($input) {
+        $validator->sometimes('mensagem', 'required|string', function ($input) {
             return $input->anexo == null;
         });
         
-        $validator->sometimes('anexo', 'required', function ($input) {
+        $validator->sometimes('anexo', 'required|image', function ($input) {
             return $input->mensagem == null;
         });
 

@@ -56,16 +56,6 @@
             <input type="text" name="pontoe_fi" id="pontoe_fi" autocomplete="organization" required class="shadow-tt block w-full md:w-80 rounded-xl border border-graytt-light px-3.5 py-2 shadow-sm ring-1 border border-graytt ring-inset ring-graytt placeholder:text-graytt-dark focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6">
           </div>
         </div>
-        
-        @if ($errors->any())
-        <div class="mt-4">
-          <ul>
-            @foreach ($errors->all() as $error)
-            <li class="text-red-500">{{ $error }}</li>
-            @endforeach
-          </ul>
-        </div>
-        @endif
 
         <!--botões de confirmação-->
         <div class="mt-4 flex gap-3 justify-end">
