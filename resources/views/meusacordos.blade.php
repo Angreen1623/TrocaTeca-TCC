@@ -43,7 +43,7 @@
                             
                             <div class="w-full max-w-48 mt-6 mb-9 lg:max-w-none cursor-pointer" 
                             @if($enabled) 
-                            id="abrirValidar"
+                            id="abrirValidar{{ $arc->id }}"
                             @endif>
                                 <div class="flex flex-col lg:flex-row gap-3 bg-white rounded-3xl overflow-hidden items-center justify-start border-2 border-graytt-light shadow-tt transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-105 duration-300">
                                     <div class="flex justify-center w-full lg:w-auto">
@@ -96,25 +96,6 @@
         @include('modalvalidar')
     @endforeach
     @endif
-
-    <script>
-        //inclusão do modal de validar
-        document.addEventListener('DOMContentLoaded', function() {
-            const abrirValidar = document.getElementById('abrirValidar');
-            const modalValid = document.getElementById('modalValid');
-
-            abrirValidar.addEventListener('click', function(e) {
-                e.preventDefault();
-                modalValid.classList.remove('hidden');
-                document.body.classList.add('overflow-hidden');
-            });
-
-            document.getElementById('cancelInative').addEventListener('click', function() {
-                modalValid.classList.add('hidden');
-                document.body.classList.remove('overflow-hidden');
-            });
-        });
-    </script>
 
 </body>
 

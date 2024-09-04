@@ -140,7 +140,15 @@
                         placeholder="Digite sua mensagem"
                         @endif class="w-full h-10 pl-3 rounded-xl truncate" autofocus>
 
-                        <button type="submit" class="ml-8">
+                        <button type="submit" class="ml-8" 
+                        @if($prop->status_proposta == 0)
+                        disabled
+                        @elseif(isset($prop->acordo) && $prop->acordo->status_acordo == 0)
+                        disabled
+                        @elseif($prop->status_proposta == 2)
+                        disabled
+                        @endif
+                        >
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="45" height="45" zoomAndPan="magnify" viewBox="0 0 66 66" preserveAspectRatio="xMidYMid meet" version="1.0">
                                 <defs>
                                     <clipPath id="34d675a8fd">
@@ -164,7 +172,15 @@
                             </svg>
                             </svg>
                         </label>
-                        <input type="file" name="anexo" id="anexo" class="hidden" accept="image/*">
+                        <input type="file" name="anexo" id="anexo" class="hidden" accept="image/*"
+                        @if($prop->status_proposta == 0)
+                        disabled
+                        @elseif(isset($prop->acordo) && $prop->acordo->status_acordo == 0)
+                        disabled
+                        @elseif($prop->status_proposta == 2)
+                        disabled
+                        @endif
+                        >
                     </div>
 
                     @if ($errors->any())

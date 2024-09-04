@@ -1,5 +1,5 @@
 
-<div id="modalValid" class="fixed z-[60] w-screen h-screen left-0 top-0 hidden bg-shadowtt">
+<div id="modalValid{{ $arc->id }}" class="fixed z-[60] w-screen h-screen left-0 top-0 hidden bg-shadowtt">
   <form action="validarTroca/{{ $arc->id }}" method="GET">
     @csrf
     <div class="fixed z-50 inset-0 flex items-center justify-center p-2 sm:p-4 md:p-6 lg:p-8">
@@ -36,15 +36,15 @@
         <h1 class="text-lg sm:text-xl md:text-2xl lg:text-xl font-bold text-left text-redtt font-fredokatt mb-1">Atenção: Valide a troca somente mediante ao encontro e recebimento do artigo.</h1>
         <!-- Checkbox de confirmação de consentimento -->
         <div class="mt-4 flex items-center gap-2">
-          <input type="checkbox" id="confirm" name="confirm" class="mr-2 peer" required>
-          <label for="confirm" class="text-xs sm:text-sm md:text-base lg:text-lg text-black">Encontro ocorreu conforme combinado</label>
+          <input type="checkbox" id="confirm{{ $arc->id }}" name="confirm" class="mr-2 peer" required>
+          <label for="confirm{{ $arc->id }}" class="text-xs sm:text-sm md:text-base lg:text-lg text-black">Encontro ocorreu conforme combinado</label>
         </div>
         <!-- Botões de confirmação -->
         <div class="mt-4 flex flex-row gap-4 justify-left space-x-4">
-          <button type="button" id="cancelInative" class="inline-flex items-center justify-center w-full sm:w-auto px-4 py-2 bg-pinktt hover:bg-pinktt-dark shadow-tt text-white text-xs sm:text-sm md:text-base lg:text-lg font-medium rounded-2xl transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 duration-300">
+          <button type="button" id="cancelInative{{ $arc->id }}" class="inline-flex items-center justify-center w-full sm:w-auto px-4 py-2 bg-pinktt hover:bg-pinktt-dark shadow-tt text-white text-xs sm:text-sm md:text-base lg:text-lg font-medium rounded-2xl transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 duration-300">
             Cancelar
           </button>
-          <button type="submit" id="inativarButton" disabled class="opacity-50 cursor-not-allowed inline-flex items-center justify-center w-full sm:w-auto px-4 py-2 bg-greentt shadow-tt text-white text-xs sm:text-sm md:text-base lg:text-lg font-medium rounded-2xl transition ease-in-out delay-100 duration-300">
+          <button type="submit" id="inativarButton{{ $arc->id }}" disabled class="opacity-50 cursor-not-allowed inline-flex items-center justify-center w-full sm:w-auto px-4 py-2 bg-greentt shadow-tt text-white text-xs sm:text-sm md:text-base lg:text-lg font-medium rounded-2xl transition ease-in-out delay-100 duration-300">
             Validar e gerar comprovante
           </button>
         </div>
@@ -54,36 +54,36 @@
 </div>
 
 <script>
-  //Modal de validação de troca
+  //inclusão do modal de validar
   document.addEventListener('DOMContentLoaded', function() {
-    const abrirValidar = document.getElementById('abrirValidar');
-    const modalValid = document.getElementById('modalValid');
-  
-    abrirValidar.addEventListener('click', function(e) {
-      e.preventDefault();
-      modalValid.classList.remove('hidden');
-      document.body.classList.add('overflow-hidden');
-    });
+            const abrirValidar{{ $arc->id }} = document.getElementById('abrirValidar{{ $arc->id }}');
+            const modalValid{{ $arc->id }} = document.getElementById('modalValid{{ $arc->id }}');
 
-    document.getElementById('cancelInative').addEventListener('click', function() {
-      modalValid.classList.add('hidden');
-      document.body.classList.remove('overflow-hidden');
-    });
-  });
+            abrirValidar{{ $arc->id }}.addEventListener('click', function(e) {
+                e.preventDefault();
+                modalValid{{ $arc->id }}.classList.remove('hidden');
+                document.body.classList.add('overflow-hidden');
+            });
 
-  //checar se a checkbox está precionada ou não (mmodal de validar)
-  const checkbox = document.getElementById('confirm');
-  const inativarButton = document.getElementById('inativarButton');
+            document.getElementById('cancelInative{{ $arc->id }}').addEventListener('click', function() {
+                modalValid{{ $arc->id }}.classList.add('hidden');
+                document.body.classList.remove('overflow-hidden');
+            });
+        });
 
-  checkbox.addEventListener('change', function() {
-    if (checkbox.checked) {
-      inativarButton.disabled = false;
-      inativarButton.classList.remove('opacity-50', 'cursor-not-allowed');
-      inativarButton.classList.add('hover:bg-greentt-dark', 'transition', 'ease-in-out', 'delay-100', 'hover:-translate-y-1', 'hover:scale-110', 'duration-300');
+  //checar se a checkbox está precionada ou não (modal de validar)
+  const checkbox{{ $arc->id }} = document.getElementById('confirm{{ $arc->id }}');
+  const inativarButton{{ $arc->id }} = document.getElementById('inativarButton{{ $arc->id }}');
+
+  checkbox{{ $arc->id }}.addEventListener('change', function() {
+    if (checkbox{{ $arc->id }}.checked) {
+      inativarButton{{ $arc->id }}.disabled = false;
+      inativarButton{{ $arc->id }}.classList.remove('opacity-50', 'cursor-not-allowed');
+      inativarButton{{ $arc->id }}.classList.add('hover:bg-greentt-dark', 'transition', 'ease-in-out', 'delay-100', 'hover:-translate-y-1', 'hover:scale-110', 'duration-300');
     } else {
-      inativarButton.disabled = true;
-      inativarButton.classList.remove('hover:bg-greentt-dark', 'transition', 'ease-in-out', 'delay-100', 'hover:-translate-y-1', 'hover:scale-110', 'duration-300');
-      inativarButton.classList.add('opacity-50', 'cursor-not-allowed');
+      inativarButton{{ $arc->id }}.disabled = true;
+      inativarButton{{ $arc->id }}.classList.remove('hover:bg-greentt-dark', 'transition', 'ease-in-out', 'delay-100', 'hover:-translate-y-1', 'hover:scale-110', 'duration-300');
+      inativarButton{{ $arc->id }}.classList.add('opacity-50', 'cursor-not-allowed');
     }
   });
 </script>
