@@ -34,8 +34,4 @@ class Proposta extends Model
     public function mensagem(){
         return $this->hasMany(Mensagem::class, 'id_proposta', 'id');
     }
-
-    public function acordos(){
-        return $this->hasMany(Acordo::class, 'id_proposta'); 
-    }
 }

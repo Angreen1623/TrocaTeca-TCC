@@ -97,13 +97,13 @@ class ArtigoController extends Controller
     {
         $artigo = Artigo::where('id_usuario_ofertante', $req->user()->id)
             ->whereDoesntHave('proposta', function ($query) {
-                $query->whereHas('acordos', function ($query) {
+                $query->whereHas('acordo', function ($query) {
                     $query->where('status_acordo', 4); // Excluir artigos com acordos bem-sucedidos
                 });
             })->with('imagens')->get();
         $artigo_sucedido = Artigo::where('id_usuario_ofertante', $req->user()->id)
         ->whereHas('proposta', function ($query) {
-            $query->whereHas('acordos', function ($query) {
+            $query->whereHas('acordo', function ($query) {
                 $query->where('status_acordo', 4); // Excluir artigos com acordos bem-sucedidos
             });
         })->with('imagens')->get();
@@ -126,7 +126,7 @@ class ArtigoController extends Controller
                 $query->whereNull('estado_conta'); // Apenas usuários com estado da conta como null
             })
             ->whereDoesntHave('proposta', function ($query) {
-                $query->whereHas('acordos', function ($query) {
+                $query->whereHas('acordo', function ($query) {
                     $query->where('status_acordo', 4); // Excluir artigos com acordos bem-sucedidos
                 });
             })
@@ -162,7 +162,7 @@ class ArtigoController extends Controller
         })
         ->whereNull('users.estado_conta') // Exclui artigos de usuários inativados
         ->whereDoesntHave('proposta', function ($query) {
-            $query->whereHas('acordos', function ($query) {
+            $query->whereHas('acordo', function ($query) {
                 $query->where('status_acordo', 4); // Excluir artigos com acordos bem-sucedidos
             });
         })

@@ -89,7 +89,7 @@ Tempo de uso: ".$prst->tempo_uso_proposta;
     public function updateStatusChatting($id){
 
         $propostas = new Proposta();
-        $propostas = $propostas::find($id)->get();
+        $propostas = $propostas::where('id',$id)->get();
 
         foreach ($propostas as $proposta) {
             $proposta->status_proposta = 1; //proposta em andamento
