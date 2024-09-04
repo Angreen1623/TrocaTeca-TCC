@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('id_denunciador')->constrained('users')->onUpdate('cascade');
             $table->Text('mensagem_denun');
+            $table->tinyInteger('estado_denuncia');
             $table->timestamps();
         });
     }

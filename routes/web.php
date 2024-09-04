@@ -6,6 +6,7 @@ use App\Http\Controllers\DenunciaController;
 use App\Http\Controllers\MensagemController;
 use App\Http\Controllers\PropostaController;
 use App\Http\Controllers\AcordoController;
+use App\Models\Denuncia;
 use Illuminate\Support\Facades\Route;
 
 // Adicionando middleware 'auth' para as rotas que requerem login
@@ -44,6 +45,11 @@ Route::middleware('auth')->group(function () {
 
     Route::post('/reportingannounce/{id}', [DenunciaController::class, 'createDenunciaArtigo']);
     Route::post('/reportinguser/{id}', [DenunciaController::class, 'createDenunciaUser']);
+    Route::get('/updatestatusignore/{id}', [DenunciaController::class, 'alterar_estado'])->name('ignore');
+    Route::get('/exclude/{id}', [DenunciaController::class, 'delete'])->name('exclude');
+    Route::get('/inactivate/{id}', [DenunciaController::class, 'inactivate'])->name('inactivate');
+    Route::get('/advertuser/{id}', [DenunciaController::class, 'strike'])->name('advert');
+    Route::get('/adm', [DenunciaController::class, 'list'])->name('adm');
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

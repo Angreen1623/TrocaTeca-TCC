@@ -9,16 +9,18 @@ class Denuncia_artigo extends Model
 {
     use HasFactory;
 
+    protected $primaryKey = 'id';
+
     protected $fillable = [
         'id_artigo',
         'id_denuncia'
     ];
 
     public function denuncia(){
-        return $this->belongsTo(Denuncia::class, 'id', 'id_denuncia');
+        return $this->belongsTo(Denuncia::class, 'id_denuncia');
     }
 
     public function artigo(){
-        return $this->belongsTo(Artigo::class, 'id', 'id_artigo');
+        return $this->belongsTo(Artigo::class, 'id_artigo');
     }
 }

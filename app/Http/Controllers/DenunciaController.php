@@ -27,6 +27,7 @@ class DenunciaController extends Controller
 
         $denun->id_denunciador = $req->user()->id;
         $denun->mensagem_denun = $req->motivoanum;
+        $denun->estado_denuncia = 0;
 
         $denun->save();
 
@@ -61,6 +62,7 @@ class DenunciaController extends Controller
 
         $denun->id_denunciador = $req->user()->id;
         $denun->mensagem_denun = $req->motivochat;
+        $denun->estado_denuncia = 0;
 
         $denun->save();
 
@@ -87,5 +89,64 @@ class DenunciaController extends Controller
         }
 
         return redirect('/welcome');
+    }
+
+    public function list(){
+        $denuncias = Denuncia::where('estado_denuncia', 0)->with('denuncia_artigo.artigo')->with('denuncia_usuario.user')->get();
+
+        return view('adm.index', compact('denuncias'));
+    }
+
+    public function alterar_estado($id){
+        $denuncia = Denuncia::where('id', $id)->first();
+
+        $denuncia->estado_denuncia = 1;
+
+        $denuncia->save();
+
+        return redirect()->back();
+    }
+
+    public function delete($id){
+        $denuncia = Denuncia::where('id', $id)->with('denuncia_artigo.artigo.user')->first();
+
+        $denuncia->denuncia_artigo->artigo->user->cont_advertencias ++;
+
+        if($denuncia->denuncia_artigo->artigo->user->cont_advertencias > 2){
+            $denuncia->denuncia_artigo->artigo->user->estado_conta = "inativado";
+        }
+        $denuncia->denuncia_artigo->artigo->user->save();
+
+        $denuncia->denuncia_artigo->artigo->delete();        
+
+        $denuncia->estado_denuncia = 2;
+        $denuncia->save();
+        return redirect()->back();
+    }
+
+    public function inactivate($id){
+        $denuncia = Denuncia::where('id', $id)->with('denuncia_usuario.user')->first();
+            
+        $denuncia->denuncia_usuario->user->estado_conta = "inativado";
+        $denuncia->denuncia_usuario->user->save();
+
+        $denuncia->estado_denuncia = 2;
+        $denuncia->save();
+        return redirect()->back();
+    }
+
+    public function strike($id){
+        $denuncia = Denuncia::where('id', $id)->with('denuncia_usuario.user')->first();
+
+        $denuncia->denuncia_usuario->user->cont_advertencias ++;
+
+        if($denuncia->denuncia_usuario->user->cont_advertencias > 2){
+            $denuncia->denuncia_usuario->user->estado_conta = "inativado";
+        }
+        $denuncia->denuncia_usuario->user->save();
+
+        $denuncia->estado_denuncia = 2;
+        $denuncia->save();
+        return redirect()->back();
     }
 }

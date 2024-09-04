@@ -9,9 +9,12 @@ class Denuncia extends Model
 {
     use HasFactory;
 
+    protected $primaryKey = 'id';
+
     protected $fillable = [
         'id_denunciador',
-        'mensagem_denun'
+        'mensagem_denun',
+        'estado_denuncia'
     ];
 
     public function denuncia_artigo(){
