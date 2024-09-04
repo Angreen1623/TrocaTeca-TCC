@@ -71,7 +71,6 @@
                     </p>
                 </div>
 
-
                 @endif
             </div>
             @include('footer')
