@@ -150,62 +150,57 @@
                 });
             }
 
-            @for($s = 1; $s < $i; $s++)
+            const carrosselCount = {{ $i }}; // Assumindo que $i é a quantidade total de carrosséis
 
-                const next_btn{{ $s }} = document.getElementById('carousel-next-{{ $s }}');
-                const prev_btn{{ $s }} = document.getElementById('carousel-prev-{{ $s }}');
+            for (let s = 1; s < carrosselCount; s++) {
+                const nextBtn = document.getElementById(`carousel-next-${s}`);
+                const prevBtn = document.getElementById(`carousel-prev-${s}`);
+                const item = document.getElementById(`item-carousel-${s}`);
+                const sequence = document.getElementById(`sequence-${s}`);
 
-                next_btn{{ $s }}.addEventListener('click', function(e) {
-                    next{{ $s }}();
+                nextBtn.addEventListener('click', function() {
+                    moveCarousel(s, 1);  // Move para o próximo item
                 });
-                prev_btn{{ $s }}.addEventListener('click', function(e) {
-                    prev{{ $s }}();
+
+                prevBtn.addEventListener('click', function() {
+                    moveCarousel(s, -1); // Move para o item anterior
                 });
+            }
 
-                const item{{ $s }} = document.getElementById('item-carousel-{{ $s }}');
-                const sequence{{ $s }} = document.getElementById('sequence-{{ $s }}');
+            function moveCarousel(currentIndex, direction) {
+                const total = {{ $i }}; // Total de itens, ajustando pela indexação 0
+                let nextIndex = currentIndex + direction;
 
-                function next{{ $s }}(){
-                    @php
-                    $next = $s+1;
-                    if($next >= $i){
-                        $next = 1;
-                    }
-                    @endphp
-                    item{{ $s }}.classList.add('hidden');
-                    item{{ $s }}.classList.remove('block');
-                    item{{ $s }}.classList.remove('first:block');
-                    item{{ $next }}.classList.remove('hidden');
-                    item{{ $next }}.classList.add('block');
-                    
-                    sequence{{ $s }}.classList.add('hidden');
-                    sequence{{ $s }}.classList.remove('flex');
-                    sequence{{ $s }}.classList.remove('first:flex');
-                    sequence{{ $next }}.classList.remove('hidden');
-                    sequence{{ $next }}.classList.add('flex');
+                // Se for maior que o total, reinicia para o primeiro item
+                if (nextIndex >= total) {
+                    nextIndex = 1;
                 }
 
-                function prev{{ $s }}(){
-                    @php
-                    $next = $s-1;
-                    if($next == 0){
-                        $next = $i-1;
-                    }
-                    @endphp
-                    item{{ $s }}.classList.add('hidden');
-                    item{{ $s }}.classList.remove('block');
-                    item{{ $s }}.classList.remove('first:block');
-                    item{{ $next }}.classList.remove('hidden');
-                    item{{ $next }}.classList.add('block');
-                    
-                    sequence{{ $s }}.classList.add('hidden');
-                    sequence{{ $s }}.classList.remove('flex');
-                    sequence{{ $s }}.classList.remove('first:flex');
-                    sequence{{ $next }}.classList.remove('hidden');
-                    sequence{{ $next }}.classList.add('flex');
+                // Se for menor que 1, volta para o último item
+                if (nextIndex < 1) {
+                    nextIndex = total;
                 }
 
-            @endfor
+                const currentItem = document.getElementById(`item-carousel-${currentIndex}`);
+                const nextItem = document.getElementById(`item-carousel-${nextIndex}`);
+
+                const currentSequence = document.getElementById(`sequence-${currentIndex}`);
+                const nextSequence = document.getElementById(`sequence-${nextIndex}`);
+
+                // Oculta o item atual e mostra o próximo
+                currentItem.classList.add('hidden');
+                currentItem.classList.remove('block');
+                currentItem.classList.remove('first:block');
+                nextItem.classList.remove('hidden');
+                nextItem.classList.add('block');
+
+                // Atualiza a sequência
+                currentSequence.classList.add('hidden');
+                currentSequence.classList.remove('flex');
+                currentSequence.classList.remove('first:block');
+                nextSequence.classList.remove('hidden');
+                nextSequence.classList.add('flex');
+            }
 
             
         });
