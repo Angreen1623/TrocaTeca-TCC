@@ -27,8 +27,42 @@
                             </a>
                         </button>
                     @endif
-                    <div class="w-96 h-96 overflow-hidden rounded-lg border-2 border-black">
-                        <img src="{{ asset($artigo->imagens->first()->endereco_imagem) }}" alt="Imagem do produto" width="500" class="h-full object-cover">
+                    <div class="carousel w-full">
+                        <div class="w-96 h-96 overflow-hidden rounded-lg border-2 border-black">
+                            @php
+                            $i = 1;
+                            @endphp
+                            @foreach($artigo->imagens as $img)
+                            <div id="item-carousel-{{ $i }}" class="first:block h-full hidden duration-700 ease-in-out">
+                                <img src="{{ asset($img->endereco_imagem) }}" id="imagem-carousel-{{$i}}" class="h-full object-cover" alt="Imagem do produto" width="500">
+                            </div>
+                            @php
+                            $i++;
+                            @endphp
+                            @endforeach
+                        </div>
+                        <div>
+                        @for($p = 1; $p<$i; $p++)
+                        <div class="first:flex hidden" id="sequence-{{ $p }}">
+                        <button type="button" class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" id="carousel-prev-{{ $p }}">
+                            <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                                <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/>
+                                </svg>
+                                <span class="sr-only">Previous</span>
+                            </span>
+                        </button>
+                        <button type="button" class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" id="carousel-next-{{ $p }}">
+                            <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                                <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
+                                </svg>
+                                <span class="sr-only">Next</span>
+                            </span>
+                        </button>
+                        </div>
+                        @endfor
+                        </div>
                     </div>
                 </div>
             </div>
@@ -115,7 +149,67 @@
                     document.body.classList.remove('overflow-hidden');
                 });
             }
+
+            @for($s = 1; $s < $i; $s++)
+
+                const next_btn{{ $s }} = document.getElementById('carousel-next-{{ $s }}');
+                const prev_btn{{ $s }} = document.getElementById('carousel-prev-{{ $s }}');
+
+                next_btn{{ $s }}.addEventListener('click', function(e) {
+                    next{{ $s }}();
+                });
+                prev_btn{{ $s }}.addEventListener('click', function(e) {
+                    prev{{ $s }}();
+                });
+
+                const item{{ $s }} = document.getElementById('item-carousel-{{ $s }}');
+                const sequence{{ $s }} = document.getElementById('sequence-{{ $s }}');
+
+                function next{{ $s }}(){
+                    @php
+                    $next = $s+1;
+                    if($next >= $i){
+                        $next = 1;
+                    }
+                    @endphp
+                    item{{ $s }}.classList.add('hidden');
+                    item{{ $s }}.classList.remove('block');
+                    item{{ $s }}.classList.remove('first:block');
+                    item{{ $next }}.classList.remove('hidden');
+                    item{{ $next }}.classList.add('block');
+                    
+                    sequence{{ $s }}.classList.add('hidden');
+                    sequence{{ $s }}.classList.remove('flex');
+                    sequence{{ $s }}.classList.remove('first:flex');
+                    sequence{{ $next }}.classList.remove('hidden');
+                    sequence{{ $next }}.classList.add('flex');
+                }
+
+                function prev{{ $s }}(){
+                    @php
+                    $next = $s-1;
+                    if($next == 0){
+                        $next = $i-1;
+                    }
+                    @endphp
+                    item{{ $s }}.classList.add('hidden');
+                    item{{ $s }}.classList.remove('block');
+                    item{{ $s }}.classList.remove('first:block');
+                    item{{ $next }}.classList.remove('hidden');
+                    item{{ $next }}.classList.add('block');
+                    
+                    sequence{{ $s }}.classList.add('hidden');
+                    sequence{{ $s }}.classList.remove('flex');
+                    sequence{{ $s }}.classList.remove('first:flex');
+                    sequence{{ $next }}.classList.remove('hidden');
+                    sequence{{ $next }}.classList.add('flex');
+                }
+
+            @endfor
+
+            
         });
+        
     </script>
 
 </body>

@@ -42,12 +42,12 @@
 
                                     @for ($i = 0; $i < 4; $i++)
                                         <div>
-                                            <input type="file" name="img[{{$i}}]" id="imagem{{$i+1}}" class="hidden">
+                                            <input type="file" name="img[{{$i}}]" id="imagem{{$i+1}}" class="hidden" accept="image/*">
                                             <label for="imagem{{$i+1}}">
                                                 <div class="add-img{{ $i+1 }} mt-3 bg-white w-14 h-14 last:mr-0 sm:mr-3 rounded-xl border border-graytt-light shadow-tt flex flex-col justify-center items-center overflow-hidden">
                                                     @if(isset($artigo->imagens[$i+1]))
                                                         @if(!$artigo->imagens[$i+1]->imagem_principal)
-                                                            <img id="img{{$i+1}}" class="h-full object-cover h-full" loading="lazy" src="{{ asset($artigo->imagens[$i+1]->endereco_imagem) }}">
+                                                            <img id="img{{$i+1}}" class="h-full object-cover" loading="lazy" src="{{ asset($artigo->imagens[$i+1]->endereco_imagem) }}">
                                                         @endif
                                                     @else
                                                         <img src="" class="hidden object-cover h-full">
