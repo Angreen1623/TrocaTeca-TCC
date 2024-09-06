@@ -168,7 +168,7 @@
             }
 
             function moveCarousel(currentIndex, direction) {
-                const total = {{ $i }}; // Total de itens, ajustando pela indexação 0
+                const total = {{ $i }}; // Total de itens
                 let nextIndex = currentIndex + direction;
 
                 // Se for maior que o total, reinicia para o primeiro item
@@ -178,7 +178,7 @@
 
                 // Se for menor que 1, volta para o último item
                 if (nextIndex < 1) {
-                    nextIndex = total;
+                    nextIndex = total-1;
                 }
 
                 const currentItem = document.getElementById(`item-carousel-${currentIndex}`);
