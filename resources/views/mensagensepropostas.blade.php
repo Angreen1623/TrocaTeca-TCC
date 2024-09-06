@@ -26,7 +26,7 @@
                     </div>
                     <hr class="h-px bg-black border-2 border-black">
 
-                    @if(isset($propostas))
+                    @if(count($propostas) > 0)
                     @foreach($propostas as $proposta)
 
                     <div class="grid grid-cols-1 gap-4 justify-items-center">
