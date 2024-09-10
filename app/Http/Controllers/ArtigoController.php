@@ -56,7 +56,6 @@ class ArtigoController extends Controller
         $artg->preferencia_troca_artigo = $req->pref;
         $artg->categoria_artigo = $req->catepropo;
         $artg->condicao_artigo = $req->condpropo;
-        $artg->status_artigo = 1;
         $artg->id_usuario_ofertante = $req->user()->id;
         $artg->tempo_uso_artigo = $req->uso_art;
 
@@ -121,7 +120,6 @@ class ArtigoController extends Controller
     
         // Consulta principal
         $artg = Artigo::where('nome_artigo', 'LIKE', $req->search . '%')
-            ->where('status_artigo', '!=', '0')
             ->whereHas('user', function ($query) {
                 $query->whereNull('estado_conta'); // Apenas usuários com estado da conta como null
             })
@@ -155,7 +153,6 @@ class ArtigoController extends Controller
 
     // Consulta principal para listar artigos
     $artg = Artigo::select('artigos.*')
-        ->where('status_artigo', '!=', '0')
         ->join('users', 'users.id', '=', 'artigos.id_usuario_ofertante')
         ->leftJoinSub($subQuery, 'acordos_count', function ($join) {
             $join->on('users.id', '=', 'acordos_count.id_usuario_int');
