@@ -6,7 +6,6 @@ use App\Http\Controllers\DenunciaController;
 use App\Http\Controllers\MensagemController;
 use App\Http\Controllers\PropostaController;
 use App\Http\Controllers\AcordoController;
-use App\Models\Denuncia;
 use Illuminate\Support\Facades\Route;
 
 // Adicionando middleware 'auth' para as rotas que requerem login
@@ -66,6 +65,7 @@ Route::get('/ann', function () {
 });
 
 Route::get('/search', [ArtigoController::class, 'search'])->name('search');
+Route::get('/filter/{type}/{value}', [ArtigoController::class, 'filter'])->name('filter');
 
 Route::get('/perfilanunciante/{id}', [ProfileController::class, 'viewProfileanun'])->name('viewProfileanun');
 

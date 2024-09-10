@@ -17,12 +17,16 @@
             <div class="max-w-screen-xl px-4 mx-auto">
 
                 @if(count($artigo) > 0)
-                <div class="mb-7 mt-10 flex flex-col justify-center items-center space-y-4 max-w-3xl w-full mx-auto">
-                     <h3 class="mt-7 text-2xl text-center text-black sm:text-4xl" style="font-family: 'Fredoka';">
-                        Aqui estão os resultados para: "{{ $searchTerm }}"
-                     </h3>
-                </div>
-                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 justify-items-center mt-14">
+                    <div class="mb-7 mt-10 flex flex-col justify-center items-center space-y-4 max-w-3xl w-full mx-auto">
+                        <h3 class="mt-7 text-2xl text-center text-black sm:text-4xl" style="font-family: 'Fredoka';">
+                            @if(isset($searchTerm))
+                            Aqui estão os resultados para: "{{ $searchTerm }}"
+                            @else
+                            Aqui estão os resultados para: "{{ $value }}"
+                            @endif
+                        </h3>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 justify-items-center mt-14">
 
                     <!--Card do anúncio-->
                     @foreach($artigo as $artg)
@@ -61,6 +65,7 @@
                 </div>
                 @else
 
+                @if(isset($searchTerm))
                 <div class="mb-7 mt-10 flex flex-col justify-center items-center space-y-4 max-w-3xl w-full mx-auto">
                      <h3 class="mt-7 text-2xl text-center text-black sm:text-4xl" style="font-family: 'Fredoka';">
                         OPS! Nenhum resultado foi encontrado para: "{{ $searchTerm }}"
@@ -70,6 +75,16 @@
                          verifique se digitou corretamente e tente denovo!
                     </p>
                 </div>
+                @else
+                <div class="mb-7 mt-10 flex flex-col justify-center items-center space-y-4 max-w-3xl w-full mx-auto">
+                     <h3 class="mt-7 text-2xl text-center text-black sm:text-4xl" style="font-family: 'Fredoka';">
+                        OPS! Nenhum resultado foi encontrado para: "{{ $value }}"
+                     </h3>
+                     <p class="text-center whitespace-pre-line">
+                         Parece que não existe artigos com esse filtro.
+                    </p>
+                </div>
+                @endif
 
                 @endif
             </div>

@@ -74,13 +74,17 @@
                             {{ $artigo->nome_artigo }}
                         </div>
                         <div class="text-lg">
+                            @if(isset($artigo->valor_sugerido_artigo))
                             <p class="text-graytt">Valor sugerido: <span class="text-pinktt font-bold">R${{ $artigo->valor_sugerido_artigo }}</span></p>
+                            @endif
                             <p class="text-graytt">Artigo publicado por: <a href="{{ route('viewProfileanun', $artigo->id_usuario_ofertante) }}"><span class="text-black underline">{{ $artigo->user->name }} {{ $artigo->user->sobrenome }}</span></a></p>
                         </div>
                     </div>
+                    @if(isset($artigo->preferencia_troca_artigo))
                     <div class="max-w-72 lg:mb-0 mb-5">
                         <p><span class="text-graytt"> Preferência de troca: </span> {{ $artigo->preferencia_troca_artigo }}</p>
                     </div>
+                    @endif
                     <div class="min-w-fit">
                         <p> <span class="text-graytt"> Categoria: </span> {{ $artigo->categoria_artigo }} </p>
                         <p> <span class="text-graytt"> Condição: </span> {{ $artigo->condicao_artigo }} </p>

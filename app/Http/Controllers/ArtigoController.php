@@ -275,4 +275,33 @@ class ArtigoController extends Controller
         $artigo = Artigo::with(['imagens', 'user'])->findOrFail($id_artigo);
         return view('viewannounce')->with('artigo', $artigo);
     }
+
+    public function filter($type, $value, Request $req)
+{
+    // Inicializa a consulta base para evitar repetição de código
+    $artigoQuery = Artigo::where('status_artigo', '!=', '0')
+        ->whereDoesntHave('proposta', function ($query) {
+            $query->whereHas('acordo', function ($query) {
+                $query->where('status_acordo', 4); // Excluir artigos com acordos bem-sucedidos
+            });
+        })
+        ->with('imagens'); // Carregar a relação 'imagens'
+
+    // Filtra de acordo com o tipo
+    if ($type == 'categoria') {
+        $artigoQuery->where('categoria_artigo', $value);
+    } elseif ($type == 'condicao') {
+        $artigoQuery->where('condicao_artigo', 'LIKE', $value);
+    } elseif ($type == 'local') {
+        $artigoQuery->whereHas('user', function ($query) use ($req) {
+            $query->where('estado', $req->user()->estado);
+        })->where('id_usuario_ofertante', $req->user()->id);
+    }
+
+    // Executa a consulta e obtém os resultados
+    $artigo = $artigoQuery->get();
+
+    // Retorna a view com os artigos filtrados
+    return view('announcements', ['artigo', 'value']); 
+}
 }

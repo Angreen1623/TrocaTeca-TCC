@@ -6,6 +6,22 @@
                 <img src="{{ asset('image/mais.svg') }}" alt="" width="30" class="rotate-45">
             </span>
         </div>
-        <P>butão</P>
+        <div class="flex flex-col items-center px-4 text-sm">
+            <p>Categoria:</p>
+            <a class="underline-animation" href="{{ route('filter', ['type'=>'categoria', 'value'=>'Brinquedo']) }}">Brinquedo</a>
+            <a class="underline-animation" href="{{ route('filter', ['type'=>'categoria', 'value'=>'Mobilidade']) }}">Mobilidade</a>
+            <a class="underline-animation" href="{{ route('filter', ['type'=>'categoria', 'value'=>'Movel']) }}">Móvel</a>
+            <a class="underline-animation" href="{{ route('filter', ['type'=>'categoria', 'value'=>'Roupa']) }}">Roupa</a>
+            <a class="underline-animation" href="{{ route('filter', ['type'=>'categoria', 'value'=>'Outro']) }}">Outro</a>
+        </div>
+        <div class="flex flex-col items-center px-4 text-sm ">
+            <p>Condição:</p>
+            <a class="underline-animation" href="{{ route('filter', ['type'=>'condicao', 'value'=>'Novo']) }}">Novo</a>
+            <a class="underline-animation" href="{{ route('filter', ['type'=>'condicao', 'value'=>'Seminovo']) }}">Seminovo</a>
+            <a class="underline-animation" href="{{ route('filter', ['type'=>'condicao', 'value'=>'Usado']) }}">Usado</a>
+        </div>
+        <div class="flex flex-col items-center px-4 text-sm mb-2">
+            <a class="underline-animation" href="{{ route('filter', ['type'=>'local', 'value'=>'meuestado']) }}">Meu estado</a>
+        </div>
     </div>
 </div>
