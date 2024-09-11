@@ -38,6 +38,7 @@
 
                     @for($i; $i < $show_number; $i++)
 
+                    @if(isset($artigo[$i]))
 
                         <div class="group my-1 flex w-full max-w-[260px] flex-col overflow-hidden rounded-xl border border-graytt-light shadow-tt bg-white transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 duration-300">
                         <a href="/viewannounce/{{$artigo[$i]->id}}">
@@ -47,9 +48,6 @@
                                 <img class="peer absolute top-0 right-0 h-full w-full object-cover" loading="lazy" src="{{ asset($imagem->endereco_imagem) }}">
                                 @endif
                                 @endforeach
-                                @if(isset($artigo[$i]->imagens[1]))
-                                <img class="peer absolute top-0 -right-96 h-full w-full object-cover transition-all delay-100 duration-1000 hover:right-0 peer-hover:right-0" src="{{ asset($artg->imagens[1]->endereco_imagem) }}" alt="Imagem do Produto" />
-                                @endif
                             </div>
                             <div class="mt-4 px-5 pb-5">
                                 <p class="truncate lg:text-left lg:mt-2 text-black">{{$artigo[$i]->nome_artigo}}</p>
@@ -68,7 +66,7 @@
                             </div>
                         </a>
                 </div>
-
+                @endif
                 @endfor
 
 

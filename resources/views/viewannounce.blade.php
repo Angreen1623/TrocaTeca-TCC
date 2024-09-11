@@ -17,7 +17,7 @@
         <div class="flex flex-col flex-wrap lg:flex-row place-content-center my-16 mr-0 xl:mr-36">
             <div class="mb-5 lg:mb-0 flex justify-center mx-10">
                 <div class="relative">
-                    @if(auth()->id() !== $artigo->id_usuario_ofertante)
+                    @if(auth()->id() !== $artigo->id_usuario_ofertante && auth()->user()->email != 'trocatecaltda@gmail.com')
                         <button id="openReportButton" class="absolute bg-redtt w-fit h-fit p-2 rounded-full -left-[25px] -top-[25px] transition ease-in-out delay-100  hover:-translate-y-1 hover:scale-110 duration-300">
                             <a href="#">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="white" viewBox="0 0 16 16">
@@ -93,11 +93,18 @@
                 </div>
             </div>
 
-            @if(auth()->id() !== $artigo->id_usuario_ofertante)
+            @if(auth()->id() !== $artigo->id_usuario_ofertante && auth()->user()->email != 'trocatecaltda@gmail.com')
                 <div class="flex w-full lg:w-fit lg:justify-end lg:items-end">
                     <button id="openNewProposalButton" class="inline-flex px-4 py-2 h-fit justify-center w-full lg:w-auto shadow-tt bg-pinktt hover:bg-pinktt-dark text-white text-sm font-medium rounded-2xl transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-105 duration-300">
                         Enviar Proposta
                     </button>
+                </div>
+            @endif
+            @if(auth()->user()->email == 'trocatecaltda@gmail.com')
+                <div class="flex w-full lg:w-fit lg:justify-end lg:items-end">
+                    <a href="" class="inline-flex px-4 py-2 h-fit justify-center w-full lg:w-auto shadow-tt bg-redtt hover:bg-redxtt-dark text-white text-sm font-medium rounded-2xl transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-105 duration-300">
+                        Excluir anuncio
+                    </a>
                 </div>
             @endif
         </div>

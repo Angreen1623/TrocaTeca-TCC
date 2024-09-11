@@ -144,8 +144,8 @@ class ArtigoController extends Controller
     ]);
     }
 
-    public function list()
-{
+    public function list(Request $req, ?int $page = 1)
+    {
     // Subconsulta para contar acordos bem-sucedidos por usuário
     $subQuery = DB::table('acordos')
         ->join('propostas', 'acordos.id_proposta', '=', 'propostas.id')
@@ -154,7 +154,7 @@ class ArtigoController extends Controller
         ->groupBy('propostas.id_usuario_int');
 
     // Consulta principal para listar artigos
-    $artg = Artigo::select('artigos.*')
+    $artigo = Artigo::select('artigos.*')
         ->join('users', 'users.id', '=', 'artigos.id_usuario_ofertante')
         ->leftJoinSub($subQuery, 'acordos_count', function ($join) {
             $join->on('users.id', '=', 'acordos_count.id_usuario_int');
@@ -170,8 +170,12 @@ class ArtigoController extends Controller
         ->orderByDesc('artigos.created_at') // E depois os mais recentes
         ->get();
 
-    return view('welcome')->with('artigo', $artg);
-}
+        if (null !== $req->user() && $req->user()->email == 'trocatecaltda@gmail.com') {
+            return view('adm.announcements', compact(['artigo', 'page']));
+        }
+
+        return view('welcome')->with('artigo', $artigo);
+    }
 
     public function edit(Request $req)
     {

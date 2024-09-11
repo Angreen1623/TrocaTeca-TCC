@@ -7,6 +7,7 @@ use App\Models\Denuncia_artigo;
 use App\Models\Denuncia_usuario;
 use App\Models\Proposta;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class DenunciaController extends Controller
@@ -91,7 +92,11 @@ class DenunciaController extends Controller
         return redirect('/welcome');
     }
 
-    public function list(){
+    public function list(Request $req){
+        if (null !== $req->user() && $req->user()->email != 'trocatecaltda@gmail.com') {
+            return redirect('/');
+        }
+
         $denuncias = Denuncia::where('estado_denuncia', 0)->with('denuncia_artigo.artigo')->with('denuncia_usuario.user')->get();
 
         return view('adm.index', compact('denuncias'));
@@ -107,7 +112,11 @@ class DenunciaController extends Controller
         return redirect()->back();
     }
 
-    public function delete($id){
+    public function delete($id, Request $req){
+        if (null !== $req->user() && $req->user()->email != 'trocatecaltda@gmail.com') {
+            return redirect('/');
+        }
+
         $denuncia = Denuncia::where('id', $id)->with('denuncia_artigo.artigo.user')->first();
 
         $denuncia->denuncia_artigo->artigo->user->cont_advertencias ++;
@@ -135,7 +144,11 @@ class DenunciaController extends Controller
         return redirect()->back();
     }
 
-    public function strike($id){
+    public function strike($id, Request $req){
+        if (null !== $req->user() && $req->user()->email != 'trocatecaltda@gmail.com') {
+            return redirect('/');
+        }
+
         $denuncia = Denuncia::where('id', $id)->with('denuncia_usuario.user')->first();
 
         $denuncia->denuncia_usuario->user->cont_advertencias ++;

@@ -8,6 +8,8 @@
 </head>
 <body>
 
+    <nav class="border-b boder-2"> <a href="{{ route('adm') }}">Gerenciar denúncias</a> <a href="{{ route('adm.announces') }}" class="ml-3">Ver anúncios</a></nav>
+
     @if(isset($denuncias))
         @foreach($denuncias as $denun)
 
