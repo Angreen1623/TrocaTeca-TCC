@@ -17,79 +17,104 @@
             <div class="max-w-screen-xl px-4 mx-auto">
 
                 @if(count($artigo) > 0)
-                    <div class="mb-7 mt-10 flex flex-col justify-center items-center space-y-4 max-w-3xl w-full mx-auto">
-                        <h3 class="mt-7 text-2xl text-center text-black sm:text-4xl" style="font-family: 'Fredoka';">
-                            @if(isset($searchTerm))
-                            Aqui estão os resultados para: "{{ $searchTerm }}"
-                            @else
-                            Aqui estão os resultados para: "{{ $value }}"
-                            @endif
-                        </h3>
-                    </div>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 justify-items-center mt-14">
+                <div class="mb-7 mt-10 flex flex-col justify-center items-center space-y-4 max-w-3xl w-full mx-auto">
+                    <h3 class="mt-7 text-2xl text-center text-black sm:text-4xl" style="font-family: 'Fredoka';">
+                        @if(isset($searchTerm))
+                        Aqui estão os resultados para: "{{ $searchTerm }}"
+                        @elseif(isset($value))
+                        Aqui estão os resultados para: "{{ $value }}"
+                        @endif
+                    </h3>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 justify-items-center mt-14">
 
-                    <!--Card do anúncio-->
-                    @foreach($artigo as $artg)
-                    <div class="group my-1 flex w-full max-w-[260px] flex-col overflow-hidden rounded-xl border border-graytt-light shadow-tt bg-white transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 duration-300">
-                        <a href="/viewannounce/{{$artg->id}}">
+                    @php
+
+                    $maxpage = ceil(count($artigo)/4);
+                    $show_number = 4 * $page;
+                    $i = $show_number-4;
+
+                    @endphp
+
+                    @for($i; $i < $show_number; $i++)
+
+
+                        <div class="group my-1 flex w-full max-w-[260px] flex-col overflow-hidden rounded-xl border border-graytt-light shadow-tt bg-white transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 duration-300">
+                        <a href="/viewannounce/{{$artigo[$i]->id}}">
                             <div class="relative mx-3 mt-3 flex h-48 overflow-hidden rounded-xl border-2 border-black">
-                                @foreach($artg->imagens as $imagem)
+                                @foreach($artigo[$i]->imagens as $imagem)
                                 @if($imagem->imagem_principal)
                                 <img class="peer absolute top-0 right-0 h-full w-full object-cover" loading="lazy" src="{{ asset($imagem->endereco_imagem) }}">
                                 @endif
                                 @endforeach
-                                @if(isset($artg->imagens[1]))
+                                @if(isset($artigo[$i]->imagens[1]))
                                 <img class="peer absolute top-0 -right-96 h-full w-full object-cover transition-all delay-100 duration-1000 hover:right-0 peer-hover:right-0" src="{{ asset($artg->imagens[1]->endereco_imagem) }}" alt="Imagem do Produto" />
                                 @endif
                             </div>
                             <div class="mt-4 px-5 pb-5">
-                                <p class="truncate lg:text-left lg:mt-2 text-black">{{$artg->nome_artigo}}</p>
+                                <p class="truncate lg:text-left lg:mt-2 text-black">{{$artigo[$i]->nome_artigo}}</p>
 
-                                <p class="truncate lg:text-left lg:mt-2 text-stone-400">{{$artg->categoria_artigo}}</p>
+                                <p class="truncate lg:text-left lg:mt-2 text-stone-400">{{$artigo[$i]->categoria_artigo}}</p>
 
-                                @if($artg->valor_sugerido_artigo)
+                                @if($artigo[$i]->valor_sugerido_artigo)
                                 <div class="mt-2 flex items-center">
                                     <p>
                                         <span class="truncate lg:text-left lg:mt-2 text-black">Valor Sugerido:
                                     </p>
-                                    <span class="truncate text-1xl md:text-1xl lg:text-lg ml-2 font-bold text-pinktt">R${{$artg->valor_sugerido_artigo}}</span>
+                                    <span class="truncate text-1xl md:text-1xl lg:text-lg ml-2 font-bold text-pinktt">R${{$artigo[$i]->valor_sugerido_artigo}}</span>
                                     </p>
                                 </div>
                                 @endif
                             </div>
                         </a>
-                    </div>
-                    @endforeach
-
-
                 </div>
-                @else
 
-                @if(isset($searchTerm))
-                <div class="mb-7 mt-10 flex flex-col justify-center items-center space-y-4 max-w-3xl w-full mx-auto">
-                     <h3 class="mt-7 text-2xl text-center text-black sm:text-4xl" style="font-family: 'Fredoka';">
-                        OPS! Nenhum resultado foi encontrado para: "{{ $searchTerm }}"
-                     </h3>
-                     <p class="text-center whitespace-pre-line">
-                         Parece que não existe artigos com esse nome.
-                         verifique se digitou corretamente e tente denovo!
-                    </p>
-                </div>
-                @else
-                <div class="mb-7 mt-10 flex flex-col justify-center items-center space-y-4 max-w-3xl w-full mx-auto">
-                     <h3 class="mt-7 text-2xl text-center text-black sm:text-4xl" style="font-family: 'Fredoka';">
-                        OPS! Nenhum resultado foi encontrado para: "{{ $value }}"
-                     </h3>
-                     <p class="text-center whitespace-pre-line">
-                         Parece que não existe artigos com esse filtro.
-                    </p>
-                </div>
-                @endif
+                @endfor
 
-                @endif
+
+
+
             </div>
-            @include('footer')
+
+            <div class="flex gap-5 justify-center mt-8">
+                @for($i = 1; $i <= $maxpage; $i++)
+
+                    @if(isset($searchTerm))
+                    <a href="{{route('search', ['search' => $searchTerm, 'page' => $i])}}">{{ $i }}</a>
+                    @elseif(isset($value))
+                    <a href="{{route('filter', ['type' => $type, 'value' => $value, 'page' => $i])}}">{{ $i }}</a>
+                    @endif
+
+                @endfor
+            </div>
+            
+            @else
+
+            @if(isset($searchTerm))
+            <div class="mb-7 mt-10 flex flex-col justify-center items-center space-y-4 max-w-3xl w-full mx-auto">
+                <h3 class="mt-7 text-2xl text-center text-black sm:text-4xl" style="font-family: 'Fredoka';">
+                    OPS! Nenhum resultado foi encontrado para: "{{ $searchTerm }}"
+                </h3>
+                <p class="text-center whitespace-pre-line">
+                    Parece que não existe artigos com esse nome.
+                    verifique se digitou corretamente e tente denovo!
+                </p>
+            </div>
+            @elseif(isset($value))
+            <div class="mb-7 mt-10 flex flex-col justify-center items-center space-y-4 max-w-3xl w-full mx-auto">
+                <h3 class="mt-7 text-2xl text-center text-black sm:text-4xl" style="font-family: 'Fredoka';">
+                    OPS! Nenhum resultado foi encontrado para: "{{ $value }}"
+                </h3>
+                <p class="text-center whitespace-pre-line">
+                    Parece que não existe artigos com esse filtro.
+                </p>
+            </div>
+            @endif
+
+            @endif
         </div>
+        @include('footer')
+    </div>
     </div>
     <script>
         var mt_paralax = document.getElementById("mt-paralax");

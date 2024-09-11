@@ -64,8 +64,8 @@ Route::get('/ann', function () {
     return view('annoaccount');
 });
 
-Route::get('/search', [ArtigoController::class, 'search'])->name('search');
-Route::get('/filter/{type}/{value}', [ArtigoController::class, 'filter'])->name('filter');
+Route::get('/search/{page?}', [ArtigoController::class, 'search'])->name('search');
+Route::get('/filter/{type}/{value}/{page?}', [ArtigoController::class, 'filter'])->name('filter');
 
 Route::get('/perfilanunciante/{id}', [ProfileController::class, 'viewProfileanun'])->name('viewProfileanun');
 

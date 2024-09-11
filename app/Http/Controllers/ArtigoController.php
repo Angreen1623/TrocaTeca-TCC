@@ -7,6 +7,7 @@ use App\Models\Imagem_artigo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
+use Ramsey\Uuid\Type\Integer;
 
 class ArtigoController extends Controller
 {
@@ -89,7 +90,7 @@ class ArtigoController extends Controller
             }
         }
 
-        return redirect()->to('/meusartigos');
+        return redirect()->back();
     }
 
     public function select(Request $req) //apresentar meus próprios anúncios
@@ -109,7 +110,7 @@ class ArtigoController extends Controller
         return view('meusartigos', compact('artigo', 'artigo_sucedido'));
     }
 
-    public function search(Request $req)
+    public function search(Request $req, ?int $page = 1)
     {
         // Subconsulta para contar acordos bem-sucedidos por usuário
         $subQuery = DB::table('acordos')
@@ -138,7 +139,8 @@ class ArtigoController extends Controller
     
     return view('announcements', [
         'artigo' => $artg,
-        'searchTerm' => $req->search // Passa o termo de pesquisa para a view
+        'searchTerm' => $req->search, // Passa o termo de pesquisa para a view
+        'page' => $page
     ]);
     }
 
@@ -273,16 +275,14 @@ class ArtigoController extends Controller
         return view('viewannounce')->with('artigo', $artigo);
     }
 
-    public function filter($type, $value, Request $req)
-{
+    public function filter($type, $value, Request $req, ?int $page = 1)
+    {
     // Inicializa a consulta base para evitar repetição de código
-    $artigoQuery = Artigo::where('status_artigo', '!=', '0')
-        ->whereDoesntHave('proposta', function ($query) {
+    $artigoQuery = Artigo::whereDoesntHave('proposta', function ($query) {
             $query->whereHas('acordo', function ($query) {
                 $query->where('status_acordo', 4); // Excluir artigos com acordos bem-sucedidos
             });
-        })
-        ->with('imagens'); // Carregar a relação 'imagens'
+        })->with('imagens'); // Carregar a relação 'imagens'
 
     // Filtra de acordo com o tipo
     if ($type == 'categoria') {
@@ -299,6 +299,6 @@ class ArtigoController extends Controller
     $artigo = $artigoQuery->get();
 
     // Retorna a view com os artigos filtrados
-    return view('announcements', ['artigo', 'value']); 
-}
+    return view('announcements', compact(['artigo', 'type', 'value', 'page'])); 
+    }
 }
