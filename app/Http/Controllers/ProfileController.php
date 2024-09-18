@@ -111,7 +111,7 @@ class ProfileController extends Controller
 
         // Busca os artigos do usuário que não têm acordos bem-sucedidos
         $artigos = Artigo::where('id_usuario_ofertante', $id)
-            ->whereDoesntHave('proposta.acordos', function ($query) {
+            ->whereDoesntHave('proposta.acordo', function ($query) {
                 $query->where('status_acordo', 4); // Excluir artigos com acordos bem-sucedidos
             })
             ->with('imagens')
