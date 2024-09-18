@@ -294,9 +294,12 @@ class ArtigoController extends Controller
     } elseif ($type == 'condicao') {
         $artigoQuery->where('condicao_artigo', 'LIKE', $value);
     } elseif ($type == 'local') {
+        if(!isset($req->user()->id)){
+            return redirect()->back();
+        }
         $artigoQuery->whereHas('user', function ($query) use ($req) {
             $query->where('estado', $req->user()->estado);
-        })->where('id_usuario_ofertante', $req->user()->id);
+        })->where('id_usuario_ofertante', '!=' , $req->user()->id);
     }
 
     // Executa a consulta e obtém os resultados

@@ -17,7 +17,7 @@
         <div class="flex flex-col flex-wrap lg:flex-row place-content-center my-16 mr-0 xl:mr-36">
             <div class="mb-5 lg:mb-0 flex justify-center mx-10">
                 <div class="relative">
-                    @if(auth()->id() !== $artigo->id_usuario_ofertante && auth()->user()->email != 'trocatecaltda@gmail.com')
+                    @if(auth()->id() && auth()->id() !== $artigo->id_usuario_ofertante && auth()->user()->email != 'trocatecaltda@gmail.com')
                         <button id="openReportButton" class="absolute bg-redtt w-fit h-fit p-2 rounded-full -left-[25px] -top-[25px] transition ease-in-out delay-100  hover:-translate-y-1 hover:scale-110 duration-300">
                             <a href="#">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="white" viewBox="0 0 16 16">
@@ -44,19 +44,15 @@
                         <div>
                         @for($p = 1; $p<$i; $p++)
                         <div class="first:flex hidden" id="sequence-{{ $p }}">
-                        <button type="button" class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" id="carousel-prev-{{ $p }}">
-                            <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                                <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/>
-                                </svg>
+                        <button type="button" class="absolute rotate-180 top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" id="carousel-prev-{{ $p }}">
+                            <span class="inline-flex items-center justify-center w-12 h-12 rounded-full">
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="31" zoomAndPan="magnify" viewBox="0 0 23.25 45.75" height="61" preserveAspectRatio="xMidYMid meet" version="1.0"><defs><clipPath id="c2d17cf024"><path d="M 0 0.59375 L 22.523438 0.59375 L 22.523438 44.914062 L 0 44.914062 Z M 0 0.59375 " clip-rule="nonzero"/></clipPath><clipPath id="64c81866ab"><path d="M 1.585938 42.003906 L 2.75 42.003906 L 2.75 43.167969 L 1.585938 43.167969 Z M 1.585938 42.003906 " clip-rule="nonzero"/></clipPath><clipPath id="5161af1ce8"><path d="M 2.167969 42.003906 C 1.847656 42.003906 1.585938 42.265625 1.585938 42.585938 C 1.585938 42.90625 1.847656 43.167969 2.167969 43.167969 C 2.488281 43.167969 2.75 42.90625 2.75 42.585938 C 2.75 42.265625 2.488281 42.003906 2.167969 42.003906 Z M 2.167969 42.003906 " clip-rule="nonzero"/></clipPath></defs><g clip-path="url(#c2d17cf024)"><path fill="#000000" d="M 22.40625 23.257812 C 22.421875 23.230469 22.4375 23.203125 22.449219 23.175781 C 22.460938 23.144531 22.46875 23.113281 22.480469 23.078125 C 22.488281 23.050781 22.496094 23.023438 22.503906 22.992188 C 22.511719 22.960938 22.511719 22.929688 22.515625 22.898438 C 22.515625 22.867188 22.523438 22.835938 22.523438 22.804688 C 22.523438 22.773438 22.515625 22.746094 22.515625 22.714844 C 22.511719 22.679688 22.507812 22.648438 22.503906 22.617188 C 22.496094 22.589844 22.488281 22.558594 22.480469 22.53125 C 22.46875 22.5 22.460938 22.46875 22.449219 22.4375 C 22.4375 22.40625 22.421875 22.382812 22.40625 22.355469 C 22.394531 22.324219 22.378906 22.292969 22.359375 22.265625 C 22.34375 22.238281 22.320312 22.214844 22.300781 22.1875 C 22.28125 22.167969 22.265625 22.144531 22.246094 22.121094 L 1.785156 1.039062 C 1.40625 0.652344 0.789062 0.644531 0.398438 1.019531 C 0.0117188 1.398438 0.00390625 2.019531 0.378906 2.40625 L 20.179688 22.804688 L 0.378906 43.203125 C 0.00390625 43.59375 0.0117188 44.214844 0.398438 44.589844 C 0.589844 44.777344 0.835938 44.867188 1.082031 44.867188 C 1.335938 44.867188 1.59375 44.769531 1.785156 44.570312 L 22.246094 23.488281 C 22.265625 23.46875 22.28125 23.445312 22.300781 23.421875 C 22.320312 23.394531 22.34375 23.371094 22.359375 23.34375 C 22.378906 23.316406 22.390625 23.285156 22.40625 23.257812 Z M 22.40625 23.257812 " fill-opacity="1" fill-rule="nonzero"/></g><g clip-path="url(#64c81866ab)"><g clip-path="url(#5161af1ce8)"><path fill="#010019" d="M 1.585938 42.003906 L 2.75 42.003906 L 2.75 43.167969 L 1.585938 43.167969 Z M 1.585938 42.003906 " fill-opacity="1" fill-rule="nonzero"/></g></g></svg>
                                 <span class="sr-only">Previous</span>
                             </span>
                         </button>
                         <button type="button" class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" id="carousel-next-{{ $p }}">
-                            <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                                <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
-                                </svg>
+                            <span class="inline-flex items-center justify-center w-10 h-10 rounded-full">
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="31" zoomAndPan="magnify" viewBox="0 0 23.25 45.75" height="61" preserveAspectRatio="xMidYMid meet" version="1.0"><defs><clipPath id="c2d17cf024"><path d="M 0 0.59375 L 22.523438 0.59375 L 22.523438 44.914062 L 0 44.914062 Z M 0 0.59375 " clip-rule="nonzero"/></clipPath><clipPath id="64c81866ab"><path d="M 1.585938 42.003906 L 2.75 42.003906 L 2.75 43.167969 L 1.585938 43.167969 Z M 1.585938 42.003906 " clip-rule="nonzero"/></clipPath><clipPath id="5161af1ce8"><path d="M 2.167969 42.003906 C 1.847656 42.003906 1.585938 42.265625 1.585938 42.585938 C 1.585938 42.90625 1.847656 43.167969 2.167969 43.167969 C 2.488281 43.167969 2.75 42.90625 2.75 42.585938 C 2.75 42.265625 2.488281 42.003906 2.167969 42.003906 Z M 2.167969 42.003906 " clip-rule="nonzero"/></clipPath></defs><g clip-path="url(#c2d17cf024)"><path fill="#000000" d="M 22.40625 23.257812 C 22.421875 23.230469 22.4375 23.203125 22.449219 23.175781 C 22.460938 23.144531 22.46875 23.113281 22.480469 23.078125 C 22.488281 23.050781 22.496094 23.023438 22.503906 22.992188 C 22.511719 22.960938 22.511719 22.929688 22.515625 22.898438 C 22.515625 22.867188 22.523438 22.835938 22.523438 22.804688 C 22.523438 22.773438 22.515625 22.746094 22.515625 22.714844 C 22.511719 22.679688 22.507812 22.648438 22.503906 22.617188 C 22.496094 22.589844 22.488281 22.558594 22.480469 22.53125 C 22.46875 22.5 22.460938 22.46875 22.449219 22.4375 C 22.4375 22.40625 22.421875 22.382812 22.40625 22.355469 C 22.394531 22.324219 22.378906 22.292969 22.359375 22.265625 C 22.34375 22.238281 22.320312 22.214844 22.300781 22.1875 C 22.28125 22.167969 22.265625 22.144531 22.246094 22.121094 L 1.785156 1.039062 C 1.40625 0.652344 0.789062 0.644531 0.398438 1.019531 C 0.0117188 1.398438 0.00390625 2.019531 0.378906 2.40625 L 20.179688 22.804688 L 0.378906 43.203125 C 0.00390625 43.59375 0.0117188 44.214844 0.398438 44.589844 C 0.589844 44.777344 0.835938 44.867188 1.082031 44.867188 C 1.335938 44.867188 1.59375 44.769531 1.785156 44.570312 L 22.246094 23.488281 C 22.265625 23.46875 22.28125 23.445312 22.300781 23.421875 C 22.320312 23.394531 22.34375 23.371094 22.359375 23.34375 C 22.378906 23.316406 22.390625 23.285156 22.40625 23.257812 Z M 22.40625 23.257812 " fill-opacity="1" fill-rule="nonzero"/></g><g clip-path="url(#64c81866ab)"><g clip-path="url(#5161af1ce8)"><path fill="#010019" d="M 1.585938 42.003906 L 2.75 42.003906 L 2.75 43.167969 L 1.585938 43.167969 Z M 1.585938 42.003906 " fill-opacity="1" fill-rule="nonzero"/></g></g></svg>
                                 <span class="sr-only">Next</span>
                             </span>
                         </button>
@@ -93,14 +89,14 @@
                 </div>
             </div>
 
-            @if(auth()->id() !== $artigo->id_usuario_ofertante && auth()->user()->email != 'trocatecaltda@gmail.com')
+            @if(auth()->id() && auth()->id() !== $artigo->id_usuario_ofertante && auth()->user()->email != 'trocatecaltda@gmail.com')
                 <div class="flex w-full lg:w-fit lg:justify-end lg:items-end">
                     <button id="openNewProposalButton" class="inline-flex px-4 py-2 h-fit justify-center w-full lg:w-auto shadow-tt bg-pinktt hover:bg-pinktt-dark text-white text-sm font-medium rounded-2xl transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-105 duration-300">
                         Enviar Proposta
                     </button>
                 </div>
             @endif
-            @if(auth()->user()->email == 'trocatecaltda@gmail.com')
+            @if(auth()->id() && auth()->user()->email == 'trocatecaltda@gmail.com')
                 <div class="flex w-full lg:w-fit lg:justify-end lg:items-end">
                     <a href="" class="inline-flex px-4 py-2 h-fit justify-center w-full lg:w-auto shadow-tt bg-redtt hover:bg-redxtt-dark text-white text-sm font-medium rounded-2xl transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-105 duration-300">
                         Excluir anuncio
