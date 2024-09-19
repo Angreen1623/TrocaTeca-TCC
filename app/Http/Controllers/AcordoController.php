@@ -16,7 +16,7 @@ class AcordoController extends Controller
         $validator = Validator::make($req->all(), [
             'nome_art_fi' => 'required|string|max:100',
             'catepropo_fi' => 'required|string|max:10',
-            'datae_fi' => 'required|date|after:today',
+            'datae_fi' => 'required|date|after:now',
             'pontoe_fi' => 'required|string|max:70',
             'imagem_final' => 'required|image|max:10240',
         ], [
@@ -34,7 +34,7 @@ class AcordoController extends Controller
 
             'nome_art_fi.max' => 'O campo nome deve conter no maximo 100 caracteres.',
             'catepropo_fi.max' => 'O campo categoria deve conter no maximo 10 caracteres.',
-            'datae_fi.after' => 'O campo data de recebimento deve ser uma data posterior a hoje.',
+            'datae_fi.after' => 'O campo data de recebimento deve ser uma data posterior a amanhã.',
             'pontoe_fi.max' => 'O campo ponto de recebimento deve conter no maximo 70 caracteres.',
             'imagem_final.max' => 'O arquivo da imagem é muito pesado.',
 

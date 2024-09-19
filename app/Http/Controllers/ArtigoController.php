@@ -18,7 +18,7 @@ class ArtigoController extends Controller
 
         $validator = Validator::make($req->all(), [
             'nome_art' => 'required|string|max:100',
-            'val' => 'nullable|numeric',
+            'val' => 'nullable|numeric|min:0',
             'pref' => 'nullable|string|max:50',
             'catepropo' => 'required|string|max:10',
             'condpropo' => 'required|string|max:8',
@@ -47,13 +47,17 @@ class ArtigoController extends Controller
             'img_principal.max' => 'O arquivo da imagem é muito pesado.',
             'img.max' => 'Um arquivo das imagens é muito pesado.',
 
+            'val.min' => 'O campo valor sugerido deve conter um número maior que 0.',
+
         ]);
 
         if ($validator->fails()) return redirect()->back()->withErrors($validator)->withInput();
 
         $artg = new Artigo;
         $artg->nome_artigo = $req->nome_art;
-        $artg->valor_sugerido_artigo = $req->val;
+        if($req->val > 0){
+            $artg->valor_sugerido_artigo = $req->val;
+        }
         $artg->preferencia_troca_artigo = $req->pref;
         $artg->categoria_artigo = $req->catepropo;
         $artg->condicao_artigo = $req->condpropo;
@@ -90,7 +94,7 @@ class ArtigoController extends Controller
             }
         }
 
-        return redirect()->back();
+        return redirect()->to('/meusartigos');
     }
 
     public function select(Request $req) //apresentar meus próprios anúncios
@@ -189,7 +193,7 @@ class ArtigoController extends Controller
 
         $validator = Validator::make($req->all(), [
             'nome_artigo' => 'required|string|max:100',
-            'valor_sugerido_artigo' => 'nullable|numeric',
+            'valor_sugerido_artigo' => 'nullable|numeric|min:0',
             'preferencia_troca_artigo' => 'nullable|string|max:50',
             'categoria_artigo' => 'required|string|max:10',
             'condicao_artigo' => 'required|string|max:8',
@@ -217,6 +221,8 @@ class ArtigoController extends Controller
             'tempo_uso_artigo.max' => 'O campo tempo de uso deve conter no maximo 25 caracteres.',
             'img_principal.max' => 'O arquivo da imagem é muito pesado.',
             'img.max' => 'Um arquivo das imagens é muito pesado.',
+
+            'valor_sugerido_artigo.min' => 'O campo valor sugerido deve conter um número maior que 0.',
 
         ]);
 

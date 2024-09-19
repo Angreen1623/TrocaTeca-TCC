@@ -18,7 +18,7 @@
                                 </div>
                             </div>
                         </label>
-                        <input type="file" name="img_principal" id="img_principal" class="hidden" required>
+                        <input type="file" name="img_principal" id="img_principal" class="hidden" accept="image/*" required>
                     </div>
                     <div class="w-full">
                         <input type="hidden" name="id_artigo" value="{{ $artigo->id }}">
