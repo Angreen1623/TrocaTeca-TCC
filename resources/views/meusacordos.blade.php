@@ -87,7 +87,7 @@
                                 OPS! Nenhum acordo encontrado
                             </h3>
                             <p class="text-center whitespace-pre-line">
-                                Volte mais tarde.
+                                Volte mais tarde após ter gerado um acordo.
                             </p>
                         </div>
                         @endif
