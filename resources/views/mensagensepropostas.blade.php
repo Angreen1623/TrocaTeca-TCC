@@ -134,7 +134,7 @@
                             OPS! Nenhuma proposta encontrada.
                         </h3>
                         <p class="text-center whitespace-pre-line">
-                            Volte aqui novamente após começar uma troca.
+                            Comece uma conversa enviando ou recebendo uma proposta.
                         </p>
                     </div>
                     @endif
