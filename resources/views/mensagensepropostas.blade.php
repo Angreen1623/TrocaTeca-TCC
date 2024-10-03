@@ -131,10 +131,10 @@
                     @else
                     <div class="mb-7 mt-10 flex flex-col justify-center items-center space-y-4 max-w-3xl w-full mx-auto">
                         <h3 class="mt-7 text-2xl text-center text-black sm:text-4xl" style="font-family: 'Fredoka';">
-                            OPS! Nenhuma proposta encontrada.
+                            OPS! Nenhuma proposta encontrada
                         </h3>
                         <p class="text-center whitespace-pre-line">
-                            Volte aqui novamente após começar uma troca.
+                            Comece uma conversa enviando ou recebendo uma proposta.
                         </p>
                     </div>
                     @endif
