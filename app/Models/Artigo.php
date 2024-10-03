@@ -9,6 +9,8 @@ class Artigo extends Model
 {
     use HasFactory;
 
+    protected $primaryKey = 'id';
+
     protected $fillable = [
         'nome_artigo',
         'valor_sugerido_artigo',
@@ -31,7 +33,7 @@ class Artigo extends Model
 
     public function denuncia_artigo()
     {
-        return $this->hasOne(Imagem_artigo::class, 'id_artigo');
+        return $this->hasOne(Denuncia_artigo::class, 'id_artigo');
     }
 
     public function proposta()

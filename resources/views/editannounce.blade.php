@@ -123,11 +123,18 @@
                         <form action="/excluir/{{ $artigo->id }}" method="POST">
                         @csrf
                         @method('DELETE')
-                            <button class="mr-3 inline-flex flex flex-row md:mb-0 mb-4 items-center p-2 justify-center w-full lg:w-auto shadow-tt bg-redtt hover:bg-redtt-dark text-white text-lg font-medium rounded-2xl transition ease-in-out delay-100  hover:-translate-y-1 hover:scale-110 duration-300">
+                            <button class="mr-5 inline-flex flex flex-row md:mb-0 mb-4 items-center p-2 justify-center w-full lg:w-auto shadow-tt bg-redtt hover:bg-redtt-dark text-white text-lg font-medium rounded-2xl transition ease-in-out delay-100  hover:-translate-y-1 hover:scale-110 duration-300">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" /></svg>
                                 Excluir
                             </button></form>
-                        <button form="edtann" type="submit" class="mb-0 sm:mr-3 inline-flex items-center p-2 justify-center w-full lg:w-auto shadow-tt bg-pinktt hover:bg-pinktt-dark text-white text-lg font-medium rounded-2xl transition ease-in-out delay-100  hover:-translate-y-1 hover:scale-110 duration-300">
+                        <button form="edtann" 
+                        @if($reported)
+                            type="submit"
+                        @else
+                            type="button"
+                            id="openNotificationButton"
+                        @endif 
+                        class="mb-0 sm:mr-3 inline-flex items-center p-2 justify-center w-full lg:w-auto shadow-tt bg-pinktt hover:bg-pinktt-dark text-white text-lg font-medium rounded-2xl transition ease-in-out delay-100  hover:-translate-y-1 hover:scale-110 duration-300">
                             Confirmar alterações
                         </button>
                     </div>
@@ -145,6 +152,10 @@
             @endif
         </div>
         @include('footer')
+        </div>
+
+
+    @include('notification', ['title' => "Não foi possível editar o anúncio", 'body' => "Por questão de segurança, não é possível editar o anúncio devido a uma denúncia em andamento."])
 
         <script>
             let paiimg = '.add-img-p';
@@ -181,8 +192,25 @@
                     };
                 }
             }
+
+            const open = document.getElementById('openNotificationButton');
+            const modal = document.getElementById('modalnotification');
+
+            if (open) {
+                open.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    modal.classList.remove('hidden');
+                    document.body.classList.add('overflow-hidden');
+                });
+
+                document.getElementById('confirm').addEventListener('click', function() {
+                    modal.classList.add('hidden');
+                    document.body.classList.remove('overflow-hidden');
+                });
+            }
+
         </script>
-    </div>
+
 </body>
 
 </html>

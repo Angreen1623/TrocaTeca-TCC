@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
 use Ramsey\Uuid\Type\Integer;
 
+use function PHPUnit\Framework\isEmpty;
+
 class ArtigoController extends Controller
 {
     public function create(Request $req)
@@ -183,8 +185,11 @@ class ArtigoController extends Controller
 
     public function edit(Request $req)
     {
-        $artg = Artigo::with('imagens')->find($req->id);
-        return view('editannounce')->with('artigo', $artg);
+        $artigo = Artigo::with('imagens')->where('id', $req->id)->first();
+        $reported = !Artigo::where('id', $req->id)
+                ->whereHas('denuncia_artigo')
+                ->exists();
+        return view('editannounce', compact('artigo', 'reported'));
     }
 
     public function update(Request $req)
@@ -227,6 +232,10 @@ class ArtigoController extends Controller
         ]);
 
         if ($validator->fails()) return redirect()->back()->withErrors($validator)->withInput();
+
+        if(!isEmpty(Artigo::with('denuncia_artigo')->get())){
+            return redirect()->back();
+        }
 
         $artg = Artigo::find($req->id);
         $artg->update(
