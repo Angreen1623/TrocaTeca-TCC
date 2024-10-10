@@ -8,9 +8,9 @@
 
 <div class="flex justify-end w-full">
     <div class="flex flex-row-reverse py-3 px-2 rounded-t-lg rounded-l-lg border-black border-2 bg-greentt-light w-fit max-w-96">
-        <pre class="flex justify-center">{{ $msg->conteudo_mensagem }}</pre>
+        <pre class="flex justify-center text-wrap break-all">{{ $msg->conteudo_mensagem }}</pre>
         @if($msg->endereco_anexo)
-        <div class="w-32 mr-2">
+        <div class="w-32 flex flex-col justify-center mr-2">
             <img src="{{ asset($msg->endereco_anexo) }}" alt="">
         </div>
         @endif
@@ -21,9 +21,9 @@
 
 <div class="flex justify-start w-full">
     <div class="flex items-start py-3 px-2 rounded-t-lg rounded-r-lg border-black border-2 bg-pinktt w-fit max-w-96">
-        <pre class="flex items-center">{{ $msg->conteudo_mensagem }}</pre>
+        <pre class="flex items-center text-wrap break-all">{{ $msg->conteudo_mensagem }}</pre>
         @if($msg->endereco_anexo)
-        <div class="w-32 text-wrap flex flex-col justify-center ml-2">
+        <div class="w-32 flex flex-col justify-center ml-2">
             <img src="{{ asset($msg->endereco_anexo) }}" alt="">
         </div>
         @endif
