@@ -83,7 +83,6 @@
     screenResize()
 
     window.addEventListener('resize', screenResize);
-    
 
     function screenResize(){
         pt_footer.style.paddingTop = footer.offsetHeight+"px";

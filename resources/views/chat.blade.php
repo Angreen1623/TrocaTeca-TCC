@@ -117,7 +117,7 @@
 
         </div>
 
-        <div id="mensagens" class="flex flex-col overflow-auto h-[80vh] p-3">
+        <div id="mensagens" class="flex flex-col overflow-auto h-[75vh] p-3 overflow-y-scroll">
             
         </div>
 
