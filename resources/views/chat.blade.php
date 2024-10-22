@@ -12,11 +12,11 @@
 </head>
 
 <body class="bg-backgtt">
-    <div class="bg-backgtt max-h-screen bg-repeat bg-[length:870px_654px] bg-[url('/public/image/bg-icons.png')] bg-auto h-full relative overflow-hidden">
+    <div class="bg-backgtt h-screen max-h-screen bg-repeat bg-[length:870px_654px] bg-[url('/public/image/bg-icons.png')] bg-auto h-full relative overflow-hidden">
 
         <div class="w-full z-40">
 
-            <div class="flex w-full py-2.5 px-5 bg-bluett place-content-between items-center border-b border-black">
+            <div class="flex w-full h-[13vh] py-2.5 px-5 bg-bluett place-content-between items-center border-b border-black">
 
                 <div class="flex items-center">
 
@@ -117,17 +117,17 @@
 
         </div>
 
-        <div id="mensagens" class="flex flex-col overflow-auto h-[75vh] p-3 overflow-y-scroll">
-            
+        <div class="h-[78vh] py-3">
+            <div id="mensagens" class="flex flex-col h-full px-3 overflow-y-scroll">
+                
+            </div>
         </div>
-
-        <div id="pt-footer"></div>
 
         <div class="absolute bottom-0 left-0 w-full z-50" id="footer">
 
             <form action="/sendmessage/{{$id}}" method="post" enctype="multipart/form-data">
                 @csrf
-                <div class="bg-bluett border-t border-black py-2.5 px-7 md:ps-20 md:pe-7">
+                <div class="bg-bluett border-t border-black py-2.5 px-7 md:ps-20 md:pe-7  h-[9vh]">
                     <div class="flex w-full align-item-center place-content-between items-center">
                         <input type="text" name="mensagem" 
                         @if($prop->status_proposta == 0)
@@ -207,15 +207,14 @@
 
     <script lang="Javascript">
 
-        window.addEventListener('resize', screenResize);
-    
-        screenResize();
+        const chat = document.getElementById('mensagens');
+            chat.scrollTop = chat.scrollHeight;
 
-        function screenResize(){
-            var pt_footer = document.getElementById("pt-footer");
-            var footer = document.getElementById('footer');
-            pt_footer.style.paddingTop = footer.offsetHeight+"px";
-        }
+        //Começando chat pelo ponto mais baixo
+        window.onload = function () {
+            const chat = document.getElementById('mensagens');
+            chat.scrollTop = chat.scrollHeight;
+        };
 
         //modal de desistir da troca
         document.addEventListener('DOMContentLoaded', function() {
