@@ -80,12 +80,12 @@
     var pt_footer = document.getElementById("pt-footer");
     var footer = document.getElementById('footer');
 
-    screenResize()
+    screenResize();
 
     window.addEventListener('resize', screenResize);
 
     function screenResize(){
         pt_footer.style.paddingTop = footer.offsetHeight+"px";
-    }
+    };
 
 </script>

@@ -16,7 +16,7 @@
 
         <div class="w-full z-40">
 
-            <div class="flex w-full h-[13vh] py-2.5 px-5 bg-bluett place-content-between items-center border-b border-black">
+            <div class="flex w-full h-[12vh] py-2.5 px-5 bg-bluett place-content-between items-center border-b border-black">
 
                 <div class="flex items-center">
 
@@ -117,8 +117,8 @@
 
         </div>
 
-        <div class="h-[78vh] py-3">
-            <div id="mensagens" class="flex flex-col h-full px-3 overflow-y-scroll">
+        <div class="h-[78vh] py-2">
+            <div id="mensagens" class="flex flex-col h-full px-3 pb-2 overflow-y-scroll">
                 
             </div>
         </div>
@@ -127,7 +127,7 @@
 
             <form action="/sendmessage/{{$id}}" method="post" enctype="multipart/form-data">
                 @csrf
-                <div class="bg-bluett border-t border-black py-2.5 px-7 md:ps-20 md:pe-7  h-[9vh]">
+                <div class="bg-bluett border-t border-black py-2.5 px-7 md:ps-20 md:pe-7 h-[10vh]">
                     <div class="flex w-full align-item-center place-content-between items-center">
                         <input type="text" name="mensagem" 
                         @if($prop->status_proposta == 0)
@@ -207,14 +207,14 @@
 
     <script lang="Javascript">
 
-        const chat = document.getElementById('mensagens');
-            chat.scrollTop = chat.scrollHeight;
-
         //Começando chat pelo ponto mais baixo
-        window.onload = function () {
+        setTimeout(function() {
+            scrollToBottom();
+        }, 500);
+        function scrollToBottom(){
             const chat = document.getElementById('mensagens');
             chat.scrollTop = chat.scrollHeight;
-        };
+        }
 
         //modal de desistir da troca
         document.addEventListener('DOMContentLoaded', function() {

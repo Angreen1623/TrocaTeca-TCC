@@ -1,12 +1,24 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>TrocaTeca</title>
+    <link rel="shortcut icon" href="{{ asset('image/t.png') }}">
+    @vite('resources/css/app.css')
+    @vite('resources/js/app.js')
 </head>
-<body>
+
+<body class="bg-backgtt">
+    <div class="h-full min-h-screen relative">
+        @include('adm.navbar')
+
+        <div class="w-full">
+
+        </div>
+
+    </div>
 
     <nav class="border-b boder-2"> <a href="{{ route('adm') }}">Gerenciar denúncias</a> <a href="{{ route('adm.announces') }}" class="ml-3">Ver anúncios</a></nav>
 

@@ -6,7 +6,6 @@ use App\Http\Controllers\DenunciaController;
 use App\Http\Controllers\MensagemController;
 use App\Http\Controllers\PropostaController;
 use App\Http\Controllers\AcordoController;
-use App\Models\Artigo;
 use Illuminate\Support\Facades\Route;
 
 // Adicionando middleware 'auth' para as rotas que requerem login
