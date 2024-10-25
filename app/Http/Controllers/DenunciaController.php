@@ -7,7 +7,6 @@ use App\Models\Denuncia_artigo;
 use App\Models\Denuncia_usuario;
 use App\Models\Proposta;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class DenunciaController extends Controller
@@ -92,14 +91,46 @@ class DenunciaController extends Controller
         return redirect('/welcome');
     }
 
-    public function list(Request $req){
+        public function listannounces(Request $req){
         if (null !== $req->user() && $req->user()->email != 'trocatecaltda@gmail.com') {
             return redirect('/');
         }
 
-        $denuncias = Denuncia::where('estado_denuncia', 0)->with('denuncia_artigo.artigo')->with('denuncia_usuario.user')->get();
+        $denuncias = Denuncia::selectRaw('MIN(denuncias.id) as id, denuncias.estado_denuncia, COUNT(denuncias.id) as total_denuncias')
+        ->join('denuncia_artigos', 'denuncias.id', '=', 'denuncia_artigos.id_denuncia')
+        ->join('artigos', 'denuncia_artigos.id_artigo', '=', 'artigos.id')
+        ->whereHas('denuncia_artigo', function ($query){
+            $query->whereHas('artigo', function ($query){
+                $query->whereHas('user', function ($query){
+                    $query->whereNull('estado_conta');
+                });
+            });
+        })
+        ->where('estado_denuncia', 0)
+        ->groupBy('artigos.id', 'denuncias.estado_denuncia')
+        ->with('denuncia_artigo.artigo')
+        ->orderByDesc('total_denuncias')
+        ->paginate(4);
 
-        return view('adm.index', compact('denuncias'));
+        return view('adm.announcereportview', compact('denuncias'));
+    }
+
+    public function listchat(Request $req){
+        if (null !== $req->user() && $req->user()->email != 'trocatecaltda@gmail.com') {
+            return redirect('/');
+        }
+
+        $denuncias = Denuncia::where('estado_denuncia', 0)->whereHas('denuncia_usuario', function ($query) {
+            $query->whereHas('user');
+        })->with('denuncia_usuario.user')->with('user')->paginate(4);
+
+        return view('adm.chatreportview', compact('denuncias'));
+    }
+
+    public function chatreport($id){
+        $denuncia = Denuncia::where('id', $id)->with('denuncia_usuario.user')->first();
+
+        return view('adm.chatreport', compact('denuncia'));
     }
 
     public function alterar_estado($id){
@@ -109,7 +140,7 @@ class DenunciaController extends Controller
 
         $denuncia->save();
 
-        return redirect()->back();
+        return redirect()->route('adm.announces.view');
     }
 
     public function delete($id, Request $req){
@@ -130,18 +161,32 @@ class DenunciaController extends Controller
 
         $denuncia->estado_denuncia = 2;
         $denuncia->save();
-        return redirect()->back();
+        
+        return redirect()->route('adm.announces.view');
     }
 
     public function inactivate($id){
-        $denuncia = Denuncia::where('id', $id)->with('denuncia_usuario.user')->first();
+        $denuncia = Denuncia::where('id', $id)->whereHas('denuncia_usuario', function ($query) {
+            $query->whereHas('user');
+        })->with('denuncia_usuario.user')->first();
+
+        if($denuncia){
+            $usuario = $denuncia->denuncia_usuario->user;
+        }else{
+            $denuncia = Denuncia::where('id', $id)->whereHas('denuncia_artigo', function ($query) {
+                $query->whereHas('artigo');
+            })->with('denuncia_artigo.artigo.user')->first();
+            $usuario = $denuncia->denuncia_artigo->artigo->user;
+        }
             
-        $denuncia->denuncia_usuario->user->estado_conta = "inativado";
-        $denuncia->denuncia_usuario->user->save();
+        $usuario->estado_conta = "inativado";
+        $usuario->save();
 
         $denuncia->estado_denuncia = 2;
         $denuncia->save();
-        return redirect()->back();
+        
+        
+        return redirect()->route('adm.announces.view');
     }
 
     public function strike($id, Request $req){
@@ -149,17 +194,33 @@ class DenunciaController extends Controller
             return redirect('/');
         }
 
-        $denuncia = Denuncia::where('id', $id)->with('denuncia_usuario.user')->first();
+        $denuncia = Denuncia::where('id', $id)->whereHas('denuncia_usuario', function ($query) {
+            $query->whereHas('user');
+        })->with('denuncia_usuario.user')->first();
 
-        $denuncia->denuncia_usuario->user->cont_advertencias ++;
+        if($denuncia){
+            $usuario = $denuncia->denuncia_usuario->user;
+        }else{
+            $denuncia = Denuncia::where('id', $id)->whereHas('denuncia_artigo', function ($query) {
+                $query->whereHas('artigo');
+            })->with('denuncia_artigo.artigo.user')->first();
+            $usuario = $denuncia->denuncia_artigo->artigo->user;
 
-        if($denuncia->denuncia_usuario->user->cont_advertencias > 2){
-            $denuncia->denuncia_usuario->user->estado_conta = "inativado";
+            $denuncia->denuncia_artigo->artigo->status_artigo = 1;
+            $denuncia->denuncia_artigo->artigo->save();
         }
-        $denuncia->denuncia_usuario->user->save();
+
+        $usuario->cont_advertencias ++;
+
+        if($usuario->cont_advertencias > 2){
+            $usuario->estado_conta = "inativado";
+        }
+        $usuario->save();
 
         $denuncia->estado_denuncia = 2;
         $denuncia->save();
-        return redirect()->back();
+        
+        
+        return redirect()->route('adm.announces.view');
     }
 }

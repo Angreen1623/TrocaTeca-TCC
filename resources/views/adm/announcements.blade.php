@@ -16,7 +16,7 @@
 
             <div class="w-full fixed">
                 <div id="paralax" class="bg-greentt-light">
-                    <div class="max-w-screen-xl px-4 mx-auto space-y-8 overflow-hidden sm:px-6 lg:px-8">
+                    <div class="max-w-screen-xl px-4 mx-auto space-y-8 overflow-hidden sm:px-6 lg:px-4">
                         <div class="lg:flex lg:justify-between lg:items-center flex flex-col-reverse lg:flex-row mb-5">
                             <nav class="mb-7 flex flex-col justify-center items-center lg:items-start space-y-4 max-w-3xl lg:mt-0 lg:order-1">
                                 <h2 class="text-3xl drop-shadow-tt text-center lg:text-left text-white sm:text-6xl" style="font-family: 'Fredoka';">
@@ -24,11 +24,11 @@
                                 </h2>
                                 <p class="text-black text-center lg:text-left lg:mt-2">Quais denúncias iremos tratar hoje?</p>
                                 <div class="flex">
-                                    <button class="w-36 text-center items-center px-4 py-2 shadow-tt bg-pinktt hover:bg-pinktt-dark text-white text-sm font-medium rounded-2xl mt-4 lg:mt-0 transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 duration-300">
-                                        <a href="/about">Denúncias de artigos</a>
+                                    <button class="w-50 text-center items-center px-4 py-2 shadow-tt bg-pinktt hover:bg-pinktt-dark text-white text-sm font-medium rounded-2xl mt-4 lg:mt-0 mr-5 transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 duration-300">
+                                        <a href="{{ route('adm') }}">Denúncias de artigos</a>
                                     </button>
-                                    <button class="w-36 text-center items-center px-4 py-2 shadow-tt bg-pinktt hover:bg-pinktt-dark text-white text-sm font-medium rounded-2xl mt-4 lg:mt-0 transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 duration-300">
-                                        <a href="/about">Denúncias de chat</a>
+                                    <button class="w-50 text-center items-center px-4 py-2 shadow-tt bg-pinktt hover:bg-pinktt-dark text-white text-sm font-medium rounded-2xl mt-4 lg:mt-0 transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 duration-300">
+                                        <a href="{{ route('adm.chat.view') }}">Denúncias de chat</a>
                                     </button>
                                 </div>
                                 
@@ -56,111 +56,50 @@
 
                         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 justify-items-center">
                             <!--Card do anúncio-->
-                            @php
+                            @if(isset($artigo))
+                            @foreach($artigo as $artg)
 
-                            $maxpage = ceil(count($artigo)/4);
-                            $show_number = 4 * $page;
-                            $i = $show_number-4;
-
-                            @endphp
-
-                            @for($i; $i < $show_number; $i++)
-                                <!-- Verificar o estado do usuário -->
-                                @if($artigo[$i]->user->status !== 'inativado')
-                                    <div class="group my-1 flex w-full max-w-[260px] flex-col overflow-hidden rounded-xl border border-graytt-light shadow-tt bg-white transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 duration-300">
-                                        <a href="/viewannounce/{{$artigo[$i]->id}}">
-                                            <div class="relative mx-3 mt-3 flex h-48 overflow-hidden rounded-xl border-2 border-black">
-                                                @foreach($artigo[$i]->imagens as $imagem)
-                                                    @if($imagem->imagem_principal)
-                                                        <img class="peer absolute top-0 right-0 h-full w-full object-cover" loading="lazy" src="{{ asset($imagem->endereco_imagem) }}">
+                                    <!-- Verificar o estado do usuário -->
+                                    @if($artg->user->status !== 'inativado')
+                                        <div class="group my-1 flex w-full max-w-[260px] flex-col overflow-hidden rounded-xl border border-graytt-light shadow-tt bg-white transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 duration-300">
+                                            <a href="/viewannounce/{{$artg->id}}">
+                                                <div class="relative mx-3 mt-3 flex h-48 overflow-hidden rounded-xl border-2 border-black">
+                                                    @foreach($artg->imagens as $imagem)
+                                                        @if($imagem->imagem_principal)
+                                                            <img class="peer absolute top-0 right-0 h-full w-full object-cover" loading="lazy" src="{{ asset($imagem->endereco_imagem) }}">
+                                                        @endif
+                                                    @endforeach
+                                                    @if(isset($artg->imagens[1]))
+                                                        <img class="peer absolute top-0 -right-96 h-full w-full object-cover transition-all delay-100 duration-1000 hover:right-0 peer-hover:right-0" src="{{ asset($artg->imagens[1]->endereco_imagem) }}" alt="Imagem do Produto" />
                                                     @endif
-                                                @endforeach
-                                                @if(isset($artigo[$i]->imagens[1]))
-                                                    <img class="peer absolute top-0 -right-96 h-full w-full object-cover transition-all delay-100 duration-1000 hover:right-0 peer-hover:right-0" src="{{ asset($artigo[$i]->imagens[1]->endereco_imagem) }}" alt="Imagem do Produto" />
-                                                @endif
-                                            </div>
-                                            <div class="mt-4 px-5 pb-5">
-                                                <p class="truncate lg:text-left lg:mt-2 text-black">{{$artigo[$i]->nome_artigo}}</p>
-                                                <p class="truncate lg:text-left lg:mt-2 text-stone-400">{{$artigo[$i]->categoria_artigo}}</p>
-                                                @if($artigo[$i]->valor_sugerido_artigo)
-                                                    <div class="mt-2 flex items-center">
-                                                        <p>
-                                                            <span class="truncate lg:text-left lg:mt-2 text-black">Valor Sugerido:</span>
-                                                            <span class="truncate text-1xl md:text-1xl lg:text-lg ml-2 font-bold text-pinktt">R${{$artigo[$i]->valor_sugerido_artigo}}</span>
-                                                        </p>
-                                                    </div>
-                                                @endif
-                                            </div>
-                                        </a>
-                                    </div>
-                                @endif
-                            @endfor
+                                                </div>
+                                                <div class="mt-4 px-5 pb-5">
+                                                    <p class="truncate lg:text-left lg:mt-2 text-black">{{$artg->nome_artigo}}</p>
+                                                    <p class="truncate lg:text-left lg:mt-2 text-stone-400">{{$artg->categoria_artigo}}</p>
+                                                    @if($artg->valor_sugerido_artigo)
+                                                        <div class="mt-2 flex items-center">
+                                                            <p>
+                                                                <span class="truncate lg:text-left lg:mt-2 text-black">Valor Sugerido:</span>
+                                                                <span class="truncate text-1xl md:text-1xl lg:text-lg ml-2 font-bold text-pinktt">R${{$artg->valor_sugerido_artigo}}</span>
+                                                            </p>
+                                                        </div>
+                                                    @endif
+                                                </div>
+                                            </a>
+                                        </div>
+                                    @endif
+                            @endforeach
                             @endif
+                        </div>
+
+                        <div class="flex gap-5 justify-center mt-8">
+                            {{ $artigo->links() }}
                         </div>
                     </div>
                 </div>
             </div>
 
     </div>
-
-    @if(count($artigo) > 0)
-    <div class="max-w-screen-xl px-4 mx-auto">
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 justify-items-center mt-14">
-
-            @php
-
-            $maxpage = ceil(count($artigo)/4);
-            $show_number = 4 * $page;
-            $i = $show_number-4;
-
-            @endphp
-
-            @for($i; $i < $show_number; $i++)
-
-                @if(isset($artigo[$i]))
-
-                <div class="group my-1 flex w-full max-w-[260px] flex-col overflow-hidden rounded-xl border border-graytt-light shadow-tt bg-white transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 duration-300">
-                <a href="/viewannounce/{{$artigo[$i]->id}}">
-                    <div class="relative mx-3 mt-3 flex h-48 overflow-hidden rounded-xl border-2 border-black">
-                        @foreach($artigo[$i]->imagens as $imagem)
-                        @if($imagem->imagem_principal)
-                        <img class="peer absolute top-0 right-0 w-full object-cover" loading="lazy" src="{{ asset($imagem->endereco_imagem) }}">
-                        @endif
-                        @endforeach
-                    </div>
-                    <div class="mt-4 px-5 pb-5">
-                        <p class="truncate lg:text-left lg:mt-2 text-black">{{$artigo[$i]->nome_artigo}}</p>
-
-                        <p class="truncate lg:text-left lg:mt-2 text-stone-400">{{$artigo[$i]->categoria_artigo}}</p>
-
-                        @if($artigo[$i]->valor_sugerido_artigo)
-                        <div class="mt-2 flex items-center">
-                            <p>
-                                <span class="truncate lg:text-left lg:mt-2 text-black">Valor Sugerido:
-                            </p>
-                            <span class="truncate text-1xl md:text-1xl lg:text-lg ml-2 font-bold text-pinktt">R${{$artigo[$i]->valor_sugerido_artigo}}</span>
-                            </p>
-                        </div>
-                        @endif
-                    </div>
-                </a>
-                </div>
-
-                @endif
-            @endfor
-
-        </div>
-
-        <div class="flex gap-5 justify-center mt-8">
-            @for($i = 1; $i <= $maxpage; $i++)
-
-                <a href="{{ route('adm.announces', ['page' => $i]) }}">{{ $i }}</a>
-
-            @endfor
-        </div>
-
-    </div>
-    @endif
 
     <script>
         var mt_paralax = document.getElementById("mt-paralax");

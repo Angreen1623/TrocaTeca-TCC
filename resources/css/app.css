@@ -40,6 +40,15 @@
     }
   
   /*Fim da animação do hover*/  
+
+  /*sombra em letras*/
+  .text-report{
+    text-shadow: 
+      1px 1px 0 black,  /* Sombra à direita-inferior */
+      -1px 1px 0 black, /* Sombra à esquerda-inferior */
+      1px -1px 0 black, /* Sombra à direita-superior */
+      -1px -1px 0 black; /* Sombra à esquerda-superior */
+  }
   
   /*cor das sombras*/
   .bg-shadowtt {

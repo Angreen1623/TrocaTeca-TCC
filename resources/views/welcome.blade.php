@@ -83,6 +83,11 @@
                         @endforeach
                         @endif
                     </div>
+
+                    <div class="flex gap-5 justify-center mt-8">
+                        {{ $artigo->links() }}
+                    </div>
+                    
                 </div>
                 @include('footer')
             </div>

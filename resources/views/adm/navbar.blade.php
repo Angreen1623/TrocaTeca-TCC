@@ -9,17 +9,17 @@
             </span>
         </div>
         <div class="flex flex-col ml-6 mt-3 max-w-80">
-            <a href="{{ route('adm') }}">
+            <a href="{{ route('adm.announces.view') }}">
                 <ul class="w-full border-b border-graytt-dark flex flex-row py-5 items-center hover:bg-gray-200">
                     <p class="underline-animation">Visualizar Anúncios da Plataforma</p>
                 </ul>
             </a>
-            <a href="{{ route('adm.announces')  }}">
+            <a href="{{ route('adm')  }}">
                 <ul class="w-full border-b border-graytt-dark flex flex-row py-5 items-center hover:bg-gray-200">
                     <p class="underline-animation">Visualizar Denúncias de Anúncios</p>
                 </ul>
             </a>
-            <a href="{{ route('about') }}">
+            <a href="{{ route('adm.chat.view') }}">
                 <ul class="w-full border-b border-graytt-dark flex flex-row py-5 items-center hover:bg-gray-200">   
                     <p class="underline-animation">Visualizar Denúncias de Chat</p>
                 </ul>
@@ -105,9 +105,9 @@
     </div>
     <div class="flex place-content-evenly w-full p-2 border-b h-10 items-center border-black bg-white">
 
-        <ul class="md:underline-animation hidden md:block"><a href="{{ route('meusacordos') }}">Visualizar Anúncios da Plataforma</a></ul>
-        <ul class="md:underline-animation hidden md:block"><a href="{{ route('mep') }}">Visualizar Denúncias de Anúncios </a></ul>
-        <ul class="md:underline-animation hidden md:block"><a href="{{ route('about') }}">Visualizar Denúncias de Chat</a></ul>
+        <ul class="md:underline-animation hidden md:block"><a href="{{ route('adm.announces.view') }}">Visualizar Anúncios da Plataforma</a></ul>
+        <ul class="md:underline-animation hidden md:block"><a href="{{ route('adm') }}">Visualizar Denúncias de Anúncios </a></ul>
+        <ul class="md:underline-animation hidden md:block"><a href="{{ route('adm.chat.view') }}">Visualizar Denúncias de Chat</a></ul>
 
         <div class="w-96 rounded-full flex bg-white items-center ps-5 md:hidden border-2 h-8">
             <input type="text" id="pesquisa" class="h-7 w-full outline-0">

@@ -19,6 +19,7 @@ return new class extends Migration
             $table->String('categoria_artigo');
             $table->String('condicao_artigo');
             $table->String('tempo_uso_artigo');
+            $table->tinyInteger('status_artigo');
             $table->foreignId('id_usuario_ofertante')->constrained('users')->onUpdate('cascade');
             $table->timestamps();
         });

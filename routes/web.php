@@ -48,8 +48,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/exclude/{id}', [DenunciaController::class, 'delete'])->name('exclude');
     Route::get('/inactivate/{id}', [DenunciaController::class, 'inactivate'])->name('inactivate');
     Route::get('/advertuser/{id}', [DenunciaController::class, 'strike'])->name('advert');
-    Route::get('/adm', [DenunciaController::class, 'list'])->name('adm');
-    Route::get('/adm/announcements/{page?}', [ArtigoController::class, 'list'])->name('adm.announces');
+    Route::get('/adm', [DenunciaController::class, 'listannounces'])->name('adm');
+    Route::get('/adm/chat', [DenunciaController::class, 'listchat'])->name('adm.chat.view');
+    Route::get('/adm/announcements', [ArtigoController::class, 'list'])->name('adm.announces.view');
+    Route::get('/adm/chat/report/{id}', [DenunciaController::class, 'chatreport'])->name('adm.chat');
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -65,13 +67,13 @@ Route::get('/ann', function () {
     return view('annoaccount');
 });
 
-Route::get('/search/{page?}', [ArtigoController::class, 'search'])->name('search');
-Route::get('/filter/{type}/{value}/{page?}', [ArtigoController::class, 'filter'])->name('filter');
+Route::get('/search', [ArtigoController::class, 'search'])->name('search');
+Route::get('/filter/{type}/{value}', [ArtigoController::class, 'filter'])->name('filter');
 
 Route::get('/perfilanunciante/{id}', [ProfileController::class, 'viewProfileanun'])->name('viewProfileanun');
 
 Route::post('/propose/create', [PropostaController::class, 'create'])->middleware(['auth', 'verified'])->name('propose.add');
-Route::get('/viewannounce/{id_artigo}', [ArtigoController::class, 'viewAnnounce'])->name('artigo.view');
+Route::get('/viewannounce/{id_artigo}/{denun_id?}', [ArtigoController::class, 'viewAnnounce'])->name('artigo.view');
 
 Route::get('/about', function () {
     return view('quemsomos');

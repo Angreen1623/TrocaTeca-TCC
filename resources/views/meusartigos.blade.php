@@ -45,18 +45,24 @@
                                                 @endforeach
                                             </div>
                                         </div>
-                                        <div class="flex flex-col gap-2 py-2 w-full text-center sm:text-left">
-                                            <p class="truncate text-black text-xs sm:text-lg md:text-xl lg:text-2xl xl:text-3xl">{{ $artg->nome_artigo }}</p>
-                                            <p class="truncate text-stone-400 text-xs sm:text-sm md:text-base lg:text-base xl:text-lg">{{ $artg->categoria_artigo }}</p>
-                                        </div>
+                                        @if($artg->status_artigo == 0)
+                                            <div class="flex flex-col gap-2 py-2 w-full text-center sm:text-left">
+                                                <p class="truncate text-black text-xs sm:text-lg md:text-xl lg:text-2xl xl:text-3xl">{{ $artg->nome_artigo }}</p>
+                                                <p class="truncate text-stone-400 text-xs sm:text-sm md:text-base lg:text-base xl:text-lg">{{ $artg->categoria_artigo }}</p>
+                                            </div>
 
-                                        <!-- Exibição do valor sugerido se existir -->
-                                        @if($artg->valor_sugerido_artigo)
-                                        <div class="sm:pl-6 flex sm:h-20 sm:basis-2/5 sm:border-l border-black items-end sm:mb-0 mb-3">
-                                            <p class="text-black text-xs sm:text-sm md:text-base lg:text-base xl:text-lg">Valor sugerido:
-                                            <h1 class="font-bold text-pinktt ml-2 text-xs sm:text-sm md:text-base lg:text-base xl:text-lg">R${{ $artg->valor_sugerido_artigo }}</h1>
-                                            </p>
-                                        </div>
+                                            <!-- Exibição do valor sugerido se existir -->
+                                            @if($artg->valor_sugerido_artigo)
+                                            <div class="sm:pl-6 flex sm:h-20 sm:basis-2/5 sm:border-l border-black items-end sm:mb-0 mb-3">
+                                                <p class="text-black text-xs sm:text-sm md:text-base lg:text-base xl:text-lg">Valor sugerido:
+                                                <h1 class="font-bold text-pinktt ml-2 text-xs sm:text-sm md:text-base lg:text-base xl:text-lg">R${{ $artg->valor_sugerido_artigo }}</h1>
+                                                </p>
+                                            </div>
+                                            @endif
+                                        @else
+                                            <div class="flex flex-col gap-2 py-2 w-full text-center sm:text-left">
+                                                <p class="truncate text-stone-400 text-xs sm:text-sm md:text-base lg:text-base xl:text-lg">Seu artigo foi denunciado</p>
+                                            </div>
                                         @endif
 
                                     </div>

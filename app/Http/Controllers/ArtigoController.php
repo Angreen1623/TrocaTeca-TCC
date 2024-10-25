@@ -65,6 +65,7 @@ class ArtigoController extends Controller
         $artg->condicao_artigo = $req->condpropo;
         $artg->id_usuario_ofertante = $req->user()->id;
         $artg->tempo_uso_artigo = $req->uso_art;
+        $artg->status_artigo = 0;
 
         $artg->save();
 
@@ -116,7 +117,7 @@ class ArtigoController extends Controller
         return view('meusartigos', compact('artigo', 'artigo_sucedido'));
     }
 
-    public function search(Request $req, ?int $page = 1)
+    public function search(Request $req)
     {
         // Subconsulta para contar acordos bem-sucedidos por usuário
         $subQuery = DB::table('acordos')
@@ -135,22 +136,22 @@ class ArtigoController extends Controller
                     $query->where('status_acordo', 4); // Excluir artigos com acordos bem-sucedidos
                 });
             })
+            ->where('status_artigo', '0')
             ->with(['imagens', 'user'])
             ->leftJoinSub($subQuery, 'acordos_count', function ($join) {
                 $join->on('artigos.id_usuario_ofertante', '=', 'acordos_count.id_usuario_int');
             })
             ->orderByDesc('acordos_count.trocas_bem_sucedidas') // Ordenar pela quantidade de trocas bem-sucedidas
             ->orderByDesc('artigos.created_at') // Ordenar por data de criação
-            ->get();
+            ->paginate(4);
     
     return view('announcements', [
         'artigo' => $artg,
         'searchTerm' => $req->search, // Passa o termo de pesquisa para a view
-        'page' => $page
     ]);
     }
 
-    public function list(Request $req, ?int $page = 1)
+    public function list(Request $req)
     {
     // Subconsulta para contar acordos bem-sucedidos por usuário
     $subQuery = DB::table('acordos')
@@ -171,13 +172,14 @@ class ArtigoController extends Controller
                 $query->where('status_acordo', 4); // Excluir artigos com acordos bem-sucedidos
             });
         })
+        ->where('status_artigo', '0')
         ->with('imagens', 'user') // Carrega relações de imagens e usuário
         ->orderByDesc('acordos_count.trocas_bem_sucedidas') // Prioriza usuários com mais trocas bem-sucedidas
         ->orderByDesc('artigos.created_at') // E depois os mais recentes
-        ->get();
+        ->paginate(4);
 
         if (null !== $req->user() && $req->user()->email == 'trocatecaltda@gmail.com') {
-            return view('adm.announcements', compact(['artigo', 'page']));
+            return view('adm.announcements', compact(['artigo']));
         }
 
         return view('welcome')->with('artigo', $artigo);
@@ -288,20 +290,26 @@ class ArtigoController extends Controller
     }
 
     /*ver dados do artigo do usuário ofertante*/
-    public function viewAnnounce($id_artigo)
+    public function viewAnnounce($id_artigo, ?int $denun_id, Request $req)
     {
         $artigo = Artigo::with(['imagens', 'user'])->findOrFail($id_artigo);
+        if (null !== $req->user() && $req->user()->email == 'trocatecaltda@gmail.com')
+        return view('adm.viewannounce', compact('artigo','denun_id'));
+
         return view('viewannounce')->with('artigo', $artigo);
     }
 
-    public function filter($type, $value, Request $req, ?int $page = 1)
+    public function filter($type, $value, Request $req)
     {
     // Inicializa a consulta base para evitar repetição de código
     $artigoQuery = Artigo::whereDoesntHave('proposta', function ($query) {
             $query->whereHas('acordo', function ($query) {
                 $query->where('status_acordo', 4); // Excluir artigos com acordos bem-sucedidos
             });
-        })->with('imagens'); // Carregar a relação 'imagens'
+        })
+        ->where('status_artigo', '0')
+        ->whereNull('users.estado_conta') // Exclui artigos de usuários inativados
+        ->with('imagens'); // Carregar a relação 'imagens'
 
     // Filtra de acordo com o tipo
     if ($type == 'categoria') {
@@ -318,9 +326,9 @@ class ArtigoController extends Controller
     }
 
     // Executa a consulta e obtém os resultados
-    $artigo = $artigoQuery->get();
+    $artigo = $artigoQuery->paginate(4);
 
     // Retorna a view com os artigos filtrados
-    return view('announcements', compact(['artigo', 'type', 'value', 'page'])); 
+    return view('announcements', compact(['artigo', 'type', 'value'])); 
     }
 }

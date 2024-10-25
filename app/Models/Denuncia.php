@@ -24,4 +24,8 @@ class Denuncia extends Model
     public function denuncia_usuario(){
         return $this->hasOne(Denuncia_usuario::class, 'id_denuncia');
     }
+
+    public function user(){
+        return $this->belongsTo(User::class, 'id_denunciador');
+    }
 }

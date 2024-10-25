@@ -12,7 +12,11 @@
 
 <body class="bg-backgtt">
     <div class="h-full min-h-screen relative">
+    @if(auth()->id() && auth()->user()->email == 'trocatecaltda@gmail.com')
+        @include('adm.navbar')
+    @else
         @include('navbar')
+    @endif
         <div class="space-y-8 overflow-hidden sm:px-6 lg:px-8 bg-backgtt w-full">
             <div class="max-w-screen-xl px-4 mx-auto">
 
@@ -28,38 +32,29 @@
                 </div>
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 justify-items-center mt-14">
 
-                    @php
-
-                    $maxpage = ceil(count($artigo)/4);
-                    $show_number = 4 * $page;
-                    $i = $show_number-4;
-
-                    @endphp
-
-                    @for($i; $i < $show_number; $i++)
-
-                    @if(isset($artigo[$i]))
+                @foreach($artigo as $artg)
+                    @if(isset($artg))
 
                         <div class="group my-1 flex w-full max-w-[260px] flex-col overflow-hidden rounded-xl border border-graytt-light shadow-tt bg-white transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 duration-300">
-                        <a href="/viewannounce/{{$artigo[$i]->id}}">
+                        <a href="/viewannounce/{{$artg->id}}">
                             <div class="relative mx-3 mt-3 flex h-48 overflow-hidden rounded-xl border-2 border-black">
-                                @foreach($artigo[$i]->imagens as $imagem)
+                                @foreach($artg->imagens as $imagem)
                                 @if($imagem->imagem_principal)
                                 <img class="peer absolute top-0 right-0 h-full w-full object-cover" loading="lazy" src="{{ asset($imagem->endereco_imagem) }}">
                                 @endif
                                 @endforeach
                             </div>
                             <div class="mt-4 px-5 pb-5">
-                                <p class="truncate lg:text-left lg:mt-2 text-black">{{$artigo[$i]->nome_artigo}}</p>
+                                <p class="truncate lg:text-left lg:mt-2 text-black">{{$artg->nome_artigo}}</p>
 
-                                <p class="truncate lg:text-left lg:mt-2 text-stone-400">{{$artigo[$i]->categoria_artigo}}</p>
+                                <p class="truncate lg:text-left lg:mt-2 text-stone-400">{{$artg->categoria_artigo}}</p>
 
-                                @if($artigo[$i]->valor_sugerido_artigo)
+                                @if($artg->valor_sugerido_artigo)
                                 <div class="mt-2 flex items-center">
                                     <p>
                                         <span class="truncate lg:text-left lg:mt-2 text-black">Valor Sugerido:
                                     </p>
-                                    <span class="truncate text-1xl md:text-1xl lg:text-lg ml-2 font-bold text-pinktt">R${{$artigo[$i]->valor_sugerido_artigo}}</span>
+                                    <span class="truncate text-1xl md:text-1xl lg:text-lg ml-2 font-bold text-pinktt">R${{$artg->valor_sugerido_artigo}}</span>
                                     </p>
                                 </div>
                                 @endif
@@ -67,23 +62,11 @@
                         </a>
                 </div>
                 @endif
-                @endfor
-
-
-
-
+                @endforeach
             </div>
 
             <div class="flex gap-5 justify-center mt-8">
-                @for($i = 1; $i <= $maxpage; $i++)
-
-                    @if(isset($searchTerm))
-                    <a href="{{route('search', ['search' => $searchTerm, 'page' => $i])}}">{{ $i }}</a>
-                    @elseif(isset($value))
-                    <a href="{{route('filter', ['type' => $type, 'value' => $value, 'page' => $i])}}">{{ $i }}</a>
-                    @endif
-
-                @endfor
+                {{ $artigo->links() }}
             </div>
             
             @else
