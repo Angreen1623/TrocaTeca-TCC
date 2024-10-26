@@ -194,18 +194,12 @@
             }
 
             const open = document.getElementById('openNotificationButton');
-            const modal = document.getElementById('modalnotification');
 
             if (open) {
                 open.addEventListener('click', function(e) {
                     e.preventDefault();
                     modal.classList.remove('hidden');
                     document.body.classList.add('overflow-hidden');
-                });
-
-                document.getElementById('confirm').addEventListener('click', function() {
-                    modal.classList.add('hidden');
-                    document.body.classList.remove('overflow-hidden');
                 });
             }
 

@@ -171,6 +171,8 @@
         @include('footer')
     </div>
     @include('warningm')
+    @include('notification', ['title' => "Ação realizada com êxito", 'body' => "Seu perfil foi alterado com sucesso."])
+
 
     <script>
         let paiimg = '.add-img';
@@ -189,6 +191,13 @@
 
         };
     </script>
+
+    @if(session('status') )
+    <script>
+        modal.classList.remove('hidden');
+        document.body.classList.add('overflow-hidden');
+    </script>
+    @endif
 </body>
 
 </html>
