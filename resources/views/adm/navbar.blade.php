@@ -66,13 +66,6 @@
             </button>
         </form>
         <div class="sm:ml-6 hidden md:block relative">
-            <!-- Exibir apenas para usuários não autenticados -->
-            @guest
-            <p class="">
-                <a href="{{ route('login') }}" class="underline-animation font-bold">Logar</a> ou
-                <a href="{{ route('register') }}" class="underline-animation font-bold">Cadastrar-se</a>
-            </p>
-            @endguest
 
             <!-- Exibir somente para usuários autenticados -->
             @auth
@@ -87,15 +80,10 @@
                 </svg>
                 <!-- Menu Pop-up -->
                 <div id="menupop" class="flex flex-col absolute hidden justify-center bg-bluett w-56 px-3 py-2 z-50 bottom-[-75px] left-[-190px] border-black border rounded-b-lg rounded-l-lg">
-                    <button id="openLogoutButton" type="button" class="bg-white p-3 border-black border rounded-xl hover:bg-graytt-light text-black text-md font-medium rounded-2xl">
+                    <button id="openLogoutButton" type="button" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="bg-white p-3 border-black border rounded-xl hover:bg-graytt-light text-black text-md font-medium rounded-2xl">
                         Sair da conta
                     </button>
                 </div>
-
-                <!-- Logout Form -->
-                <form id="logout-form" method="POST" action="{{ route('logout') }}" class="hidden">
-                    @csrf
-                </form>
             </div>
             <!-- Ou qualquer outra informação que você deseja mostrar para usuários autenticados -->
             </p>

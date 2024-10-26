@@ -290,10 +290,10 @@ class ArtigoController extends Controller
     }
 
     /*ver dados do artigo do usuário ofertante*/
-    public function viewAnnounce($id_artigo, ?int $denun_id, Request $req)
+    public function viewAnnounce($id_artigo, Request $req, $denun_id = NULL)
     {
         $artigo = Artigo::with(['imagens', 'user'])->findOrFail($id_artigo);
-        if (null !== $req->user() && $req->user()->email == 'trocatecaltda@gmail.com')
+        if (isset($denun_id))
         return view('adm.viewannounce', compact('artigo','denun_id'));
 
         return view('viewannounce')->with('artigo', $artigo);
