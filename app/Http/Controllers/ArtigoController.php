@@ -308,7 +308,9 @@ class ArtigoController extends Controller
             });
         })
         ->where('status_artigo', '0')
-        ->whereNull('users.estado_conta') // Exclui artigos de usuários inativados
+        ->wherehas('user', function ($query){
+            $query->whereNull('estado_conta');
+        }) // Exclui artigos de usuários inativados
         ->with('imagens'); // Carregar a relação 'imagens'
 
     // Filtra de acordo com o tipo

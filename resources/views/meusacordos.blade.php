@@ -106,6 +106,16 @@
     @endforeach
     @endif
 
+    @include('notification', ['title' => "Ação realizada com êxito", 'body' => "Você validou o acordo com sucesso."])
+
+
+    @if(session('status') )
+    <script>
+        modal.classList.remove('hidden');
+        document.body.classList.add('overflow-hidden');
+    </script>
+    @endif
+
 </body>
 
 </html>
