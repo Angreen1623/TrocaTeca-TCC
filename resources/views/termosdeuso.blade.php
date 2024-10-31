@@ -17,7 +17,7 @@
                     <img src="{{ asset('image/logo-full2.png') }}" alt="Logo do TrocaTeca" width="550" class="py-10 lg:py-18">
                 </div>
                 <div class='w-full'>
-                    <h1 class="text-3xl sm:text-5xl font-bold mb-4 text-black text-center" style="font-family: 'Fredoka'">Termos de Uso TrocaTeca</h1>
+                    <h1 class="text-3xl sm:text-5xl font-bold mb-4 text-black text-center" style="font-family: 'Fredoka'">Termos de Uso</h1>
                 </div>
                 <p class="text-center mb-3">
                     {{ date('Y') }}
@@ -35,7 +35,7 @@
                 <h2 class='mt-6 font-bold text-black text-xl'>I. Sobre o TrocaTeca</h2>
                 <p class="mb-4 text-base">
                     O TrocaTeca é uma plataforma intermediadora designada para o reuso de artigo infantis. O nosso papel quanto intermediadores é
-                    conectar usuários, os quais nos referimos como trocadores, que desejam se desfazer de seus artigos infantis ou que desejam obter
+                    conectar usuários, os quais nos referimos como negociantes, que desejam se desfazer de seus artigos infantis ou que desejam obter
                     artigos infantis de uma nova forma: Através das trocas. A aplicação permite que os usuários que possuam artigos infantis (como roupas, brinquedos,
                     móveis, equipamentos para mobilidade) que acabaram se tornando inservíveis para a criança, muita das vezes pelo crescimento da mesma, possam anunciar esses
                     itens para se desfazer dele de maneira sustentável. A ideia é que o seu objeto, não mais usado pela sua criança, chegue em outro trocador, para que ele
