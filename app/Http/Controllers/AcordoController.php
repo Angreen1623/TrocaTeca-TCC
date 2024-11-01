@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+namespace App\Http\Controllers;
 
+use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\Mail;
 use App\Models\Acordo;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Mensagem;
@@ -11,7 +14,8 @@ use Illuminate\Http\Request;
 
 class AcordoController extends Controller
 {
-    public function create(Request $req, $id){
+    public function create(Request $req, $id)
+    {
 
         $validator = Validator::make($req->all(), [
             'nome_art_fi' => 'required|string|max:100',
@@ -48,7 +52,7 @@ class AcordoController extends Controller
         $acordo->anuncio = $req->nome_art_fi;
         $acordo->categoria_acordo = $req->catepropo_fi;
 
-        $imagem = "image/users-img/". uniqid("", true) . "." . pathinfo($_FILES['imagem_final']['name'], PATHINFO_EXTENSION);
+        $imagem = "image/users-img/" . uniqid("", true) . "." . pathinfo($_FILES['imagem_final']['name'], PATHINFO_EXTENSION);
         move_uploaded_file($_FILES['imagem_final']["tmp_name"], $imagem);
         $acordo->imagem_acordo = $imagem;
 
@@ -60,10 +64,10 @@ class AcordoController extends Controller
 
         $mensagens = new Mensagem();
 
-        $mensagem = "Proposta final: ".$acordo->anuncio."
-Categoria: ".$acordo->categoria_acordo." 
-Data do encontro: ".$acordo->data_encontro."
-Local do encontro: ".$acordo->local_encontro;
+        $mensagem = "Proposta final: " . $acordo->anuncio . "
+Categoria: " . $acordo->categoria_acordo . " 
+Data do encontro: " . $acordo->data_encontro . "
+Local do encontro: " . $acordo->local_encontro;
 
         $mensagens->id_usuario = $req->user()->id;
         $mensagens->id_proposta = $acordo->id_proposta;
@@ -76,8 +80,9 @@ Local do encontro: ".$acordo->local_encontro;
         return redirect()->back();
     }
 
-    public function show(Request $req){
-        $acordos = Acordo::whereHas('proposta', function($query) use ($req) {
+    public function show(Request $req)
+    {
+        $acordos = Acordo::whereHas('proposta', function ($query) use ($req) {
             $query->where('id_usuario_int', $req->user()->id);
         })->orWhereHas('proposta.artigo', function ($query) use ($req) {
             $query->where('id_usuario_ofertante', $req->user()->id);
@@ -86,26 +91,29 @@ Local do encontro: ".$acordo->local_encontro;
         return view('meusacordos', compact('acordos'));
     }
 
-    public function updateStatusAgree(Request $req, $id){
+    public function updateStatusAgree(Request $req, $id)
+    {
         $acordo = new Acordo();
 
-        $acordo = $acordo::where('id',$id)->with('proposta.artigo.user')->get();
+        $acordo = $acordo::where('id', $id)->with('proposta.artigo.user')->get();
 
-        foreach($acordo as $acordo){
-            if($acordo->status_acordo == 1){
+        foreach ($acordo as $acordo) {
+            if ($acordo->status_acordo == 1) {
 
-                if($acordo->proposta->id_usuario_int == $req->user()->id){
+                if ($acordo->proposta->id_usuario_int == $req->user()->id) {
                     $acordo->status_acordo = 2; //usuario interessado confirmou
-                }elseif($acordo->proposta->artigo->id_usuario_ofertante == $req->user()->id){
+                } elseif ($acordo->proposta->artigo->id_usuario_ofertante == $req->user()->id) {
                     $acordo->status_acordo = 3; //usuário ofertante confirmou
                 }
                 $status = 'aguarde';
-
-            }elseif(($acordo->status_acordo == 3 && $acordo->proposta->id_usuario_int == $req->user()->id) || 
-            ($acordo->status_acordo == 2 && $acordo->proposta->artigo->id_usuario_ofertante == $req->user()->id)){
+            } elseif (($acordo->status_acordo == 3 && $acordo->proposta->id_usuario_int == $req->user()->id) ||
+                ($acordo->status_acordo == 2 && $acordo->proposta->artigo->id_usuario_ofertante == $req->user()->id)
+            ) {
                 $acordo->status_acordo = 4; //ambos confirmaram
                 $acordo->proposta->status_proposta = 2;
                 $acordo->proposta->save();
+
+                $this->generatePdf($acordo);
 
                 $status = 'finalizado';
             }
@@ -116,7 +124,30 @@ Local do encontro: ".$acordo->local_encontro;
         return redirect()->back()->with('status', $status);
     }
 
-    public function updateStatusAccept($id){
+    public function generatePdf(Acordo $acordo)
+    {
+        $emails = [
+            $acordo->proposta->artigo->user->email,
+            $acordo->proposta->user->email
+        ];
+
+        $data["title"] = "Comprovante de troca: {$acordo->proposta->artigo->user->name} e {$acordo->proposta->user->name}";
+
+        $data["body"] = "Obrigado por usar o Trocateca. Baixe seu comprovante:";
+
+        $pdf = PDF::loadView('comprovante', ['acordo' => $acordo]);
+
+        foreach ($emails as $email) {
+            Mail::send([], [], function ($message) use ($data, $pdf, $email) {
+                $message->to($email)
+                    ->subject($data["title"])
+                    ->attachData($pdf->output(), "comprovante-de-troca.pdf");
+            });
+        }
+    }
+
+    public function updateStatusAccept($id)
+    {
         $acordo = Acordo::find($id);
 
         $acordo->status_acordo = 1;
@@ -125,9 +156,10 @@ Local do encontro: ".$acordo->local_encontro;
         return redirect()->back();
     }
 
-    public function updateStatusDeny($id){
+    public function updateStatusDeny($id)
+    {
         $acordo = Acordo::find($id);
-        $acordo->delete();      
+        $acordo->delete();
 
         return redirect()->back();
     }
