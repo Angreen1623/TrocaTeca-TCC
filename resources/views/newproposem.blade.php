@@ -40,7 +40,7 @@
                         <label for="condpropo" class="block text-sm font-semibold leading-6 text-white mt-4">Condição:</label>
                         <div class="inset-y-0 left-0 flex items-center">
                             <select id="condpropo" name="condpropo" required class="custom-select shadow-tt block w-52 rounded-xl border border-graytt-light px-3.5 py-2 text-graytt-dark shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                                <option value="nenhum foi selecionado">Selecionar</option>
+                                <option value="nenhum foi selecionado" disabled selecte>Selecionar</option>
                                 <option value="Novo">Novo</option>
                                 <option value="Seminovo">Seminovo</option>
                                 <option value="Usado">Usado</option>
@@ -48,7 +48,15 @@
                         </div>
 
                         <label for="uso_art" class="block text-sm font-semibold leading-6 text-white mt-4">Tempo de Uso:</label>
-                        <input type="text" name="uso_art" id="uso_art" autocomplete="organization" required class="shadow-tt block w-36 rounded-xl border border-graytt-light px-3.5 py-2 shadow-sm ring-1 border border-graytt ring-inset ring-graytt placeholder:text-graytt-dark focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6">
+                        <div class="flex">
+                            <input type="text" name="uso_art" id="uso_art" autocomplete="organization" required class="shadow-tt block w-36 rounded-xl border border-graytt-light px-3.5 py-2 shadow-sm ring-1 border border-graytt ring-inset ring-graytt placeholder:text-graytt-dark focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6">
+                            <select id="uso_art2" name="uso_art2" required class="custom-select shadow-tt block w-52 rounded-xl border border-graytt-light px-3.5 py-2 text-graytt-dark shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                <option value="nenhum foi selecionado" disabled selected>Selecionar</option>
+                                <option value="ano(s)">ano(s)</option>
+                                <option value="mes(es)">mes(es)</option>
+                                <option value="dia(s)">dia(s)</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
 

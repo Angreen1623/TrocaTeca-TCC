@@ -15,7 +15,7 @@ class PropostaController extends Controller
         $prst->nome_proposta = $req->nome_art;
         $prst->categoria_proposta = $req->catepropo;
         $prst->condicao_proposta = $req->condpropo;
-        $prst->tempo_uso_proposta = $req->uso_art;
+        $prst->tempo_uso_proposta = $req->uso_art." ".$req->uso_art2;
 
         $imagem = "image/users-img/". uniqid("", true) . "." . pathinfo($_FILES['img_principal']['name'], PATHINFO_EXTENSION);
         move_uploaded_file($_FILES['img_principal']["tmp_name"], $imagem);
