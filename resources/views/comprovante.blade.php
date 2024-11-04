@@ -10,7 +10,7 @@
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
-            background-color: #ffffff; 
+            background-color: #c0d3f7;
             color: #000000; 
             height: 100%;
             box-sizing: border-box;
@@ -32,13 +32,14 @@
 
       
         .title {
-            font-size: 32px; 
+            font-size: 42px; 
             margin-bottom: 16px; 
             font-weight: bold; 
+            color: white; 
         }
 
         .section-title {
-            font-size: 26px; 
+            font-size: 32px; 
             margin-top: 20px;
             margin-bottom: 8px; 
             font-weight: bold; 
@@ -48,26 +49,35 @@
             color: #ef4444; 
             font-size: 20px; 
             margin-top: 20px; 
+            font-weight: bold;
         }
 
         
         .text {
             margin-top: 4px;
-            font-size: 32px; 
+            font-size: 26px; 
             margin-bottom: 12px; 
         }
 
-        /* Divisor */
+    
         .divider {
             margin: 16px 0;
             border: 1px solid #000; 
         }
 
-        /* Rodapé */
         footer {
             text-align: center;
             font-size: 18px; 
-            margin-top: 16px; 
+            margin-top: -25px; 
+        }
+
+        footer p {
+            color: #777;
+        }
+
+        .logo {
+            height: 190px;
+            width: 380px;
         }
     </style>
 </head>
@@ -75,22 +85,23 @@
 <body>
 
     <div class="content">
+    <img src="{{ public_path('image/logo-full.png') }}" class="logo">
         <h1 class="title">Comprovante de Troca</h1>
         <hr class="divider">
 
-        <h2 class="section-title">Nome dos envolvidos</h2>
+        <h1 class="section-title">Nome dos envolvidos</h2>
         <p class="text">{{ $acordo->proposta->artigo->user->name }} {{ $acordo->proposta->artigo->user->sobrenome }}</p>
         <p class="text">{{ $acordo->proposta->user->name }} {{ $acordo->proposta->user->sobrenome }}</p>
 
-        <h2 class="section-title">Artigos trocados</h2>
+        <h1 class="section-title">Artigos trocados</h2>
         <p class="text">{{ $acordo->proposta->artigo->nome_artigo }}</p>
         <p class="text">{{ $acordo->anuncio }}</p>
 
-        <h2 class="section-title">Local e data de encontro</h2>
+        <h1 class="section-title">Local e data de encontro</h2>
         <p class="text">{{ $acordo->local_encontro }}</p>
-        <p class="text">{{ \Carbon\Carbon::parse($acordo->data_encontro)->format('d/m/Y') }}</p> <!-- Formata a data para o padrão brasileiro -->
+        <p class="text">{{ \Carbon\Carbon::parse($acordo->data_encontro)->format('d/m/Y') }}</p> 
 
-        <hr class="divider">
+        <h1 class="divider">
         <p class="text">O presente comprovante atesta que os itens descritos acima foram trocados entre os referidos usuários, sendo o processo validado por ambas as partes e decorrido com sucesso, sem maiores adversidades.</p>
         <h2 class="warning">Este comprovante não possui nenhum valor fiscal.</h2>
     </div>

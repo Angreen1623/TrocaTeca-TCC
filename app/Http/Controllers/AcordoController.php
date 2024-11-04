@@ -133,12 +133,12 @@ Local do encontro: " . $acordo->local_encontro;
 
         $data["title"] = "Comprovante de troca: {$acordo->proposta->artigo->user->name} e {$acordo->proposta->user->name}";
 
-        $data["body"] = "Obrigado por usar o Trocateca. Baixe seu comprovante:";
+        $data["body"] = "Obrigado por usar o TrocaTeca. Baixe seu comprovante:";
 
         $pdf = PDF::loadView('comprovante', ['acordo' => $acordo]);
 
         foreach ($emails as $email) {
-            Mail::send([], [], function ($message) use ($data, $pdf, $email) {
+            Mail::send('template-email-comprovante', ['acordo' => $acordo], function ($message) use ($data, $pdf, $email) {
                 $message->to($email)
                     ->subject($data["title"])
                     ->attachData($pdf->output(), "comprovante-de-troca.pdf");
