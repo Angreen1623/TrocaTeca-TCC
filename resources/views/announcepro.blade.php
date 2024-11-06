@@ -106,7 +106,7 @@
                             <div class="flex">
                                 <input type="text" name="uso_art" id="uso_art" required class="shadow-tt block w-16 rounded-xl mr-3 border border-graytt-light px-3.5 py-2 shadow-sm ring-1 border border-graytt ring-inset ring-graytt placeholder:text-graytt-dark focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6">
                                 <select id="uso_art2" name="uso_art2" required class="custom-select shadow-tt block w-30 rounded-xl border border-graytt-light px-3.5 py-2 text-graytt-dark shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                                    <option value="nenhum foi selecionado" disabled selected>Selecionar</option>
+                                    <option value="" disabled selected>Selecionar</option>
                                     <option value="ano(s)">ano(s)</option>
                                     <option value="mês(es)">mês(es)</option>
                                     <option value="dia(s)">dia(s)</option>
@@ -168,6 +168,24 @@
                     };
                 }
             }
+
+            let uso_art = document.querySelector('#uso_art');
+            let value = document.querySelector('#val');
+
+            uso_art.addEventListener('keypress', function(event) {
+                blockLettering();
+            });
+
+            value.addEventListener('keypress', function(event) {
+                blockLettering();
+            });
+
+            function blockLettering(){
+                if (!event.key.match(/^(?:-(?:[1-9](?:\d{0,2}(?:,\d{3})+|\d*))|(?:0|(?:[1-9](?:\d{0,2}(?:,\d{3})+|\d*))))(?:.\d+|)$/)) {
+                    event.preventDefault();
+                }
+            }
+
         </script>
         @include('footer')
     </div>
