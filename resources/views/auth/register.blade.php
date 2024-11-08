@@ -12,7 +12,7 @@
 
 <body>
     <!--Modal de cadastrar de conta-->
-    <div class="w-full min-h-screen z-[45] bg-backgtt bg-repeat bg-[length:870px_654px] bg-[url('/public/image/bg-icons.png')] bg-auto flex justify-center items-center px-10 py-5">
+    <div id="notloading" class="w-full min-h-screen z-[45] bg-backgtt bg-repeat bg-[length:870px_654px] bg-[url('/public/image/bg-icons.png')] bg-auto flex justify-center items-center px-10 py-5">
         <div class="relative z-50 inset-0 flex items-center justify-center w-full max-w-5xl">
             <div class="w-full max-w-5xl rounded-3xl bg-bluett py-6 sm:py-8 px-16 shadow-2xl items-center justify-center drop-shadow-tt border-2 border-graytt-light">
                 <form id="registrationForm" method="POST" action="{{ route('register') }}">
@@ -135,7 +135,7 @@
                         </div>
                         <div class="w-full md:w-1/2 md:pl-5 md:border-l-2 border-white">
                             <div class="flex w-full justify-end items-end">
-                                <button type="submit" id="cadastrar" disabled class="inline-flex items-center justify-center w-full sm:w-auto px-4 py-2 bg-pinktt shadow-tt text-white text-lg font-medium rounded-2xl opacity-50 cursor-not-allowed">
+                                <button type="submit" id="cadastrar" disabled class="inline-flex items-center justify-center w-full sm:w-auto px-4 py-2 bg-pinktt shadow-tt text-white text-lg font-medium rounded-2xl opacity-50 cursor-not-allowed" onclick='startLoading()'>
                                     Cadastrar
                                 </button>
                             </div>

@@ -24,8 +24,8 @@ class ArtigoController extends Controller
             'pref' => 'nullable|string|max:50',
             'catepropo' => 'required|string|max:10',
             'condpropo' => 'required|string|max:8',
-            'uso_art' => 'required|in:ano(s), mês(es), dia(s)',
-            'uso_art2' => 'required|numeric|max:3',
+            'uso_art' => 'required|numeric|min:1|max:31',
+            'uso_art2' => 'required|in:ano(s), mês(es), dia(s)',
             'img_principal' => 'required|image|max:10240',
             'img' => 'max:10240'
         ], [
@@ -40,15 +40,15 @@ class ArtigoController extends Controller
             'pref.string' => 'O campo preferência de troca deve conter apenas texto.',
             'catepropo.string' => 'O campo categoria deve conter apenas texto.',
             'condpropo.string' => 'O campo condição deve conter apenas texto.',
-            'uso_art.string' => 'O campo tempo de uso deve conter apenas números.',
-            'uso_art2.string' => 'O campo tempo de uso deve conter apenas texto.',
+            'uso_art.numeric' => 'O campo tempo de uso deve conter apenas números.',
             'img_principal.image' => 'Tipo de arquivo incorreto inserido no campo da imagem.',
 
             'nome_art.max' => 'O campo nome deve conter no maximo 100 caracteres.',
             'pref.max' => 'O campo preferência de troca deve conter no maximo 50 caracteres.',
             'catepropo.max' => 'O campo categoria deve conter no maximo 10 caracteres.',
             'condpropo.max' => 'O campo condição deve conter no maximo 8 caracteres.',
-            'uso_art.max' => 'O campo tempo de uso deve conter no maximo 3 caracteres.',
+            'uso_art.min' => 'O campo tempo de uso deve conter no maximo 1 caracteres.',
+            'uso_art.max' => 'O campo tempo de uso deve conter no maximo 31 caracteres.',
             'img_principal.max' => 'O arquivo da imagem é muito pesado.',
             'img.max' => 'Um arquivo das imagens é muito pesado.',
 
