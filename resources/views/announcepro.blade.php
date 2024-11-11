@@ -173,16 +173,22 @@
             let value = document.querySelector('#val');
 
             uso_art.addEventListener('keypress', function(event) {
-                blockLettering();
+                onlyFloat(uso_art);
             });
 
             value.addEventListener('keypress', function(event) {
-                blockLettering();
+                onlyFloat(value);
             });
 
-            function blockLettering(){
-                if (!event.key.match(/^(?:-(?:[1-9](?:\d{0,2}(?:,\d{3})+|\d*))|(?:0|(?:[1-9](?:\d{0,2}(?:,\d{3})+|\d*))))(?:.\d+|)$/)) {
+            function onlyFloat(element){
+                if (!event.key.match(/[\d.,]/)) {
                     event.preventDefault();
+                }
+
+                if (element.value.includes('.') || element.value.includes(',')) {
+                    if (event.key === ',' || event.key === '.') {
+                        event.preventDefault();
+                    }
                 }
             }
 

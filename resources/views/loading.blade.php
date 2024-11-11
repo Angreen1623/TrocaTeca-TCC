@@ -15,10 +15,6 @@
     function startLoading(){
         screen.classList.add('hidden');
         load.classList.remove('hidden');
-    };
-
-    function stopLoading(){
-        screen.classList.remove('hidden');
-        load.classList.add('hidden');
+        this.submit();
     };
 </script>

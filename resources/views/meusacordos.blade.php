@@ -120,6 +120,9 @@
     </script>
     @endif
 
+    @include('loading')
+
+
 </body>
 
 </html>

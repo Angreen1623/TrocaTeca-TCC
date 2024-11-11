@@ -146,6 +146,8 @@
         </div>
     </div>
 
+    @include('loading')
+
     <script>
         document.getElementById('registrationForm').addEventListener('submit', function(event) {
             const datanInput = document.getElementById('datan');
@@ -174,6 +176,7 @@
         const checkbox = document.getElementById('confirm');
         const cadButton = document.getElementById('cadastrar');
 
+
         checkbox.addEventListener('change', function() {
             if (checkbox.checked) {
                 cadButton.disabled = false;
@@ -185,6 +188,7 @@
                 cadButton.classList.remove('hover:bg-pinktt-dark', 'transition', 'ease-in-out', 'delay-100', 'hover:-translate-y-1', 'hover:scale-110', 'duration-300');
             }
         });
+
     </script>
 </body>
 

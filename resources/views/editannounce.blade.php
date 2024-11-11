@@ -114,7 +114,15 @@
                         <!--Tempo de uso-->
                         <div class="flex flex-col lg:flex-row mt-4 lg:mt-8">
                             <label for="tempo_uso_artigo" class="block text-lg lg:text-xl lg:font-normal font-semibold leading-6 text-black lg:mt-2 lg:mr-3">Tempo de uso*:</label>
-                            <input type="text" name="tempo_uso_artigo" id="tempo_uso_artigo" value="{{$artigo->tempo_uso_artigo}}"  autocomplete="organization" class="shadow-tt block w-36 rounded-xl border border-graytt-light px-3.5 py-2 shadow-lg ring-1 border border-graytt ring-inset ring-graytt placeholder:text-graytt-dark focus:ring-2 focus:ring-inset lg:text-lg lg:leading-6">
+                            <div class="flex">
+                                <input type="text" name="tempo_uso_artigo" id="tempo_uso_artigo" required value="{{floatval($artigo->tempo_uso_artigo)}}"  autocomplete="organization" class="shadow-tt block w-16 mr-3 rounded-xl border border-graytt-light px-3.5 py-2 shadow-lg ring-1 border border-graytt ring-inset ring-graytt placeholder:text-graytt-dark focus:ring-2 focus:ring-inset lg:text-lg lg:leading-6">
+                                <select name="tempo_uso_artigo2" id="tempo_uso_artigo2" required class="shadow-tt block w-30 rounded-xl border border-graytt-light px-3.5 py-2 shadow-lg ring-1 border border-graytt ring-inset ring-graytt placeholder:text-graytt-dark focus:ring-2 focus:ring-inset lg:text-lg lg:leading-6">
+                                    <option value="" disabled selected>Selecionar</option>
+                                    <option value="ano(s)" {{ str_contains($artigo->tempo_uso_artigo, 'ano(s)') == TRUE ? 'selected' : '' }}>ano(s)</option>
+                                    <option value="mês(es)" {{ str_contains($artigo->tempo_uso_artigo, 'mês(es)') == TRUE ? 'selected' : '' }}>mês(es)</option>
+                                    <option value="dia(s)" {{ str_contains($artigo->tempo_uso_artigo, 'dia(s)') == TRUE ? 'selected' : '' }}>dia(s)</option>
+                                </select>
+                            </div>
                         </div>
                     </form>
                     
@@ -201,6 +209,29 @@
                     modal.classList.remove('hidden');
                     document.body.classList.add('overflow-hidden');
                 });
+            }
+
+            let uso_art = document.querySelector('#tempo_uso_artigo');
+            let value = document.querySelector('#valor_sugerido_artigo');
+
+            uso_art.addEventListener('keypress', function(event) {
+                onlyFloat(uso_art);
+            });
+
+            value.addEventListener('keypress', function(event) {
+                onlyFloat(value);
+            });
+
+            function onlyFloat(element){
+                if (!event.key.match(/[\d.,]/)) {
+                    event.preventDefault();
+                }
+
+                if (element.value.includes('.') || element.value.includes(',')) {
+                    if (event.key === ',' || event.key === '.') {
+                        event.preventDefault();
+                    }
+                }
             }
 
         </script>

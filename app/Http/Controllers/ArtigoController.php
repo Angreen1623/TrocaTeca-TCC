@@ -17,6 +17,7 @@ class ArtigoController extends Controller
     {
 
         $req->merge(['val' => str_replace(',', '.', $req->input('val'))]);
+        $req->merge(['uso_art' => str_replace(',', '.', $req->input('uso_art'))]);
 
         $validator = Validator::make($req->all(), [
             'nome_art' => 'required|string|max:100',
@@ -25,7 +26,7 @@ class ArtigoController extends Controller
             'catepropo' => 'required|string|max:10',
             'condpropo' => 'required|string|max:8',
             'uso_art' => 'required|numeric|min:1|max:31',
-            'uso_art2' => 'required|in:ano(s), mês(es), dia(s)',
+            'uso_art2' => 'required|in:ano(s),mês(es),dia(s)',
             'img_principal' => 'required|image|max:10240',
             'img' => 'max:10240'
         ], [
@@ -200,6 +201,7 @@ class ArtigoController extends Controller
     public function update(Request $req)
     {
         $req->merge(['val' => str_replace(',', '.', $req->input('val'))]);
+        $req->merge(['tempo_uso_artigo' => str_replace(',', '.', $req->input('tempo_uso_artigo'))]);
 
         $validator = Validator::make($req->all(), [
             'nome_artigo' => 'required|string|max:100',
@@ -207,7 +209,8 @@ class ArtigoController extends Controller
             'preferencia_troca_artigo' => 'nullable|string|max:50',
             'categoria_artigo' => 'required|string|max:10',
             'condicao_artigo' => 'required|string|max:8',
-            'tempo_uso_artigo' => 'required|string|max:25',
+            'tempo_uso_artigo' => 'required|numeric|min:1|max:31',
+            'tempo_uso_artigo2' => 'required|in:ano(s),mês(es),dia(s)',
             'img_principal' => 'image|max:10240',
             'img' => 'max:10240'
         ], [
@@ -215,25 +218,26 @@ class ArtigoController extends Controller
             'categoria_artigo.required' => 'O campo categoria é obrigatório.',
             'condicao_artigo.required' => 'O campo condição é obrigatório.',
             'tempo_uso_artigo.required' => 'O campo tempo de uso é obrigatório.',
+            'tempo_uso_artigo2.required' => 'O campo tempo de uso é obrigatório.',
 
             'nome_artigo.string' => 'O campo nome deve conter apenas texto.',
             'valor_sugerido_artigo.numeric' => 'O campo valor sugerido deve conter apenas números.',
             'preferencia_troca_artigo.string' => 'O campo preferência de troca deve conter apenas texto.',
             'categoria_artigo.string' => 'O campo categoria deve conter apenas texto.',
             'condicao_artigo.string' => 'O campo condição deve conter apenas texto.',
-            'tempo_uso_artigo.string' => 'O campo tempo de uso deve conter apenas texto.',
             'img_principal.image' => 'Tipo de arquivo incorreto inserido no campo da imagem.',
+            'tempo_uso_artigo.numeric' => 'O campo tempo de uso deve conter apenas números.',
 
             'nome_artigo.max' => 'O campo nome deve conter no maximo 100 caracteres.',
             'preferencia_troca_artigo.max' => 'O campo preferência de troca deve conter no maximo 50 caracteres.',
             'categoria_artigo.max' => 'O campo categoria deve conter no maximo 10 caracteres.',
             'condicao_artigo.max' => 'O campo condição deve conter no maximo 8 caracteres.',
-            'tempo_uso_artigo.max' => 'O campo tempo de uso deve conter no maximo 25 caracteres.',
             'img_principal.max' => 'O arquivo da imagem é muito pesado.',
             'img.max' => 'Um arquivo das imagens é muito pesado.',
+            'tempo_uso_artigo.max' => 'O campo tempo de uso deve conter no maximo 31 caracteres.',
 
             'valor_sugerido_artigo.min' => 'O campo valor sugerido deve conter um número maior que 0.',
-
+            'tempo_uso_artigo.min' => 'O campo tempo de uso deve conter no maximo 1 caracteres.',
         ]);
 
         if ($validator->fails()) return redirect()->back()->withErrors($validator)->withInput();
@@ -250,7 +254,8 @@ class ArtigoController extends Controller
                 "preferencia_troca_artigo" => $req->preferencia_troca_artigo,
                 "categoria_artigo" => $req->categoria_artigo,
                 "condicao_artigo" => $req->condicao_artigo,
-                "tempo_uso_artigo" => $req->tempo_uso_artigo
+                "tempo_uso_artigo" => $req->tempo_uso_artigo." ".$req->tempo_uso_artigo2
+
             ]
         );
 
