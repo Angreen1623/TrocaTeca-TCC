@@ -48,7 +48,7 @@ Tempo de uso: ".$prst->tempo_uso_proposta;
         $prst = new Proposta();
         $prst = $prst::where('id_usuario_int', $req->user()->id)->orWhereHas('artigo', function ($query) use ($req) {
             $query->where('id_usuario_ofertante', $req->user()->id);
-        })->with(['artigo.user'])->orderBy('created_at', 'desc')->get();
+        })->with(['artigo.user'])->orderBy('created_at', 'desc')->paginate(4);
 
         return view('mensagensepropostas')->with('propostas', $prst);
     }

@@ -81,7 +81,7 @@ Local do encontro: ".$acordo->local_encontro;
             $query->where('id_usuario_int', $req->user()->id);
         })->orWhereHas('proposta.artigo', function ($query) use ($req) {
             $query->where('id_usuario_ofertante', $req->user()->id);
-        })->where('status_acordo', '!=', 0)->with('proposta.artigo.user')->get();
+        })->where('status_acordo', '!=', 0)->with('proposta.artigo.user')->paginate(4);
 
         return view('meusacordos', compact('acordos'));
     }

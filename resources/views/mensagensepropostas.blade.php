@@ -138,6 +138,10 @@
                         </p>
                     </div>
                     @endif
+
+                    <div class="flex gap-5 justify-center my-5">
+                        {{ $propostas->links() }}
+                    </div>
                 </div>
             </div>
         </div>

@@ -93,6 +93,10 @@
                         @endif
                     </div>
 
+                    <div class="flex gap-5 justify-center mt-8">
+                        {{ $acordos->links() }}
+                    </div>
+
                 </div>
             </div>
         </div>
