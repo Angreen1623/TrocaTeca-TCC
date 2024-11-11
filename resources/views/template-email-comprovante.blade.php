@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Logar-se</title>
+    <title>Comprovante</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #c0d3f7;
+            background-color: #D67D93;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -78,22 +78,14 @@
     <div class="container">
         <header>
             <img src="https://i.im.ge/2024/07/21/VRpmGK.logo-full.png" class="logo">
-            <h1>Verificação de E-mail Cadastrado</h1>
+            <h1>Obrigado por usar o TrocaTeca</h1>
         </header>
 
         <div class="content">
-            <p>Olá, {{ $user->name }}</p>
-            <p>Agradecemos sua entrada em nosso sistema. Por medidas de segurança, por favor verifique esse e-mail cadastrado pressionando o botão de verificação:</p>
-
-            <a href="{{ $url }}">Verificar endereço de e-mail</a>
-            <p>Prepare-se para criar uma infância mais divertida e sustentável com o TrocaTeca</p>
-            <p class="highlight">Ignore este e-mail caso não tenha feito nenhum cadastro.</p>
+        
+            <p>Parabéns pela troca realizada! Temos certeza que isso ajudará em nossa missão de promover infâncias cada vez mais sustentáveis.</p>
+            <p class="highlight">Baixe o seu comprovante no arquivo anexado:</p>
         </div>
-
-        <footer>
-            <p>Infância com sustentabilidade e reusabilidade</p>
-            <p>&copy; TrocaTeca {{ date('Y') }}</p>
-        </footer>
     </div>
 </body>
 

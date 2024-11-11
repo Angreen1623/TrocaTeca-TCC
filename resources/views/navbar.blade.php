@@ -23,23 +23,31 @@
                     </svg>
                 </div>
                 <div class="max-h-0 overflow-hidden duration-300 group-focus:max-h-fit">
-                    <div class="flex flex-col items-center px-4 text-sm">
-                        <p>Categoria:</p>
-                        <a class="underline-animation" href="{{ route('filter', ['type'=>'categoria', 'value'=>'Brinquedo']) }}">Brinquedo</a>
-                        <a class="underline-animation" href="{{ route('filter', ['type'=>'categoria', 'value'=>'Mobilidade']) }}">Mobilidade</a>
-                        <a class="underline-animation" href="{{ route('filter', ['type'=>'categoria', 'value'=>'Movel']) }}">Móvel</a>
-                        <a class="underline-animation" href="{{ route('filter', ['type'=>'categoria', 'value'=>'Roupa']) }}">Roupa</a>
-                        <a class="underline-animation" href="{{ route('filter', ['type'=>'categoria', 'value'=>'Outro']) }}">Outro</a>
-                    </div>
-                    <div class="flex flex-col items-center px-4 text-sm ">
-                        <p>Condição:</p>
-                        <a class="underline-animation" href="{{ route('filter', ['type'=>'condicao', 'value'=>'Novo']) }}">Novo</a>
-                        <a class="underline-animation" href="{{ route('filter', ['type'=>'condicao', 'value'=>'Seminovo']) }}">Seminovo</a>
-                        <a class="underline-animation" href="{{ route('filter', ['type'=>'condicao', 'value'=>'Usado']) }}">Usado</a>
-                    </div>
-                    <div class="flex flex-col items-center px-4 text-sm mb-2">
-                        <a class="underline-animation" href="{{ route('filter', ['type'=>'local', 'value'=>'meuestado']) }}">Meu estado</a>
-                    </div>
+                       <div class="flex flex-col items-start px-4 text-lg mt-3 text-left">
+            <p class="font-semibold">Categoria:</p>
+            <a class="underline-animation mt-1" href="{{ route('filter', ['type'=>'categoria', 'value'=>'Brinquedo']) }}">Brinquedo</a>
+            <a class="underline-animation mt-1" href="{{ route('filter', ['type'=>'categoria', 'value'=>'Mobilidade']) }}">Mobilidade</a>
+            <a class="underline-animation mt-1" href="{{ route('filter', ['type'=>'categoria', 'value'=>'Movel']) }}">Móvel</a>
+            <a class="underline-animation mt-1" href="{{ route('filter', ['type'=>'categoria', 'value'=>'Roupa']) }}">Roupa</a>
+            <a class="underline-animation mt-1" href="{{ route('filter', ['type'=>'categoria', 'value'=>'Outro']) }}">Outro</a>
+            <hr class="h-px w-full bg-black border-2 border-black mb-4 mt-4">
+        </div>
+
+
+        <div class="flex flex-col items-start px-4 text-lg text-left">
+            <p class="font-semibold">Condição:</p>
+            <a class="underline-animation mt-1" href="{{ route('filter', ['type'=>'condicao', 'value'=>'Novo']) }}">Novo</a>
+            <a class="underline-animation mt-1" href="{{ route('filter', ['type'=>'condicao', 'value'=>'Seminovo']) }}">Seminovo</a>
+            <a class="underline-animation mt-1" href="{{ route('filter', ['type'=>'condicao', 'value'=>'Usado']) }}">Usado</a>
+            <hr class="h-px w-full bg-black border-2 border-black mb-4 mt-4">
+        </div>
+
+
+        <div class="flex flex-col items-start px-4 text-lg text-left mb-5">
+            <p class="font-semibold">Localidade:</p>
+            <a class="underline-animation mt-1" href="{{ route('filter', ['type'=>'local', 'value'=>'cidade']) }}">Minha cidade</a>
+            <a class="underline-animation mt-1" href="{{ route('filter', ['type'=>'local', 'value'=>'meuestado']) }}">Meu estado</a>
+        </div>
                 </div>
             </button>
             <a href="{{ route('meusartigos') }}">

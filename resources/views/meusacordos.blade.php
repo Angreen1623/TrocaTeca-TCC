@@ -56,7 +56,7 @@
                                         <p class=" text-center lg:text-left text-black text-xs lg:text-sm md:text-xs lg:text-base xl:text-lg truncate">Proposta: {{ $arc->anuncio }}</p>
                                     </div>
                                     <div class="max-w-46 lg:flex lg:flex-col lg:gap-2 lg:py-2 lg:border-l lg:border-black lg:pl-4 lg:flex-1 truncate">
-                                        <p class="text-center lg:text-left mb-2 text-black text-xs lg:text-sm md:text-xs lg:text-base xl:text-lg text-nowrap ">Encontro: {{ $arc->data_encontro }}</p>
+                                        <p class="text-center lg:text-left mb-2 text-black text-xs lg:text-sm md:text-xs lg:text-base xl:text-lg text-nowrap ">Encontro: {{ \Carbon\Carbon::parse($arc->data_encontro)->format('d/m/Y')}}</p>
                                         <p class="lg:truncate text-center lg:text-left text-black text-xs lg:text-sm md:text-xs lg:text-base xl:text-lg truncate">{{ $arc->local_encontro }}</p>
                                     </div>
                                     <div class="flex place-content-end w-full lg:w-auto lg:h-20 items-end mr-6">
@@ -110,7 +110,7 @@
     @endforeach
     @endif
 
-    @include('notification', ['title' => "Ação realizada com êxito", 'body' => "Você validou o acordo com sucesso."])
+    @include('notification', ['title' => "Ação realizada com êxito", 'body' => "Seu comprovante chegará por e-mail quando ambas as partes validarem o acordo."])
 
 
     @if(session('status') )
