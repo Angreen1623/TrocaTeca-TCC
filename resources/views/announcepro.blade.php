@@ -104,7 +104,7 @@
                         <div class="flex flex-col lg:flex-row mt-4 lg:mt-8">
                             <label for="uso_art" class="block text-lg lg:text-xl lg:font-normal font-semibold leading-6 text-black lg:mt-2 lg:mr-3">Tempo de uso*:</label>
                             <div class="flex">
-                                <input type="text" name="uso_art" id="uso_art" required class="shadow-tt block w-16 rounded-xl mr-3 border border-graytt-light px-3.5 py-2 shadow-sm ring-1 border border-graytt ring-inset ring-graytt placeholder:text-graytt-dark focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6">
+                                <input type="text" name="uso_art" id="uso_art" maxlength="3" required class="shadow-tt block w-16 rounded-xl mr-3 border border-graytt-light px-3.5 py-2 shadow-sm ring-1 border border-graytt ring-inset ring-graytt placeholder:text-graytt-dark focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6">
                                 <select id="uso_art2" name="uso_art2" required class="custom-select shadow-tt block w-30 rounded-xl border border-graytt-light px-3.5 py-2 text-graytt-dark shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                                     <option value="" disabled selected>Selecionar</option>
                                     <option value="ano(s)">ano(s)</option>

@@ -5,10 +5,50 @@ namespace App\Http\Controllers;
 use App\Models\Proposta;
 use App\Models\Mensagem;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+
+use function PHPUnit\Framework\isEmpty;
 
 class PropostaController extends Controller
 {
     public function create(Request $req){
+
+        $req->merge(['uso_art' => str_replace(',', '.', $req->input('uso_art'))]);
+
+        $validator = Validator::make($req->all(), [
+            'nome_art' => 'required|string|max:100',
+            'catepropo' => 'required|string|max:10',
+            'condpropo' => 'required|string|max:8',
+            'uso_art' => 'required|numeric|min:1|max:31',
+            'uso_art2' => 'required|in:ano(s),mês(es),dia(s)',
+            'img_principal' => 'required|image|max:10240',
+        ], [
+            'nome_art.required' => 'O campo nome do artigo é obrigatório.',
+            'catepropo.required' => 'O campo categoria é obrigatório.',
+            'condpropo.required' => 'O campo condição é obrigatório.',
+            'uso_art.required' => 'O campo tempo de uso é obrigatório.',
+            'uso_art2.required' => 'O campo tempo de uso é obrigatório.',
+            'img_principal.required' => 'O campo da imagem é obrigatório.',
+
+            'nome_art.string' => 'O campo nome deve conter apenas texto.',
+            'catepropo.string' => 'O campo categoria deve conter apenas texto.',
+            'condpropo.string' => 'O campo condição deve conter apenas texto.',
+            'uso_art.numeric' => 'O campo tempo de uso deve conter apenas números.',
+            'img_principal.image' => 'Tipo de arquivo incorreto inserido no campo da imagem.',
+
+            'nome_art.max' => 'O campo nome deve conter no maximo 100 caracteres.',
+            'catepropo.max' => 'O campo categoria deve conter no maximo 10 caracteres.',
+            'condpropo.max' => 'O campo condição deve conter no maximo 8 caracteres.',
+            'uso_art.min' => 'O campo tempo de uso deve conter no maximo 1 caracteres.',
+            'uso_art.max' => 'O campo tempo de uso deve conter no maximo 31 caracteres.',
+            'img_principal.max' => 'O arquivo da imagem é muito pesado.',
+
+            'val.min' => 'O campo valor sugerido deve conter um número maior que 0.',
+
+        ]);
+
+        if ($validator->fails()) return redirect()->back()->withErrors($validator)->withInput();
+
         $prst = new Proposta();
 
         $prst->id_artigo = $req->id_artigo;

@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-namespace App\Http\Controllers;
-
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Mail;
 use App\Models\Acordo;
@@ -66,7 +64,7 @@ class AcordoController extends Controller
 
         $mensagem = "Proposta final: " . $acordo->anuncio . "
 Categoria: " . $acordo->categoria_acordo . " 
-Data do encontro: " . $acordo->data_encontro . "
+Data do encontro: " . \Carbon\Carbon::parse($acordo->data_encontro)->format('d/m/Y'). "
 Local do encontro: " . $acordo->local_encontro;
 
         $mensagens->id_usuario = $req->user()->id;

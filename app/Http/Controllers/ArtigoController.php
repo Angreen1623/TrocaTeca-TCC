@@ -7,7 +7,6 @@ use App\Models\Imagem_artigo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
-use Ramsey\Uuid\Type\Integer;
 
 use function PHPUnit\Framework\isEmpty;
 
