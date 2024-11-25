@@ -207,15 +207,19 @@
         <ul class="md:underline-animation hidden md:block"><a href="{{ route('meusacordos') }}">Meus Acordos</a></ul>
         <ul class="md:underline-animation hidden md:block"><a href="{{ route('mep') }}">Mensagens e Propostas</a></ul>
         <ul class="md:underline-animation hidden md:block"><a href="{{ route('about') }}">Quem Somos</a></ul>
-
-        <div class="w-96 rounded-full flex bg-white items-center ps-5 md:hidden border-2 h-8">
-            <input type="text" id="pesquisa" class="h-7 w-full outline-0">
-            <span class="flex items-center p-2">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-600 cursor-pointer" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                </svg>
-            </span>
-        </div>
+        
+        <form action="{{ route('search') }}" method="get" class="">
+            <div class="w-96 rounded-full flex bg-white items-center ps-5 md:hidden border-2 h-8">
+                <input type="text" name="search" onsubmit="event.preventDefault(); document.getElementById('searchbar').submit();" id="pesquisa" class="h-7 w-full outline-0">
+                <button>
+                <span class="flex items-center p-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-600 cursor-pointer" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                </span>
+                </button>
+            </div>
+        </form>
 
     </div>
 </nav>
