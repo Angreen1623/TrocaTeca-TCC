@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Equipe TrocaTeca',
             'email' => 'trocatecaltda@gmail.com',
             'email_verified_at' => '2024-08-23 02:41:39',
-            'password' => env('ADM_DEFAULT_PASSWORD'),
+            'password' => '$2y$12$PjhCrVD5iaJa0tvjKVXjOeCsB7yqjy.Qa4oO.AsGYfr0Q6goLHjly',
         ]);
     }
 }
