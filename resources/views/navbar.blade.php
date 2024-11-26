@@ -208,7 +208,7 @@
         <ul class="md:underline-animation hidden md:block"><a href="{{ route('mep') }}">Mensagens e Propostas</a></ul>
         <ul class="md:underline-animation hidden md:block"><a href="{{ route('about') }}">Quem Somos</a></ul>
         
-        <form action="{{ route('search') }}" method="get" class="">
+        <form action="{{ route('search') }}" method="get" class="md:hidden">
             <div class="w-96 rounded-full flex bg-white items-center ps-5 md:hidden border-2 h-8">
                 <input type="text" name="search" onsubmit="event.preventDefault(); document.getElementById('searchbar').submit();" id="pesquisa" class="h-7 w-full outline-0">
                 <button>
