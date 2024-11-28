@@ -30,8 +30,8 @@
 
         <div class="flex flex-col items-start px-4 text-lg text-left">
             <p class="font-semibold">Localidade:</p>
-            <a class="underline-animation mt-1" href="{{ route('filter', ['type'=>'local', 'value'=>'cidade']) }}">Minha cidade</a>
-            <a class="underline-animation mt-1" href="{{ route('filter', ['type'=>'local', 'value'=>'meuestado']) }}">Meu estado</a>
+            <a class="underline-animation mt-1" href="{{ route('filter', ['type'=>'local', 'value'=>'minha cidade']) }}">Minha cidade</a>
+            <a class="underline-animation mt-1" href="{{ route('filter', ['type'=>'local', 'value'=>'meu estado']) }}">Meu estado</a>
         </div>
     </div>
 </div>

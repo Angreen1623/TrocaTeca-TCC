@@ -31,7 +31,7 @@
                                 <option value="" disabled selected>Selecionar</option>
                                 <option value="Brinquedo">Brinquedo</option>
                                 <option value="Mobilidade">Mobilidade</option>
-                                <option value="Movel">Móvel</option>
+                                <option value="Móvel">Móvel</option>
                                 <option value="Roupa">Roupa</option>
                                 <option value="Outro">Outro</option>
                             </select>

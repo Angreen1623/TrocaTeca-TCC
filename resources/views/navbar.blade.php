@@ -9,8 +9,9 @@
             </span>
         </div>
         <div class="flex flex-col ml-6 mt-3 max-w-80">
-            <button class="group focus:outline-none border-b border-graytt-dark">
-                <div class="flex flex-row w-fit items-center mt-5 mb-3"><svg class="w-8 h-8 mr-3" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <button class="focus:outline-none border-b border-graytt-dark">
+                <div class="flex flex-row w-fit items-center mt-5 mb-3"  onclick="toggleFiltros()">
+                    <svg class="w-8 h-8 mr-3" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                         <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                         <g id="SVGRepo_iconCarrier">
@@ -22,32 +23,31 @@
                         <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
                     </svg>
                 </div>
-                <div class="max-h-0 overflow-hidden duration-300 group-focus:max-h-fit">
-                       <div class="flex flex-col items-start px-4 text-lg mt-3 text-left">
-            <p class="font-semibold">Categoria:</p>
-            <a class="underline-animation mt-1" href="{{ route('filter', ['type'=>'categoria', 'value'=>'Brinquedo']) }}">Brinquedo</a>
-            <a class="underline-animation mt-1" href="{{ route('filter', ['type'=>'categoria', 'value'=>'Mobilidade']) }}">Mobilidade</a>
-            <a class="underline-animation mt-1" href="{{ route('filter', ['type'=>'categoria', 'value'=>'Movel']) }}">Móvel</a>
-            <a class="underline-animation mt-1" href="{{ route('filter', ['type'=>'categoria', 'value'=>'Roupa']) }}">Roupa</a>
-            <a class="underline-animation mt-1" href="{{ route('filter', ['type'=>'categoria', 'value'=>'Outro']) }}">Outro</a>
-            <hr class="h-px w-full bg-black border-2 border-black mb-4 mt-4">
-        </div>
+                <div id="filtros" class="overflow-hidden duration-300 max-h-0">
+                    <div class="flex flex-col items-start px-4 text-lg mt-3 text-left">
+                        <p class="font-semibold">Categoria:</p>
+                        <a class="underline-animation mt-1" href="{{ route('filter', ['type'=>'categoria', 'value'=>'Brinquedo']) }}">Brinquedo</a>
+                        <a class="underline-animation mt-1" href="{{ route('filter', ['type'=>'categoria', 'value'=>'Mobilidade']) }}">Mobilidade</a>
+                        <a class="underline-animation mt-1" href="{{ route('filter', ['type'=>'categoria', 'value'=>'Móvel']) }}">Móvel</a>
+                        <a class="underline-animation mt-1" href="{{ route('filter', ['type'=>'categoria', 'value'=>'Roupa']) }}">Roupa</a>
+                        <a class="underline-animation mt-1" href="{{ route('filter', ['type'=>'categoria', 'value'=>'Outro']) }}">Outro</a>
+                        <hr class="h-px w-full bg-black border-2 border-black mb-4 mt-4">
+                    </div>
+
+                    <div class="flex flex-col items-start px-4 text-lg text-left">
+                        <p class="font-semibold">Condição:</p>
+                        <a class="underline-animation mt-1" href="{{ route('filter', ['type'=>'condicao', 'value'=>'Novo']) }}">Novo</a>
+                        <a class="underline-animation mt-1" href="{{ route('filter', ['type'=>'condicao', 'value'=>'Seminovo']) }}">Seminovo</a>
+                        <a class="underline-animation mt-1" href="{{ route('filter', ['type'=>'condicao', 'value'=>'Usado']) }}">Usado</a>
+                        <hr class="h-px w-full bg-black border-2 border-black mb-4 mt-4">
+                    </div>
 
 
-        <div class="flex flex-col items-start px-4 text-lg text-left">
-            <p class="font-semibold">Condição:</p>
-            <a class="underline-animation mt-1" href="{{ route('filter', ['type'=>'condicao', 'value'=>'Novo']) }}">Novo</a>
-            <a class="underline-animation mt-1" href="{{ route('filter', ['type'=>'condicao', 'value'=>'Seminovo']) }}">Seminovo</a>
-            <a class="underline-animation mt-1" href="{{ route('filter', ['type'=>'condicao', 'value'=>'Usado']) }}">Usado</a>
-            <hr class="h-px w-full bg-black border-2 border-black mb-4 mt-4">
-        </div>
-
-
-        <div class="flex flex-col items-start px-4 text-lg text-left mb-5">
-            <p class="font-semibold">Localidade:</p>
-            <a class="underline-animation mt-1" href="{{ route('filter', ['type'=>'local', 'value'=>'cidade']) }}">Minha cidade</a>
-            <a class="underline-animation mt-1" href="{{ route('filter', ['type'=>'local', 'value'=>'meuestado']) }}">Meu estado</a>
-        </div>
+                    <div class="flex flex-col items-start px-4 text-lg text-left mb-5">
+                        <p class="font-semibold">Localidade:</p>
+                        <a class="underline-animation mt-1" href="{{ route('filter', ['type'=>'local', 'value'=>'minha cidade']) }}">Minha cidade</a>
+                        <a class="underline-animation mt-1" href="{{ route('filter', ['type'=>'local', 'value'=>'meu estado']) }}">Meu estado</a>
+                    </div>
                 </div>
             </button>
             <a href="{{ route('meusartigos') }}">
@@ -75,7 +75,7 @@
                     <p class="underline-animation">Meus Acordos</p>
                 </ul>
             </a>
-            <a href="{{ route('mep')  }}">
+            <a href="{{ route('mep') }}">
                 <ul class="w-full border-b border-graytt-dark flex flex-row py-5 items-center hover:bg-gray-200"><svg class="w-8 h-8 mr-3" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                         <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -270,4 +270,11 @@
             document.getElementById('logout-form').submit();
         }
     });
+
+    function toggleFiltros() {
+        var filter = document.getElementById('filtros');
+
+        filter.classList.toggle('max-h-fit');
+        filter.classList.toggle('max-h-0');
+    };
 </script>

@@ -323,15 +323,26 @@ class ArtigoController extends Controller
     // Filtra de acordo com o tipo
     if ($type == 'categoria') {
         $artigoQuery->where('categoria_artigo', $value);
+
     } elseif ($type == 'condicao') {
         $artigoQuery->where('condicao_artigo', 'LIKE', $value);
+
     } elseif ($type == 'local') {
         if(!isset($req->user()->id)){
             return redirect()->back();
         }
-        $artigoQuery->whereHas('user', function ($query) use ($req) {
-            $query->where('estado', $req->user()->estado);
-        })->where('id_usuario_ofertante', '!=' , $req->user()->id);
+
+        if($value == 'minha cidade'){
+            $artigoQuery->whereHas('user', function ($query) use ($req) {
+                $query->where('cidade', $req->user()->cidade)
+                ->where('estado', $req->user()->estado);
+            })->where('id_usuario_ofertante', '!=' , $req->user()->id);
+        }else{
+            $artigoQuery->whereHas('user', function ($query) use ($req) {
+                $query->where('estado', $req->user()->estado);
+            })->where('id_usuario_ofertante', '!=' , $req->user()->id);
+        }
+
     }
 
     // Executa a consulta e obtém os resultados

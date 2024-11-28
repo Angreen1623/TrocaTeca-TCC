@@ -5,7 +5,7 @@
             <div class="w-full max-w-2xl rounded-3xl bg-bluett p-6 sm:p-8 shadow-2xl">
                 <h1 class="text-2xl sm:text-4xl font-bold text-center text-white font-fredokatt drop-shadow-tt">{{ $title }}</h1>
 
-                <div class="sm:col-span-2 mt-6">
+                <div class="sm:col-span-2 mt-6 flex flex-col justify-center items-center">
                     <p>{{$body}}</p>
                 </div>
 

@@ -103,13 +103,13 @@
                     </div>
                 </div>
             </div>
-
-
+                @if(auth()->check() && auth()->user()->id != $artigo->id_usuario_ofertante )
                 <div class="flex w-full items-center lg:w-fit lg:justify-end lg:items-end flex-col lg:flex-wrap lg:flex-row lg:justify-between lg:mx-0 mx-auto">
                     <button id="openNewProposalButton" class="inline-flex px-4 py-2 h-fit justify-center w-3/4 lg:w-full lg:w-auto shadow-tt bg-pinktt hover:bg-pinktt-dark text-white text-sm font-medium rounded-2xl transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-105 duration-300">
                         Enviar Proposta
                     </button>
                 </div>
+                @endif
         </div>
         
         @include('footer')
